@@ -17378,8 +17378,7 @@ function deriveField(varName, raw, usedBy, where) {
   };
   switch (ref.kind) {
     case "var":
-      errors.push(`${where}: variable "${varName}" aliases unknown variable "${ref.name}"`);
-      return { field: base, errors };
+      return { field: { ...base, aliasOf: ref.name }, errors };
     case "advanced":
       errors.push(`${where}: variable "${varName}" uses "${ref.expr}" which is not supported in the simplified format — use a direct kraft.json blueprint for advanced sources`);
       return { field: base, errors };
@@ -17526,30 +17525,61 @@ function convertSimplified(meta, services, toml, usedBy, nowIso = new Date().toI
   const toPlaceholders = makePlacer(domainBindings);
   const configFields = [];
   const secretVars = new Set;
-  for (const [varName, raw] of Object.entries(toml.variables)) {
-    if (domainBindings[varName] !== undefined)
-      continue;
+  const pendingAliases = [];
+  const ownerOf = (varName) => {
     const owners = (usedBy[varName] ?? []).filter((s) => svcByName.has(s));
     const selfOwners = owners.filter((o) => {
       const env = svcByName.get(o)?.environment ?? {};
       return Object.entries(env).some(([k, v]) => k === varName && v.trim() === `\${${varName}}`);
     });
-    const owner = selfOwners[0] ?? owners.find((o) => o !== "__env__") ?? services[0].name;
-    const { field, errors: fieldErrors } = deriveField(varName, raw, [owner], "blueprint.toml variables");
+    return selfOwners[0] ?? owners.find((o) => o !== "__env__") ?? services[0].name;
+  };
+  for (const [varName, raw] of Object.entries(toml.variables)) {
+    if (domainBindings[varName] !== undefined)
+      continue;
+    const { field, errors: fieldErrors } = deriveField(varName, raw, [ownerOf(varName)], "blueprint.toml variables");
     errors.push(...fieldErrors);
     if (fieldErrors.length > 0)
       continue;
+    if (field.aliasOf !== undefined) {
+      pendingAliases.push({
+        alias: varName,
+        target: field.aliasOf,
+        owner: field.services[0] ?? services[0].name
+      });
+      continue;
+    }
     if (field.secret || field.generate === "secret")
       secretVars.add(varName);
     configFields.push({
       key: field.key,
-      service: owner,
+      service: field.services[0] ?? services[0].name,
       label: field.label,
       ...field.type ? { type: field.type } : {},
       ...field.generate ? { generate: field.generate } : {},
       ...field.secret ? { secret: field.secret } : {},
       ...field.default ? { default: field.default } : {},
       required: field.required
+    });
+  }
+  for (const { alias, target, owner } of pendingAliases) {
+    const targetEntry = configFields.find((f) => f.key === target);
+    if (!targetEntry) {
+      errors.push(`blueprint.toml variables.${alias}: aliases unknown variable "${target}"`);
+      continue;
+    }
+    targetEntry.generateGroup = target;
+    if (targetEntry.secret || targetEntry.generate === "secret")
+      secretVars.add(alias);
+    configFields.push({
+      key: alias,
+      service: owner,
+      label: humanize(alias),
+      ...targetEntry.generate ? { generate: targetEntry.generate } : {},
+      ...targetEntry.secret ? { secret: true } : {},
+      ...targetEntry.type ? { type: targetEntry.type } : {},
+      required: targetEntry.required ?? false,
+      generateGroup: target
     });
   }
   const refsSecretVar = (value) => extractRefs(value).some((e) => {
@@ -17884,6 +17914,15 @@ function parseCompose(yamlText) {
     if (commandRaw !== undefined && typeof commandRaw !== "string") {
       errors.push(`${where}: command must be a shell string (exact argv stays kraft.json-only)`);
     }
+    let healthcheck = svc["healthcheck"] ?? undefined;
+    if (healthcheck && typeof healthcheck === "object" && !Array.isArray(healthcheck)) {
+      const { start_period, startPeriod, ...rest } = healthcheck;
+      if (start_period !== undefined && startPeriod !== undefined) {
+        errors.push(`${where}: healthcheck sets both start_period and startPeriod — use start_period`);
+      } else if (start_period !== undefined) {
+        healthcheck = { ...rest, startPeriod: start_period };
+      }
+    }
     services.push({
       name,
       image,
@@ -17892,7 +17931,7 @@ function parseCompose(yamlText) {
       volumes,
       dependsOn: parseDependsOn(svc["depends_on"]),
       restart,
-      healthcheck: svc["healthcheck"] ?? undefined,
+      healthcheck,
       command: typeof commandRaw === "string" ? commandRaw : undefined,
       unpinned
     });
