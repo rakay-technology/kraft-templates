@@ -1,0 +1,18 @@
+{
+  "id": "stirling-pdf",
+  "name": "Stirling PDF",
+  "description": "Split, merge, convert, OCR and edit PDFs locally. Sign in with the admin account below.",
+  "version": "2.14.3",
+  "logo": "logo.svg",
+  "category": "other",
+  "tags": [
+    "pdf",
+    "documents",
+    "tools"
+  ],
+  "links": {
+    "github": "",
+    "website": "",
+    "docs": ""
+  }
+}
