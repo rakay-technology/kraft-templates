@@ -9,7 +9,7 @@
       "headless",
       "api"
     ],
-    "updatedAt": "2026-09-13T18:49:11.921Z"
+    "updatedAt": "2026-09-13T20:14:32.877Z"
   },
   {
     "id": "ghost",
@@ -21,7 +21,7 @@
       "blog",
       "newsletter"
     ],
-    "updatedAt": "2026-09-13T18:49:11.931Z"
+    "updatedAt": "2026-09-13T20:14:32.887Z"
   },
   {
     "id": "mindwire",
@@ -34,7 +34,7 @@
       "coding",
       "control-plane"
     ],
-    "updatedAt": "2026-09-13T18:49:11.934Z"
+    "updatedAt": "2026-09-13T20:14:32.890Z"
   },
   {
     "id": "umami",
@@ -47,7 +47,7 @@
       "privacy",
       "statistics"
     ],
-    "updatedAt": "2026-09-13T18:49:11.936Z"
+    "updatedAt": "2026-09-13T20:14:32.893Z"
   },
   {
     "id": "uptime-kuma",
@@ -59,6 +59,6 @@
       "uptime",
       "status"
     ],
-    "updatedAt": "2026-09-13T18:49:11.938Z"
+    "updatedAt": "2026-09-13T20:14:32.895Z"
   }
 ]

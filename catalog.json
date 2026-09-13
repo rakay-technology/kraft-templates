@@ -102,7 +102,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T18:49:11.921Z",
+      "updatedAt": "2026-09-13T20:14:32.877Z",
       "repository": "https://github.com/directus/directus"
     },
     {
@@ -170,7 +170,8 @@
           "label": "Mysql root password",
           "generate": "secret",
           "secret": true,
-          "required": true
+          "required": true,
+          "generateGroup": "MYSQL_ROOT_PASSWORD"
         },
         {
           "key": "database__connection__password",
@@ -178,7 +179,8 @@
           "label": "Database connection password",
           "generate": "secret",
           "secret": true,
-          "required": true
+          "required": true,
+          "generateGroup": "MYSQL_ROOT_PASSWORD"
         }
       ],
       "endpoints": [
@@ -215,7 +217,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T18:49:11.931Z"
+      "updatedAt": "2026-09-13T20:14:32.887Z"
     },
     {
       "id": "mindwire",
@@ -389,7 +391,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T18:49:11.934Z",
+      "updatedAt": "2026-09-13T20:14:32.890Z",
       "repository": "https://github.com/oblien/mindwire"
     },
     {
@@ -525,7 +527,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T18:49:11.936Z"
+      "updatedAt": "2026-09-13T20:14:32.893Z"
     },
     {
       "id": "uptime-kuma",
@@ -576,7 +578,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T18:49:11.938Z"
+      "updatedAt": "2026-09-13T20:14:32.895Z"
     }
   ]
 }
