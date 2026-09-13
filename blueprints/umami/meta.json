@@ -1,0 +1,19 @@
+{
+  "id": "umami",
+  "name": "Umami",
+  "description": "Privacy-friendly, cookie-free web analytics — a self-hosted alternative to Google Analytics. Add one script tag to your site and see traffic in a clean dashboard you own.",
+  "version": "postgresql-v2.19.0",
+  "logo": "logo.svg",
+  "category": "analytics",
+  "tags": [
+    "analytics",
+    "web-analytics",
+    "privacy",
+    "statistics"
+  ],
+  "links": {
+    "github": "",
+    "website": "",
+    "docs": ""
+  }
+}

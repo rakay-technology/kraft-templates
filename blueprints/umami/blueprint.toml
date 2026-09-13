@@ -1,0 +1,14 @@
+[variables]
+umami_domain = "${domain}"
+POSTGRES_PASSWORD = "${password:32}"
+APP_SECRET = "${password:32}"
+
+[[routes]]
+service = "umami"
+port = 3000
+host = "${umami_domain}"
+[[routes]]
+service = "umami-db"
+port = 5432
+kind = "tcp"
+mode = "publish"

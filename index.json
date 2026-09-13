@@ -1,0 +1,64 @@
+[
+  {
+    "id": "directus",
+    "name": "Directus",
+    "version": "12.3.1",
+    "category": "cms",
+    "tags": [
+      "cms",
+      "headless",
+      "api"
+    ],
+    "updatedAt": "2026-09-13T18:45:13.563Z"
+  },
+  {
+    "id": "ghost",
+    "name": "Ghost",
+    "version": "8.0",
+    "category": "cms",
+    "tags": [
+      "cms",
+      "blog",
+      "newsletter"
+    ],
+    "updatedAt": "2026-09-13T18:45:13.592Z"
+  },
+  {
+    "id": "mindwire",
+    "name": "MindWire",
+    "version": "0.1.3",
+    "category": "automation",
+    "tags": [
+      "ai",
+      "agents",
+      "coding",
+      "control-plane"
+    ],
+    "updatedAt": "2026-09-13T18:45:13.600Z"
+  },
+  {
+    "id": "umami",
+    "name": "Umami",
+    "version": "postgresql-v2.19.0",
+    "category": "analytics",
+    "tags": [
+      "analytics",
+      "web-analytics",
+      "privacy",
+      "statistics"
+    ],
+    "updatedAt": "2026-09-13T18:45:13.628Z"
+  },
+  {
+    "id": "uptime-kuma",
+    "name": "Uptime Kuma",
+    "version": "1",
+    "category": "other",
+    "tags": [
+      "monitoring",
+      "uptime",
+      "status"
+    ],
+    "updatedAt": "2026-09-13T18:45:13.632Z"
+  }
+]

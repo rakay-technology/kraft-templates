@@ -1,0 +1,19 @@
+{
+  "id": "directus",
+  "name": "Directus",
+  "description": "Headless CMS with an instant REST + GraphQL API over your data. Sign in with the admin email and generated password below.",
+  "version": "12.3.1",
+  "logo": "logo.svg",
+  "category": "cms",
+  "tags": [
+    "cms",
+    "headless",
+    "api"
+  ],
+  "links": {
+    "github": "https://github.com/directus/directus",
+    "website": "",
+    "docs": ""
+  },
+  "repository": "https://github.com/directus/directus"
+}

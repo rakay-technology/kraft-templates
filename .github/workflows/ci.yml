@@ -1,0 +1,48 @@
+name: blueprints
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node build-scripts/compile.js --check
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: templates
+      - uses: actions/checkout@v4
+        with:
+          repository: rakay-technology/kraft
+          ref: main
+          path: kraft
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.10
+      - run: bun install --frozen-lockfile
+        working-directory: kraft
+      - run: bun ./kraft/packages/core/scripts/compile-templates.ts --in ./templates/blueprints --out ./templates/catalog.json --index ./templates/index.json
+      - name: publish catalog on main
+        if: github.event_name == 'push'
+        permissions:
+          contents: write
+        run: |
+          cd templates
+          git config user.name "kraft-templates-bot"
+          git config user.email "kraft-templates-bot@users.noreply.github.com"
+          git add catalog.json index.json
+          git diff --cached --quiet || git commit -m "chore: rebuild catalog.json + index.json"
+          git push

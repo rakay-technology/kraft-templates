@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+CONSOLE_USERNAME = "admin"
+CONSOLE_PASSWORD = "${password:32}"
+AUTH_SECRET = "${password:32}"
+SECRETS_ENCRYPTION_KEY = "${password:32}"
+MINDWIRE_RUNTIME_TOKEN = "${password:32}"
+
+[[routes]]
+service = "console"
+port = 8787
+host = "${main_domain}"

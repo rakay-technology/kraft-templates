@@ -1,0 +1,9 @@
+[variables]
+main_domain = "${domain}"
+SECRET = "${password:32}"
+ADMIN_PASSWORD = "${password:32}"
+
+[[routes]]
+service = "directus"
+port = 8055
+host = "${main_domain}"

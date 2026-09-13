@@ -1,0 +1,49 @@
+services:
+  runtime:
+    image: ghcr.io/oblien/mindwire-runtime:0.1.3
+    restart: unless-stopped
+    environment:
+      ADDR: 0.0.0.0:8790
+      AGENT_TYPE: claude-code
+      DAEMON_TOKEN: ${MINDWIRE_RUNTIME_TOKEN}
+      MINDWIRE_RUNTIME_TOKEN: ${MINDWIRE_RUNTIME_TOKEN}
+    volumes:
+      - mindwire_runtime:/home/node
+  console:
+    image: ghcr.io/oblien/mindwire-console:0.1.3
+    restart: unless-stopped
+    expose:
+      - "8787"
+    environment:
+      NODE_ENV: production
+      PORT: "8787"
+      BASE_URL: ${main_domain}
+      AUTH_DB_PATH: /data/auth.db
+      CONSOLE_MODE: self-hosted
+      CONSOLE_USERNAME: ${CONSOLE_USERNAME}
+      CONSOLE_PASSWORD: ${CONSOLE_PASSWORD}
+      AUTH_SECRET: ${AUTH_SECRET}
+      SECRETS_ENCRYPTION_KEY: ${SECRETS_ENCRYPTION_KEY}
+      ALLOW_LOCAL_RUNTIME: "true"
+      ALLOW_SSH_RUNTIME: "true"
+      ALLOW_DOCKER_RUNTIME: "true"
+      ALLOW_REMOTE_RUNTIME: "true"
+      DAEMON_URL: http://runtime:8790
+      MINDWIRE_RUNTIME_TOKEN: ${MINDWIRE_RUNTIME_TOKEN}
+      SEED_DEFAULT_DAEMON: "true"
+    volumes:
+      - mindwire_console:/data
+    depends_on:
+      - runtime
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - "node -e \"fetch('http://127.0.0.1:8787/api/ping').then(r =>
+          process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))\""
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      startPeriod: 20s
+volumes:
+  mindwire_runtime: {}
+  mindwire_console: {}

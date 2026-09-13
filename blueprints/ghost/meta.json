@@ -1,0 +1,18 @@
+{
+  "id": "ghost",
+  "name": "Ghost",
+  "description": "Modern publishing platform for blogs, newsletters, and membership sites. Claim the owner account on your first visit.",
+  "version": "8.0",
+  "logo": "logo.svg",
+  "category": "cms",
+  "tags": [
+    "cms",
+    "blog",
+    "newsletter"
+  ],
+  "links": {
+    "github": "",
+    "website": "",
+    "docs": ""
+  }
+}

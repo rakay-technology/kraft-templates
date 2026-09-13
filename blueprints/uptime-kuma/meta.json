@@ -1,0 +1,18 @@
+{
+  "id": "uptime-kuma",
+  "name": "Uptime Kuma",
+  "description": "Self-hosted uptime monitoring with status pages and alerts. Create your admin account on the first visit.",
+  "version": "1",
+  "logo": "logo.svg",
+  "category": "other",
+  "tags": [
+    "monitoring",
+    "uptime",
+    "status"
+  ],
+  "links": {
+    "github": "",
+    "website": "",
+    "docs": ""
+  }
+}

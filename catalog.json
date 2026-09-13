@@ -1,0 +1,582 @@
+{
+  "version": 1,
+  "apps": [
+    {
+      "id": "directus",
+      "name": "Directus",
+      "description": "Headless CMS with an instant REST + GraphQL API over your data. Sign in with the admin email and generated password below.",
+      "kind": "template",
+      "logo": "directus",
+      "category": "cms",
+      "tags": [
+        "cms",
+        "headless",
+        "api"
+      ],
+      "framework": "docker-compose",
+      "services": [
+        {
+          "name": "directus",
+          "image": "directus/directus:12.3.1",
+          "ports": [],
+          "exposed": true,
+          "environment": {
+            "DB_CLIENT": "sqlite3",
+            "DB_FILENAME": "/directus/database/data.db",
+            "PUBLIC_URL": "{{publicUrl:directus}}",
+            "ADMIN_EMAIL": "admin@example.com",
+            "SECRET": "{{config:SECRET}}",
+            "ADMIN_PASSWORD": "{{config:ADMIN_PASSWORD}}"
+          },
+          "secretEnv": [
+            "SECRET",
+            "ADMIN_PASSWORD"
+          ],
+          "volumes": [
+            "directus_database:/directus/database",
+            "directus_uploads:/directus/uploads"
+          ],
+          "restart": "unless-stopped",
+          "healthcheck": {
+            "test": [
+              "CMD-SHELL",
+              "wget -q -O /dev/null http://127.0.0.1:8055/server/health || exit 1"
+            ],
+            "interval": "15s",
+            "timeout": "5s",
+            "retries": 8,
+            "startPeriod": "30s"
+          },
+          "exposedPort": 8055
+        }
+      ],
+      "configFields": [
+        {
+          "key": "SECRET",
+          "service": "directus",
+          "label": "Secret",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        },
+        {
+          "key": "ADMIN_PASSWORD",
+          "service": "directus",
+          "label": "Admin password",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        }
+      ],
+      "endpoints": [
+        {
+          "service": "directus",
+          "port": 8055,
+          "label": "Directus 8055",
+          "kind": "http",
+          "defaultMode": "domain"
+        }
+      ],
+      "connection": {
+        "title": "Connect to Directus",
+        "outputs": [
+          {
+            "id": "url",
+            "label": "URL",
+            "source": "publicUrl:directus",
+            "kind": "url",
+            "recommended": true
+          },
+          {
+            "id": "secret",
+            "label": "Secret",
+            "source": "env:directus:SECRET",
+            "secret": true
+          },
+          {
+            "id": "admin_password",
+            "label": "Admin password",
+            "source": "env:directus:ADMIN_PASSWORD",
+            "secret": true
+          }
+        ]
+      },
+      "available": true,
+      "updatedAt": "2026-09-13T18:45:13.563Z",
+      "repository": "https://github.com/directus/directus"
+    },
+    {
+      "id": "ghost",
+      "name": "Ghost",
+      "description": "Modern publishing platform for blogs, newsletters, and membership sites. Claim the owner account on your first visit.",
+      "kind": "template",
+      "logo": "ghost",
+      "category": "cms",
+      "tags": [
+        "cms",
+        "blog",
+        "newsletter"
+      ],
+      "framework": "docker-compose",
+      "services": [
+        {
+          "name": "ghost-db",
+          "image": "mysql:8.0",
+          "ports": [],
+          "exposed": false,
+          "environment": {
+            "MYSQL_DATABASE": "ghost",
+            "MYSQL_ROOT_PASSWORD": "{{config:MYSQL_ROOT_PASSWORD}}"
+          },
+          "secretEnv": [
+            "MYSQL_ROOT_PASSWORD"
+          ],
+          "volumes": [
+            "ghost_db:/var/lib/mysql"
+          ],
+          "restart": "unless-stopped"
+        },
+        {
+          "name": "ghost",
+          "image": "ghost:5-alpine",
+          "ports": [],
+          "exposed": true,
+          "environment": {
+            "NODE_ENV": "production",
+            "url": "{{publicUrl:ghost}}",
+            "database__client": "mysql",
+            "database__connection__host": "ghost-db",
+            "database__connection__user": "root",
+            "database__connection__database": "ghost",
+            "database__connection__password": "{{config:database__connection__password}}"
+          },
+          "secretEnv": [
+            "database__connection__password"
+          ],
+          "volumes": [
+            "ghost_content:/var/lib/ghost/content"
+          ],
+          "dependsOn": [
+            "ghost-db"
+          ],
+          "restart": "unless-stopped",
+          "exposedPort": 2368
+        }
+      ],
+      "configFields": [
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "service": "ghost-db",
+          "label": "Mysql root password",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        },
+        {
+          "key": "database__connection__password",
+          "service": "ghost",
+          "label": "Database connection password",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        }
+      ],
+      "endpoints": [
+        {
+          "service": "ghost",
+          "port": 2368,
+          "label": "Ghost 2368",
+          "kind": "http",
+          "defaultMode": "domain"
+        }
+      ],
+      "connection": {
+        "title": "Connect to Ghost",
+        "outputs": [
+          {
+            "id": "url",
+            "label": "URL",
+            "source": "publicUrl:ghost",
+            "kind": "url",
+            "recommended": true
+          },
+          {
+            "id": "mysql_root_password",
+            "label": "Mysql root password",
+            "source": "env:ghost-db:MYSQL_ROOT_PASSWORD",
+            "secret": true
+          },
+          {
+            "id": "database__connection__password",
+            "label": "Database connection password",
+            "source": "env:ghost:database__connection__password",
+            "secret": true
+          }
+        ]
+      },
+      "available": true,
+      "updatedAt": "2026-09-13T18:45:13.592Z"
+    },
+    {
+      "id": "mindwire",
+      "name": "MindWire",
+      "description": "Run coding-agent runtimes behind a self-hosted control plane. MindWire keeps the runtime private and gives you one console to manage agents, credentials, and sessions.",
+      "kind": "template",
+      "logo": "mindwire",
+      "category": "automation",
+      "tags": [
+        "ai",
+        "agents",
+        "coding",
+        "control-plane"
+      ],
+      "framework": "docker-compose",
+      "services": [
+        {
+          "name": "runtime",
+          "image": "ghcr.io/oblien/mindwire-runtime:0.1.3",
+          "ports": [],
+          "exposed": false,
+          "environment": {
+            "ADDR": "0.0.0.0:8790",
+            "AGENT_TYPE": "claude-code",
+            "DAEMON_TOKEN": "{{config:MINDWIRE_RUNTIME_TOKEN}}",
+            "MINDWIRE_RUNTIME_TOKEN": "{{config:MINDWIRE_RUNTIME_TOKEN}}"
+          },
+          "secretEnv": [
+            "DAEMON_TOKEN",
+            "MINDWIRE_RUNTIME_TOKEN"
+          ],
+          "volumes": [
+            "mindwire_runtime:/home/node"
+          ],
+          "restart": "unless-stopped"
+        },
+        {
+          "name": "console",
+          "image": "ghcr.io/oblien/mindwire-console:0.1.3",
+          "ports": [],
+          "exposed": true,
+          "environment": {
+            "NODE_ENV": "production",
+            "PORT": "8787",
+            "BASE_URL": "{{publicUrl:console}}",
+            "AUTH_DB_PATH": "/data/auth.db",
+            "CONSOLE_MODE": "self-hosted",
+            "CONSOLE_USERNAME": "{{config:CONSOLE_USERNAME}}",
+            "CONSOLE_PASSWORD": "{{config:CONSOLE_PASSWORD}}",
+            "AUTH_SECRET": "{{config:AUTH_SECRET}}",
+            "SECRETS_ENCRYPTION_KEY": "{{config:SECRETS_ENCRYPTION_KEY}}",
+            "ALLOW_LOCAL_RUNTIME": "true",
+            "ALLOW_SSH_RUNTIME": "true",
+            "ALLOW_DOCKER_RUNTIME": "true",
+            "ALLOW_REMOTE_RUNTIME": "true",
+            "DAEMON_URL": "http://runtime:8790",
+            "MINDWIRE_RUNTIME_TOKEN": "{{config:MINDWIRE_RUNTIME_TOKEN}}",
+            "SEED_DEFAULT_DAEMON": "true"
+          },
+          "secretEnv": [
+            "CONSOLE_PASSWORD",
+            "AUTH_SECRET",
+            "SECRETS_ENCRYPTION_KEY",
+            "MINDWIRE_RUNTIME_TOKEN"
+          ],
+          "volumes": [
+            "mindwire_console:/data"
+          ],
+          "dependsOn": [
+            "runtime"
+          ],
+          "restart": "unless-stopped",
+          "healthcheck": {
+            "test": [
+              "CMD-SHELL",
+              "node -e \"fetch('http://127.0.0.1:8787/api/ping').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))\""
+            ],
+            "interval": "10s",
+            "timeout": "5s",
+            "retries": 12,
+            "startPeriod": "20s"
+          },
+          "exposedPort": 8787
+        }
+      ],
+      "configFields": [
+        {
+          "key": "CONSOLE_USERNAME",
+          "service": "console",
+          "label": "Console username",
+          "type": "text",
+          "default": "admin",
+          "required": false
+        },
+        {
+          "key": "CONSOLE_PASSWORD",
+          "service": "console",
+          "label": "Console password",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        },
+        {
+          "key": "AUTH_SECRET",
+          "service": "console",
+          "label": "Auth secret",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        },
+        {
+          "key": "SECRETS_ENCRYPTION_KEY",
+          "service": "console",
+          "label": "Secrets encryption key",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        },
+        {
+          "key": "MINDWIRE_RUNTIME_TOKEN",
+          "service": "runtime",
+          "label": "Mindwire runtime token",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        }
+      ],
+      "endpoints": [
+        {
+          "service": "console",
+          "port": 8787,
+          "label": "Console 8787",
+          "kind": "http",
+          "defaultMode": "domain"
+        }
+      ],
+      "connection": {
+        "title": "Connect to MindWire",
+        "outputs": [
+          {
+            "id": "url",
+            "label": "URL",
+            "source": "publicUrl:console",
+            "kind": "url",
+            "recommended": true
+          },
+          {
+            "id": "console_password",
+            "label": "Console password",
+            "source": "env:console:CONSOLE_PASSWORD",
+            "secret": true
+          },
+          {
+            "id": "auth_secret",
+            "label": "Auth secret",
+            "source": "env:console:AUTH_SECRET",
+            "secret": true
+          },
+          {
+            "id": "secrets_encryption_key",
+            "label": "Secrets encryption key",
+            "source": "env:console:SECRETS_ENCRYPTION_KEY",
+            "secret": true
+          },
+          {
+            "id": "mindwire_runtime_token",
+            "label": "Mindwire runtime token",
+            "source": "env:runtime:MINDWIRE_RUNTIME_TOKEN",
+            "secret": true
+          }
+        ]
+      },
+      "available": true,
+      "updatedAt": "2026-09-13T18:45:13.600Z",
+      "repository": "https://github.com/oblien/mindwire"
+    },
+    {
+      "id": "umami",
+      "name": "Umami",
+      "description": "Privacy-friendly, cookie-free web analytics — a self-hosted alternative to Google Analytics. Add one script tag to your site and see traffic in a clean dashboard you own.",
+      "kind": "template",
+      "logo": "umami",
+      "category": "analytics",
+      "tags": [
+        "analytics",
+        "web-analytics",
+        "privacy",
+        "statistics"
+      ],
+      "framework": "docker-compose",
+      "services": [
+        {
+          "name": "umami",
+          "image": "ghcr.io/umami-software/umami:postgresql-v2.19.0",
+          "ports": [],
+          "exposed": true,
+          "environment": {
+            "DATABASE_TYPE": "postgresql",
+            "DATABASE_URL": "postgresql://umami:{{config:POSTGRES_PASSWORD}}@umami-db:5432/umami",
+            "APP_SECRET": "{{config:APP_SECRET}}"
+          },
+          "secretEnv": [
+            "DATABASE_URL",
+            "APP_SECRET"
+          ],
+          "dependsOn": [
+            "umami-db"
+          ],
+          "restart": "unless-stopped",
+          "healthcheck": {
+            "test": [
+              "CMD-SHELL",
+              "wget -q -O - http://127.0.0.1:3000/api/heartbeat 2>&1 | grep -q ok"
+            ],
+            "interval": "10s",
+            "timeout": "5s",
+            "retries": 10,
+            "startPeriod": "30s"
+          },
+          "exposedPort": 3000
+        },
+        {
+          "name": "umami-db",
+          "image": "postgres:16-alpine",
+          "ports": [],
+          "exposed": false,
+          "environment": {
+            "POSTGRES_DB": "umami",
+            "POSTGRES_USER": "umami",
+            "POSTGRES_PASSWORD": "{{config:POSTGRES_PASSWORD}}"
+          },
+          "secretEnv": [
+            "POSTGRES_PASSWORD"
+          ],
+          "volumes": [
+            "umami_db:/var/lib/postgresql/data"
+          ],
+          "restart": "unless-stopped",
+          "healthcheck": {
+            "test": [
+              "CMD-SHELL",
+              "pg_isready -U umami -d umami"
+            ],
+            "interval": "10s",
+            "timeout": "5s",
+            "retries": 5,
+            "startPeriod": "10s"
+          }
+        }
+      ],
+      "configFields": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "service": "umami-db",
+          "label": "Postgres password",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        },
+        {
+          "key": "APP_SECRET",
+          "service": "umami",
+          "label": "App secret",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        }
+      ],
+      "endpoints": [
+        {
+          "service": "umami",
+          "port": 3000,
+          "label": "Umami 3000",
+          "kind": "http",
+          "defaultMode": "domain"
+        },
+        {
+          "service": "umami-db",
+          "port": 5432,
+          "label": "Umami db 5432",
+          "kind": "tcp",
+          "defaultMode": "publish"
+        }
+      ],
+      "connection": {
+        "title": "Connect to Umami",
+        "outputs": [
+          {
+            "id": "url",
+            "label": "Umami 3000 URL",
+            "source": "publicUrl:umami",
+            "kind": "url",
+            "recommended": true
+          },
+          {
+            "id": "postgres_password",
+            "label": "Postgres password",
+            "source": "env:umami-db:POSTGRES_PASSWORD",
+            "secret": true
+          },
+          {
+            "id": "app_secret",
+            "label": "App secret",
+            "source": "env:umami:APP_SECRET",
+            "secret": true
+          }
+        ]
+      },
+      "available": true,
+      "updatedAt": "2026-09-13T18:45:13.628Z"
+    },
+    {
+      "id": "uptime-kuma",
+      "name": "Uptime Kuma",
+      "description": "Self-hosted uptime monitoring with status pages and alerts. Create your admin account on the first visit.",
+      "kind": "template",
+      "logo": "uptime-kuma",
+      "category": "other",
+      "tags": [
+        "monitoring",
+        "uptime",
+        "status"
+      ],
+      "framework": "docker-compose",
+      "services": [
+        {
+          "name": "uptime-kuma",
+          "image": "louislam/uptime-kuma:1",
+          "ports": [],
+          "exposed": true,
+          "environment": {},
+          "volumes": [
+            "uptime_kuma_data:/app/data"
+          ],
+          "restart": "unless-stopped",
+          "exposedPort": 3001
+        }
+      ],
+      "endpoints": [
+        {
+          "service": "uptime-kuma",
+          "port": 3001,
+          "label": "Uptime kuma 3001",
+          "kind": "http",
+          "defaultMode": "domain"
+        }
+      ],
+      "connection": {
+        "title": "Connect to Uptime Kuma",
+        "outputs": [
+          {
+            "id": "url",
+            "label": "URL",
+            "source": "publicUrl:uptime-kuma",
+            "kind": "url",
+            "recommended": true
+          }
+        ]
+      },
+      "available": true,
+      "updatedAt": "2026-09-13T18:45:13.632Z"
+    }
+  ]
+}
