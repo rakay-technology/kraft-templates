@@ -9,7 +9,7 @@
       "headless",
       "api"
     ],
-    "updatedAt": "2026-09-13T20:14:32.877Z"
+    "updatedAt": "2026-09-13T20:33:47.640Z"
   },
   {
     "id": "ghost",
@@ -21,7 +21,7 @@
       "blog",
       "newsletter"
     ],
-    "updatedAt": "2026-09-13T20:14:32.887Z"
+    "updatedAt": "2026-09-13T20:33:47.647Z"
   },
   {
     "id": "mindwire",
@@ -34,7 +34,19 @@
       "coding",
       "control-plane"
     ],
-    "updatedAt": "2026-09-13T20:14:32.890Z"
+    "updatedAt": "2026-09-13T20:33:47.649Z"
+  },
+  {
+    "id": "stirling-pdf",
+    "name": "Stirling PDF",
+    "version": "2.14.3",
+    "category": "other",
+    "tags": [
+      "pdf",
+      "documents",
+      "tools"
+    ],
+    "updatedAt": "2026-09-13T20:33:47.650Z"
   },
   {
     "id": "umami",
@@ -47,7 +59,7 @@
       "privacy",
       "statistics"
     ],
-    "updatedAt": "2026-09-13T20:14:32.893Z"
+    "updatedAt": "2026-09-13T20:33:47.653Z"
   },
   {
     "id": "uptime-kuma",
@@ -59,6 +71,6 @@
       "uptime",
       "status"
     ],
-    "updatedAt": "2026-09-13T20:14:32.895Z"
+    "updatedAt": "2026-09-13T20:33:47.654Z"
   }
 ]

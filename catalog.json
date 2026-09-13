@@ -102,7 +102,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:14:32.877Z",
+      "updatedAt": "2026-09-13T20:33:47.640Z",
       "repository": "https://github.com/directus/directus"
     },
     {
@@ -217,7 +217,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:14:32.887Z"
+      "updatedAt": "2026-09-13T20:33:47.647Z"
     },
     {
       "id": "mindwire",
@@ -391,8 +391,83 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:14:32.890Z",
+      "updatedAt": "2026-09-13T20:33:47.649Z",
       "repository": "https://github.com/oblien/mindwire"
+    },
+    {
+      "id": "stirling-pdf",
+      "name": "Stirling PDF",
+      "description": "Split, merge, convert, OCR and edit PDFs locally. Sign in with the admin account below.",
+      "kind": "template",
+      "logo": "stirling-pdf",
+      "category": "other",
+      "tags": [
+        "pdf",
+        "documents",
+        "tools"
+      ],
+      "framework": "docker-compose",
+      "services": [
+        {
+          "name": "stirling-pdf",
+          "image": "stirlingtools/stirling-pdf:2.14.3",
+          "ports": [],
+          "exposed": true,
+          "environment": {
+            "SECURITY_ENABLELOGIN": "true",
+            "SECURITY_INITIALLOGIN_USERNAME": "admin",
+            "SECURITY_INITIALLOGIN_PASSWORD": "{{config:SECURITY_INITIALLOGIN_PASSWORD}}"
+          },
+          "secretEnv": [
+            "SECURITY_INITIALLOGIN_PASSWORD"
+          ],
+          "volumes": [
+            "stirling_config:/configs",
+            "stirling_tessdata:/usr/share/tessdata"
+          ],
+          "restart": "unless-stopped",
+          "exposedPort": 8080
+        }
+      ],
+      "configFields": [
+        {
+          "key": "SECURITY_INITIALLOGIN_PASSWORD",
+          "service": "stirling-pdf",
+          "label": "Security initiallogin password",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        }
+      ],
+      "endpoints": [
+        {
+          "service": "stirling-pdf",
+          "port": 8080,
+          "label": "Stirling pdf 8080",
+          "kind": "http",
+          "defaultMode": "domain"
+        }
+      ],
+      "connection": {
+        "title": "Connect to Stirling PDF",
+        "outputs": [
+          {
+            "id": "url",
+            "label": "URL",
+            "source": "publicUrl:stirling-pdf",
+            "kind": "url",
+            "recommended": true
+          },
+          {
+            "id": "security_initiallogin_password",
+            "label": "Security initiallogin password",
+            "source": "env:stirling-pdf:SECURITY_INITIALLOGIN_PASSWORD",
+            "secret": true
+          }
+        ]
+      },
+      "available": true,
+      "updatedAt": "2026-09-13T20:33:47.650Z"
     },
     {
       "id": "umami",
@@ -527,7 +602,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:14:32.893Z"
+      "updatedAt": "2026-09-13T20:33:47.653Z"
     },
     {
       "id": "uptime-kuma",
@@ -578,7 +653,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:14:32.895Z"
+      "updatedAt": "2026-09-13T20:33:47.654Z"
     }
   ]
 }
