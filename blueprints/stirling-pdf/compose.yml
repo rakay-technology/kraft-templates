@@ -1,0 +1,16 @@
+services:
+  stirling-pdf:
+    image: stirlingtools/stirling-pdf:2.14.3
+    restart: unless-stopped
+    expose:
+      - "8080"
+    environment:
+      SECURITY_ENABLELOGIN: "true"
+      SECURITY_INITIALLOGIN_USERNAME: admin
+      SECURITY_INITIALLOGIN_PASSWORD: ${SECURITY_INITIALLOGIN_PASSWORD}
+    volumes:
+      - stirling_config:/configs
+      - stirling_tessdata:/usr/share/tessdata
+volumes:
+  stirling_config: {}
+  stirling_tessdata: {}

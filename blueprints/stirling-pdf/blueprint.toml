@@ -1,0 +1,8 @@
+[variables]
+main_domain = "${domain}"
+SECURITY_INITIALLOGIN_PASSWORD = "${password:32}"
+
+[[routes]]
+service = "stirling-pdf"
+port = 8080
+host = "${main_domain}"
