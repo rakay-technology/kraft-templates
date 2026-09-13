@@ -20,6 +20,8 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,8 +39,6 @@ jobs:
       - run: bun ./kraft/packages/core/scripts/compile-templates.ts --in ./templates/blueprints --out ./templates/catalog.json --index ./templates/index.json
       - name: publish catalog on main
         if: github.event_name == 'push'
-        permissions:
-          contents: write
         run: |
           cd templates
           git config user.name "kraft-templates-bot"
