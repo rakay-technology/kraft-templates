@@ -17,7 +17,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
-      startPeriod: 30s
+      start_period: 30s
   umami-db:
     image: postgres:16-alpine
     restart: unless-stopped
@@ -36,6 +36,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      startPeriod: 10s
+      start_period: 10s
 volumes:
   umami_db: {}

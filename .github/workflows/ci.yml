@@ -36,3 +36,85 @@ jobs:
           git add catalog.json index.json
           git diff --cached --quiet || git commit -m "chore: rebuild catalog.json + index.json"
           git push
+
+  # Changed blueprints, one line each: what the PR would ship. Envelopes are
+  # uploaded as artifacts for manual testing via the dashboard Import modal.
+  report:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: changed
+        run: |
+          echo "dirs=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- blueprints | cut -d/ -f2 | sort -u | paste -sd, -)" >> "$GITHUB_OUTPUT"
+      - run: node build-scripts/compile.js build --out /tmp/catalog.json --index /tmp/index.json
+      - id: summary
+        run: |
+          {
+            echo "body<<EOF"
+            node build-scripts/pr-report.js --catalog /tmp/catalog.json --dirs "${{ steps.changed.outputs.dirs }}" --emit-envelopes envelopes/
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: import-envelopes
+          path: envelopes/
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const marker = "<!-- kraft-templates-report -->";
+            const body = `${marker}\n## Blueprint preview\n\n${process.env.REPORT}\n\nImport envelopes are attached as the \`import-envelopes\` artifact — paste one into the dashboard Import modal to test the real install flow.`;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const prev = comments.find((c) => c.body.includes(marker));
+            if (prev) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: prev.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
+        env:
+          REPORT: ${{ steps.summary.outputs.body }}
+
+  # Boot smoke test for changed blueprints: config → up → stays running →
+  # down. This is the `available:true` gate — a pinned-image app ships only
+  # with a green smoke run. Needs no Kraft checkout (plain docker).
+  smoke:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+        working-directory: build-scripts
+      - id: changed
+        run: |
+          echo "dirs=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- blueprints | cut -d/ -f2 | sort -u | sed 's|^|blueprints/|' | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
+      - run: node build-scripts/smoke.js ${{ steps.changed.outputs.dirs }}
+        if: steps.changed.outputs.dirs != ''

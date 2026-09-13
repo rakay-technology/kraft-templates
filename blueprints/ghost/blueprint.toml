@@ -1,7 +1,7 @@
 [variables]
 main_domain = "${domain}"
 MYSQL_ROOT_PASSWORD = "${password:32}"
-database__connection__password = "${password:32}"
+database__connection__password = "${MYSQL_ROOT_PASSWORD}"
 
 [[routes]]
 service = "ghost"

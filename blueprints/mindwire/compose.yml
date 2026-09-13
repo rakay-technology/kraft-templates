@@ -43,7 +43,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 12
-      startPeriod: 20s
+      start_period: 20s
 volumes:
   mindwire_runtime: {}
   mindwire_console: {}

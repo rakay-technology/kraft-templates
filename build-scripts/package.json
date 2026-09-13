@@ -1,0 +1,10 @@
+{
+  "name": "kraft-templates-build-scripts",
+  "private": true,
+  "version": "0.0.0",
+  "description": "PR tooling for Kraft blueprints (smoke tests, PR reports). The build itself stays dependency-free.",
+  "dependencies": {
+    "smol-toml": "^1.3.1",
+    "yaml": "^2.8.2"
+  }
+}

@@ -87,3 +87,13 @@ author the template directly in Kraft's `AppTemplate` shape instead of
 - Secrets are generated, never hardcoded. No credentials in `content:` blocks.
 - `node build-scripts/compile.js --check` passes; CI conversion passes.
 - A new app ships `available` only after a green end-to-end deploy.
+- Boot smoke must be green for every changed blueprint (`smoke` CI job).
+  Run it locally with `npm install` in `build-scripts/`, then
+  `node build-scripts/smoke.js blueprints/<id>`.
+- Shared secrets (a DB password the app also uses) are declared once and
+  aliased: `db_pass = "${password:32}"` + `app_pass = "${db_pass}"`.
+- Generated secrets are 32 bytes (64 hex chars) at install; length suffixes
+  (`${password:32}`) are readability-only. Apps needing a different encoding
+  belong in `kraft.json`.
+- Healthcheck durations use compose naming (`start_period`, not
+  `startPeriod`) so the file stays directly bootable.
