@@ -6,9 +6,10 @@
   "logo": "logo.svg",
   "category": "other",
   "tags": [
+    "ci-probe",
     "monitoring",
-    "uptime",
-    "status"
+    "status",
+    "uptime"
   ],
   "links": {
     "github": "",
