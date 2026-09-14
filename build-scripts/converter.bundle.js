@@ -17496,20 +17496,20 @@ function parseMeta(text, dirId) {
     errors
   };
 }
-function makePlacer(domainBindings) {
+function makePlacer(domainRenders) {
   return (value) => value.replace(/\$\{([^{}]+)\}/g, (_m, expr) => {
     const ref = parseRef(String(expr).trim());
     if (ref.kind !== "var")
       return `\${${String(expr).trim()}}`;
-    const bound = domainBindings[ref.name];
-    return bound !== undefined ? `{{publicUrl:${bound}}}` : `{{config:${ref.name}}}`;
+    const render = domainRenders[ref.name];
+    return render !== undefined ? render : `{{config:${ref.name}}}`;
   });
 }
 function convertSimplified(meta, services, toml, usedBy, nowIso = new Date().toISOString()) {
   const errors = [];
   const warnings = [];
   const svcByName = new Map(services.map((s) => [s.name, s]));
-  const domainBindings = {};
+  const domainRenders = {};
   for (const [varName, raw] of Object.entries(toml.variables)) {
     if (raw.trim() !== "${domain}")
       continue;
@@ -17519,10 +17519,31 @@ function convertSimplified(meta, services, toml, usedBy, nowIso = new Date().toI
     } else if (bound.size > 1) {
       errors.push(`blueprint.toml variables.${varName}: \${domain} is shared by routes of several services (${[...bound].join(", ")}) — use one domain variable per service`);
     } else {
-      domainBindings[varName] = [...bound][0];
+      domainRenders[varName] = `{{publicUrl:${[...bound][0]}}}`;
     }
   }
-  const toPlaceholders = makePlacer(domainBindings);
+  for (let pass = 0;pass < 10; pass++) {
+    let changed = false;
+    for (const [varName, raw] of Object.entries(toml.variables)) {
+      if (domainRenders[varName] !== undefined || raw.trim() === "${domain}") {
+        continue;
+      }
+      const refs = extractRefs(raw);
+      if (refs.length === 0)
+        continue;
+      if (!refs.every((r) => domainRenders[r] !== undefined))
+        continue;
+      let render = raw;
+      for (const r of refs) {
+        render = render.split(`\${${r}}`).join(domainRenders[r]);
+      }
+      domainRenders[varName] = render;
+      changed = true;
+    }
+    if (!changed)
+      break;
+  }
+  const toPlaceholders = makePlacer(domainRenders);
   const configFields = [];
   const secretVars = new Set;
   const pendingAliases = [];
@@ -17535,7 +17556,7 @@ function convertSimplified(meta, services, toml, usedBy, nowIso = new Date().toI
     return selfOwners[0] ?? owners.find((o) => o !== "__env__") ?? services[0].name;
   };
   for (const [varName, raw] of Object.entries(toml.variables)) {
-    if (domainBindings[varName] !== undefined)
+    if (domainRenders[varName] !== undefined)
       continue;
     const { field, errors: fieldErrors } = deriveField(varName, raw, [ownerOf(varName)], "blueprint.toml variables");
     errors.push(...fieldErrors);
@@ -17751,7 +17772,9 @@ var FORBIDDEN_SERVICE_KEYS = [
   "extends",
   "devices",
   "cap_add",
-  "sysctls"
+  "sysctls",
+  "entrypoint",
+  "deploy"
 ];
 var ALLOWED_RESTART = new Set([
   "no",
@@ -17797,13 +17820,27 @@ function parseEnv(raw, where, errors) {
   errors.push(`${where}: environment must be a list or a mapping`);
   return out;
 }
-function parseDependsOn(raw) {
+function parseDependsOn(raw, where, errors) {
   if (raw === undefined)
     return [];
-  if (Array.isArray(raw))
-    return raw.map((s) => String(s));
-  if (typeof raw === "object" && raw !== null)
+  if (Array.isArray(raw)) {
+    const out = [];
+    for (const entry of raw) {
+      if (typeof entry !== "string") {
+        errors.push(`${where}: depends_on entries must be service names (conditions like service_healthy are not supported — ordering only)`);
+        continue;
+      }
+      out.push(entry);
+    }
+    return out;
+  }
+  if (typeof raw === "object" && raw !== null) {
+    const withConditions = Object.entries(raw).filter(([, v]) => v !== null && v !== undefined);
+    if (withConditions.length > 0) {
+      errors.push(`${where}: depends_on conditions (${withConditions.map(([k]) => k).join(", ")}) are not supported — list service names for start ordering`);
+    }
     return Object.keys(raw);
+  }
   return [String(raw)];
 }
 function checkVolumeTarget(volume, where, errors) {
@@ -17862,7 +17899,7 @@ function parseCompose(yamlText) {
     const svc = raw;
     for (const key of FORBIDDEN_SERVICE_KEYS) {
       if (svc[key] !== undefined) {
-        errors.push(`${where}: "${key}" is forbidden in blueprints` + (key === "ports" ? " — declare routes in blueprint.toml, the edge publishes them" : key === "networks" || key === "network_mode" ? " — services share the project network automatically" : key === "build" ? " — use a direct kraft.json blueprint for built images" : ""));
+        errors.push(`${where}: "${key}" is forbidden in blueprints` + (key === "ports" ? " — declare routes in blueprint.toml, the edge publishes them" : key === "networks" || key === "network_mode" ? " — services share the project network automatically" : key === "build" ? " — use a direct kraft.json blueprint for built images" : key === "entrypoint" ? " — the catalog has no entrypoint field; restructure around command (shell string) or request engine support" : key === "deploy" ? " — per-service limits are not in the catalog; size the host instead" : ""));
       }
     }
     const image = svc["image"];
@@ -17929,7 +17966,7 @@ function parseCompose(yamlText) {
       expose,
       environment,
       volumes,
-      dependsOn: parseDependsOn(svc["depends_on"]),
+      dependsOn: parseDependsOn(svc["depends_on"], where, errors),
       restart,
       healthcheck,
       command: typeof commandRaw === "string" ? commandRaw : undefined,
@@ -19041,8 +19078,6 @@ function checkTomlRefs(toml, declaredVars) {
   });
   return { usedBy, errors };
 }
-// packages/core/src/apps/blueprint/migrate.ts
-var import_yaml2 = __toESM(require_dist(), 1);
 
 // packages/core/src/apps/blueprint/index.ts
 function convertBlueprint(files) {
