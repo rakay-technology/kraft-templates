@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+superadmin_token = "${password:32}"
+
+[[routes]]
+service = "waxum"
+port = 3451
+host = "${main_domain}"
+
+[env]
+SUPERADMIN_TOKEN = "${superadmin_token}"

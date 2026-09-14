@@ -1,0 +1,10 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "gitingest"
+port = 8000
+host = "${main_domain}"
+
+[env]
+ALLOWED_HOSTS = "${main_domain}"

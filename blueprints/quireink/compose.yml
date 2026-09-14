@@ -1,0 +1,14 @@
+services:
+  quireink:
+    image: quireink/quireink:2.2.1
+    restart: unless-stopped
+    environment:
+      SITE_URL: https://${main_domain}
+    volumes:
+      - quireink-data:/var/lib/quire/data
+      - quireink-uploads:/var/lib/quire/uploads
+    expose:
+      - 3000
+volumes:
+  quireink-data: {}
+  quireink-uploads: {}

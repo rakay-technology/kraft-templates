@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "influxdb"
+port = 8086
+host = "${main_domain}"

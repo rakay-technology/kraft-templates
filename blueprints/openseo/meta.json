@@ -1,0 +1,19 @@
+{
+  "id": "openseo",
+  "name": "OpenSEO",
+  "version": "0.1.6",
+  "description": "OpenSEO is an open source, self-hosted alternative to Semrush and Ahrefs for keyword research, rank tracking, backlinks, and site audits.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/every-app/open-seo",
+    "website": "https://openseo.so",
+    "docs": "https://openseo.so/docs/self-hosting"
+  },
+  "tags": [
+    "seo",
+    "analytics",
+    "marketing"
+  ],
+  "category": "analytics",
+  "repository": "https://github.com/every-app/open-seo"
+}

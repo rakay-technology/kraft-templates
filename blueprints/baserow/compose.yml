@@ -1,0 +1,11 @@
+services:
+  baserow:
+    image: baserow/baserow:1.25.2
+    environment:
+      BASEROW_PUBLIC_URL: http://${main_domain}
+    volumes:
+      - baserow_data:/baserow/data
+    expose:
+      - 80
+volumes:
+  baserow_data: null

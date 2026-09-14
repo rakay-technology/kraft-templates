@@ -1,0 +1,27 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${root_password}
+      MYSQL_DATABASE: phpmyadmin
+      MYSQL_USER: phpmyadmin
+      MYSQL_PASSWORD: ${user_password}
+    volumes:
+      - db_data:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2.1
+    environment:
+      PMA_HOST: db
+      PMA_USER: phpmyadmin
+      PMA_PASSWORD: ${user_password}
+      PMA_ARBITRARY: 1
+      UPLOAD_LIMIT: 512M
+      MAX_EXECUTION_TIME: "600"
+    depends_on:
+      - db
+    volumes: []
+    expose:
+      - 80
+volumes:
+  db_data:
+    driver: local

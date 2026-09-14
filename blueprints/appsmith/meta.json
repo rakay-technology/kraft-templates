@@ -1,0 +1,17 @@
+{
+  "id": "appsmith",
+  "name": "Appsmith",
+  "version": "v1.94",
+  "description": "Appsmith is a free and open source platform for building internal tools and applications.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/appsmithorg/appsmith",
+    "website": "https://appsmith.com/",
+    "docs": "https://docs.appsmith.com/"
+  },
+  "tags": [
+    "cms"
+  ],
+  "category": "backend",
+  "repository": "https://github.com/appsmithorg/appsmith"
+}

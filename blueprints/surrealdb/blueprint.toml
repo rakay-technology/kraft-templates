@@ -1,0 +1,13 @@
+[variables]
+main_domain = "${domain}"
+surrealdb_user = "${username}"
+surrealdb_password = "${password:32}"
+
+[[routes]]
+service = "surrealdb"
+port = 8000
+host = "${main_domain}"
+
+[env]
+SURREAL_USER = "${surrealdb_user}"
+SURREAL_PASS = "${surrealdb_password}"

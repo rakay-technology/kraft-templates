@@ -1,0 +1,13 @@
+[variables]
+main_domain = "${domain}"
+api_domain = "${domain}"
+
+[[routes]]
+service = "kibana"
+port = 5601
+host = "${main_domain}"
+
+[[routes]]
+service = "elasticsearch"
+port = 9200
+host = "${api_domain}"

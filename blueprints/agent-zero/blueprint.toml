@@ -1,0 +1,13 @@
+[variables]
+main_domain = "${domain}"
+auth_login = "${username}"
+auth_password = "${password:32}"
+
+[[routes]]
+service = "agent-zero"
+port = 80
+host = "${main_domain}"
+
+[env]
+AUTH_LOGIN = "${auth_login}"
+AUTH_PASSWORD = "${auth_password}"

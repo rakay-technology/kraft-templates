@@ -1,0 +1,17 @@
+{
+  "id": "baserow",
+  "name": "Baserow",
+  "version": "1.25.2",
+  "description": "Baserow is an open source database management tool that allows you to create and manage databases.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/Baserow/baserow",
+    "website": "https://baserow.io/",
+    "docs": "https://baserow.io/docs/index"
+  },
+  "tags": [
+    "database"
+  ],
+  "category": "database",
+  "repository": "https://github.com/Baserow/baserow"
+}

@@ -97,15 +97,22 @@ function smokeOne(dir) {
 
   // Dummy env: one value per declared variable + anything compose references.
   // `other = "${first}"` aliases share the target's value (same as install).
+  // Single-ref [env] entries are aliases too (e.g. BB_REDIS_PASSWORD): without
+  // this they fall through to the fresh-dummy branch below and diverge from
+  // the target (redis WRONGPASS) — same rule as the catalog converter.
+  const defs = { ...(toml.variables ?? {}) };
+  for (const [k, v] of Object.entries(toml.env ?? {})) {
+    if (typeof v === "string" && !(k in defs)) defs[k] = v;
+  }
   const values = {};
-  for (const [k, v] of Object.entries(toml.variables ?? {})) {
+  for (const [k, v] of Object.entries(defs)) {
     if (typeof v !== "string") continue;
     const refs = refsOf(v);
     values[k] = refs.length === 1 ? dummyFor(refs[0]) : v;
   }
   for (let pass = 0; pass < 10; pass++) {
     let changed = false;
-    for (const [k, v] of Object.entries(toml.variables ?? {})) {
+    for (const [k, v] of Object.entries(defs)) {
       if (typeof v !== "string") continue;
       const refs = refsOf(v.trim());
       if (refs.length === 1 && v.trim() === `\${${refs[0]}}` && refs[0] in values && values[k] !== values[refs[0]]) {
