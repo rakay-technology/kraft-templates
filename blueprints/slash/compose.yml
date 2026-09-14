@@ -1,0 +1,33 @@
+services:
+  slash-app:
+    image: yourselfhosted/slash:0.5.3
+    volumes:
+      - slash-app-data:/var/opt/slash
+    environment:
+      - SLASH_DRIVER=postgres
+      - SLASH_DSN=postgresql://${db_user}:${db_password}@slash-postgres:5432/${db_name}?sslmode=disable
+    depends_on:
+      slash-postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    expose:
+      - 5231
+  slash-postgres:
+    image: postgres:16-alpine
+    volumes:
+      - slash-postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${db_user}
+      - POSTGRES_PASSWORD=${db_password}
+      - POSTGRES_DB=${db_name}
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${DB_USER} -d ${DB_NAME}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+volumes:
+  slash-app-data: null
+  slash-postgres-data: null

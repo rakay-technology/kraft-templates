@@ -1,0 +1,7 @@
+[variables]
+shiori_domain = "${domain}"
+
+[[routes]]
+service = "shiori"
+port = 8080
+host = "${shiori_domain}"

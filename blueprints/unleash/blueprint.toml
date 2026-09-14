@@ -1,0 +1,15 @@
+[variables]
+main_domain = "${domain}"
+db_name = "unleash"
+db_user = "unleash"
+db_password = "${password:32}"
+
+[[routes]]
+service = "unleash"
+port = 4242
+host = "${main_domain}"
+
+[env]
+DB_NAME = "${db_name}"
+DB_USER = "${db_user}"
+DB_PASSWORD = "${db_password}"

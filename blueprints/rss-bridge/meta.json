@@ -1,0 +1,20 @@
+{
+  "id": "rss-bridge",
+  "name": "RSS-Bridge",
+  "version": "latest",
+  "description": "RSS-Bridge is a PHP project capable of generating Atom feeds for websites that don't have one.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/RSS-Bridge/rss-bridge",
+    "website": "https://rss-bridge.github.io/rss-bridge/",
+    "docs": "https://rss-bridge.github.io/rss-bridge/General/Project_goals.html"
+  },
+  "tags": [
+    "rss",
+    "feeds",
+    "news",
+    "content"
+  ],
+  "category": "other",
+  "repository": "https://github.com/RSS-Bridge/rss-bridge"
+}

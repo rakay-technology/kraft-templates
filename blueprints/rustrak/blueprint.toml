@@ -1,0 +1,15 @@
+[variables]
+main_domain = "${domain}"
+session_secret_key = "${password:64}"
+admin_email = "${email}"
+admin_password = "${password:16}"
+
+[[routes]]
+service = "rustrak"
+port = 8080
+host = "${main_domain}"
+
+[env]
+create_superuser = "${admin_email}:${admin_password}"
+SESSION_SECRET_KEY = "${session_secret_key}"
+CREATE_SUPERUSER = "${admin_email}:${admin_password}"

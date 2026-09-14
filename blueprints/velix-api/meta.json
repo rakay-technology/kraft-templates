@@ -1,0 +1,21 @@
+{
+  "id": "velix-api",
+  "name": "Velix API",
+  "version": "0.1.0",
+  "description": "Self-hosted WhatsApp API with multi-instance support, webhooks, n8n node, and Chatwoot integration.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/paulolinder/velix-api",
+    "website": "https://velix.dev",
+    "docs": "https://github.com/paulolinder/velix-api#readme"
+  },
+  "tags": [
+    "whatsapp",
+    "api",
+    "messaging",
+    "chatbot",
+    "automation"
+  ],
+  "category": "automation",
+  "repository": "https://github.com/paulolinder/velix-api"
+}

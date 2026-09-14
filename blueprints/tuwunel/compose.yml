@@ -1,0 +1,16 @@
+services:
+  tuwunel:
+    image: ghcr.io/matrix-construct/tuwunel:v1.5.0
+    restart: always
+    environment:
+      - TUWUNEL_SERVER_NAME=matrix.local
+      - TUWUNEL_ALLOW_REGISTRATION=false
+      - TUWUNEL_REGISTRATION_TOKEN=${registration_token}
+      - TUWUNEL_ADDRESS=0.0.0.0
+      - TUWUNEL_PORT=6167
+    volumes:
+      - tuwunel-data:/var/lib/tuwunel/
+    expose:
+      - 6167
+volumes:
+  tuwunel-data: null

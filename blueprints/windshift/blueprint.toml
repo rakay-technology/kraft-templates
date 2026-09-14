@@ -1,0 +1,16 @@
+[variables]
+main_domain = "${domain}"
+sso_secret = "${hash:64}"
+db_password = "${password:32}"
+
+[[routes]]
+service = "windshift"
+port = 8080
+host = "${main_domain}"
+
+[env]
+DOMAIN = "${main_domain}"
+SSO_SECRET = "${sso_secret}"
+POSTGRES_USER = "windshift"
+POSTGRES_PASSWORD = "${db_password}"
+POSTGRES_DB = "windshift"

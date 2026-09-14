@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "trailbase"
+port = 4000
+host = "${main_domain}"

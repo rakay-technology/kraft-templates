@@ -1,0 +1,14 @@
+services:
+  typesense:
+    image: typesense/typesense:29.0
+    restart: unless-stopped
+    environment:
+      - TYPESENSE_API_KEY=${api_key}
+      - TYPESENSE_ENABLE_CORS=${enable_cors}
+      - TYPESENSE_DATA_DIR=/data
+    volumes:
+      - typesense-data:/data
+    expose:
+      - 8108
+volumes:
+  typesense-data: null

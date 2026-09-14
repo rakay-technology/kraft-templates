@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+session_secret = "${password:32}"
+
+[[routes]]
+service = "silex"
+port = 6805
+host = "${main_domain}"
+
+[env]
+SILEX_URL = "http://${main_domain}"
+SILEX_SESSION_SECRET = "${session_secret}"

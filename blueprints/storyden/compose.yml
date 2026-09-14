@@ -1,0 +1,12 @@
+volumes:
+  storyden_data: null
+services:
+  storyden:
+    image: ghcr.io/southclaws/storyden:1.26.4-fullstack
+    expose:
+      - 8000
+    volumes:
+      - storyden_data:/storyden/data
+    environment:
+      PUBLIC_WEB_ADDRESS: http://${main_domain}
+      PUBLIC_API_ADDRESS: http://${main_domain}

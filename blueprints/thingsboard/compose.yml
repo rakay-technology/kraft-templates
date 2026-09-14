@@ -1,0 +1,78 @@
+services:
+  thingsboard:
+    image: thingsboard/tb-node:4.3.1.1
+    restart: unless-stopped
+    depends_on:
+      thingsboard-db:
+        condition: service_healthy
+      thingsboard-init:
+        condition: service_completed_successfully
+    expose:
+      - 1883
+      - 8080
+    environment:
+      TB_SERVICE_ID: tb-ce-node
+      TB_QUEUE_TYPE: in-memory
+      JAVA_OPTS: ${java_opts}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://thingsboard-db:5432/thingsboard
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: ${postgres_password}
+      SECURITY_CORS_ALLOWED_ORIGINS: http://${main_domain},https://${main_domain}
+    volumes:
+      - thingsboard-logs:/var/log/thingsboard
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - timeout 5 bash -c '</dev/tcp/127.0.0.1/8080'
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 300s
+  thingsboard-init:
+    image: thingsboard/tb-node:4.3.1.1
+    restart: on-failure
+    user: root
+    depends_on:
+      thingsboard-db:
+        condition: service_healthy
+    command: |-
+      bash -c 'set -e
+      if [ -f /data/.thingsboard-installed ]; then
+        echo "ThingsBoard database already initialized."
+        exit 0
+      fi
+      INSTALL_TB=true LOAD_DEMO=$false start-tb-node.sh
+      touch /data/.thingsboard-installed
+      '
+    environment:
+      TB_SERVICE_ID: tb-ce-node
+      TB_QUEUE_TYPE: in-memory
+      JAVA_OPTS: ${java_opts}
+      LOAD_DEMO: ${load_demo}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://thingsboard-db:5432/thingsboard
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: ${postgres_password}
+    volumes:
+      - thingsboard-install:/data
+      - thingsboard-logs:/var/log/thingsboard
+  thingsboard-db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: thingsboard
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${postgres_password}
+    volumes:
+      - thingsboard-db:/var/lib/postgresql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+volumes:
+  thingsboard-db: null
+  thingsboard-install: null
+  thingsboard-logs: null

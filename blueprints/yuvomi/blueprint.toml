@@ -1,0 +1,14 @@
+[variables]
+main_domain = "${domain}"
+session_secret = "${password:64}"
+
+[[routes]]
+service = "yuvomi"
+port = 3000
+host = "${main_domain}"
+
+[env]
+SESSION_SECRET = "${session_secret}"
+SESSION_SECURE = "true"
+TRUST_PROXY = "1"
+DOCUMENT_STORAGE_LOCAL_ENABLED = "false"

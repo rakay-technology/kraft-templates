@@ -1,0 +1,9 @@
+[variables]
+main_domain = "${domain}"
+DB_PASSWORD = "${password:32}"
+JWT_SECRET = "${password:64}"
+
+[[routes]]
+service = "velix-api"
+port = 8080
+host = "${main_domain}"

@@ -1,0 +1,13 @@
+[variables]
+main_domain = "${domain}"
+app_key = "${base64:32}"
+
+[[routes]]
+service = "speedtest-tracker"
+port = 80
+host = "${main_domain}"
+
+[env]
+APP_KEY = "base64:${app_key}"
+PUID = "1000"
+PGID = "1000"

@@ -1,0 +1,10 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "storyden"
+port = 8000
+host = "${main_domain}"
+
+[env]
+STORYDEN_FQDN = "http://${main_domain}"

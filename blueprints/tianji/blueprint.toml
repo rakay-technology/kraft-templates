@@ -1,0 +1,8 @@
+[variables]
+main_domain = "${domain}"
+jwt_secret = "${password:32}"
+
+[[routes]]
+service = "tianji"
+port = 12345
+host = "${main_domain}"

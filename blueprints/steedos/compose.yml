@@ -1,0 +1,12 @@
+services:
+  steedos:
+    image: steedos/steedos-community:3.0.14
+    restart: always
+    environment:
+      - ROOT_URL=http://${main_domain}
+    volumes:
+      - steedos-data:/steedos-storage
+    expose:
+      - 80
+volumes:
+  steedos-data: null

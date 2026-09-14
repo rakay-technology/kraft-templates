@@ -1,0 +1,19 @@
+[variables]
+main_domain = "${domain}"
+encryption_key = "${password:64}"
+admin_email = "${email}"
+admin_password = "${password:16}"
+
+[[routes]]
+service = "trek"
+port = 3000
+host = "${main_domain}"
+
+[env]
+ENCRYPTION_KEY = "${encryption_key}"
+TZ = "UTC"
+LOG_LEVEL = "info"
+APP_URL = "http://${main_domain}"
+ALLOWED_ORIGINS = "http://${main_domain}"
+ADMIN_EMAIL = "${admin_email}"
+ADMIN_PASSWORD = "${admin_password}"

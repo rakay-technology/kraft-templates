@@ -1,0 +1,15 @@
+services:
+  wakapi:
+    image: ghcr.io/muety/wakapi:2.18.0
+    restart: unless-stopped
+    expose:
+      - "3000"
+    environment:
+      - WAKAPI_PASSWORD_SALT=${password_salt}
+      - WAKAPI_DB_TYPE=sqlite3
+      - WAKAPI_DB_NAME=/data/wakapi.db
+      - WAKAPI_LISTEN_IPV4=0.0.0.0
+    volumes:
+      - wakapi-data:/data
+volumes:
+  wakapi-data: null

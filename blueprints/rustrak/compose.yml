@@ -1,0 +1,17 @@
+services:
+  rustrak:
+    image: rustrak/rustrak-server:v0.14.13-postgres
+    restart: unless-stopped
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8080
+      - RUST_LOG=info
+      - SSL_PROXY=true
+      - SESSION_SECRET_KEY=${session_secret_key}
+      - CREATE_SUPERUSER=${admin_email}:${admin_password}
+    volumes:
+      - rustrak_data:/data
+    expose:
+      - 8080
+volumes:
+  rustrak_data: null

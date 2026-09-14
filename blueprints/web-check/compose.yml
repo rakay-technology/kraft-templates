@@ -1,0 +1,7 @@
+services:
+  web-check:
+    image: lissy93/web-check:2.2.5
+    expose:
+      - 3000
+    restart: unless-stopped
+    volumes: []

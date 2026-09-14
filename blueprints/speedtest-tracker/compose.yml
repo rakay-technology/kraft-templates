@@ -1,0 +1,15 @@
+services:
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:version-v1.15.0
+    restart: unless-stopped
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      APP_KEY: base64:${app_key}
+      DB_CONNECTION: sqlite
+    volumes:
+      - speedtest_config:/config
+    expose:
+      - "80"
+volumes:
+  speedtest_config: null

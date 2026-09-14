@@ -1,0 +1,19 @@
+{
+  "id": "ryot",
+  "name": "Ryot",
+  "version": "v7.10",
+  "description": "A self-hosted platform for tracking various media types including movies, TV shows, video games, books, audiobooks, and more.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/IgnisDa/ryot",
+    "website": "https://ryot.io/",
+    "docs": "https://docs.ryot.io/"
+  },
+  "tags": [
+    "media",
+    "tracking",
+    "self-hosted"
+  ],
+  "category": "analytics",
+  "repository": "https://github.com/IgnisDa/ryot"
+}

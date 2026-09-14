@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+retention_period = "90d"
+
+[[routes]]
+service = "victoriametrics"
+port = 8428
+host = "${main_domain}"
+
+[env]
+RETENTION_PERIOD = "${retention_period}"
