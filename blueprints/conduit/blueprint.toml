@@ -1,0 +1,10 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "homeserver"
+port = 6167
+host = "${main_domain}"
+
+[env]
+MATRIX_SUBDOMAIN = "${main_domain}"

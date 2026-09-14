@@ -1,0 +1,35 @@
+[variables]
+frontend_domain = "${domain}"
+backend_domain = "${domain}"
+postgres_password = "${password:16}"
+secret_key = "${password:32}"
+admin_username = "admin"
+admin_password = "${password:12}"
+admin_email = "${email}"
+
+[[routes]]
+service = "web"
+port = 3000
+host = "${frontend_domain}"
+
+[[routes]]
+service = "server"
+port = 80
+host = "${backend_domain}"
+
+[env]
+PGHOST = "db"
+POSTGRES_DB = "adventure"
+POSTGRES_USER = "adventure"
+POSTGRES_PASSWORD = "${postgres_password}"
+SECRET_KEY = "${secret_key}"
+DJANGO_ADMIN_USERNAME = "${admin_username}"
+DJANGO_ADMIN_PASSWORD = "${admin_password}"
+DJANGO_ADMIN_EMAIL = "${admin_email}"
+DEBUG = "False"
+CSRF_TRUSTED_ORIGINS = "http://${backend_domain},http://${frontend_domain}"
+FRONTEND_URL = "http://${frontend_domain}"
+PUBLIC_URL = "http://${backend_domain}"
+PUBLIC_SERVER_URL = "${backend_domain}"
+ORIGIN = "http://${frontend_domain}"
+BODY_SIZE_LIMIT = "Infinity"

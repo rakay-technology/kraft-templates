@@ -1,0 +1,16 @@
+[variables]
+DOMAIN = "${domain}"
+MONGO_PASSWORD = "${password:16}"
+REDIS_PASSWORD = "${password:16}"
+SIGNING_SECRET = "${password:45}"
+
+[[routes]]
+service = "coral"
+port = 3000
+host = "${DOMAIN}"
+
+[env]
+MONGODB_URI = "mongodb://mongo:${MONGO_PASSWORD}@mongo:27017"
+REDIS_URI = "redis://default:${REDIS_PASSWORD}@redis:6379"
+NODE_ENV = "production"
+MONGO_USER = "mongo"

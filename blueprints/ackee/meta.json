@@ -1,0 +1,18 @@
+{
+  "id": "ackee",
+  "name": "Ackee",
+  "version": "latest",
+  "description": "Ackee is a self-hosted analytics tool for your website.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/electerious/Ackee",
+    "website": "https://ackee.electerious.com/",
+    "docs": "https://docs.ackee.electerious.com/"
+  },
+  "tags": [
+    "analytics",
+    "self-hosted"
+  ],
+  "category": "analytics",
+  "repository": "https://github.com/electerious/Ackee"
+}

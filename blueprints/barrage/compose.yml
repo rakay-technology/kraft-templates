@@ -1,0 +1,13 @@
+services:
+  barrage:
+    image: maulik9898/barrage:0.3.0
+    restart: unless-stopped
+    expose:
+      - 3000
+    environment:
+      - NEXTAUTH_SECRET=${AUTO_BASE64_1}
+      - NEXTAUTH_URL=http://${main_domain}
+      - DELUGE_URL=http://your-deluge-ip:8112
+      - DELUGE_PASSWORD=16
+      - BARRAGE_PASSWORD=16
+    volumes: []

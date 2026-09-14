@@ -1,0 +1,12 @@
+[variables]
+SALT = "${password:32}"
+MONGO_PASSWORD = "${password:16}"
+cockpit_domain = "${domain}"
+
+[[routes]]
+service = "cockpit"
+port = 80
+host = "${cockpit_domain}"
+
+[env]
+MONGO_USERNAME = "mongo"

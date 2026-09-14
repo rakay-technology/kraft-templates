@@ -1,0 +1,14 @@
+[variables]
+app_domain = "${domain}"
+
+[[routes]]
+service = "directory-lister"
+port = 80
+host = "${app_domain}"
+
+[env]
+APP_LANGUAGE = "en"
+DISPLAY_READMES = "true"
+READMES_FIRST = "false"
+ZIP_DOWNLOADS = "true"
+TIMEZONE = "UTC"

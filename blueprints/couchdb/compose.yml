@@ -1,0 +1,14 @@
+services:
+  couchdb:
+    image: couchdb:3.5.2.1-nouveau
+    expose:
+      - "5984"
+    volumes:
+      - couchdb-data:/opt/couchdb/data
+    environment:
+      - COUCHDB_USER=${AUTO_USERNAME_1}
+      - COUCHDB_PASSWORD=${AUTO_PASSWORD_2}
+    restart: unless-stopped
+volumes:
+  couchdb-data:
+    driver: local

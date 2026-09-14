@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+db_password = "${password:16}"
+
+[[routes]]
+service = "botpress"
+port = 81
+host = "${main_domain}"
+
+[env]
+DB_PASSWORD = "${db_password}"

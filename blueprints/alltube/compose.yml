@@ -1,0 +1,12 @@
+services:
+  alltube:
+    image: dnomd343/alltube:3.1.1
+    restart: unless-stopped
+    expose:
+      - 80
+    environment:
+      - TITLE=${title}
+      - CONVERT=${convert}
+      - STREAM=${stream}
+      - REMUX=${remux}
+    volumes: []

@@ -1,0 +1,18 @@
+[variables]
+main_domain = "${domain}"
+db_password = "${password:32}"
+db_user = "cloudreve"
+db_name = "cloudreve"
+POSTGRES_USER = "CHANGEME-POSTGRES_USER"
+POSTGRES_PASSWORD = "${password:32}"
+POSTGRES_DB = "CHANGEME-POSTGRES_DB"
+
+[[routes]]
+service = "cloudreve"
+port = 5212
+host = "${main_domain}"
+
+[env]
+POSTGRES_PASSWORD = "${db_password}"
+POSTGRES_USER = "${db_user}"
+POSTGRES_DB = "${db_name}"

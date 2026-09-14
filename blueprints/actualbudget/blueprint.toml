@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "actualbudget"
+port = 5006
+host = "${main_domain}"

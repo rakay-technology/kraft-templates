@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+browserless_token = "${password:16}"
+
+[[routes]]
+service = "browserless"
+port = 3000
+host = "${main_domain}"
+
+[env]
+BROWSERLESS_HOST = "${main_domain}"
+BROWSERLESS_TOKEN = "${browserless_token}"

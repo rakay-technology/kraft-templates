@@ -1,0 +1,7 @@
+[variables]
+chromium_domain = "${domain}"
+
+[[routes]]
+service = "chromium"
+port = 3000
+host = "${chromium_domain}"

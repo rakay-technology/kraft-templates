@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+service_hash = "${hash:32}"
+
+[[routes]]
+service = "answer"
+port = 9080
+host = "${main_domain}"
+
+[env]
+ANSWER_HOST = "http://${main_domain}"
+SERVICE_HASH = "${service_hash}"

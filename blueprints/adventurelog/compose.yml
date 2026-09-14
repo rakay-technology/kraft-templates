@@ -1,0 +1,47 @@
+services:
+  web:
+    image: ghcr.io/seanmorley15/adventurelog-frontend:v0.13.0
+    restart: unless-stopped
+    depends_on:
+      - server
+    environment:
+      PUBLIC_SERVER_URL: ${backend_domain}
+      ORIGIN: http://${frontend_domain}
+      BODY_SIZE_LIMIT: Infinity
+    volumes: []
+    expose:
+      - 3000
+  db:
+    image: postgis/postgis:16-3.5
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: adventure
+      POSTGRES_USER: adventure
+      POSTGRES_PASSWORD: ${postgres_password}
+  server:
+    image: ghcr.io/seanmorley15/adventurelog-backend:v0.13.0
+    restart: unless-stopped
+    depends_on:
+      - db
+    volumes:
+      - adventurelog_media:/code/media/
+    environment:
+      PGHOST: db
+      POSTGRES_DB: adventure
+      POSTGRES_USER: adventure
+      POSTGRES_PASSWORD: ${postgres_password}
+      SECRET_KEY: ${secret_key}
+      DJANGO_ADMIN_USERNAME: ${admin_username}
+      DJANGO_ADMIN_PASSWORD: ${admin_password}
+      DJANGO_ADMIN_EMAIL: ${admin_email}
+      DEBUG: "False"
+      CSRF_TRUSTED_ORIGINS: http://${backend_domain},http://${frontend_domain}
+      FRONTEND_URL: http://${frontend_domain}
+      PUBLIC_URL: http://${backend_domain}
+    expose:
+      - 80
+volumes:
+  postgres_data: {}
+  adventurelog_media: {}

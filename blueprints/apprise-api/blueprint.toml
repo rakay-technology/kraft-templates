@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "apprise-api"
+port = 8000
+host = "${main_domain}"

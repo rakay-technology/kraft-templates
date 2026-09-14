@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "app"
+port = 3000
+host = "${main_domain}"
+
+[env]
+POSTGRES_USER = "postgres"
+POSTGRES_PASSWORD = "postgres"
+POSTGRES_DB = "docuseal"

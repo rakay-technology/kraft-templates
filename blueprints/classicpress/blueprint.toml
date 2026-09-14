@@ -1,0 +1,9 @@
+[variables]
+DB_PASSWORD = "${password:16}"
+DB_ROOT_PASSWORD = "${password:16}"
+classicpress_domain = "${domain}"
+
+[[routes]]
+service = "classicpress"
+port = 80
+host = "${classicpress_domain}"

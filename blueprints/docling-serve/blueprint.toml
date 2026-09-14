@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "docling-serve"
+port = 5001
+host = "${main_domain}"
+
+[env]
+DOCLING_SERVE_ENABLE_UI = "1"
+DOCLING_SERVE_HOST = "0.0.0.0"
+DOCLING_SERVE_PORT = "5001"

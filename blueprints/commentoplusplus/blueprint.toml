@@ -1,0 +1,15 @@
+[variables]
+DOMAIN = "${domain}"
+POSTGRES_PASSWORD = "${password:16}"
+
+[[routes]]
+service = "commentoplusplus"
+port = 8080
+host = "${DOMAIN}"
+
+[env]
+COMMENTO_ORIGIN = "http://${DOMAIN}"
+COMMENTO_POSTGRES = "postgres://postgres:${POSTGRES_PASSWORD}@postgres:5432/postgres?sslmode=disable"
+COMMENTO_ENABLE_WILDCARDS = "true"
+POSTGRES_DB = "postgres"
+POSTGRES_USER = "postgres"

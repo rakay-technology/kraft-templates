@@ -1,0 +1,19 @@
+[variables]
+main_domain = "${domain}"
+postgres_password = "${password:32}"
+nextauth_secret = "${password:32}"
+
+[[routes]]
+service = "blinko-website"
+port = 1111
+host = "${main_domain}"
+
+[env]
+database_url = "postgresql://postgres:${postgres_password}@blinko-postgres:5432/postgres"
+nextauth_url = "http://${main_domain}"
+next_public_base_url = "http://${main_domain}"
+NEXTAUTH_SECRET = "${nextauth_secret}"
+POSTGRES_PASSWORD = "${postgres_password}"
+DATABASE_URL = "postgresql://postgres:${postgres_password}@blinko-postgres:5432/postgres"
+NEXTAUTH_URL = "http://${main_domain}"
+NEXT_PUBLIC_BASE_URL = "http://${main_domain}"
