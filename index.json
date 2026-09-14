@@ -9,7 +9,7 @@
       "headless",
       "api"
     ],
-    "updatedAt": "2026-09-13T20:33:47.640Z"
+    "updatedAt": "2026-09-14T05:51:09.627Z"
   },
   {
     "id": "ghost",
@@ -21,7 +21,20 @@
       "blog",
       "newsletter"
     ],
-    "updatedAt": "2026-09-13T20:33:47.647Z"
+    "updatedAt": "2026-09-14T05:51:09.636Z"
+  },
+  {
+    "id": "mautic",
+    "name": "Mautic",
+    "version": "5.2.11",
+    "category": "automation",
+    "tags": [
+      "marketing",
+      "automation",
+      "email",
+      "crm"
+    ],
+    "updatedAt": "2026-09-14T05:51:09.642Z"
   },
   {
     "id": "mindwire",
@@ -34,7 +47,7 @@
       "coding",
       "control-plane"
     ],
-    "updatedAt": "2026-09-13T20:33:47.649Z"
+    "updatedAt": "2026-09-14T05:51:09.645Z"
   },
   {
     "id": "stirling-pdf",
@@ -46,7 +59,7 @@
       "documents",
       "tools"
     ],
-    "updatedAt": "2026-09-13T20:33:47.650Z"
+    "updatedAt": "2026-09-14T05:51:09.648Z"
   },
   {
     "id": "umami",
@@ -59,7 +72,7 @@
       "privacy",
       "statistics"
     ],
-    "updatedAt": "2026-09-13T20:33:47.653Z"
+    "updatedAt": "2026-09-14T05:51:09.651Z"
   },
   {
     "id": "uptime-kuma",
@@ -71,6 +84,6 @@
       "uptime",
       "status"
     ],
-    "updatedAt": "2026-09-13T20:33:47.654Z"
+    "updatedAt": "2026-09-14T05:51:09.652Z"
   }
 ]

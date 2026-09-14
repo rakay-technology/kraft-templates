@@ -102,7 +102,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:33:47.640Z",
+      "updatedAt": "2026-09-14T05:51:09.627Z",
       "repository": "https://github.com/directus/directus"
     },
     {
@@ -217,7 +217,230 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:33:47.647Z"
+      "updatedAt": "2026-09-14T05:51:09.636Z"
+    },
+    {
+      "id": "mautic",
+      "name": "Mautic",
+      "description": "Open-source marketing automation: landing pages, forms, email campaigns, contact tracking and drip workflows in one self-hosted app.",
+      "kind": "template",
+      "logo": "mautic",
+      "category": "automation",
+      "tags": [
+        "marketing",
+        "automation",
+        "email",
+        "crm"
+      ],
+      "framework": "docker-compose",
+      "services": [
+        {
+          "name": "mysql",
+          "image": "mysql:8.0",
+          "ports": [],
+          "exposed": false,
+          "environment": {
+            "MYSQL_ROOT_PASSWORD": "{{config:MYSQL_ROOT_PASSWORD}}",
+            "MYSQL_DATABASE": "mautic",
+            "MYSQL_USER": "mautic",
+            "MYSQL_PASSWORD": "{{config:MAUTIC_DB_PASSWORD}}"
+          },
+          "secretEnv": [
+            "MYSQL_ROOT_PASSWORD",
+            "MYSQL_PASSWORD"
+          ],
+          "volumes": [
+            "mysql_data:/var/lib/mysql"
+          ],
+          "restart": "unless-stopped",
+          "healthcheck": {
+            "test": [
+              "CMD",
+              "mysqladmin",
+              "ping",
+              "-h",
+              "localhost"
+            ],
+            "interval": "10s",
+            "timeout": "5s",
+            "retries": 5
+          },
+          "command": "--default-authentication-plugin=mysql_native_password"
+        },
+        {
+          "name": "mautic",
+          "image": "mautic/mautic:5.2.11-apache",
+          "ports": [],
+          "exposed": true,
+          "environment": {
+            "DOCKER_MAUTIC_ROLE": "mautic_web",
+            "DOCKER_MAUTIC_RUN_MIGRATIONS": "true",
+            "MAUTIC_DB_HOST": "mysql",
+            "MAUTIC_DB_PORT": "3306",
+            "MAUTIC_DB_DATABASE": "mautic",
+            "MAUTIC_DB_USER": "mautic",
+            "MAUTIC_DB_PASSWORD": "{{config:MAUTIC_DB_PASSWORD}}",
+            "MAUTIC_URL": "https://{{publicUrl:mautic}}",
+            "MAUTIC_TRUSTED_PROXIES": "[\"0.0.0.0/0\"]",
+            "MAUTIC_MESSENGER_DSN_EMAIL": "doctrine://default",
+            "MAUTIC_MESSENGER_DSN_HIT": "doctrine://default",
+            "PHP_INI_DATE_TIMEZONE": "UTC",
+            "PHP_MEMORY_LIMIT": "512M"
+          },
+          "secretEnv": [
+            "MAUTIC_DB_PASSWORD"
+          ],
+          "volumes": [
+            "mautic_data:/var/www/html"
+          ],
+          "dependsOn": [
+            "mysql"
+          ],
+          "restart": "unless-stopped",
+          "exposedPort": 80
+        },
+        {
+          "name": "mautic-cron",
+          "image": "mautic/mautic:5.2.11-apache",
+          "ports": [],
+          "exposed": false,
+          "environment": {
+            "DOCKER_MAUTIC_ROLE": "mautic_cron",
+            "MAUTIC_DB_HOST": "mysql",
+            "MAUTIC_DB_PORT": "3306",
+            "MAUTIC_DB_DATABASE": "mautic",
+            "MAUTIC_DB_USER": "mautic",
+            "MAUTIC_DB_PASSWORD": "{{config:MAUTIC_DB_PASSWORD}}",
+            "MAUTIC_URL": "https://{{publicUrl:mautic}}",
+            "PHP_INI_DATE_TIMEZONE": "UTC"
+          },
+          "secretEnv": [
+            "MAUTIC_DB_PASSWORD"
+          ],
+          "volumes": [
+            "mautic_data:/var/www/html"
+          ],
+          "dependsOn": [
+            "mautic"
+          ],
+          "restart": "unless-stopped"
+        },
+        {
+          "name": "mautic-worker",
+          "image": "mautic/mautic:5.2.11-apache",
+          "ports": [],
+          "exposed": false,
+          "environment": {
+            "DOCKER_MAUTIC_ROLE": "mautic_worker",
+            "DOCKER_MAUTIC_WORKERS_CONSUME_EMAIL": "2",
+            "DOCKER_MAUTIC_WORKERS_CONSUME_HIT": "2",
+            "DOCKER_MAUTIC_WORKERS_CONSUME_FAILED": "2",
+            "MAUTIC_DB_HOST": "mysql",
+            "MAUTIC_DB_PORT": "3306",
+            "MAUTIC_DB_DATABASE": "mautic",
+            "MAUTIC_DB_USER": "mautic",
+            "MAUTIC_DB_PASSWORD": "{{config:MAUTIC_DB_PASSWORD}}",
+            "MAUTIC_URL": "https://{{publicUrl:mautic}}",
+            "MAUTIC_MESSENGER_DSN_EMAIL": "doctrine://default",
+            "MAUTIC_MESSENGER_DSN_HIT": "doctrine://default",
+            "PHP_INI_DATE_TIMEZONE": "UTC"
+          },
+          "secretEnv": [
+            "MAUTIC_DB_PASSWORD"
+          ],
+          "volumes": [
+            "mautic_data:/var/www/html"
+          ],
+          "dependsOn": [
+            "mautic"
+          ],
+          "restart": "unless-stopped"
+        },
+        {
+          "name": "phpmyadmin",
+          "image": "phpmyadmin/phpmyadmin:5.2.3",
+          "ports": [],
+          "exposed": true,
+          "environment": {
+            "PMA_HOST": "mysql",
+            "PMA_PORT": "3306",
+            "UPLOAD_LIMIT": "64M"
+          },
+          "dependsOn": [
+            "mysql"
+          ],
+          "restart": "unless-stopped",
+          "exposedPort": 80
+        }
+      ],
+      "configFields": [
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "service": "mysql",
+          "label": "Mysql root password",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        },
+        {
+          "key": "MAUTIC_DB_PASSWORD",
+          "service": "mautic",
+          "label": "Mautic db password",
+          "generate": "secret",
+          "secret": true,
+          "required": true
+        }
+      ],
+      "endpoints": [
+        {
+          "service": "mautic",
+          "port": 80,
+          "label": "Mautic",
+          "kind": "http",
+          "defaultMode": "domain"
+        },
+        {
+          "service": "phpmyadmin",
+          "port": 80,
+          "label": "Database manager",
+          "kind": "http",
+          "defaultMode": "domain"
+        }
+      ],
+      "connection": {
+        "title": "Connect to Mautic",
+        "outputs": [
+          {
+            "id": "url_mautic_80",
+            "label": "Mautic URL",
+            "source": "publicUrl:mautic",
+            "kind": "url",
+            "recommended": true
+          },
+          {
+            "id": "url_phpmyadmin_80",
+            "label": "Database manager URL",
+            "source": "publicUrl:phpmyadmin",
+            "kind": "url",
+            "recommended": true
+          },
+          {
+            "id": "mysql_root_password",
+            "label": "Mysql root password",
+            "source": "env:mysql:MYSQL_ROOT_PASSWORD",
+            "secret": true
+          },
+          {
+            "id": "mautic_db_password",
+            "label": "Mautic db password",
+            "source": "env:mautic:MAUTIC_DB_PASSWORD",
+            "secret": true
+          }
+        ]
+      },
+      "available": true,
+      "updatedAt": "2026-09-14T05:51:09.642Z",
+      "repository": "https://github.com/mautic/mautic"
     },
     {
       "id": "mindwire",
@@ -391,7 +614,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:33:47.649Z",
+      "updatedAt": "2026-09-14T05:51:09.645Z",
       "repository": "https://github.com/oblien/mindwire"
     },
     {
@@ -467,7 +690,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:33:47.650Z"
+      "updatedAt": "2026-09-14T05:51:09.648Z"
     },
     {
       "id": "umami",
@@ -602,7 +825,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:33:47.653Z"
+      "updatedAt": "2026-09-14T05:51:09.651Z"
     },
     {
       "id": "uptime-kuma",
@@ -653,7 +876,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-13T20:33:47.654Z"
+      "updatedAt": "2026-09-14T05:51:09.652Z"
     }
   ]
 }
