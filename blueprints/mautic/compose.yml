@@ -1,0 +1,95 @@
+services:
+  mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: mautic
+      MYSQL_USER: mautic
+      MYSQL_PASSWORD: ${MAUTIC_DB_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mautic:
+    image: mautic/mautic:5.2.11-apache
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    expose:
+      - "80"
+    environment:
+      DOCKER_MAUTIC_ROLE: mautic_web
+      DOCKER_MAUTIC_RUN_MIGRATIONS: "true"
+      MAUTIC_DB_HOST: mysql
+      MAUTIC_DB_PORT: "3306"
+      MAUTIC_DB_DATABASE: mautic
+      MAUTIC_DB_USER: mautic
+      MAUTIC_DB_PASSWORD: ${MAUTIC_DB_PASSWORD}
+      MAUTIC_URL: ${mautic_url}
+      MAUTIC_TRUSTED_PROXIES: '["0.0.0.0/0"]'
+      MAUTIC_MESSENGER_DSN_EMAIL: doctrine://default
+      MAUTIC_MESSENGER_DSN_HIT: doctrine://default
+      PHP_INI_DATE_TIMEZONE: UTC
+      PHP_MEMORY_LIMIT: 512M
+    volumes:
+      - mautic_data:/var/www/html
+
+  mautic-cron:
+    image: mautic/mautic:5.2.11-apache
+    restart: unless-stopped
+    depends_on:
+      - mautic
+    environment:
+      DOCKER_MAUTIC_ROLE: mautic_cron
+      MAUTIC_DB_HOST: mysql
+      MAUTIC_DB_PORT: "3306"
+      MAUTIC_DB_DATABASE: mautic
+      MAUTIC_DB_USER: mautic
+      MAUTIC_DB_PASSWORD: ${MAUTIC_DB_PASSWORD}
+      MAUTIC_URL: ${mautic_url}
+      PHP_INI_DATE_TIMEZONE: UTC
+    volumes:
+      - mautic_data:/var/www/html
+
+  mautic-worker:
+    image: mautic/mautic:5.2.11-apache
+    restart: unless-stopped
+    depends_on:
+      - mautic
+    environment:
+      DOCKER_MAUTIC_ROLE: mautic_worker
+      DOCKER_MAUTIC_WORKERS_CONSUME_EMAIL: "2"
+      DOCKER_MAUTIC_WORKERS_CONSUME_HIT: "2"
+      DOCKER_MAUTIC_WORKERS_CONSUME_FAILED: "2"
+      MAUTIC_DB_HOST: mysql
+      MAUTIC_DB_PORT: "3306"
+      MAUTIC_DB_DATABASE: mautic
+      MAUTIC_DB_USER: mautic
+      MAUTIC_DB_PASSWORD: ${MAUTIC_DB_PASSWORD}
+      MAUTIC_URL: ${mautic_url}
+      MAUTIC_MESSENGER_DSN_EMAIL: doctrine://default
+      MAUTIC_MESSENGER_DSN_HIT: doctrine://default
+      PHP_INI_DATE_TIMEZONE: UTC
+    volumes:
+      - mautic_data:/var/www/html
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2.3
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    expose:
+      - "80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: "3306"
+      UPLOAD_LIMIT: 64M
+volumes:
+  mysql_data: {}
+  mautic_data: {}

@@ -41,8 +41,10 @@ Restricted Compose: `image` (pinned — `latest` keeps the app unavailable),
 `volumes`, `depends_on`, `restart`, `healthcheck`, `command`.
 
 Forbidden (CI refuses): `ports:`, `container_name:`, `networks:` /
-`network_mode:`, `privileged:`, host bind mounts, `build:`.
-Routes are declared in `blueprint.toml`; the edge publishes them.
+`network_mode:`, `privileged:`, host bind mounts, `build:`, `entrypoint:`
+(the catalog has no entrypoint field — restructure around `command`),
+`deploy:` (per-service limits are not in the catalog), and `depends_on`
+conditions (list service names for ordering only).
 
 ## blueprint.toml
 
@@ -65,6 +67,10 @@ Helpers: `${domain}`, `${password[:N]}`, `${base64[:N]}`, `${hash[:N]}`,
 `${timestamp}`/`${timestamps[:date]}`/`${timestampms[:date]}`.
 A plain literal is an operator-editable default. Every `${VAR}` used in
 compose/env/routes/files must be declared in `[variables]`.
+
+Build full URLs without operator input: `mautic_url = "https://${mautic_domain}"`
+compiles references to `https://` + the routed hostname. One domain variable
+per service; a `${domain}` shared by several routes is refused.
 
 TCP services: `kind = "tcp"` with `mode = "publish"` (needs `expose:`) or
 `mode = "internal"` (project network only, no `expose:` needed).

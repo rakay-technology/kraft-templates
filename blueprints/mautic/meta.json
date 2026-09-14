@@ -1,0 +1,15 @@
+{
+  "id": "mautic",
+  "name": "Mautic",
+  "description": "Open-source marketing automation: landing pages, forms, email campaigns, contact tracking and drip workflows in one self-hosted app.",
+  "version": "5.2.11",
+  "logo": "logo.svg",
+  "category": "automation",
+  "tags": ["marketing", "automation", "email", "crm"],
+  "links": {
+    "github": "https://github.com/mautic/mautic",
+    "website": "https://www.mautic.org/",
+    "docs": "https://docs.mautic.org/en"
+  },
+  "repository": "https://github.com/mautic/mautic"
+}
