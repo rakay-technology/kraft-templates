@@ -1,0 +1,69 @@
+services:
+  firefly-iii:
+    image: fireflyiii/core:version-6.6.3
+    restart: unless-stopped
+    depends_on:
+      firefly-iii-db:
+        condition: service_healthy
+    environment:
+      APP_KEY: base64:${app_key}
+      APP_URL: https://${main_domain}
+      TRUSTED_PROXIES: "**"
+      TZ: ${timezone}
+      SITE_OWNER: ${site_owner}
+      DEFAULT_LANGUAGE: ${default_language}
+      DEFAULT_LOCALE: ${default_locale}
+      DB_CONNECTION: mysql
+      DB_HOST: firefly-iii-db
+      DB_PORT: 3306
+      DB_DATABASE: ${db_name}
+      DB_USERNAME: ${db_user}
+      DB_PASSWORD: ${db_password}
+      STATIC_CRON_TOKEN: ${cron_token}
+    expose:
+      - "8080"
+    volumes:
+      - firefly-iii-upload:/var/www/html/storage/upload
+  firefly-iii-db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${db_name}
+      MYSQL_USER: ${db_user}
+      MYSQL_PASSWORD: ${db_password}
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
+    volumes:
+      - firefly-iii-db:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD
+        - healthcheck.sh
+        - --connect
+        - --innodb_initialized
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  firefly-iii-cron:
+    image: alpine:3.22
+    restart: unless-stopped
+    depends_on:
+      - firefly-iii
+    environment:
+      TZ: ${timezone}
+      STATIC_CRON_TOKEN: ${cron_token}
+    command: >-
+      sh -c 'apk add --no-cache tzdata wget && \
+
+      (ln -snf /usr/share/zoneinfo/$$TZ /etc/localtime || true) && \
+
+      echo "0 3 * * * wget -qO-
+      http://firefly-iii:8080/api/v1/cron/$$STATIC_CRON_TOKEN; echo" | crontab -
+      && \
+
+      crond -f -L /dev/stdout
+
+      '
+    volumes: []
+volumes:
+  firefly-iii-upload: {}
+  firefly-iii-db: {}

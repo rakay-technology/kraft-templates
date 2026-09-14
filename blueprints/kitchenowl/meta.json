@@ -1,0 +1,20 @@
+{
+  "id": "kitchenowl",
+  "name": "KitchenOwl",
+  "version": "v0.7.1",
+  "description": "KitchenOwl is a self-hosted grocery list and recipe manager.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/TomBursch/kitchenowl",
+    "website": "https://kitchenowl.org/",
+    "docs": "https://github.com/TomBursch/kitchenowl/wiki"
+  },
+  "tags": [
+    "self-hosted",
+    "recipes",
+    "grocery",
+    "personal"
+  ],
+  "category": "other",
+  "repository": "https://github.com/TomBursch/kitchenowl"
+}

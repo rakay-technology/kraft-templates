@@ -1,0 +1,20 @@
+[variables]
+main_domain = "${domain}"
+default_pin = "${password:4}"
+
+[[routes]]
+service = "dumbassets"
+port = 3000
+host = "${main_domain}"
+
+[env]
+NODE_ENV = "production"
+DEBUG = "false"
+SITE_TITLE = "DumbAssets"
+BASE_URL = "https://${main_domain}"
+DUMBASSETS_PIN = "${default_pin}"
+ALLOWED_ORIGINS = "*"
+DEMO_MODE = "false"
+APPRISE_URL = ""
+CURRENCY_CODE = "USD"
+CURRENCY_LOCALE = "en-US"

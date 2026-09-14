@@ -1,0 +1,59 @@
+services:
+  freescout-db:
+    image: mariadb:10.6
+    volumes:
+      - freescout-db-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+      MYSQL_DATABASE: ${db_name}
+      MYSQL_USER: ${db_user}
+      MYSQL_PASSWORD: ${db_pass}
+    healthcheck:
+      test:
+        - CMD
+        - mysqladmin
+        - ping
+        - -h
+        - localhost
+        - -u
+        - root
+        - -p${MYSQL_ROOT_PASSWORD}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+  freescout:
+    image: tiredofit/freescout:php8.3-1.17.999
+    volumes:
+      - freescout-data:/data
+      - freescout-html:/www/html
+      - freescout-logs:/www/logs
+    depends_on:
+      freescout-db:
+        condition: service_healthy
+    environment:
+      - ADMIN_EMAIL=${admin_email}
+      - ADMIN_PASS=${admin_password}
+      - ADMIN_FIRST_NAME=Admin
+      - ADMIN_LAST_NAME=User
+      - SITE_URL=http://${main_domain}
+      - DB_HOST=freescout-db
+      - DB_PORT=3306
+      - DB_TYPE=mysql
+      - DB_NAME=${db_name}
+      - DB_USER=${db_user}
+      - DB_PASS=${db_pass}
+      - APPLICATION_NAME=Customer Support
+      - SETUP_TYPE=AUTO
+      - ENABLE_AUTO_UPDATE=TRUE
+      - DISPLAY_ERRORS=FALSE
+      - APP_PROXY=
+      - APP_TRUSTED_PROXIES=172.16.0.0/12,192.168.0.0/16,10.0.0.0/8
+    restart: unless-stopped
+    expose:
+      - 80
+volumes:
+  freescout-db-data: null
+  freescout-data: null
+  freescout-html: null
+  freescout-logs: null

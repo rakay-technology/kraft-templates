@@ -1,0 +1,13 @@
+[variables]
+GEOSERVER_ADMIN_USER = "admin"
+GEOSERVER_ADMIN_PASSWORD = "geoserver_secure"
+INITIAL_MEMORY = "2G"
+MAXIMUM_MEMORY = "4G"
+POSTGRES_USER = "postgres"
+POSTGRES_PASSWORD = "postgres_secure"
+POSTGRES_DB = "gis"
+
+[[routes]]
+service = "geoserver"
+port = 8080
+host = ""

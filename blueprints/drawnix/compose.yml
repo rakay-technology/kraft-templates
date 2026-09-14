@@ -1,0 +1,7 @@
+services:
+  drawnix:
+    image: pubuzhixing/drawnix:v0.4.1
+    restart: unless-stopped
+    volumes: []
+    expose:
+      - 3000

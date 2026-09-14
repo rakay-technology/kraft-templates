@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    volumes:
+      - fiderPostgresData:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: fider
+      POSTGRES_PASSWORD: ${postgres_password}
+      POSTGRES_DB: fider
+  fider:
+    image: getfider/fider:0.21.1
+    restart: unless-stopped
+    depends_on:
+      - db
+      - mailhog
+    environment:
+      BASE_URL: https://${main_domain}
+      DATABASE_URL: postgres://fider:${postgres_password}@db:5432/fider?sslmode=disable
+      JWT_SECRET: ${jwt_secret}
+      EMAIL: smtp
+      EMAIL_NOREPLY: noreply@${main_domain}
+      EMAIL_SMTP_HOST: mailhog
+      EMAIL_SMTP_PORT: "1025"
+      EMAIL_SMTP_USERNAME: ""
+      EMAIL_SMTP_PASSWORD: ""
+      EMAIL_SMTP_ENABLE_STARTTLS: "true"
+    volumes: []
+    expose:
+      - 3000
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    restart: unless-stopped
+    volumes: []
+volumes:
+  fiderPostgresData: null

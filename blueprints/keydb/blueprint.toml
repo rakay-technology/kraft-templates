@@ -1,0 +1,7 @@
+routes = []
+
+[variables]
+keydb_password = "${password:16}"
+
+[env]
+KEYDB_PASSWORD = "${keydb_password}"

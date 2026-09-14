@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "glpi-web"
+port = 80
+host = "${main_domain}"

@@ -1,0 +1,13 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "forgejo"
+port = 3000
+host = "${main_domain}"
+
+[env]
+USER_UID = "1000"
+USER_GID = "1000"
+FORGEJO_DOMAIN = "${main_domain}"
+FORGEJO_SSH_DOMAIN = "${main_domain}"

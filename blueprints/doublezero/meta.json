@@ -1,0 +1,17 @@
+{
+  "id": "doublezero",
+  "name": "Double Zero",
+  "version": "v0.2.1",
+  "description": "00 is a self hostable SES dashboard for sending and monitoring emails with AWS",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/technomancy-dev/00",
+    "website": "",
+    "docs": "https://github.com/technomancy-dev/00"
+  },
+  "tags": [
+    "email"
+  ],
+  "category": "mail",
+  "repository": "https://github.com/technomancy-dev/00"
+}

@@ -1,0 +1,12 @@
+services:
+  homarr:
+    image: ghcr.io/homarr-labs/homarr:v1.59.3
+    restart: unless-stopped
+    volumes:
+      - homarr_appdata:/appdata
+    environment:
+      - SECRET_ENCRYPTION_KEY=${secret_key}
+    expose:
+      - 7575
+volumes:
+  homarr_appdata: null

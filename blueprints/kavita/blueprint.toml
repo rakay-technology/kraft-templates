@@ -1,0 +1,11 @@
+[variables]
+timezone = "Etc/UTC"
+kavita_domain = "${domain}"
+
+[[routes]]
+service = "kavita"
+port = 5000
+host = "${kavita_domain}"
+
+[env]
+TZ = "${timezone}"

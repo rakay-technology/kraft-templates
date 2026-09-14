@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+db_password = "${password:32}"
+
+[[routes]]
+service = "easyappointments"
+port = 80
+host = "${main_domain}"
+
+[env]
+DOMAIN = "${main_domain}"
+DB_PASSWORD = "${db_password}"

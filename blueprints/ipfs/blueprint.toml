@@ -1,0 +1,13 @@
+[variables]
+gateway_domain = "${domain}"
+api_domain = "${domain}"
+
+[[routes]]
+service = "ipfs"
+port = 8080
+host = "${gateway_domain}"
+
+[[routes]]
+service = "ipfs"
+port = 5001
+host = "${api_domain}"

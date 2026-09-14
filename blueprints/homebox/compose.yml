@@ -1,0 +1,13 @@
+services:
+  homebox:
+    image: ghcr.io/sysadminsmedia/homebox:0.13.0-rootless
+    restart: unless-stopped
+    expose:
+      - "7745"
+    environment:
+      - TZ=${timezone}
+      - HBOX_AUTH_API_KEY_PEPPER=${api_key_pepper}
+    volumes:
+      - homebox-data:/data
+volumes:
+  homebox-data: null

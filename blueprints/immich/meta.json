@@ -1,0 +1,20 @@
+{
+  "id": "immich",
+  "name": "Immich",
+  "version": "v3.0.2",
+  "description": "High performance self-hosted photo and video backup solution directly from your mobile phone.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/immich-app/immich",
+    "website": "https://immich.app/",
+    "docs": "https://immich.app/docs/overview/introduction"
+  },
+  "tags": [
+    "photos",
+    "videos",
+    "backup",
+    "media"
+  ],
+  "category": "other",
+  "repository": "https://github.com/immich-app/immich"
+}

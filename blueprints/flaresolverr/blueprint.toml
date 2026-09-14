@@ -1,0 +1,13 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "flaresolverr"
+port = 8191
+host = "${main_domain}"
+
+[env]
+LOG_LEVEL = "info"
+LOG_HTML = "false"
+CAPTCHA_SOLVER = "none"
+TZ = "Europe/London"

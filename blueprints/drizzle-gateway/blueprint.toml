@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+masterpass = "${base64:32}"
+
+[[routes]]
+service = "drizzle-gateway"
+port = 4983
+host = "${main_domain}"
+
+[env]
+MASTERPASS = "${masterpass}"

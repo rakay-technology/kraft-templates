@@ -1,0 +1,42 @@
+services:
+  kanbn:
+    image: ghcr.io/kanbn/kan:0.5.3
+    restart: unless-stopped
+    expose:
+      - 3000
+    environment:
+      NEXT_PUBLIC_BASE_URL: https://${main_domain}
+      BETTER_AUTH_SECRET: ${better_auth_secret}
+      POSTGRES_URL: postgresql://kan:${postgres_password}@postgres:5432/kan_db
+      NEXT_PUBLIC_ALLOW_CREDENTIALS: "true"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    volumes: []
+  migrate:
+    image: ghcr.io/kanbn/kan-migrate:0.6.0
+    restart: no
+    environment:
+      POSTGRES_URL: postgresql://kan:${postgres_password}@postgres:5432/kan_db
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes: []
+  postgres:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: kan_db
+      POSTGRES_USER: kan
+      POSTGRES_PASSWORD: ${postgres_password}
+    volumes:
+      - kan_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U kan -d kan_db
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  kan_postgres_data: null

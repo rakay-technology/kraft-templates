@@ -1,0 +1,20 @@
+{
+  "id": "flatnotes",
+  "name": "Flatnotes",
+  "version": "latest",
+  "description": "A self-hosted, modern note-taking web app that saves your notes as plain text Markdown files.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/dullage/flatnotes",
+    "website": "https://flatnotes.io",
+    "docs": "https://github.com/dullage/flatnotes"
+  },
+  "tags": [
+    "notes",
+    "productivity",
+    "markdown",
+    "self-hosted"
+  ],
+  "category": "other",
+  "repository": "https://github.com/dullage/flatnotes"
+}

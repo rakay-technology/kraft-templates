@@ -1,0 +1,15 @@
+[variables]
+main_domain = "${domain}"
+postgres_password = "${password:32}"
+
+[[routes]]
+service = "joplin-server"
+port = 22300
+host = "${main_domain}"
+
+[env]
+APP_BASE_URL = "http://${main_domain}"
+APP_PORT = "22300"
+POSTGRES_PASSWORD = "${postgres_password}"
+POSTGRES_USER = "joplin"
+POSTGRES_DATABASE = "joplin"

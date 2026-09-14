@@ -1,0 +1,11 @@
+services:
+  gotenberg:
+    image: gotenberg/gotenberg:8.37.0-libreoffice-cloudrun
+    environment:
+      GOTENBERG_API_BASIC_AUTH_USERNAME: ${AUTO_USERNAME_1}
+      GOTENBERG_API_BASIC_AUTH_PASSWORD: ${AUTO_PASSWORD_2}
+    command: gotenberg --api-enable-basic-auth --api-disable-health-check-logging
+    restart: unless-stopped
+    volumes: []
+    expose:
+      - 3000
