@@ -1,0 +1,15 @@
+[variables]
+main_domain = "${domain}"
+secret_key = "${base64:64}"
+AUTO_EMAIL_1 = "${email}"
+AUTO_EMAIL_2 = "${email}"
+
+[[routes]]
+service = "notifuse"
+port = 8080
+host = "${main_domain}"
+
+[env]
+ROOT_EMAIL = "${AUTO_EMAIL_2}"
+API_ENDPOINT = "https://${main_domain}"
+SECRET_KEY = "${secret_key}"

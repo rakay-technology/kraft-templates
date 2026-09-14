@@ -1,0 +1,75 @@
+volumes:
+  penpot_postgres_v15: null
+  penpot_assets: null
+  penpot_traefik: null
+services:
+  penpot-frontend:
+    image: penpotapp/frontend:2.6.1
+    restart: always
+    expose:
+      - 8080
+      - 9001
+    volumes:
+      - penpot_assets:/opt/data/assets
+    depends_on:
+      - penpot-backend
+      - penpot-exporter
+    environment:
+      PENPOT_FLAGS: disable-email-verification enable-smtp enable-prepl-server
+        disable-secure-session-cookies
+  penpot-backend:
+    image: penpotapp/backend:2.6.1
+    restart: always
+    volumes:
+      - penpot_assets:/opt/data/assets
+    depends_on:
+      - penpot-postgres
+      - penpot-redis
+    environment:
+      PENPOT_PUBLIC_URI: http://${main_domain}
+      PENPOT_FLAGS: disable-email-verification enable-smtp enable-prepl-server
+        disable-secure-session-cookies
+      PENPOT_DATABASE_URI: postgresql://penpot-postgres/penpot
+      PENPOT_DATABASE_USERNAME: penpot
+      PENPOT_DATABASE_PASSWORD: penpot
+      PENPOT_REDIS_URI: redis://penpot-redis/0
+      PENPOT_ASSETS_STORAGE_BACKEND: assets-fs
+      PENPOT_STORAGE_ASSETS_FS_DIRECTORY: /opt/data/assets
+      PENPOT_TELEMETRY_ENABLED: true
+      PENPOT_SMTP_DEFAULT_FROM: no-reply@example.com
+      PENPOT_SMTP_DEFAULT_REPLY_TO: no-reply@example.com
+      PENPOT_SMTP_HOST: penpot-mailcatch
+      PENPOT_SMTP_PORT: 1025
+      PENPOT_SMTP_USERNAME: null
+      PENPOT_SMTP_PASSWORD: null
+      PENPOT_SMTP_TLS: false
+      PENPOT_SMTP_SSL: false
+  penpot-exporter:
+    image: penpotapp/exporter:2.6.1
+    restart: always
+    environment:
+      PENPOT_PUBLIC_URI: http://penpot-frontend
+      PENPOT_REDIS_URI: redis://penpot-redis/0
+    volumes: []
+  penpot-postgres:
+    image: postgres:15
+    restart: always
+    stop_signal: SIGINT
+    volumes:
+      - penpot_postgres_v15:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_INITDB_ARGS=--data-checksums
+      - POSTGRES_DB=penpot
+      - POSTGRES_USER=penpot
+      - POSTGRES_PASSWORD=penpot
+  penpot-redis:
+    image: redis:7.2
+    restart: always
+    volumes: []
+  penpot-mailcatch:
+    image: sj26/mailcatcher:v0.11.0
+    restart: always
+    expose:
+      - "1025"
+      - "1080"
+    volumes: []

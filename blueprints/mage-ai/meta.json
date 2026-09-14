@@ -1,0 +1,20 @@
+{
+  "id": "mage-ai",
+  "name": "Mage AI",
+  "version": "0.9.78",
+  "description": "Build, run, and manage data pipelines for integrating and transforming data.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/mage-ai/mage-ai",
+    "website": "https://mage.ai",
+    "docs": "https://docs.mage.ai"
+  },
+  "tags": [
+    "data",
+    "dbt",
+    "etl",
+    "pipelines"
+  ],
+  "category": "other",
+  "repository": "https://github.com/mage-ai/mage-ai"
+}

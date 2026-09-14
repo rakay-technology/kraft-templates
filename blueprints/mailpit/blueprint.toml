@@ -1,0 +1,16 @@
+[variables]
+main_domain = "${domain}"
+default_password = "${password}"
+MP_UI_AUTH = "CHANGEME-MP_UI_AUTH"
+MP_SMTP_AUTH = "CHANGEME-MP_SMTP_AUTH"
+
+[[routes]]
+service = "mailpit"
+port = 8025
+host = "${main_domain}"
+
+[[routes]]
+service = "mailpit"
+port = 1025
+kind = "tcp"
+mode = "publish"

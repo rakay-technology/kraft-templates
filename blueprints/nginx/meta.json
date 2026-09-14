@@ -1,0 +1,17 @@
+{
+  "id": "nginx",
+  "name": "Nginx",
+  "version": "latest",
+  "description": "Nginx is an High performance web server",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/nginx/nginx",
+    "website": "https://nginx.org/",
+    "docs": "https://nginx.org/en/docs/"
+  },
+  "tags": [
+    "webserver"
+  ],
+  "category": "backend",
+  "repository": "https://github.com/nginx/nginx"
+}

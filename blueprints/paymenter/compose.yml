@@ -1,0 +1,50 @@
+services:
+  database:
+    image: mariadb:lts
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - paymenter-database:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${mysql_root_password}
+      - MYSQL_DATABASE=paymenter
+      - MYSQL_USER=paymenter
+      - MYSQL_PASSWORD=${mysql_password}
+  cache:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - paymenter-redis:/data
+  paymenter:
+    image: ghcr.io/paymenter/paymenter:v1.5.8
+    restart: unless-stopped
+    expose:
+      - 80
+    depends_on:
+      - database
+      - cache
+    volumes:
+      - paymenter-storage:/app/var
+      - paymenter-logs:/app/storage/logs
+      - paymenter-public:/app/storage/app/public
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_KEY=base64:${app_key}
+      - APP_URL=https://${main_domain}
+      - DB_CONNECTION=mysql
+      - DB_HOST=database
+      - DB_PORT=3306
+      - DB_DATABASE=paymenter
+      - DB_USERNAME=paymenter
+      - DB_PASSWORD=${mysql_password}
+      - CACHE_STORE=redis
+      - REDIS_HOST=cache
+      - REDIS_PORT=6379
+      - TRUSTED_PROXIES=*
+volumes:
+  paymenter-database: {}
+  paymenter-storage: {}
+  paymenter-logs: {}
+  paymenter-public: {}
+  paymenter-redis: {}

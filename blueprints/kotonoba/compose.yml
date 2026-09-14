@@ -1,0 +1,17 @@
+services:
+  kotonoba:
+    image: ghcr.io/trixtylab/kotonoba:1.0.19
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      DB_PATH: /app/data/kotonoba.db
+      UPLOAD_DIR: /app/data/uploads
+      JWT_SECRET: ${jwt_secret}
+      SITE_URL: https://${main_domain}
+      ADMIN_DOMAIN: ${main_domain}
+    volumes:
+      - blog_data:/app/data
+    expose:
+      - 3000
+volumes:
+  blog_data: {}

@@ -1,0 +1,15 @@
+[variables]
+main_domain = "${domain}"
+secret = "${password:30}"
+redis_password = "${password:30}"
+
+[[routes]]
+service = "onetimesecret"
+port = 3000
+host = "${main_domain}"
+
+[env]
+COLONEL = "admin@example.com"
+HOST = "${main_domain}"
+REDIS_PASSWORD = "${redis_password}"
+SECRET = "${secret}"

@@ -1,0 +1,19 @@
+{
+  "id": "plark",
+  "name": "Plark",
+  "version": "latest",
+  "description": "Self-hosted Website Builder",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/plark-inc/render",
+    "website": "https://plark.com",
+    "docs": "https://plark.com/get-started"
+  },
+  "tags": [
+    "cms",
+    "content-management",
+    "blog"
+  ],
+  "category": "cms",
+  "repository": "https://github.com/plark-inc/render"
+}

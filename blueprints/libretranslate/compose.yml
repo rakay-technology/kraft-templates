@@ -1,0 +1,15 @@
+services:
+  libretranslate:
+    image: libretranslate/libretranslate:v1.9.6-cuda
+    restart: unless-stopped
+    expose:
+      - "5000"
+    environment:
+      - LT_API_KEYS=true
+      - LT_API_KEYS_DB_PATH=/app/db/api_keys.db
+    volumes:
+      - libretranslate_models:/home/libretranslate/.local
+      - libretranslate_api_keys:/app/db
+volumes:
+  libretranslate_models: null
+  libretranslate_api_keys: null

@@ -1,0 +1,19 @@
+[variables]
+main_domain = "${domain}"
+server_password = "${password:32}"
+logging_level = "info"
+file_logging_enabled = "false"
+local_source_enabled = "false"
+metrics_enabled = "false"
+
+[[routes]]
+service = "nodelink"
+port = 2333
+host = "${main_domain}"
+
+[env]
+NODELINK_SERVER_PASSWORD = "${server_password}"
+NODELINK_LOGGING_LEVEL = "${logging_level}"
+NODELINK_LOGGING_FILE_ENABLED = "${file_logging_enabled}"
+NODELINK_SOURCES_LOCAL_ENABLED = "${local_source_enabled}"
+NODELINK_METRICS_ENABLED = "${metrics_enabled}"

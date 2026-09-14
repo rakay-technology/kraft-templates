@@ -1,0 +1,19 @@
+services:
+  podfetch:
+    image: samuel19982/podfetch:v5.2.2
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=sqlite:///app/db/podcast.db
+      - POLLING_INTERVAL=300
+      - BASIC_AUTH=true
+      - USERNAME=${admin_username}
+      - PASSWORD=${admin_password}
+      - GPODDER_INTEGRATION_ENABLED=true
+    volumes:
+      - podfetch-podcasts:/app/podcasts
+      - podfetch-db:/app/db
+    expose:
+      - 8000
+volumes:
+  podfetch-podcasts: {}
+  podfetch-db: {}

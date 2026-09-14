@@ -1,0 +1,17 @@
+services:
+  librespeed:
+    image: lscr.io/linuxserver/librespeed:version-v6.3.0
+    restart: unless-stopped
+    expose:
+      - 80
+    volumes:
+      - librespeed-config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - PASSWORD=${AUTO_PASSWORD_1}
+      - CUSTOM_RESULTS=false
+      - DB_TYPE=sqlite
+volumes:
+  librespeed-config: null

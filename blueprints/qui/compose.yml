@@ -1,0 +1,10 @@
+services:
+  qui:
+    image: ghcr.io/autobrr/qui:v1.1.0
+    restart: unless-stopped
+    expose:
+      - "7476"
+    volumes:
+      - qui-config:/config
+volumes:
+  qui-config: null

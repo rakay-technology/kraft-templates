@@ -1,0 +1,20 @@
+{
+  "id": "onetimesecret",
+  "name": "One Time Secret",
+  "version": "latest",
+  "description": "Share sensitive information securely with self-destructing links that are only viewable once.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/onetimesecret/onetimesecret",
+    "website": "https://onetimesecret.com",
+    "docs": "https://docs.onetimesecret.com"
+  },
+  "tags": [
+    "auth",
+    "password",
+    "secret",
+    "secure"
+  ],
+  "category": "other",
+  "repository": "https://github.com/onetimesecret/onetimesecret"
+}

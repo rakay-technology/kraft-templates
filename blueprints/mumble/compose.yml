@@ -1,0 +1,15 @@
+services:
+  mumble-server:
+    image: mumblevoip/mumble-server:v1.6.870-acme
+    restart: unless-stopped
+    expose:
+      - 64738
+      - 64738/udp
+    volumes:
+      - mumble-data:/data
+    environment:
+      - MUMBLE_SUPERUSER_PASSWORD=${superuser_password}
+      - MUMBLE_CONFIG_WELCOMETEXT=${welcome_text}
+      - MUMBLE_CONFIG_USERS=${max_users}
+volumes:
+  mumble-data: null

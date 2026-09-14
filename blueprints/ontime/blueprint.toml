@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+TZ = "UTC"
+
+[[routes]]
+service = "ontime"
+port = 4001
+host = "${main_domain}"
+
+[env]
+TZ = "UTC"

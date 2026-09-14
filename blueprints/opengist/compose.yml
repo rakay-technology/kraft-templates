@@ -1,0 +1,15 @@
+services:
+  opengist:
+    image: ghcr.io/thomiceli/opengist:1
+    restart: unless-stopped
+    expose:
+      - 2222
+      - 6157
+    volumes:
+      - opengist-data:/opengist
+    environment:
+      - UID=1001
+      - GID=1001
+      - OG_LOG_LEVEL=info
+volumes:
+  opengist-data: {}

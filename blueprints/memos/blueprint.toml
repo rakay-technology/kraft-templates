@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "memos"
+port = 5230
+host = "${main_domain}"
+
+[env]
+MEMOS_MODE = "prod"
+MEMOS_PORT = "5230"

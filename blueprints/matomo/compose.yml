@@ -1,0 +1,29 @@
+services:
+  matomo:
+    image: matomo:5.1-apache
+    restart: always
+    environment:
+      - MATOMO_DATABASE_HOST=${MATOMO_DATABASE_HOST}
+      - MATOMO_DATABASE_DB=${MATOMO_DATABASE_DB}
+      - MATOMO_DATABASE_USER=${MATOMO_DATABASE_USER}
+      - MATOMO_DATABASE_PASSWORD=${MATOMO_DATABASE_PASSWORD}
+    volumes:
+      - matomo:/var/www/html
+    depends_on:
+      - db
+    expose:
+      - 80
+  db:
+    image: mariadb:10.11
+    restart: always
+    command: --max-allowed-packet=64MB
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MATOMO_DATABASE_DB}
+      - MYSQL_USER=${MATOMO_DATABASE_USER}
+      - MYSQL_PASSWORD=${MATOMO_DATABASE_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  matomo: null
+  db: null

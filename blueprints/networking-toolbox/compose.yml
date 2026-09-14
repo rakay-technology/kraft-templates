@@ -1,0 +1,21 @@
+services:
+  app:
+    image: lissy93/networking-toolbox:1.6.0
+    expose:
+      - "3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOST: 0.0.0.0
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - -qO-
+        - http://127.0.0.1:3000/health
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes: []

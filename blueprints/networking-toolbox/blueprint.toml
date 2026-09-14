@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "app"
+port = 3000
+host = "${main_domain}"
+
+[env]
+NODE_ENV = "production"
+PORT = "3000"
+HOST = "0.0.0.0"

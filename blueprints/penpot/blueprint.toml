@@ -1,0 +1,10 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "penpot-frontend"
+port = 8080
+host = "${main_domain}"
+
+[env]
+DOMAIN_NAME = "${main_domain}"
