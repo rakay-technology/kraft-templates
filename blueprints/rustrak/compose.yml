@@ -1,6 +1,6 @@
 services:
   rustrak:
-    image: rustrak/rustrak-server:v0.14.13-postgres
+    image: rustrak/rustrak-server:v0.14.13
     restart: unless-stopped
     environment:
       - HOST=0.0.0.0
