@@ -9,7 +9,7 @@ host = "${main_domain}"
 
 [env]
 POSTGRES_PASSWORD = "${postgres_password}"
-EXTERNAL_URL = "https://${main_domain}"
-ANTHROPIC_API_KEY = ""
-OPENAI_API_KEY = ""
-GEMINI_API_KEY = ""
+EXTERNAL_URL = "${main_domain}"
+ANTHROPIC_API_KEY = "CHANGEME-replace-me"
+OPENAI_API_KEY = "CHANGEME-replace-me"
+GEMINI_API_KEY = "CHANGEME-replace-me"

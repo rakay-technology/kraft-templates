@@ -14,7 +14,6 @@ host = "${main_domain}"
 [env]
 DB_USERNAME = "${project_name}-admin"
 DB_PASSWORD = "${secret_key}"
-DB_DATA_LOCATION = "/data/${project_name}/database"
 DB_DATABASE = "${project_name}"
 POSTGRES_PRISMA_URL = "postgresql://${DB_USERNAME}:${DB_PASSWORD}@${project_name}-db:5432/${DB_DATABASE}"
 POSTGRES_URL_NON_POOLING = "postgresql://${DB_USERNAME}:${DB_PASSWORD}@${project_name}-db:5432/${DB_DATABASE}"

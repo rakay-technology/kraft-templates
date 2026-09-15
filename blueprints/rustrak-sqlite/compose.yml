@@ -1,6 +1,6 @@
 services:
   rustrak-server:
-    image: rustrak/rustrak-server:v0.14.13-postgres
+    image: rustrak/rustrak-server:v0.14.13
     restart: unless-stopped
     environment:
       - HOST=0.0.0.0
@@ -17,7 +17,7 @@ services:
     image: rustrak/rustrak-ui:v0.14.13
     restart: unless-stopped
     environment:
-      - RUSTRAK_API_URL=https://${api_domain}
+      - RUSTRAK_API_URL=${api_domain}
       - HOSTNAME=0.0.0.0
     expose:
       - 3000

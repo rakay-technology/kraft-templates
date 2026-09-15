@@ -1,8 +1,6 @@
 services:
   dash:
     image: ghcr.io/uptimekit/dash:5.1.0
-    env_file:
-      - .env
     environment:
       - DATABASE_URL=postgresql://postgres:${db_password}@db:5432/uptimekit
       - CLICKHOUSE_URL=http://clickhouse:8123
@@ -27,8 +25,6 @@ services:
       - 3000
   status-page:
     image: ghcr.io/uptimekit/status-page:4.3.0
-    env_file:
-      - .env
     environment:
       - DATABASE_URL=postgresql://postgres:${db_password}@db:5432/uptimekit
       - CLICKHOUSE_URL=http://clickhouse:8123
