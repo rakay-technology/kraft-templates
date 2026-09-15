@@ -1,0 +1,25 @@
+[variables]
+domain = "CHANGEME-domain"
+filer_domain = "${domain}"
+master_domain = "${domain}"
+s3_domain = "${domain}"
+S3_ACCESS_KEY = "${password:32}"
+
+[[routes]]
+service = "filer"
+port = 8888
+host = "${filer_domain}"
+
+[[routes]]
+service = "master"
+port = 9333
+host = "${master_domain}"
+
+[[routes]]
+service = "s3"
+port = 8333
+host = "${s3_domain}"
+
+[env]
+S3_ACCESS_KEY = "${S3_ACCESS_KEY}"
+S3_SECRET_KEY = "16"

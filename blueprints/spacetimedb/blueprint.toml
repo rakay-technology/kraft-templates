@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "spacetimedb"
+port = 3000
+host = "${main_domain}"

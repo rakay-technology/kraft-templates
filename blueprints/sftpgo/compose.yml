@@ -1,0 +1,13 @@
+services:
+  sftpgo:
+    image: drakkan/sftpgo:v2.7.3
+    restart: unless-stopped
+    volumes:
+      - sftpgo_data:/srv/sftpgo
+      - sftpgo_home:/var/lib/sftpgo
+    expose:
+      - "2022"
+      - "8080"
+volumes:
+  sftpgo_data: null
+  sftpgo_home: null

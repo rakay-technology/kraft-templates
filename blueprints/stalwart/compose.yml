@@ -1,0 +1,21 @@
+services:
+  stalwart-mail:
+    image: stalwartlabs/stalwart:latest-alpine
+    expose:
+      - "25"
+      - "110"
+      - "143"
+      - "443"
+      - "465"
+      - "587"
+      - "993"
+      - "995"
+      - "4190"
+      - "8080"
+    volumes:
+      - stalwart_etc:/etc/stalwart
+      - stalwart_data:/var/lib/stalwart
+    restart: unless-stopped
+volumes:
+  stalwart_etc: null
+  stalwart_data: null
