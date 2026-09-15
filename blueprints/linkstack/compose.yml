@@ -4,8 +4,8 @@ services:
     environment:
       TZ: Europe/Berlin
       SERVER_ADMIN: ${admin_email}
-      HTTP_SERVER_NAME: ${main_domain}
-      HTTPS_SERVER_NAME: ${main_domain}
+      HTTP_SERVER_NAME: ${server_name}
+      HTTPS_SERVER_NAME: ${server_name}
       LOG_LEVEL: info
       PHP_MEMORY_LIMIT: 256M
       UPLOAD_MAX_FILESIZE: 8M

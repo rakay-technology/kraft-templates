@@ -1,4 +1,5 @@
 [variables]
+server_name = "example.com"
 main_domain = "${domain}"
 admin_email = "${email}"
 mysql_root_password = "${password:32}"

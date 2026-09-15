@@ -10,6 +10,6 @@ services:
       - 5080
       - 5081
     volumes:
-      - data:${ZO_DATA_DIR}
+      - data:/data
 volumes:
   data: null
