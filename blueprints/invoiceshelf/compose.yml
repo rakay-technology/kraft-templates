@@ -2,7 +2,7 @@ services:
   invoiceshelf-postgres:
     image: postgres:18-alpine
     volumes:
-      - invoiceshelf-postgres-data:/var/lib/postgresql/data
+      - invoiceshelf-postgres-data:/var/lib/postgresql
     environment:
       - POSTGRES_PASSWORD=${db_password}
       - POSTGRES_USER=${db_username}
