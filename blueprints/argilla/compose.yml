@@ -30,7 +30,7 @@ services:
       - ARGILLA_REDIS_URL=redis://:${redis_password}@argilla-redis:6379/0
     volumes:
       - argilladata:/var/lib/argilla
-    command: python -m argilla_server worker --num-workers ${BACKGROUND_NUM_WORKERS}
+    command: python -m argilla_server worker --num-workers 2
     depends_on:
       - argilla-elasticsearch
       - argilla-db
