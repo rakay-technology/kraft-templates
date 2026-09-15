@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "roundcubemail"
+port = 80
+host = "${main_domain}"
+
+[env]
+DEFAULT_HOST = "tls://mail.example.com"
+SMTP_SERVER = "tls://mail.example.com"

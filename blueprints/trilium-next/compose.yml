@@ -1,0 +1,16 @@
+services:
+  trilium_next:
+    image: triliumnext/trilium:v0.101.3
+    restart: unless-stopped
+    environment:
+      - TRILIUM_DATA_DIR=/home/node/trilium-data
+    expose:
+      - "8080"
+    volumes:
+      - trilium-next-trilium-data:/home/node/trilium-data
+      - trilium-next-timezone:/etc/timezone:ro
+      - trilium-next-localtime:/etc/localtime:ro
+volumes:
+  trilium-next-trilium-data: null
+  trilium-next-timezone: null
+  trilium-next-localtime: null

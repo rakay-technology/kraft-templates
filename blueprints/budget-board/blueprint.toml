@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+postgres_password = "${password:32}"
+
+[[routes]]
+service = "budget-board-client"
+port = 6253
+host = "${main_domain}"
+
+[env]
+POSTGRES_PASSWORD = "${postgres_password}"

@@ -1,0 +1,23 @@
+[variables]
+main_domain = "${domain}"
+jwt_secret = "${password:32}"
+
+[[routes]]
+service = "kutt"
+port = 3000
+host = "${main_domain}"
+
+[env]
+JWT_SECRET = "${jwt_secret}"
+DEFAULT_DOMAIN = "${main_domain}"
+TRUST_PROXY = "false"
+DISALLOW_ANONYMOUS_LINKS = "true"
+CUSTOM_DOMAIN_USE_HTTPS = "true"
+MAIL_ENABLED = "false"
+MAIL_HOST = "''"
+MAIL_PORT = "'22'"
+MAIL_SECURE = "true"
+MAIL_USER = "''"
+MAIL_FROM = "''"
+MAIL_PASSWORD = "''"
+CONTACT_EMAIL = "''"
