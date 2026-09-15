@@ -1,9 +1,9 @@
 [variables]
-zulip_postgres_password = "${password:32}"
-zulip_memcached_password = "${password:32}"
-zulip_rabbitmq_password = "${password:32}"
-zulip_redis_password = "${password:32}"
-zulip_secret_key = "${password:32}"
+ZULIP_POSTGRES_PASSWORD = "${password:32}"
+ZULIP_MEMCACHED_PASSWORD = "${password:32}"
+ZULIP_RABBITMQ_PASSWORD = "${password:32}"
+ZULIP_REDIS_PASSWORD = "${password:32}"
+ZULIP_SECRET_KEY = "${password:32}"
 main_domain = "${domain}"
 admin_email = "${email}"
 
@@ -13,11 +13,11 @@ port = 80
 host = "${main_domain}"
 
 [env]
-ZULIP_POSTGRES_PASSWORD = "${zulip_postgres_password}"
-ZULIP_MEMCACHED_PASSWORD = "${zulip_memcached_password}"
-ZULIP_RABBITMQ_PASSWORD = "${zulip_rabbitmq_password}"
-ZULIP_REDIS_PASSWORD = "${zulip_redis_password}"
-ZULIP_SECRET_KEY = "${zulip_secret_key}"
+ZULIP_POSTGRES_PASSWORD = "${ZULIP_POSTGRES_PASSWORD}"
+ZULIP_MEMCACHED_PASSWORD = "${ZULIP_MEMCACHED_PASSWORD}"
+ZULIP_RABBITMQ_PASSWORD = "${ZULIP_RABBITMQ_PASSWORD}"
+ZULIP_REDIS_PASSWORD = "${ZULIP_REDIS_PASSWORD}"
+ZULIP_SECRET_KEY = "${ZULIP_SECRET_KEY}"
 ZULIP_EXTERNAL_HOST = "${main_domain}"
 ZULIP_ADMINISTRATOR = "${admin_email}"
 ZULIP_LOADBALANCER_IPS = "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
