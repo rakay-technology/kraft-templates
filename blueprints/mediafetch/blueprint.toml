@@ -1,0 +1,17 @@
+[variables]
+main_domain = "${domain}"
+PORT = "3002"
+OUTPUT_DIR = "/data/downloads"
+BASIC_AUTH_USER = "admin"
+BASIC_AUTH_PASS = "changeme"
+MAX_CONCURRENT_JOBS = "2"
+JOB_TIMEOUT_MS = "600000"
+VERSION_CHECK_TTL_MS = "21600000"
+
+[[routes]]
+service = "mediafetch"
+port = 3002
+host = "${main_domain}"
+
+[env]
+PUBLIC_BASE_URL = "${main_domain}"

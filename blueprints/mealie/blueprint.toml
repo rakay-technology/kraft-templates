@@ -1,0 +1,28 @@
+[variables]
+main_domain = "${domain}"
+TZ = "Europe/London"
+SMTP_PORT = "587"
+SMTP_AUTH_STRATEGY = "TLS"
+SMTP_FROM_NAME = "Mealie"
+API_DOCS = "False"
+ALLOW_SIGNUP = "false"
+SMTP_FROM_EMAIL = "CHANGEME-SMTP_FROM_EMAIL"
+SMTP_USER = "CHANGEME-SMTP_USER"
+SMTP_PASSWORD = "${password:32}"
+
+[[routes]]
+service = "mealie"
+port = 9000
+host = "${main_domain}"
+
+[env]
+BASE_URL = "https://${main_domain}"
+DEFAULT_GROUP = "Home"
+DEFAULT_HOUSEHOLD = "Family"
+SECURITY_MAX_LOGIN_ATTEMPTS = "10"
+SECURITY_USER_LOCKOUT_TIME = "24"
+DAILY_SCHEDULE_TIME = "01:00"
+SMTP_HOST = "${main_domain}"
+SMTP_FROM_EMAIL = "${SMTP_FROM_EMAIL}"
+SMTP_USER = "${SMTP_USER}"
+SMTP_PASSWORD = "${SMTP_PASSWORD}"

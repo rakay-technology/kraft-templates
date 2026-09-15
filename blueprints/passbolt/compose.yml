@@ -1,0 +1,59 @@
+services:
+  passbolt:
+    image: passbolt/passbolt:latest-ce
+    environment:
+      APP_FULL_BASE_URL: http://${main_domain}
+      DATASOURCES_DEFAULT_HOST: mariadb
+      DATASOURCES_DEFAULT_PORT: "3306"
+      DATASOURCES_DEFAULT_USERNAME: passbolt
+      DATASOURCES_DEFAULT_PASSWORD: ${db_password}
+      DATASOURCES_DEFAULT_DATABASE: passbolt
+      PASSBOLT_PLUGINS_JWT_AUTHENTICATION_ENABLED: "true"
+      EMAIL_DEFAULT_FROM: passbolt@${main_domain}
+      EMAIL_TRANSPORT_DEFAULT_HOST: ${email_host}
+      EMAIL_TRANSPORT_DEFAULT_PORT: "587"
+      EMAIL_TRANSPORT_DEFAULT_USERNAME: ${email_user}
+      EMAIL_TRANSPORT_DEFAULT_PASSWORD: ${email_pass}
+      EMAIL_TRANSPORT_DEFAULT_TLS: "true"
+    volumes:
+      - gpg_volume:/etc/passbolt/gpg
+      - jwt_volume:/etc/passbolt/jwt
+    command: /usr/bin/wait-for.sh -t 0 '${PASSBOLT_DB_HOST}:${PASSBOLT_DB_PORT}' --
+      /docker-entrypoint.sh
+    depends_on:
+      - mariadb
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://127.0.0.1:80
+      interval: 5s
+      timeout: 20s
+      retries: 10
+    expose:
+      - 80
+  mariadb:
+    image: mariadb:11
+    environment:
+      MARIADB_ROOT_PASSWORD: ${db_root_password}
+      MARIADB_DATABASE: passbolt
+      MARIADB_USER: passbolt
+      MARIADB_PASSWORD: ${db_password}
+    volumes:
+      - passbolt_mariadb_data:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD
+        - mariadb-admin
+        - ping
+        - -h
+        - localhost
+        - --silent
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  gpg_volume: {}
+  jwt_volume: {}
+  passbolt_mariadb_data: {}

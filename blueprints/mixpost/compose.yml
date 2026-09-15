@@ -1,0 +1,56 @@
+services:
+  mixpost:
+    image: inovector/mixpost:v2.6.0
+    environment:
+      APP_NAME: Mixpost
+      APP_KEY: base64:ygtEUxD0fB3vUchihbUYqUzN57rfNi9ER5alJ98dWiA=
+      APP_DEBUG: "false"
+      APP_DOMAIN: ${main_domain}
+      APP_URL: http://${main_domain}
+      DB_DATABASE: mixpost_db
+      DB_USERNAME: mixpost_user
+      DB_PASSWORD: ${mx_password}
+    volumes:
+      - storage:/var/www/html/storage/app
+      - logs:/var/www/html/storage/logs
+    depends_on:
+      - mysql
+      - redis
+    restart: unless-stopped
+    expose:
+      - 80
+  mysql:
+    image: mysql/mysql-server:8.0
+    environment:
+      MYSQL_DATABASE: mixpost_db
+      MYSQL_USER: mixpost_user
+      MYSQL_PASSWORD: ${mx_password}
+    volumes:
+      - mysql:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD
+        - mysqladmin
+        - ping
+        - -p ${DB_PASSWORD}
+      retries: 3
+      timeout: 5s
+    restart: unless-stopped
+  redis:
+    image: redis:8-alpine
+    command: redis-server --appendonly yes --replica-read-only no
+    volumes:
+      - redis:/data
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      retries: 3
+      timeout: 5s
+    restart: unless-stopped
+volumes:
+  mysql: {}
+  redis: {}
+  storage: {}
+  logs: {}
