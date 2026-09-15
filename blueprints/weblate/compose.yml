@@ -12,13 +12,13 @@ services:
       - /run
       - /tmp
     environment:
-      WEBLATE_SITE_DOMAIN: ${main_domain}
+      WEBLATE_SITE_DOMAIN: ${site_domain}
       WEBLATE_SITE_TITLE: Weblate
       WEBLATE_ADMIN_NAME: Weblate Admin
-      WEBLATE_ADMIN_EMAIL: admin@${main_domain}
+      WEBLATE_ADMIN_EMAIL: admin@${site_domain}
       WEBLATE_ADMIN_PASSWORD: ${admin_password}
-      WEBLATE_SERVER_EMAIL: weblate@${main_domain}
-      WEBLATE_DEFAULT_FROM_EMAIL: weblate@${main_domain}
+      WEBLATE_SERVER_EMAIL: weblate@${site_domain}
+      WEBLATE_DEFAULT_FROM_EMAIL: weblate@${site_domain}
       WEBLATE_ENABLE_HTTPS: "0"
       WEBLATE_ALLOWED_HOSTS: "*"
       WEBLATE_REGISTRATION_OPEN: "1"

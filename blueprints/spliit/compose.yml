@@ -4,6 +4,9 @@ services:
     restart: unless-stopped
     depends_on:
       - spliit-db
+    environment:
+      POSTGRES_PRISMA_URL: postgresql://${project_name}-admin:${secret_key}@spliit-db:5432/${project_name}
+      POSTGRES_URL_NON_POOLING: postgresql://${project_name}-admin:${secret_key}@spliit-db:5432/${project_name}
     volumes: []
     expose:
       - 3000
