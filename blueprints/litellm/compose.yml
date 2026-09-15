@@ -39,7 +39,7 @@ services:
       timeout: 5s
       retries: 5
     volumes:
-      - litellm-db:/var/lib/postgresql/data
+      - litellm-db:/var/lib/postgresql
     environment:
       POSTGRES_DB: ${postgres_db}
       POSTGRES_USER: ${postgres_user}
