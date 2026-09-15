@@ -1,0 +1,20 @@
+{
+  "id": "nodelink",
+  "name": "NodeLink",
+  "version": "3.8.0",
+  "description": "NodeLink is a lightweight Lavalink-compatible audio server built in Node.js for Discord music bots and real-time audio systems.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/PerformanC/NodeLink",
+    "website": "https://nodelink.js.org/",
+    "docs": "https://nodelink.js.org/docs/advanced/docker"
+  },
+  "tags": [
+    "audio",
+    "discord",
+    "lavalink",
+    "music"
+  ],
+  "category": "backend",
+  "repository": "https://github.com/PerformanC/NodeLink"
+}

@@ -1,0 +1,10 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "mailcatcher-ng"
+port = 1080
+host = "${main_domain}"
+
+[env]
+MAIL_LIMIT = "50"

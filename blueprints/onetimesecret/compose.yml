@@ -1,0 +1,42 @@
+services:
+  onetimesecret-redis:
+    image: redis:7-alpine
+    command: redis-server --requirepass ${redis_password}
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    volumes: []
+  onetimesecret:
+    image: onetimesecret/onetimesecret:2024-10-02-fix-rollup
+    restart: unless-stopped
+    environment:
+      - AUTH_AUTOVERIFY=true
+      - AUTH_SIGNUP=true
+      - COLONEL=admin@example.com
+      - HOST=${main_domain}
+      - RACK_ENV=production
+      - REDIS_URL=redis://:${redis_password}@onetimesecret-redis:6379/0
+      - SECRET=${secret}
+      - SSL=true
+    depends_on:
+      - onetimesecret-redis
+    healthcheck:
+      test:
+        - CMD
+        - ruby
+        - -rnet/http
+        - -e
+        - "exit(Net::HTTP.get_response(URI('http://localhost:3000')).is_a?(Net:\
+          :HTTPSuccess) ? 0 : 1)"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    volumes: []
+    expose:
+      - 3000

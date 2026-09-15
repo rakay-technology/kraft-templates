@@ -1,0 +1,7 @@
+services:
+  languagetool:
+    image: collabora/languagetool:6.6
+    restart: unless-stopped
+    expose:
+      - "8010"
+    volumes: []

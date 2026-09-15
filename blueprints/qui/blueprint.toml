@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "qui"
+port = 7476
+host = "${main_domain}"

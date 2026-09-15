@@ -1,0 +1,10 @@
+services:
+  otterwiki:
+    image: redimp/otterwiki:2
+    restart: unless-stopped
+    volumes:
+      - otterwiki-data:/app-data
+    expose:
+      - 80
+volumes:
+  otterwiki-data: {}

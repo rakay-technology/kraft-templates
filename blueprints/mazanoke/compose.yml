@@ -1,0 +1,7 @@
+services:
+  mazanoke:
+    image: ghcr.io/civilblur/mazanoke:v1.1.6
+    restart: unless-stopped
+    volumes: []
+    expose:
+      - 80

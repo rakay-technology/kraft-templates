@@ -1,0 +1,13 @@
+[variables]
+main_domain = "${domain}"
+postgres_password = "${password}"
+admin_password = "${password}"
+
+[[routes]]
+service = "web"
+port = 80
+host = "${main_domain}"
+
+[env]
+POSTGRES_PASSWORD = "${postgres_password}"
+ADMIN_PASSWORD = "${admin_password}"

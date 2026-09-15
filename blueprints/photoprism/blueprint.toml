@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+admin_password = "${password}"
+
+[[routes]]
+service = "photoprism"
+port = 2342
+host = "${main_domain}"
+
+[env]
+BASE_URL = "http://${main_domain}"
+ADMIN_PASSWORD = "${admin_password}"

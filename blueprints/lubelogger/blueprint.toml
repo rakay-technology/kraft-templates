@@ -1,0 +1,15 @@
+[variables]
+main_domain = "${domain}"
+lubelogger_locale = "en_US.UTF-8"
+lubelogger_enable_auth = "false"
+
+[[routes]]
+service = "lubelogger"
+port = 8080
+host = "${main_domain}"
+
+[env]
+lubelogger_domain = "https://${main_domain}"
+LUBELOGGER_LOCALE = "${lubelogger_locale}"
+LUBELOGGER_ENABLE_AUTH = "${lubelogger_enable_auth}"
+LUBELOGGER_DOMAIN = "https://${main_domain}"

@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "lobe-chat"
+port = 3210
+host = "${main_domain}"

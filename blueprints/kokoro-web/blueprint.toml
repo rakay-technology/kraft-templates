@@ -1,0 +1,13 @@
+[variables]
+main_domain = "${domain}"
+api_key = "${password:32}"
+no_track = "false"
+
+[[routes]]
+service = "kokoro-web"
+port = 3000
+host = "${main_domain}"
+
+[env]
+KW_SECRET_API_KEY = "${api_key}"
+KW_PUBLIC_NO_TRACK = "${no_track}"

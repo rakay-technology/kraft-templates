@@ -1,0 +1,17 @@
+[variables]
+MYSQL_ROOT_PASSWORD = "${password:32}"
+MATOMO_DATABASE_DB = "matomo"
+MATOMO_DATABASE_USER = "matomo"
+MATOMO_DATABASE_PASSWORD = "${password:32}"
+MATOMO_DATABASE_HOST = "db"
+matomo_domain = "${domain}"
+
+[[routes]]
+service = "matomo"
+port = 80
+host = "${matomo_domain}"
+
+[env]
+MYSQL_PASSWORD = "${MATOMO_DATABASE_PASSWORD}"
+MYSQL_DATABASE = "${MATOMO_DATABASE_DB}"
+MYSQL_USER = "${MATOMO_DATABASE_USER}"

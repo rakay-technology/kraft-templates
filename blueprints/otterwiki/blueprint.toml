@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "otterwiki"
+port = 80
+host = "${main_domain}"

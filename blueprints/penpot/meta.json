@@ -1,0 +1,18 @@
+{
+  "id": "penpot",
+  "name": "Penpot",
+  "version": "2.3.2",
+  "description": "Penpot is the web-based open-source design tool that bridges the gap between designers and developers.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/penpot/penpot",
+    "website": "https://penpot.app/",
+    "docs": "https://docs.penpot.app/"
+  },
+  "tags": [
+    "design",
+    "collaboration"
+  ],
+  "category": "other",
+  "repository": "https://github.com/penpot/penpot"
+}

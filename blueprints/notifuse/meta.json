@@ -1,0 +1,20 @@
+{
+  "id": "notifuse",
+  "name": "Notifuse",
+  "version": "latest",
+  "description": "Open-source newsletter and notification platform that empowers teams to create, send, and track communications at scale.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/notifuse/notifuse",
+    "website": "https://notifuse.com/",
+    "docs": "https://docs.notifuse.com/"
+  },
+  "tags": [
+    "newsletter",
+    "email",
+    "communication",
+    "notifications"
+  ],
+  "category": "mail",
+  "repository": "https://github.com/notifuse/notifuse"
+}

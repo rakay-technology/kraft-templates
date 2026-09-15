@@ -1,0 +1,58 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "mailserver"
+port = 8080
+host = "${main_domain}"
+
+[[routes]]
+service = "mailserver"
+port = 25
+kind = "tcp"
+mode = "publish"
+
+[[routes]]
+service = "mailserver"
+port = 110
+kind = "tcp"
+mode = "publish"
+
+[[routes]]
+service = "mailserver"
+port = 143
+kind = "tcp"
+mode = "publish"
+
+[[routes]]
+service = "mailserver"
+port = 465
+kind = "tcp"
+mode = "publish"
+
+[[routes]]
+service = "mailserver"
+port = 587
+kind = "tcp"
+mode = "publish"
+
+[[routes]]
+service = "mailserver"
+port = 993
+kind = "tcp"
+mode = "publish"
+
+[[routes]]
+service = "mailserver"
+port = 995
+kind = "tcp"
+mode = "publish"
+
+[[routes]]
+service = "mailserver"
+port = 4190
+kind = "tcp"
+mode = "publish"
+
+[env]
+TZ = "UTC"

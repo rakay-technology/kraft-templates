@@ -1,0 +1,33 @@
+services:
+  leantime:
+    image: leantime/leantime:3.9.8
+    restart: unless-stopped
+    expose:
+      - 8080
+    environment:
+      - LEAN_APP_URL=http://${main_domain}
+      - LEAN_SESSION_PASSWORD=${session_password}
+      - LEAN_DB_HOST=db
+      - LEAN_DB_USER=${db_user}
+      - LEAN_DB_PASSWORD=${db_password}
+      - LEAN_DB_DATABASE=${db_name}
+    volumes:
+      - leantime-files:/var/www/html/userfiles
+      - leantime-public:/var/www/html/public/userfiles
+    depends_on:
+      - db
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${db_root_password}
+      - MYSQL_DATABASE=${db_name}
+      - MYSQL_USER=${db_user}
+      - MYSQL_PASSWORD=${db_password}
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  leantime-files: {}
+  leantime-public: {}
+  db-data: {}

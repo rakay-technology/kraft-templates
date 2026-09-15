@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "opengist"
+port = 6157
+host = "${main_domain}"
+
+[env]
+UID = "1001"
+GID = "1001"
+OG_LOG_LEVEL = "info"

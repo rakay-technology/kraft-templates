@@ -1,0 +1,11 @@
+[variables]
+timezone = "Etc/UTC"
+pairdrop_domain = "${domain}"
+
+[[routes]]
+service = "pairdrop"
+port = 3000
+host = "${pairdrop_domain}"
+
+[env]
+TZ = "${timezone}"

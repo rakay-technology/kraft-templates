@@ -1,0 +1,21 @@
+{
+  "id": "mediacms",
+  "name": "MediaCMS",
+  "version": "latest",
+  "description": "MediaCMS is an open-source video and media CMS. It is a modern, full-featured solution for managing and streaming media content.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/mediacms/mediacms",
+    "website": "https://mediacms.io/",
+    "docs": "https://docs.mediacms.io/"
+  },
+  "tags": [
+    "media",
+    "video",
+    "cms",
+    "streaming",
+    "self-hosted"
+  ],
+  "category": "cms",
+  "repository": "https://github.com/mediacms/mediacms"
+}

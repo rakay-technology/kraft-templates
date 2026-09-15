@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "libretranslate"
+port = 5000
+host = "${main_domain}"

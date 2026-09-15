@@ -1,0 +1,7 @@
+[variables]
+languagetool_domain = "${domain}"
+
+[[routes]]
+service = "languagetool"
+port = 8010
+host = "${languagetool_domain}"

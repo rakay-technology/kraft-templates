@@ -1,0 +1,16 @@
+[variables]
+main_domain = "${domain}"
+app_key = "${base64:32}"
+db_password = "${password}"
+APP_KEY = "CHANGEME-APP_KEY"
+DB_PASSWORD = "${password:32}"
+
+[[routes]]
+service = "my-links"
+port = 3333
+host = "${main_domain}"
+
+[env]
+APP_KEY = "${app_key}"
+APP_URL = "http://${main_domain}"
+DB_PASSWORD = "${db_password}"

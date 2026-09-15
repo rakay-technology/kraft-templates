@@ -1,0 +1,15 @@
+[variables]
+main_domain = "${domain}"
+password = "${password:32}"
+AUTO_PASSWORD_1 = "${password}"
+AUTO_PASSWORD_2 = "${password}"
+
+[[routes]]
+service = "librespeed"
+port = 80
+host = "${main_domain}"
+
+[env]
+PASSWORD = "${AUTO_PASSWORD_2}"
+TZ = "UTC"
+CUSTOM_RESULTS = "false"

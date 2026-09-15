@@ -1,0 +1,14 @@
+[variables]
+main_domain = "${domain}"
+admin_password = "${password:16}"
+ADMIN_USERNAME = "CHANGEME-ADMIN_USERNAME"
+ADMIN_PASSWORD = "${password:32}"
+
+[[routes]]
+service = "komari"
+port = 25774
+host = "${main_domain}"
+
+[env]
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "${admin_password}"

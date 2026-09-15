@@ -1,0 +1,14 @@
+services:
+  pairdrop:
+    image: lscr.io/linuxserver/pairdrop:version-v1.11.2
+    restart: unless-stopped
+    expose:
+      - "3000"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${timezone}
+    volumes:
+      - pairdrop-config:/config
+volumes:
+  pairdrop-config: null

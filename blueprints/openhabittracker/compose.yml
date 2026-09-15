@@ -1,0 +1,15 @@
+services:
+  openhabittracker:
+    image: jinjinov/openhabittracker:1.2.4
+    expose:
+      - "8080"
+    environment:
+      AppSettings__UserName: admin
+      AppSettings__Email: admin@example.com
+      AppSettings__Password: ${admin_password}
+      AppSettings__JwtSecret: ${jwt_secret}
+    volumes:
+      - openhabittracker-data:/app/.OpenHabitTracker
+    restart: unless-stopped
+volumes:
+  openhabittracker-data: null
