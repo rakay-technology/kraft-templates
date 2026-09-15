@@ -3,8 +3,7 @@ services:
     image: quay.io/hedgedoc/hedgedoc:1.10.8
     restart: unless-stopped
     depends_on:
-      database:
-        condition: service_healthy
+      - database
     environment:
       - CMD_DB_URL=postgres://hedgedoc:${database_password}@database:5432/hedgedoc
       - CMD_DOMAIN=${main_domain}

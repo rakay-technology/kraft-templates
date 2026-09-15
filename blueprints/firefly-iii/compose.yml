@@ -3,8 +3,7 @@ services:
     image: fireflyiii/core:version-6.6.3
     restart: unless-stopped
     depends_on:
-      firefly-iii-db:
-        condition: service_healthy
+      - firefly-iii-db
     environment:
       APP_KEY: base64:${app_key}
       APP_URL: https://${main_domain}

@@ -16,10 +16,5 @@ services:
       - API_SERVER_KEY=${api_key}
     volumes:
       - hermes_data:/opt/data
-    deploy:
-      resources:
-        limits:
-          memory: 4G
-          cpus: "2.0"
 volumes:
   hermes_data: null

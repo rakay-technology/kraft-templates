@@ -14,8 +14,7 @@ services:
       - dolibarr_documents:/var/www/documents
       - dolibarr_html:/var/www/html
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     expose:
       - 80
   db:

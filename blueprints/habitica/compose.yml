@@ -3,8 +3,7 @@ services:
     image: awinterstein/habitica-server:5.50.3
     restart: unless-stopped
     depends_on:
-      mongo:
-        condition: service_healthy
+      - mongo
     environment:
       NODE_DB_URI: mongodb://habitica:${mongo_habitica_password}@mongo/habitica?authSource=habitica
       INVITE_ONLY: "false"

@@ -3,10 +3,8 @@ services:
     image: infisical/infisical:v0.162.6
     restart: unless-stopped
     depends_on:
-      db:
-        condition: service_healthy
-      redis:
-        condition: service_started
+      - db
+      - redis
     environment:
       - NODE_ENV=production
       - ENCRYPTION_KEY=${encryption_key}

@@ -19,8 +19,7 @@ services:
     image: ghcr.io/gentleman-programming/engram:1.16.3
     restart: unless-stopped
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
     environment:
       ENGRAM_DATABASE_URL: postgres://engram:engram@postgres:5432/engram_cloud?sslmode=disable
       ENGRAM_JWT_SECRET: ${jwt_secret}

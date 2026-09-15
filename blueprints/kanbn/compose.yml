@@ -10,8 +10,7 @@ services:
       POSTGRES_URL: postgresql://kan:${postgres_password}@postgres:5432/kan_db
       NEXT_PUBLIC_ALLOW_CREDENTIALS: "true"
     depends_on:
-      migrate:
-        condition: service_completed_successfully
+      - migrate
     volumes: []
   migrate:
     image: ghcr.io/kanbn/kan-migrate:0.6.0
@@ -19,8 +18,7 @@ services:
     environment:
       POSTGRES_URL: postgresql://kan:${postgres_password}@postgres:5432/kan_db
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
     volumes: []
   postgres:
     image: postgres:15

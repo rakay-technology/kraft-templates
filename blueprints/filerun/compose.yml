@@ -10,10 +10,8 @@ services:
     image: filerun/filerun:2026.03
     restart: unless-stopped
     depends_on:
-      filerun-init:
-        condition: service_completed_successfully
-      db:
-        condition: service_started
+      - filerun-init
+      - db
     environment:
       FR_DB_HOST: db
       FR_DB_PORT: 3306

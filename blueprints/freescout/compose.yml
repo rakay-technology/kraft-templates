@@ -29,8 +29,7 @@ services:
       - freescout-html:/www/html
       - freescout-logs:/www/logs
     depends_on:
-      freescout-db:
-        condition: service_healthy
+      - freescout-db
     environment:
       - ADMIN_EMAIL=${admin_email}
       - ADMIN_PASS=${admin_password}

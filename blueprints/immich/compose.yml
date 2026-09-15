@@ -4,10 +4,8 @@ services:
     volumes:
       - immich-library:/data
     depends_on:
-      immich-redis:
-        condition: service_healthy
-      immich-database:
-        condition: service_healthy
+      - immich-redis
+      - immich-database
     environment:
       DB_HOSTNAME: immich-database
       DB_PORT: "5432"
