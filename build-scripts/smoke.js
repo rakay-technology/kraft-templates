@@ -67,7 +67,10 @@ function refsOf(value) {
 
 function sh(cmd, args, opts) {
   try {
-    return execFileSync(cmd, args, { stdio: "pipe", encoding: "utf8", ...opts });
+    // Big image pulls spam megabytes of progress: quiet them where possible
+    // and allow a large pipe buffer so `up -d` is never SIGKILLed on ENOBUFS
+    // (that failure looks exactly like a broken app).
+    return execFileSync(cmd, args, { stdio: "pipe", encoding: "utf8", maxBuffer: 32 * 1024 * 1024, ...opts });
   } catch (e) {
     const detail = [e.stdout, e.stderr].filter(Boolean).join("\n");
     throw new Error(`command failed: ${cmd} ${args.join(" ")}\n${detail}`);
@@ -133,7 +136,7 @@ function smokeOne(dir) {
   console.log(`- ${dir}: config`);
   sh("docker", ["compose", "-f", composeFile, "--env-file", envFile, "config", "--quiet"]);
   console.log(`- ${dir}: up (settling ${SETTLE_SECS}s for crash-loops)`);
-  sh("docker", ["compose", "-f", composeFile, "--env-file", envFile, "up", "-d"]);
+  sh("docker", ["compose", "-f", composeFile, "--env-file", envFile, "up", "-d", "--quiet-pull"]);
   try {
     execSync(`sleep ${SETTLE_SECS}`);
     const states = runningServices(composeFile, envFile);
