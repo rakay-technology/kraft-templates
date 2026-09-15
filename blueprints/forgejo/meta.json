@@ -1,0 +1,18 @@
+{
+  "id": "forgejo",
+  "name": "Forgejo",
+  "version": "16",
+  "description": "Forgejo is a self-hosted lightweight software forge. Easy to install and low maintenance, it just does the job",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://codeberg.org/forgejo/forgejo",
+    "website": "https://forgejo.org/",
+    "docs": "https://forgejo.org/docs/latest/"
+  },
+  "tags": [
+    "self-hosted",
+    "storage"
+  ],
+  "category": "other",
+  "repository": "https://codeberg.org/forgejo/forgejo"
+}

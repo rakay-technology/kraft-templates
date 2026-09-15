@@ -1,0 +1,20 @@
+services:
+  flatnotes:
+    image: dullage/flatnotes:v5.5.5
+    restart: unless-stopped
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      FLATNOTES_AUTH_TYPE: totp
+      FLATNOTES_USERNAME: ${AUTO_USERNAME_1}
+      FLATNOTES_PASSWORD: ${AUTO_PASSWORD_2}
+      FLATNOTES_SECRET_KEY: ${secret_key}
+      FLATNOTES_TOTP_KEY: ${totp_key}
+      FLATNOTES_SESSION_EXPIRY_DAYS: "30"
+      FLATNOTES_PATH_PREFIX: ""
+    expose:
+      - 8080
+    volumes:
+      - flatnotes-data:/data
+volumes:
+  flatnotes-data: {}

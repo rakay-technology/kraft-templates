@@ -1,0 +1,37 @@
+services:
+  heyform:
+    image: heyform/community-edition:v0.1.0
+    restart: always
+    volumes:
+      - heyform-data:/app/static/upload
+    depends_on:
+      - mongo
+      - keydb
+    expose:
+      - 8000
+    environment:
+      MONGO_URI: mongodb://mongo:27017/heyform
+      REDIS_HOST: keydb
+      REDIS_PORT: 6379
+      SMTP_FROM: HeyForm <noreply@${main_domain}>
+      SMTP_HOST: ""
+      SMTP_PORT: "587"
+      SMTP_USER: ""
+      SMTP_SECURE: "false"
+      SMTP_IGNORE_CERT: "false"
+      SMTP_PASSWORD: ""
+  mongo:
+    image: percona/percona-server-mongodb:4.4
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+  keydb:
+    image: eqalpha/keydb:alpine
+    restart: always
+    command: keydb-server --appendonly yes --protected-mode no
+    volumes:
+      - keydb-data:/data
+volumes:
+  heyform-data: null
+  mongo-data: null
+  keydb-data: null

@@ -1,0 +1,14 @@
+services:
+  filebrowser:
+    image: hurlenko/filebrowser:v2.63.23
+    volumes:
+      - filebrowser-data:/data
+      - filebrowser-config:/config
+    environment:
+      - FB_BASEURL=/filebrowser
+    restart: always
+    expose:
+      - 8080
+volumes:
+  filebrowser-data: null
+  filebrowser-config: null

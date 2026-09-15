@@ -1,0 +1,46 @@
+services:
+  backend:
+    image: infisical/infisical:v0.162.6
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    environment:
+      - NODE_ENV=production
+      - ENCRYPTION_KEY=${encryption_key}
+      - AUTH_SECRET=${auth_secret}
+      - SITE_URL=http://${main_domain}
+      - DB_CONNECTION_URI=postgres://${postgres_user}:${postgres_password}@db:5432/${postgres_db}
+      - REDIS_URL=redis://redis:6379
+      - SMTP_HOST=
+      - SMTP_PORT=587
+      - SMTP_FROM_ADDRESS=
+      - SMTP_FROM_NAME=Infisical
+      - SMTP_USERNAME=
+      - SMTP_PASSWORD=
+    volumes: []
+    expose:
+      - 8080
+  redis:
+    image: redis:7.4.1
+    restart: always
+    volumes:
+      - redis_infisical_data:/data
+  db:
+    image: postgres:14-alpine
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${postgres_password}
+      - POSTGRES_USER=${postgres_user}
+      - POSTGRES_DB=${postgres_db}
+    volumes:
+      - pg_infisical_data:/var/lib/postgresql/data
+    healthcheck:
+      test: pg_isready --username=${POSTGRES_USER} && psql --username=${POSTGRES_USER}
+        --list
+      interval: 5s
+      timeout: 10s
+      retries: 10
+volumes:
+  pg_infisical_data: null
+  redis_infisical_data: null

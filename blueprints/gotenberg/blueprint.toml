@@ -1,0 +1,17 @@
+[variables]
+main_domain = "${domain}"
+username = "gotenberg"
+password = "changethis"
+AUTO_USERNAME_1 = "${username}"
+AUTO_PASSWORD_2 = "${password}"
+AUTO_USERNAME_3 = "${username}"
+AUTO_PASSWORD_4 = "${password}"
+
+[[routes]]
+service = "gotenberg"
+port = 3000
+host = "${main_domain}"
+
+[env]
+GOTENBERG_API_BASIC_AUTH_USERNAME = "${AUTO_USERNAME_3}"
+GOTENBERG_API_BASIC_AUTH_PASSWORD = "${AUTO_PASSWORD_4}"

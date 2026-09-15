@@ -1,0 +1,41 @@
+services:
+  dolibarr:
+    image: dolibarr/dolibarr:21.0.0
+    restart: always
+    environment:
+      DOLI_DB_HOST: db
+      DOLI_DB_NAME: ${db_name}
+      DOLI_DB_USER: ${db_user}
+      DOLI_DB_PASSWORD: ${db_password}
+      DOLI_URL_ROOT: ${main_domain}
+      DOLI_ADMIN_LOGIN: admin
+      DOLI_ADMIN_PASSWORD: ${admin_password}
+    volumes:
+      - dolibarr_documents:/var/www/documents
+      - dolibarr_html:/var/www/html
+    depends_on:
+      - db
+    expose:
+      - 80
+  db:
+    image: mariadb:10.11
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${db_root_password}
+      MYSQL_DATABASE: ${db_name}
+      MYSQL_USER: ${db_user}
+      MYSQL_PASSWORD: ${db_password}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - healthcheck.sh --connect --innodb_initialized
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+volumes:
+  dolibarr_documents: null
+  dolibarr_html: null
+  db_data: null

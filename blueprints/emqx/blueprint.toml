@@ -1,0 +1,16 @@
+[variables]
+[[routes]]
+service = "emqx"
+port = 18083
+host = "emqx.yourdomain.com"
+
+[[routes]]
+service = "emqx"
+port = 8083
+host = "broker.yourdomain.com"
+
+[[routes]]
+service = "emqx"
+port = 1883
+kind = "tcp"
+mode = "publish"

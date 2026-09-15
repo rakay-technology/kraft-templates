@@ -1,0 +1,20 @@
+{
+  "id": "homebox",
+  "name": "Homebox",
+  "version": "latest",
+  "description": "Homebox is a self-hosted home inventory and organization app for tracking belongings, locations, and labels.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/sysadminsmedia/homebox",
+    "website": "https://homebox.software/",
+    "docs": "https://homebox.software/en/"
+  },
+  "tags": [
+    "inventory",
+    "home",
+    "organization",
+    "self-hosted"
+  ],
+  "category": "analytics",
+  "repository": "https://github.com/sysadminsmedia/homebox"
+}

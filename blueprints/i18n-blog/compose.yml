@@ -1,0 +1,18 @@
+services:
+  kuno:
+    image: ictrun/kuno:1.4.5
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: https://${main_domain}/api
+      DB_PATH: /app/data/blog.db
+      UPLOAD_DIR: /app/data/uploads
+      GIN_MODE: release
+      NODE_ENV: production
+      JWT_SECRET: ${jwt_secret}
+      RECOVERY_MODE: ${recovery_mode}
+    volumes:
+      - kuno-data:/app/data
+    expose:
+      - 80
+volumes:
+  kuno-data: {}

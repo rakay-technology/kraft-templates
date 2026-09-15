@@ -1,0 +1,10 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "jellyfin"
+port = 8096
+host = "${main_domain}"
+
+[env]
+JELLYFIN_HOST = "${main_domain}"

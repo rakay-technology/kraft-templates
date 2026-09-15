@@ -1,0 +1,35 @@
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${root_pass}
+      - MYSQL_DATABASE=${db_name}
+      - MYSQL_USER=${db_user}
+      - MYSQL_PASSWORD=${db_pass}
+    volumes:
+      - mysql-data:/var/lib/mysql
+  ezbookkeeping:
+    image: mayswind/ezbookkeeping:1.6.1
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      - EBK_SERVER_DOMAIN=${main_domain}
+      - EBK_SERVER_ENABLE_GZIP=true
+      - EBK_DATABASE_TYPE=mysql
+      - EBK_DATABASE_HOST=mysql:3306
+      - EBK_DATABASE_NAME=${db_name}
+      - EBK_DATABASE_USER=${db_user}
+      - EBK_DATABASE_PASSWD=${db_pass}
+      - EBK_LOG_MODE=file
+      - EBK_SECURITY_SECRET_KEY=${secret_key}
+    volumes:
+      - storage:/ezbookkeeping/storage
+      - logs:/ezbookkeeping/log
+    expose:
+      - 8080
+volumes:
+  mysql-data: {}
+  storage: {}
+  logs: {}

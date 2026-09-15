@@ -1,0 +1,29 @@
+services:
+  joplin-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${postgres_password}
+      POSTGRES_USER: joplin
+      POSTGRES_DB: joplin
+    volumes:
+      - joplin_db_data:/var/lib/postgresql/data
+  joplin-server:
+    image: joplin/server:3.7.1
+    restart: unless-stopped
+    depends_on:
+      - joplin-db
+    environment:
+      APP_BASE_URL: http://${main_domain}
+      APP_PORT: "22300"
+      DB_CLIENT: pg
+      POSTGRES_PASSWORD: ${postgres_password}
+      POSTGRES_DATABASE: joplin
+      POSTGRES_USER: joplin
+      POSTGRES_PORT: 5432
+      POSTGRES_HOST: joplin-db
+    expose:
+      - "22300"
+    volumes: []
+volumes:
+  joplin_db_data: null

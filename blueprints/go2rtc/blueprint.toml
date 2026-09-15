@@ -1,0 +1,8 @@
+[variables]
+main_domain = "${domain}"
+TZ = "UTC"
+
+[[routes]]
+service = "go2rtc"
+port = 1984
+host = "${main_domain}"

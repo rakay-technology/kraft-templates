@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+secret_key = "${hash:64}"
+
+[[routes]]
+service = "homarr"
+port = 7575
+host = "${main_domain}"
+
+[env]
+SECRET_ENCRYPTION_KEY = "${secret_key}"

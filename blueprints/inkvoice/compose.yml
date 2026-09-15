@@ -1,0 +1,18 @@
+services:
+  inkvoice:
+    image: ghcr.io/pigontech/inkvoice:0.1.0
+    restart: unless-stopped
+    environment:
+      - ADMIN_USER=${admin_user}
+      - ADMIN_PASS=${admin_pass}
+      - JWT_SECRET=${jwt_secret}
+      - DATABASE_PATH=/app/data/invoice.db
+      - PORT=3000
+      - HOST=0.0.0.0
+      - COOKIE_SECURE=false
+    volumes:
+      - inkvoice-data:/app/data
+    expose:
+      - 3000
+volumes:
+  inkvoice-data: null

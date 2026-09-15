@@ -1,0 +1,17 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "dumbpad"
+port = 3000
+host = "${main_domain}"
+
+[env]
+NODE_ENV = "production"
+SITE_TITLE = "DumbPad"
+BASE_URL = "https://${main_domain}"
+DUMBPAD_PIN = ""
+LOCKOUT_TIME = "15"
+MAX_ATTEMPTS = "5"
+COOKIE_MAX_AGE = "24"
+PAGE_HISTORY_COOKIE_AGE = "365"

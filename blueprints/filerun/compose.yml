@@ -1,0 +1,41 @@
+services:
+  filerun-init:
+    image: busybox:1.37
+    restart: no
+    command: chown -R 1001:1001 /var/www/html /user-files
+    volumes:
+      - filerun-html:/var/www/html
+      - filerun-user-files:/user-files
+  filerun:
+    image: filerun/filerun:2026.03
+    restart: unless-stopped
+    depends_on:
+      - filerun-init
+      - db
+    environment:
+      FR_DB_HOST: db
+      FR_DB_PORT: 3306
+      FR_DB_NAME: ${mysql_database}
+      FR_DB_USER: ${mysql_user}
+      FR_DB_PASS: ${mysql_password}
+    volumes:
+      - filerun-html:/var/www/html
+      - filerun-user-files:/user-files
+    expose:
+      - 80
+  db:
+    image: mariadb:12.2
+    restart: unless-stopped
+    command: --old-mode=NO_PROGRESS_INFO
+    environment:
+      MARIADB_ROOT_PASSWORD: ${mariadb_root_password}
+      MYSQL_USER: ${mysql_user}
+      MYSQL_PASSWORD: ${mysql_password}
+      MYSQL_DATABASE: ${mysql_database}
+      MARIADB_AUTO_UPGRADE: "1"
+    volumes:
+      - filerun-db:/var/lib/mysql
+volumes:
+  filerun-html: null
+  filerun-user-files: null
+  filerun-db: null

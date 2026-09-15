@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "filegator"
+port = 8080
+host = "${main_domain}"

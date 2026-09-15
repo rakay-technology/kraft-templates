@@ -1,0 +1,7 @@
+services:
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:v3.5.2
+    expose:
+      - 8191
+    restart: unless-stopped
+    volumes: []

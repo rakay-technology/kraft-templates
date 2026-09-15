@@ -1,0 +1,10 @@
+services:
+  grimoire:
+    image: goniszewski/grimoire:0.5.0-pre.1
+    restart: unless-stopped
+    volumes:
+      - grimoire_data:/app/data
+    expose:
+      - "5173"
+volumes:
+  grimoire_data: {}

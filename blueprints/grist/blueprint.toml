@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+default_email = "${email}"
+
+[[routes]]
+service = "grist"
+port = 8484
+host = "${main_domain}"
+
+[env]
+GRIST_DEFAULT_EMAIL = "${default_email}"

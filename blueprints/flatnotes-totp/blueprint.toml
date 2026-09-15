@@ -1,0 +1,26 @@
+[variables]
+main_domain = "${domain}"
+username = "${username}"
+password = "${password:16}"
+secret_key = "${password:32}"
+totp_key = "${password:32}"
+AUTO_USERNAME_1 = "${username}"
+AUTO_PASSWORD_2 = "${password}"
+AUTO_USERNAME_3 = "${username}"
+AUTO_PASSWORD_4 = "${password}"
+
+[[routes]]
+service = "flatnotes"
+port = 8080
+host = "${main_domain}"
+
+[env]
+PUID = "1000"
+PGID = "1000"
+FLATNOTES_AUTH_TYPE = "totp"
+FLATNOTES_USERNAME = "${AUTO_USERNAME_3}"
+FLATNOTES_PASSWORD = "${AUTO_PASSWORD_4}"
+FLATNOTES_SECRET_KEY = "${secret_key}"
+FLATNOTES_TOTP_KEY = "${totp_key}"
+FLATNOTES_SESSION_EXPIRY_DAYS = "30"
+FLATNOTES_PATH_PREFIX = ""

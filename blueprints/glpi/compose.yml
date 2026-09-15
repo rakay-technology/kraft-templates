@@ -1,0 +1,23 @@
+services:
+  glpi-mysql:
+    image: mysql:9.1.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+      MYSQL_DATABASE: ${mysql_database}
+      MYSQL_USER: ${mysql_user}
+      MYSQL_PASSWORD: ${mysql_password}
+    volumes:
+      - glpi-mysql-data:/var/lib/mysql
+  glpi-web:
+    image: elestio/glpi:10.0.16
+    restart: always
+    volumes:
+      - glpi-www-data:/var/www/html/glpi
+    environment:
+      - TIMEZONE=Europe/Brussels
+    expose:
+      - 80
+volumes:
+  glpi-mysql-data: null
+  glpi-www-data: null

@@ -1,0 +1,19 @@
+{
+  "id": "filegator",
+  "name": "FileGator",
+  "version": "7.14.3",
+  "description": "FileGator is a simple self-hosted web file manager with multi-user support.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/filegator/filegator",
+    "website": "https://filegator.io/",
+    "docs": "https://docs.filegator.io/"
+  },
+  "tags": [
+    "files",
+    "file-manager",
+    "self-hosted"
+  ],
+  "category": "other",
+  "repository": "https://github.com/filegator/filegator"
+}
