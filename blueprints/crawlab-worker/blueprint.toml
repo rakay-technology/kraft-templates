@@ -1,0 +1,6 @@
+routes = []
+
+[variables]
+MASTER_GRPC_ADDRESS = "<master_node_ip>:9666"
+MASTER_FILER_URL = "http://<master_node_ip>:8080/api/filer"
+CPU_LIMIT = "0.8"

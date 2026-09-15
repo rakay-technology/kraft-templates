@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+db_password = "${password:16}"
+
+[[routes]]
+service = "bytebase"
+port = 8080
+host = "${main_domain}"
+
+[env]
+DB_PASSWORD = "${db_password}"

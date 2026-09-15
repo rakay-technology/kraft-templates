@@ -1,0 +1,10 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "baserow"
+port = 80
+host = "${main_domain}"
+
+[env]
+BASEROW_HOST = "${main_domain}"

@@ -1,0 +1,30 @@
+[variables]
+DB_PASSWORD = "${password:16}"
+DB_ROOT_PASSWORD = "${password:16}"
+REDIS_PASSWORD = "${password:16}"
+AUTO_BASE64_1 = "${base64:32}"
+AUTO_BASE64_2 = "${base64:32}"
+AUTO_BASE64_3 = "${base64:32}"
+AUTO_BASE64_4 = "${base64:32}"
+billmora_app_domain = "${domain}"
+
+[[routes]]
+service = "billmora-app"
+port = 8080
+host = "${billmora_app_domain}"
+
+[env]
+APP_KEY = "base64:${AUTO_BASE64_4}"
+APP_URL = "https://${billmora_app_domain}"
+APP_NAME = "Billmora"
+APP_ENV = "production"
+DB_CONNECTION = "mariadb"
+DB_HOST = "billmora-db"
+DB_PORT = "3306"
+DB_DATABASE = "billmora"
+DB_USERNAME = "billmora"
+REDIS_HOST = "billmora-redis"
+REDIS_PORT = "6379"
+SESSION_DRIVER = "redis"
+CACHE_STORE = "redis"
+QUEUE_CONNECTION = "redis"

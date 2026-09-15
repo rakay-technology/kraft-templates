@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+admin_password = "${password:32}"
+
+[[routes]]
+service = "dagu"
+port = 8080
+host = "${main_domain}"
+
+[env]
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "${admin_password}"
