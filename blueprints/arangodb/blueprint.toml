@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+arango_password = "${password:16}"
+
+[[routes]]
+service = "arangodb"
+port = 8529
+host = "${main_domain}"
+
+[env]
+ARANGO_PASSWORD = "${arango_password}"

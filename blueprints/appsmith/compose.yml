@@ -1,0 +1,10 @@
+services:
+  appsmith:
+    image: appsmith/appsmith-ee:v1.94
+    volumes:
+      - appsmith-data:/appsmith-stacks
+    restart: unless-stopped
+    expose:
+      - 80
+volumes:
+  appsmith-data: null

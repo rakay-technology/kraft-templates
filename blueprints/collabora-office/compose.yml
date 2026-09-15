@@ -1,0 +1,11 @@
+services:
+  collabora:
+    image: collabora/code:26.04.3.2.1
+    expose:
+      - "9980"
+    environment:
+      - domain=${collabora_domain}
+      - username=${USERNAME}
+      - password=${PASSWORD}
+      - extra_params=--o:ssl.enable=false
+    volumes: []

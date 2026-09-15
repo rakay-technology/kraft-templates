@@ -1,0 +1,10 @@
+[variables]
+MONGO_USERNAME = "crawlab"
+MONGO_PASSWORD = "${password:24}"
+CPU_LIMIT = "0.8"
+crawlab_master_domain = "${domain}"
+
+[[routes]]
+service = "crawlab-master"
+port = 8080
+host = "${crawlab_master_domain}"

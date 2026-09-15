@@ -1,0 +1,23 @@
+[variables]
+main_domain = "${domain}"
+postgres_password = "${password:16}"
+redis_password = "${password:16}"
+mailer_port = "587"
+mailer_user = "CHANGEME-mailer_user"
+mailer_password = "${password:32}"
+mailer_sender = "CHANGEME-mailer_sender"
+
+[[routes]]
+service = "affinepro"
+port = 3010
+host = "${main_domain}"
+
+[env]
+DOMAIN = "${main_domain}"
+POSTGRES_PASSWORD = "${postgres_password}"
+REDIS_PASSWORD = "${redis_password}"
+MAILER_HOST = "${main_domain}"
+MAILER_PORT = "${mailer_port}"
+MAILER_USER = "${mailer_user}"
+MAILER_PASSWORD = "${mailer_password}"
+MAILER_SENDER = "${mailer_sender}"

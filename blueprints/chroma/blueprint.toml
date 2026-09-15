@@ -1,0 +1,7 @@
+[variables]
+chroma_domain = "${domain}"
+
+[[routes]]
+service = "chroma"
+port = 8000
+host = "${chroma_domain}"
