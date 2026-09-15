@@ -60,7 +60,7 @@ services:
       - POSTGRES_PASSWORD=${postgres_password}
       - POSTGRES_DB=prefect
     volumes:
-      - prefect-postgres-data:/var/lib/postgresql/data
+      - prefect-postgres-data:/var/lib/postgresql
     healthcheck:
       test:
         - CMD-SHELL

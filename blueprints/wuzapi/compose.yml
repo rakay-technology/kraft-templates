@@ -24,7 +24,7 @@ services:
       POSTGRES_PASSWORD: wuzapi
       POSTGRES_DB: wuzapi
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql
     healthcheck:
       test:
         - CMD-SHELL
