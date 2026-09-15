@@ -1,0 +1,18 @@
+[variables]
+main_domain = "${domain}"
+postgres_password = "${password}"
+next_secret = "${base64:32}"
+meili_master_key = "${base64:32}"
+DISABLE_SIGNUPS = "CHANGEME-DISABLE_SIGNUPS"
+NEXTAUTH_SECRET = "${password:32}"
+MEILI_MASTER_KEY = "CHANGEME-MEILI_MASTER_KEY"
+
+[[routes]]
+service = "web"
+port = 3000
+host = "${main_domain}"
+
+[env]
+NEXTAUTH_SECRET = "${next_secret}"
+MEILI_MASTER_KEY = "${meili_master_key}"
+NEXTAUTH_URL = "http://${main_domain}"

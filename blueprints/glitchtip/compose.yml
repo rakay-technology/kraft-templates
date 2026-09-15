@@ -1,0 +1,66 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    restart: unless-stopped
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+  valkey:
+    image: valkey/valkey:9
+    restart: unless-stopped
+    volumes: []
+  web:
+    image: glitchtip/glitchtip:6.1.0
+    depends_on:
+      - postgres
+      - valkey
+    expose:
+      - 8000
+      - 8000
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/postgres
+      VALKEY_URL: redis://valkey:6379
+      SECRET_KEY: ${secret_key}
+      PORT: "8000"
+      EMAIL_URL: consolemail://
+      GLITCHTIP_DOMAIN: https://${main_domain}
+      DEFAULT_FROM_EMAIL: ${AUTO_EMAIL_1}
+    restart: unless-stopped
+    volumes:
+      - uploads:/code/uploads
+  worker:
+    image: glitchtip/glitchtip:6.1.0
+    command: ./bin/run-worker.sh
+    depends_on:
+      - postgres
+      - valkey
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/postgres
+      VALKEY_URL: redis://valkey:6379
+      SECRET_KEY: ${secret_key}
+      PORT: "8000"
+      EMAIL_URL: consolemail://
+      GLITCHTIP_DOMAIN: https://${main_domain}
+      DEFAULT_FROM_EMAIL: ${AUTO_EMAIL_2}
+    restart: unless-stopped
+    volumes:
+      - uploads:/code/uploads
+  migrate:
+    image: glitchtip/glitchtip:6.1.0
+    depends_on:
+      - postgres
+      - valkey
+    command: ./bin/run-migrate.sh
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/postgres
+      VALKEY_URL: redis://valkey:6379
+      SECRET_KEY: ${secret_key}
+      PORT: "8000"
+      EMAIL_URL: consolemail://
+      GLITCHTIP_DOMAIN: https://${main_domain}
+      DEFAULT_FROM_EMAIL: ${AUTO_EMAIL_3}
+    volumes: []
+volumes:
+  pg-data: null
+  uploads: null

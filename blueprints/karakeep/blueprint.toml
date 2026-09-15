@@ -1,0 +1,12 @@
+[variables]
+main_domain = "${domain}"
+karakeep_version = "release"
+
+[[routes]]
+service = "web"
+port = 3000
+host = "${main_domain}"
+
+[env]
+NEXTAUTH_URL = "http://${main_domain}"
+MEILI_MASTER_KEY = "36"

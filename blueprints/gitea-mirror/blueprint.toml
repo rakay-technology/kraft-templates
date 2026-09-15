@@ -1,0 +1,11 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "gitea-mirror"
+port = 4321
+host = "${main_domain}"
+
+[env]
+BETTER_AUTH_SECRET = "64"
+BETTER_AUTH_URL = "https://${main_domain}"

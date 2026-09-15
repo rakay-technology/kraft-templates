@@ -1,0 +1,13 @@
+[variables]
+main_domain = "${domain}"
+POSTGRES_DB = "keycloak"
+POSTGRES_USER = "keycloakuser"
+POSTGRES_PASSWORD = "${password:32}"
+KEYCLOAK_ADMIN = "admin"
+KEYCLOAK_ADMIN_PASSWORD = "${password:32}"
+KC_HOSTNAME = "${main_domain}"
+
+[[routes]]
+service = "keycloak"
+port = 8080
+host = "${main_domain}"
