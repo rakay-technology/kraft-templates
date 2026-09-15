@@ -4,7 +4,6 @@ mysql_root_password = "${password:32}"
 mysql_password = "${password:32}"
 php_timezone = "UTC"
 force_https = "false"
-allowed_hostnames = "${main_domain}"
 
 [[routes]]
 service = "opensourcepos"
@@ -18,4 +17,4 @@ MYSQL_USER = "admin"
 MYSQL_PASSWORD = "${mysql_password}"
 PHP_TIMEZONE = "${php_timezone}"
 FORCE_HTTPS = "${force_https}"
-ALLOWED_HOSTNAMES = "${allowed_hostnames}"
+ALLOWED_HOSTNAMES = "${main_domain}"

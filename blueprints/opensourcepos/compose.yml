@@ -8,7 +8,7 @@ services:
       - "80"
     environment:
       CI_ENVIRONMENT: production
-      ALLOWED_HOSTNAMES: ${allowed_hostnames}
+      ALLOWED_HOSTNAMES: ${main_domain}
       FORCE_HTTPS: ${force_https}
       PHP_TIMEZONE: ${php_timezone}
       MYSQL_USERNAME: admin
