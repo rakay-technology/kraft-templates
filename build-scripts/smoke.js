@@ -27,12 +27,21 @@ const { parse: parseYaml } = require("yaml");
 
 const SETTLE_SECS = Number(process.env.SMOKE_SETTLE_SECS ?? "30");
 
-function dummyFor(expr) {
+/** Per-app dummy overrides (by blueprint dir name): apps that reject the
+ *  default `http://test.local` domain dummy for a documented reason.
+ *  Production domain routes are https, so an https dummy mirrors a TLS
+ *  install; the default stays http (localhost/port installs are http). */
+const DOMAIN_DUMMY_OVERRIDE = {
+  // systemprompt validates its CORS origin: https only (localhost excepted).
+  systemprompt: "https://test.local",
+};
+
+function dummyFor(expr, appId) {
   const head = expr.split(":")[0];
   switch (head) {
     case "domain":
       // Production always injects a full URL (scheme included) — mirror that.
-      return "http://test.local";
+      return DOMAIN_DUMMY_OVERRIDE[appId] ?? "http://test.local";
     case "password":
     case "base64":
     case "hash":
@@ -104,7 +113,7 @@ function smokeOne(dir) {
   for (const [k, v] of Object.entries(toml.variables ?? {})) {
     if (typeof v !== "string") continue;
     const refs = refsOf(v);
-    values[k] = refs.length === 1 ? dummyFor(refs[0]) : v;
+    values[k] = refs.length === 1 ? dummyFor(refs[0], id) : v;
   }
   for (let pass = 0; pass < 10; pass++) {
     let changed = false;
@@ -122,7 +131,7 @@ function smokeOne(dir) {
   for (const ref of refsOf(envText)) {
     const name = ref.split(":")[0];
     if (/^[A-Za-z_][A-Za-z0-9_-]*$/.test(name) && !(name in values)) {
-      values[name] = dummyFor(ref);
+      values[name] = dummyFor(ref, id);
     }
   }
   const envFile = path.join(fs.mkdtempSync(path.join(os.tmpdir(), `smoke-${id}-`)), ".env");
