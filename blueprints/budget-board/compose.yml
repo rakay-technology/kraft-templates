@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
     image: ghcr.io/teelur/budget-board/client:release
     environment:
-      VITE_API_URL: http://budget-board-server
+      VITE_SERVER_ADDRESS: budget-board-server
       PORT: 6253
     expose:
       - 6253

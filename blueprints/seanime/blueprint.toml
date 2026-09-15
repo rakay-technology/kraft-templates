@@ -1,6 +1,4 @@
 [variables]
-seanime_downloads = "/mnt/downloads"
-seanime_anime = "/mnt/anime"
 main_domain = "${domain}"
 
 [[routes]]
