@@ -1,0 +1,18 @@
+services:
+  syncthing:
+    image: linuxserver/syncthing:amd64-2.1.5
+    restart: unless-stopped
+    expose:
+      - 8384
+      - 21027/udp
+      - 22000
+    volumes:
+      - syncthing_config:/config
+      - syncthing_data:/var/syncthing/Sync
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${timezone}
+volumes:
+  syncthing_config: null
+  syncthing_data: null

@@ -1,0 +1,10 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "quireink"
+port = 3000
+host = "${main_domain}"
+
+[env]
+QUIREINK_HOST = "${main_domain}"

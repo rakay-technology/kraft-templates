@@ -1,0 +1,13 @@
+[variables]
+main_domain = "${domain}"
+metrics_domain = "${domain}"
+
+[[routes]]
+service = "soketi"
+port = 6001
+host = "${main_domain}"
+
+[[routes]]
+service = "soketi"
+port = 9601
+host = "${metrics_domain}"

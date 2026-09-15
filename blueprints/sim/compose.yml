@@ -1,0 +1,84 @@
+services:
+  simstudio:
+    image: ghcr.io/simstudioai/simstudio:v0.8.37-amd64
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:${postgres_password}@db:5432/simstudio
+      - BETTER_AUTH_URL=${main_domain_simstudio}
+      - NEXT_PUBLIC_APP_URL=${main_domain_simstudio}
+      - BETTER_AUTH_SECRET=${better_auth_secret}
+      - ENCRYPTION_KEY=${encryption_key}
+      - API_ENCRYPTION_KEY=${api_encryption_key}
+      - INTERNAL_API_SECRET=${internal_api_secret}
+      - SOCKET_SERVER_URL=http://realtime:3002
+    depends_on:
+      - db
+      - migrations
+      - realtime
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -fsS
+        - http://127.0.0.1:3000
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    volumes: []
+    expose:
+      - 3000
+  realtime:
+    image: ghcr.io/simstudioai/realtime:v0.8.37-amd64
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:${postgres_password}@db:5432/simstudio
+      - NEXT_PUBLIC_APP_URL=${main_domain_realtime}
+      - BETTER_AUTH_URL=${main_domain_realtime}
+      - BETTER_AUTH_SECRET=${better_auth_secret}
+      - INTERNAL_API_SECRET=${internal_api_secret}
+    depends_on:
+      - db
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -fsS
+        - http://127.0.0.1:3002/health
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    volumes: []
+    expose:
+      - 3002
+  migrations:
+    image: ghcr.io/simstudioai/migrations:v0.8.37-amd64
+    working_dir: /app/packages/db
+    environment:
+      - DATABASE_URL=postgresql://postgres:${postgres_password}@db:5432/simstudio
+    depends_on:
+      - db
+    command: bun run db:migrate
+    restart: no
+    volumes: []
+  db:
+    image: pgvector/pgvector:pg17
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${postgres_password}
+      - POSTGRES_DB=simstudio
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U postgres
+      interval: 5s
+      timeout: 5s
+      retries: 5
+volumes:
+  postgres_data: null

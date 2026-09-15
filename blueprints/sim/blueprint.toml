@@ -1,0 +1,26 @@
+[variables]
+better_auth_secret = "${password:32}"
+encryption_key = "${hash:64}"
+api_encryption_key = "${hash:64}"
+internal_api_secret = "${password:32}"
+postgres_password = "${password:32}"
+main_domain_simstudio = "${domain}"
+main_domain_realtime = "${domain}"
+
+[[routes]]
+service = "simstudio"
+port = 3000
+host = "${main_domain_simstudio}"
+
+[[routes]]
+service = "realtime"
+port = 3002
+host = "${main_domain_realtime}"
+
+[env]
+SIM_APP_URL = "${main_domain_simstudio}"
+BETTER_AUTH_SECRET = "${better_auth_secret}"
+ENCRYPTION_KEY = "${encryption_key}"
+API_ENCRYPTION_KEY = "${api_encryption_key}"
+INTERNAL_API_SECRET = "${internal_api_secret}"
+POSTGRES_PASSWORD = "${postgres_password}"
