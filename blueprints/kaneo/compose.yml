@@ -6,7 +6,7 @@ services:
       POSTGRES_USER: ${AUTO_USERNAME_1}
       POSTGRES_PASSWORD: ${AUTO_PASSWORD_2}
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     restart: unless-stopped
   backend:
     image: ghcr.io/usekaneo/api:2.24.0

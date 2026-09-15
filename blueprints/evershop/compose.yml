@@ -17,7 +17,7 @@ services:
     image: postgres:18-alpine
     restart: unless-stopped
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql
     environment:
       POSTGRES_PASSWORD: ${db_password}
       POSTGRES_USER: ${db_user}
