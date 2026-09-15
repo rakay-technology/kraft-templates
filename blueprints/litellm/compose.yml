@@ -1,0 +1,48 @@
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    restart: unless-stopped
+    depends_on:
+      - litellm-db
+    environment:
+      DATABASE_URL: postgresql://${postgres_user}:${postgres_password}@litellm-db:5432/${postgres_db}
+      LITELLM_MASTER_KEY: ${litellm_master_key}
+      UI_USERNAME: ${ui_username}
+      UI_PASSWORD: ${ui_password}
+      STORE_MODEL_IN_DB: "True"
+      OPENAI_API_KEY: ${openai_api_key}
+      OPENAI_BASE_URL: ${main_domain}
+      COHERE_API_KEY: ${cohere_api_key}
+      OR_SITE_URL: ${main_domain}
+      OR_APP_NAME: ${or_app_name}
+      OR_API_KEY: ${or_api_key}
+      AZURE_API_BASE: ${azure_api_base}
+      AZURE_API_VERSION: ${azure_api_version}
+      AZURE_API_KEY: ${azure_api_key}
+      REPLICATE_API_KEY: ${replicate_api_key}
+      REPLICATE_API_TOKEN: ${replicate_api_token}
+      ANTHROPIC_API_KEY: ${anthropic_api_key}
+      INFISICAL_TOKEN: ${infisical_token}
+      NOVITA_API_KEY: ${novita_api_key}
+      INFINITY_API_KEY: ${infinity_api_key}
+    expose:
+      - 4000
+    volumes: []
+  litellm-db:
+    image: postgres:18-alpine
+    restart: on-failure
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - litellm-db:/var/lib/postgresql
+    environment:
+      POSTGRES_DB: ${postgres_db}
+      POSTGRES_USER: ${postgres_user}
+      POSTGRES_PASSWORD: ${postgres_password}
+volumes:
+  litellm-db: {}

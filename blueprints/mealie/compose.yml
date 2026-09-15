@@ -1,0 +1,28 @@
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v3.26.0
+    volumes:
+      - mealie-data:/app/data/
+    environment:
+      PUID: 1000
+      PGID: 1000
+      BASE_URL: https://${main_domain}
+      API_DOCS: ${API_DOCS}
+      ALLOW_SIGNUP: ${ALLOW_SIGNUP}
+      DEFAULT_GROUP: Home
+      DEFAULT_HOUSEHOLD: Family
+      TZ: ${TZ}
+      SECURITY_MAX_LOGIN_ATTEMPTS: "10"
+      SECURITY_USER_LOCKOUT_TIME: "24"
+      DAILY_SCHEDULE_TIME: 01:00
+      SMTP_HOST: ""
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_AUTH_STRATEGY: ${SMTP_AUTH_STRATEGY}
+      SMTP_FROM_NAME: ${SMTP_FROM_NAME}
+      SMTP_FROM_EMAIL: ""
+      SMTP_USER: ""
+      SMTP_PASSWORD: ""
+    expose:
+      - 9000
+volumes:
+  mealie-data: {}

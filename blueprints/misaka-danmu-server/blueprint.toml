@@ -1,0 +1,14 @@
+[variables]
+main_domain = "${domain}"
+db_password = "${password:24}"
+db_user = "danmuapi"
+db_name = "danmuapi"
+[env]
+DANMUAPI_DATABASE__HOST = "postgres"
+DANMUAPI_DATABASE__TYPE = "postgres"
+DANMUAPI_DATABASE__PORT = "5432"
+
+[[routes]]
+service = "danmu-app"
+port = 7768
+host = "${main_domain}"

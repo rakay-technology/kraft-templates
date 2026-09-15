@@ -1,0 +1,42 @@
+services:
+  opensourcepos:
+    image: jekkos/opensourcepos:master
+    restart: unless-stopped
+    depends_on:
+      - opensourcepos-db
+    expose:
+      - "80"
+    environment:
+      CI_ENVIRONMENT: production
+      ALLOWED_HOSTNAMES: ${allowed_hostnames}
+      FORCE_HTTPS: ${force_https}
+      PHP_TIMEZONE: ${php_timezone}
+      MYSQL_USERNAME: admin
+      MYSQL_PASSWORD: ${mysql_password}
+      MYSQL_DB_NAME: ospos
+      MYSQL_HOST_NAME: opensourcepos-db
+    volumes:
+      - opensourcepos-uploads:/app/public/uploads
+      - opensourcepos-logs:/app/writable/logs
+  opensourcepos-db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+      MYSQL_DATABASE: ospos
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: ${mysql_password}
+    volumes:
+      - opensourcepos-db:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - healthcheck.sh --connect --innodb_initialized
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+volumes:
+  opensourcepos-db: null
+  opensourcepos-uploads: null
+  opensourcepos-logs: null

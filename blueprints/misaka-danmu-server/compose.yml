@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=${db_password}
+      - POSTGRES_USER=${db_user}
+      - POSTGRES_DB=${db_name}
+      - TZ=Asia/Shanghai
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U danmuapi -d danmuapi
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+  danmu-app:
+    image: l429609201/misaka_danmu_server:v2.8.9-amd64
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=0022
+      - TZ=Asia/Shanghai
+      - DANMUAPI_DATABASE__TYPE=postgres
+      - DANMUAPI_DATABASE__HOST=postgres
+      - DANMUAPI_DATABASE__PORT=5432
+      - DANMUAPI_DATABASE__NAME=${db_name}
+      - DANMUAPI_DATABASE__USER=${db_user}
+      - DANMUAPI_DATABASE__PASSWORD=${db_password}
+      - DANMUAPI_ADMIN__INITIAL_USER=admin
+    volumes:
+      - danmu-config:/app/config
+    expose:
+      - 7768
+volumes:
+  postgres-data: {}
+  danmu-config: {}
