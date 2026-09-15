@@ -4,6 +4,7 @@ postgres_password = "${password:32}"
 anthropic_api_key = "CHANGEME-replace-me"
 openai_api_key = "CHANGEME-replace-me"
 gemini_api_key = "CHANGEME-replace-me"
+admin_email = "${email}"
 
 [[routes]]
 service = "systemprompt"
@@ -11,6 +12,7 @@ port = 8080
 host = "${main_domain}"
 
 [env]
+ADMIN_EMAIL = "${admin_email}"
 POSTGRES_PASSWORD = "${postgres_password}"
 EXTERNAL_URL = "${main_domain}"
 ANTHROPIC_API_KEY = "${anthropic_api_key}"

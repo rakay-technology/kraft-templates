@@ -10,6 +10,7 @@ services:
       OPENAI_API_KEY: ${openai_api_key}
       GEMINI_API_KEY: ${gemini_api_key}
       EXTERNAL_URL: ${main_domain}
+      ADMIN_EMAIL: ${admin_email}
       HOST: 0.0.0.0
       PORT: 8080
     expose:
