@@ -96,14 +96,39 @@ jobs:
         env:
           REPORT: ${{ steps.summary.outputs.body }}
 
-  # Boot smoke test for changed blueprints: config → up → stays running →
-  # down. This is the `available:true` gate — a pinned-image app ships only
-  # with a green smoke run. Needs no Kraft checkout (plain docker).
-  smoke:
+  # Changed blueprint dirs as JSON — feeds the smoke matrix so every app in
+  # the PR is tested in its own job in ONE run (no fail-fast iteration).
+  changed:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    outputs:
+      dirs: ${{ steps.list.outputs.dirs }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: list
+        run: |
+          dirs=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- blueprints | cut -d/ -f2 | sort -u | sed 's|^|blueprints/|' | python3 -c "import json,sys; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))")
+          echo "dirs=$dirs" >> "$GITHUB_OUTPUT"
+
+  # Boot smoke test for changed blueprints: config → up → stays running →
+  # down. This is the `available:true` gate — a pinned-image app ships only
+  # with a green smoke run. Needs no Kraft checkout (plain docker).
+  # One job per app (fail-fast off): a full wave reports ALL boot failures
+  # at once, each with the failing service's log tail (see smoke.js).
+  smoke:
+    if: github.event_name == 'pull_request'
+    needs: changed
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: ${{ fromJSON(needs.changed.outputs.dirs) }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -113,8 +138,4 @@ jobs:
           node-version: 22
       - run: npm install --no-audit --no-fund
         working-directory: build-scripts
-      - id: changed
-        run: |
-          echo "dirs=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- blueprints | cut -d/ -f2 | sort -u | sed 's|^|blueprints/|' | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
-      - run: node build-scripts/smoke.js ${{ steps.changed.outputs.dirs }}
-        if: steps.changed.outputs.dirs != ''
+      - run: node build-scripts/smoke.js ${{ matrix.dir }}
