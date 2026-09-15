@@ -9,7 +9,7 @@
       "headless",
       "api"
     ],
-    "updatedAt": "2026-09-15T08:28:54.701Z"
+    "updatedAt": "2026-09-15T12:22:19.201Z"
   },
   {
     "id": "ghost",
@@ -21,7 +21,7 @@
       "blog",
       "newsletter"
     ],
-    "updatedAt": "2026-09-15T08:28:54.710Z"
+    "updatedAt": "2026-09-15T12:22:19.210Z"
   },
   {
     "id": "mautic",
@@ -34,7 +34,7 @@
       "email",
       "crm"
     ],
-    "updatedAt": "2026-09-15T08:28:54.716Z"
+    "updatedAt": "2026-09-15T12:22:19.214Z"
   },
   {
     "id": "mindwire",
@@ -47,7 +47,7 @@
       "coding",
       "control-plane"
     ],
-    "updatedAt": "2026-09-15T08:28:54.719Z"
+    "updatedAt": "2026-09-15T12:22:19.218Z"
   },
   {
     "id": "stirling-pdf",
@@ -59,7 +59,7 @@
       "documents",
       "tools"
     ],
-    "updatedAt": "2026-09-15T08:28:54.722Z"
+    "updatedAt": "2026-09-15T12:22:19.220Z"
   },
   {
     "id": "umami",
@@ -72,7 +72,7 @@
       "privacy",
       "statistics"
     ],
-    "updatedAt": "2026-09-15T08:28:54.724Z"
+    "updatedAt": "2026-09-15T12:22:19.222Z"
   },
   {
     "id": "uptime-kuma",
@@ -84,6 +84,6 @@
       "uptime",
       "status"
     ],
-    "updatedAt": "2026-09-15T08:28:54.725Z"
+    "updatedAt": "2026-09-15T12:22:19.223Z"
   }
 ]
