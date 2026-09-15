@@ -1,7 +1,0 @@
-services:
-  poke:
-    image: codeberg.org/poketube/poke:amd64
-    restart: unless-stopped
-    volumes: []
-    expose:
-      - 6003

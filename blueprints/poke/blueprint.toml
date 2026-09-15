@@ -1,7 +1,0 @@
-[variables]
-main_domain = "${domain}"
-
-[[routes]]
-service = "poke"
-port = 6003
-host = "${main_domain}"
