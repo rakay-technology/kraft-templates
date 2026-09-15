@@ -1,0 +1,18 @@
+[variables]
+main_domain = "${domain}"
+secret_key = "${base64:32}"
+AUTO_EMAIL_1 = "${email}"
+AUTO_EMAIL_2 = "${email}"
+AUTO_EMAIL_3 = "${email}"
+AUTO_EMAIL_4 = "${email}"
+
+[[routes]]
+service = "web"
+port = 8000
+host = "${main_domain}"
+
+[env]
+DEFAULT_FROM_EMAIL = "${AUTO_EMAIL_4}"
+GLITCHTIP_DOMAIN = "https://${main_domain}"
+GLITCHTIP_PORT = "8000"
+SECRET_KEY = "${secret_key}"

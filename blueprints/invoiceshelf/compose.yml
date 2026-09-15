@@ -1,0 +1,48 @@
+services:
+  invoiceshelf-postgres:
+    image: postgres:18-alpine
+    volumes:
+      - invoiceshelf-postgres-data:/var/lib/postgresql
+    environment:
+      - POSTGRES_PASSWORD=${db_password}
+      - POSTGRES_USER=${db_username}
+      - POSTGRES_DB=${db_database}
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${DB_USERNAME}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  invoiceshelf-app:
+    image: invoiceshelf/invoiceshelf:2.4.2
+    volumes:
+      - invoiceshelf-storage:/var/www/html/storage
+    environment:
+      - PHP_TZ=UTC
+      - TIMEZONE=UTC
+      - APP_NAME=InvoiceShelf
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_URL=http://${main_domain}
+      - DB_CONNECTION=pgsql
+      - DB_HOST=invoiceshelf-postgres
+      - DB_PORT=5432
+      - DB_DATABASE=${db_database}
+      - DB_USERNAME=${db_username}
+      - DB_PASSWORD=${db_password}
+      - CACHE_STORE=file
+      - SESSION_DRIVER=file
+      - SESSION_LIFETIME=120
+      - SESSION_ENCRYPT=true
+      - SESSION_PATH=/
+      - SESSION_DOMAIN=${main_domain}
+      - SANCTUM_STATEFUL_DOMAINS=${main_domain}
+      - STARTUP_DELAY=10
+    depends_on:
+      - invoiceshelf-postgres
+    expose:
+      - 8080
+volumes:
+  invoiceshelf-postgres-data: null
+  invoiceshelf-storage: null

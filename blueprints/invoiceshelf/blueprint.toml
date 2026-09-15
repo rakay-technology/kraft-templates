@@ -1,0 +1,16 @@
+[variables]
+main_domain = "${domain}"
+db_password = "${password}"
+db_username = "invoiceshelf"
+db_database = "invoiceshelf"
+
+[[routes]]
+service = "invoiceshelf-app"
+port = 8080
+host = "${main_domain}"
+
+[env]
+INVOICESHELF_HOST = "${main_domain}"
+DB_PASSWORD = "${db_password}"
+DB_USERNAME = "${db_username}"
+DB_DATABASE = "${db_database}"

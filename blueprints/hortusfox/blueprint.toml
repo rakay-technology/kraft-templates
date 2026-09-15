@@ -1,0 +1,14 @@
+[variables]
+main_domain = "${domain}"
+APP_ADMIN_EMAIL = "${email}"
+APP_ADMIN_PASSWORD = "${password:16}"
+APP_TIMEZONE = "UTC"
+DB_DATABASE = "hortusfox"
+DB_USERNAME = "hortususer"
+DB_PASSWORD = "${password:20}"
+MARIADB_ROOT_PASSWORD = "${password:24}"
+
+[[routes]]
+service = "app"
+port = 80
+host = "${main_domain}"

@@ -1,0 +1,23 @@
+services:
+  web:
+    image: ghcr.io/karakeep-app/karakeep:release
+    restart: unless-stopped
+    volumes:
+      - data:/data
+    environment:
+      MEILI_ADDR: http://meilisearch:7700
+      BROWSER_WEB_URL: http://chrome:9222
+      DATA_DIR: /data
+      NEXTAUTH_SECRET: ${nextauth_secret}
+    expose:
+      - 3000
+  meilisearch:
+    image: getmeili/meilisearch:v1.13.3
+    restart: unless-stopped
+    environment:
+      MEILI_NO_ANALYTICS: "true"
+    volumes:
+      - meilisearch:/meili_data
+volumes:
+  meilisearch: null
+  data: null
