@@ -1,5 +1,679 @@
 [
   {
+    "id": "9router",
+    "name": "9Router",
+    "version": "0.5.40",
+    "category": "other",
+    "tags": [
+      "ai",
+      "proxy",
+      "developer-tools"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.898Z"
+  },
+  {
+    "id": "ackee",
+    "name": "Ackee",
+    "version": "latest",
+    "category": "analytics",
+    "tags": [
+      "analytics",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.907Z"
+  },
+  {
+    "id": "actualbudget",
+    "name": "Actual Budget",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "budgeting",
+      "finance",
+      "money"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.909Z"
+  },
+  {
+    "id": "adminer",
+    "name": "Adminer",
+    "version": "4.8.1",
+    "category": "database",
+    "tags": [
+      "databases",
+      "developer-tools",
+      "mysql",
+      "postgresql"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.910Z"
+  },
+  {
+    "id": "adventurelog",
+    "name": "AdventureLog",
+    "version": "latest",
+    "category": "automation",
+    "tags": [
+      "activity",
+      "maps",
+      "django",
+      "react",
+      "postgres"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.913Z"
+  },
+  {
+    "id": "akaunting",
+    "name": "Akaunting",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "finance",
+      "accounting",
+      "php",
+      "mariadb",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.917Z"
+  },
+  {
+    "id": "alist",
+    "name": "AList",
+    "version": "v3.55.0",
+    "category": "backend",
+    "tags": [
+      "file",
+      "webdav",
+      "storage"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.918Z"
+  },
+  {
+    "id": "alltube",
+    "name": "AllTube",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "media",
+      "video",
+      "downloader"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.920Z"
+  },
+  {
+    "id": "ampache",
+    "name": "Ampache",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "media",
+      "music",
+      "streaming"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.921Z"
+  },
+  {
+    "id": "anonupload",
+    "name": "AnonUpload",
+    "version": "1",
+    "category": "database",
+    "tags": [
+      "file-sharing",
+      "privacy"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.923Z"
+  },
+  {
+    "id": "anse",
+    "name": "Anse",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "ai",
+      "chatbot",
+      "openai",
+      "ui"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.924Z"
+  },
+  {
+    "id": "answer",
+    "name": "Answer",
+    "version": "v1.4.1",
+    "category": "other",
+    "tags": [
+      "q-and-a",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.926Z"
+  },
+  {
+    "id": "anubis",
+    "name": "Anubis",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "self-hosted",
+      "bot-protection"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.927Z"
+  },
+  {
+    "id": "apprise-api",
+    "name": "Apprise API",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "notifications",
+      "api"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.928Z"
+  },
+  {
+    "id": "argilla",
+    "name": "Argilla",
+    "version": "latest",
+    "category": "automation",
+    "tags": [
+      "machine-learning",
+      "data-labeling",
+      "ai"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.930Z"
+  },
+  {
+    "id": "audiobookshelf",
+    "name": "Audiobookshelf",
+    "version": "2.19.4",
+    "category": "backend",
+    "tags": [
+      "media",
+      "audiobooks",
+      "podcasts"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.931Z"
+  },
+  {
+    "id": "authorizer",
+    "name": "Authorizer",
+    "version": "1.4.4",
+    "category": "other",
+    "tags": [
+      "authentication",
+      "authorization",
+      "security"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.933Z"
+  },
+  {
+    "id": "azuracast",
+    "name": "AzuraCast",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "radio",
+      "streaming",
+      "media",
+      "broadcasting",
+      "music",
+      "entertainment"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.935Z"
+  },
+  {
+    "id": "babybuddy",
+    "name": "BabyBuddy",
+    "version": "2.7.0",
+    "category": "analytics",
+    "tags": [
+      "parenting",
+      "tracking",
+      "family"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.936Z"
+  },
+  {
+    "id": "baikal",
+    "name": "Baikal",
+    "version": "nginx-php8.2",
+    "category": "backend",
+    "tags": [
+      "calendar",
+      "contacts",
+      "caldav",
+      "carddav"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.938Z"
+  },
+  {
+    "id": "barrage",
+    "name": "Barrage",
+    "version": "0.3.0",
+    "category": "other",
+    "tags": [
+      "torrents",
+      "deluge",
+      "mobile"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.938Z"
+  },
+  {
+    "id": "bazarr",
+    "name": "Bazarr",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "subtitles",
+      "sonarr",
+      "radarr"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.939Z"
+  },
+  {
+    "id": "bentopdf",
+    "name": "BentoPDF",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "pdf",
+      "converter",
+      "api",
+      "utility"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.940Z"
+  },
+  {
+    "id": "blinko",
+    "name": "Blinko",
+    "version": "latest",
+    "category": "automation",
+    "tags": [
+      "productivity",
+      "organization",
+      "workflow",
+      "nextjs"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.942Z"
+  },
+  {
+    "id": "bolt.diy",
+    "name": "bolt.diy",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "ai",
+      "self-hosted",
+      "development",
+      "chatbot",
+      "ide",
+      "llm"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.943Z"
+  },
+  {
+    "id": "bonfire",
+    "name": "Bonfire",
+    "version": "1.0.5",
+    "category": "other",
+    "tags": [
+      "social",
+      "fediverse",
+      "activitypub"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.945Z"
+  },
+  {
+    "id": "bookstack",
+    "name": "BookStack",
+    "version": "24.12.1",
+    "category": "other",
+    "tags": [
+      "documentation",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.947Z"
+  },
+  {
+    "id": "botpress",
+    "name": "Botpress",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "ai",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.949Z"
+  },
+  {
+    "id": "browserless",
+    "name": "Browserless",
+    "version": "2.23.0",
+    "category": "automation",
+    "tags": [
+      "browser",
+      "automation"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.950Z"
+  },
+  {
+    "id": "bugsink",
+    "name": "Bugsink",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "hosting",
+      "self-hosted",
+      "development"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.952Z"
+  },
+  {
+    "id": "bytestash",
+    "name": "ByteStash",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "file-storage",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.954Z"
+  },
+  {
+    "id": "calcom",
+    "name": "Calcom",
+    "version": "v6.2.0",
+    "category": "other",
+    "tags": [
+      "scheduling",
+      "booking"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.955Z"
+  },
+  {
+    "id": "calibre",
+    "name": "Calibre",
+    "version": "7.26.0",
+    "category": "other",
+    "tags": [
+      "documents",
+      "e-commerce"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.956Z"
+  },
+  {
+    "id": "certmate",
+    "name": "CertMate",
+    "version": "2.21.3",
+    "category": "backend",
+    "tags": [
+      "ssl",
+      "certificates",
+      "security",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.958Z"
+  },
+  {
+    "id": "changedetection",
+    "name": "Change Detection",
+    "version": "0.49",
+    "category": "other",
+    "tags": [
+      "monitoring",
+      "data",
+      "notifications"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.958Z"
+  },
+  {
+    "id": "chatto",
+    "name": "Chatto (single binary)",
+    "version": "0.4.x",
+    "category": "mail",
+    "tags": [
+      "chat",
+      "communication",
+      "messaging",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.959Z"
+  },
+  {
+    "id": "checkcle",
+    "name": "Checkcle",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "security",
+      "compliance",
+      "monitoring"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.960Z"
+  },
+  {
+    "id": "chevereto",
+    "name": "Chevereto",
+    "version": "4",
+    "category": "other",
+    "tags": [
+      "image-hosting",
+      "file-management",
+      "open-source",
+      "multi-user",
+      "private-albums"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.962Z"
+  },
+  {
+    "id": "chiefonboarding",
+    "name": "Chief-Onboarding",
+    "version": "v2.2.5",
+    "category": "other",
+    "tags": [
+      "employee-onboarding",
+      "hr-management",
+      "task-tracking",
+      "role-based-access",
+      "document-management"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.964Z"
+  },
+  {
+    "id": "chromium",
+    "name": "Chromium",
+    "version": "5f5dd27e-ls102",
+    "category": "other",
+    "tags": [
+      "browser",
+      "development",
+      "web"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.965Z"
+  },
+  {
+    "id": "classicpress",
+    "name": "ClassicPress",
+    "version": "php8.3-apache",
+    "category": "cms",
+    "tags": [
+      "cms",
+      "wordpress",
+      "content-management"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.966Z"
+  },
+  {
+    "id": "cloudreve",
+    "name": "Cloudreve",
+    "version": "4.10.1",
+    "category": "backend",
+    "tags": [
+      "storage",
+      "file-sharing",
+      "cloud",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.969Z"
+  },
+  {
+    "id": "cockpit",
+    "name": "Cockpit",
+    "version": "core-2.11.0",
+    "category": "cms",
+    "tags": [
+      "cms",
+      "content-management",
+      "api"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.971Z"
+  },
+  {
+    "id": "commento",
+    "name": "Commento",
+    "version": "v1.8.0",
+    "category": "other",
+    "tags": [
+      "comments",
+      "discussion",
+      "website"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.972Z"
+  },
+  {
+    "id": "commentoplusplus",
+    "name": "Commento++",
+    "version": "v1.8.7",
+    "category": "other",
+    "tags": [
+      "comments",
+      "website",
+      "open-source"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.973Z"
+  },
+  {
+    "id": "conduit",
+    "name": "Conduit",
+    "version": "v0.9.0",
+    "category": "backend",
+    "tags": [
+      "matrix",
+      "communication"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.974Z"
+  },
+  {
+    "id": "confluence",
+    "name": "Confluence",
+    "version": "8.6",
+    "category": "automation",
+    "tags": [
+      "collaboration",
+      "documentation",
+      "productivity",
+      "project-management"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.975Z"
+  },
+  {
+    "id": "cookie-cloud",
+    "name": "CookieCloud",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "cookies",
+      "sync",
+      "selfhosted",
+      "privacy"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.976Z"
+  },
+  {
+    "id": "coralproject",
+    "name": "Coral",
+    "version": "9.7.0",
+    "category": "other",
+    "tags": [
+      "communication",
+      "community",
+      "privacy"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.977Z"
+  },
+  {
+    "id": "couchdb",
+    "name": "CouchDB",
+    "version": "latest",
+    "category": "database",
+    "tags": [
+      "database",
+      "storage"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.978Z"
+  },
+  {
+    "id": "crawl4ai",
+    "name": "Crawl4AI",
+    "version": "0.7.3",
+    "category": "automation",
+    "tags": [
+      "crawler",
+      "scraping",
+      "ai",
+      "llm",
+      "api"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.979Z"
+  },
+  {
+    "id": "cyberchef",
+    "name": "CyberChef",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "security",
+      "encryption",
+      "data-analysis"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.980Z"
+  },
+  {
+    "id": "dashy",
+    "name": "Dashy",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "dashboard",
+      "monitoring",
+      "self-hosted",
+      "homelab"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.980Z"
+  },
+  {
+    "id": "databasus",
+    "name": "Databasus",
+    "version": "latest",
+    "category": "database",
+    "tags": [
+      "postgres",
+      "backup",
+      "s3"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.981Z"
+  },
+  {
+    "id": "directory-lister",
+    "name": "Directory Lister",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "file-manager",
+      "directory-listing",
+      "php"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.981Z"
+  },
+  {
     "id": "directus",
     "name": "Directus",
     "version": "12.3.1",
@@ -9,7 +683,432 @@
       "headless",
       "api"
     ],
-    "updatedAt": "2026-09-15T12:22:19.201Z"
+    "updatedAt": "2026-09-15T13:03:48.982Z"
+  },
+  {
+    "id": "discord-tickets",
+    "name": "Discord Tickets",
+    "version": "4.0.21",
+    "category": "other",
+    "tags": [
+      "discord",
+      "tickets",
+      "support"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.984Z"
+  },
+  {
+    "id": "discourse",
+    "name": "Discourse",
+    "version": "2026.1.4",
+    "category": "mail",
+    "tags": [
+      "forum",
+      "community",
+      "discussion"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.986Z"
+  },
+  {
+    "id": "docling-serve",
+    "name": "Docling Serve",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "document-processing",
+      "api",
+      "ai",
+      "conversion",
+      "pdf",
+      "office"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.987Z"
+  },
+  {
+    "id": "docmost",
+    "name": "Docmost",
+    "version": "0.4.1",
+    "category": "cms",
+    "tags": [
+      "self-hosted",
+      "open-source",
+      "manager"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.988Z"
+  },
+  {
+    "id": "docuseal",
+    "name": "Docuseal",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "document-signing"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.990Z"
+  },
+  {
+    "id": "dolibarr",
+    "name": "Dolibarr",
+    "version": "21.0.0",
+    "category": "other",
+    "tags": [
+      "erp",
+      "crm",
+      "business",
+      "management",
+      "invoicing"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.991Z"
+  },
+  {
+    "id": "domain-locker",
+    "name": "Domain Locker",
+    "version": "latest",
+    "category": "analytics",
+    "tags": [
+      "domains",
+      "monitoring",
+      "utilities",
+      "postgres"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.993Z"
+  },
+  {
+    "id": "doublezero",
+    "name": "Double Zero",
+    "version": "v0.2.1",
+    "category": "mail",
+    "tags": [
+      "email"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.994Z"
+  },
+  {
+    "id": "drawnix",
+    "name": "Drawnix",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "visualization",
+      "content-generation"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.996Z"
+  },
+  {
+    "id": "drizzle-gateway",
+    "name": "drizzle gateway",
+    "version": "latest",
+    "category": "database",
+    "tags": [
+      "database",
+      "gateway"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.996Z"
+  },
+  {
+    "id": "dumbassets",
+    "name": "DumbAssets",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "asset-tracking",
+      "self-hosted",
+      "simple"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.997Z"
+  },
+  {
+    "id": "dumbpad",
+    "name": "DumbPad",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "notepad",
+      "self-hosted",
+      "simple"
+    ],
+    "updatedAt": "2026-09-15T13:03:48.998Z"
+  },
+  {
+    "id": "easyappointments",
+    "name": "Easy!Appointments",
+    "version": "1.5.0",
+    "category": "other",
+    "tags": [
+      "scheduling",
+      "appointments",
+      "booking"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.000Z"
+  },
+  {
+    "id": "emqx",
+    "name": "EMQX",
+    "version": "6.0.1",
+    "category": "other",
+    "tags": [
+      "broker",
+      "iot",
+      "mqtt"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.001Z"
+  },
+  {
+    "id": "engram",
+    "name": "Engram",
+    "version": "1.16.3",
+    "category": "database",
+    "tags": [
+      "ai",
+      "memory",
+      "developer-tools"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.003Z"
+  },
+  {
+    "id": "evolutionapi",
+    "name": "Evolution API",
+    "version": "v2.3.7",
+    "category": "backend",
+    "tags": [
+      "api",
+      "whatsapp",
+      "messaging"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.005Z"
+  },
+  {
+    "id": "ezbookkeeping",
+    "name": "EZBookkeeping",
+    "version": "latest",
+    "category": "analytics",
+    "tags": [
+      "bookkeeping",
+      "finance",
+      "accounting",
+      "self-hosted",
+      "personal-finance",
+      "business-finance"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.006Z"
+  },
+  {
+    "id": "falkordb",
+    "name": "FalkorDB",
+    "version": "4.20.4",
+    "category": "database",
+    "tags": [
+      "database",
+      "graph-database",
+      "knowledge-graph",
+      "graphrag",
+      "ai",
+      "redis"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.008Z"
+  },
+  {
+    "id": "fider",
+    "name": "Fider",
+    "version": "0.21.1",
+    "category": "other",
+    "tags": [
+      "feedback",
+      "product",
+      "roadmap",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.010Z"
+  },
+  {
+    "id": "filebrowser",
+    "name": "File Browser",
+    "version": "2.31.2",
+    "category": "other",
+    "tags": [
+      "file-manager",
+      "storage"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.010Z"
+  },
+  {
+    "id": "filegator",
+    "name": "FileGator",
+    "version": "7.14.3",
+    "category": "other",
+    "tags": [
+      "files",
+      "file-manager",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.011Z"
+  },
+  {
+    "id": "filerun",
+    "name": "FileRun",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "file-manager",
+      "file-sharing",
+      "storage"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.012Z"
+  },
+  {
+    "id": "filestash",
+    "name": "Filestash",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "file-manager",
+      "document-editor",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.013Z"
+  },
+  {
+    "id": "firefly-iii",
+    "name": "Firefly III",
+    "version": "6.6.3",
+    "category": "analytics",
+    "tags": [
+      "finance",
+      "budgeting",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.015Z"
+  },
+  {
+    "id": "flagsmith",
+    "name": "Flagsmith",
+    "version": "2.177.1",
+    "category": "other",
+    "tags": [
+      "feature-flag",
+      "feature-management",
+      "feature-toggle",
+      "remote-configuration"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.017Z"
+  },
+  {
+    "id": "flaresolverr",
+    "name": "FlareSolverr",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "proxy",
+      "cloudflare",
+      "bypass",
+      "ddos-guard"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.018Z"
+  },
+  {
+    "id": "flarum",
+    "name": "Flarum",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "forum",
+      "community",
+      "discussion",
+      "php"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.019Z"
+  },
+  {
+    "id": "flatnotes",
+    "name": "Flatnotes",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "notes",
+      "productivity",
+      "markdown",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.020Z"
+  },
+  {
+    "id": "flatnotes-totp",
+    "name": "Flatnotes (TOTP)",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "notes",
+      "productivity",
+      "markdown",
+      "self-hosted",
+      "totp",
+      "2fa"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.021Z"
+  },
+  {
+    "id": "fmd-server",
+    "name": "FMD Server",
+    "version": "0.16.0",
+    "category": "backend",
+    "tags": [
+      "phone",
+      "security",
+      "gps",
+      "location"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.022Z"
+  },
+  {
+    "id": "forgejo",
+    "name": "Forgejo",
+    "version": "16",
+    "category": "other",
+    "tags": [
+      "self-hosted",
+      "storage"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.023Z"
+  },
+  {
+    "id": "freellmapi",
+    "name": "FreeLLMAPI",
+    "version": "v0.8.4",
+    "category": "analytics",
+    "tags": [
+      "ai",
+      "proxy",
+      "llm",
+      "openai-compatible",
+      "developer-tools"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.025Z"
+  },
+  {
+    "id": "freescout",
+    "name": "FreeScout",
+    "version": "latest",
+    "category": "mail",
+    "tags": [
+      "helpdesk",
+      "support",
+      "email",
+      "customer-service",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.028Z"
+  },
+  {
+    "id": "geoserver",
+    "name": "GeoServer & PostGIS",
+    "version": "2.24.1",
+    "category": "database",
+    "tags": [
+      "geospatial",
+      "gis",
+      "postgis"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.030Z"
   },
   {
     "id": "ghost",
@@ -21,7 +1120,594 @@
       "blog",
       "newsletter"
     ],
-    "updatedAt": "2026-09-15T12:22:19.210Z"
+    "updatedAt": "2026-09-15T13:03:49.031Z"
+  },
+  {
+    "id": "gitea-sqlite",
+    "name": "Gitea (SQLite)",
+    "version": "1.24.4",
+    "category": "other",
+    "tags": [
+      "git",
+      "scm",
+      "developer-tools",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.033Z"
+  },
+  {
+    "id": "gitlab-ce",
+    "name": "GitLab CE",
+    "version": "19.1.2",
+    "category": "other",
+    "tags": [
+      "git",
+      "ci-cd",
+      "version-control",
+      "project-management"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.034Z"
+  },
+  {
+    "id": "glpi",
+    "name": "GLPI Project",
+    "version": "10.0.16",
+    "category": "other",
+    "tags": [
+      "self-hosted",
+      "project-management",
+      "management"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.036Z"
+  },
+  {
+    "id": "go-whatsapp-web-multidevice",
+    "name": "WhatsApp API Multi Device Version",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "whatsapp",
+      "self-hosted",
+      "open-source",
+      "api"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.037Z"
+  },
+  {
+    "id": "go2rtc",
+    "name": "go2rtc",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "streaming",
+      "webrtc",
+      "video",
+      "home-assistant"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.038Z"
+  },
+  {
+    "id": "gotenberg",
+    "name": "Gotenberg",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "api",
+      "backend",
+      "pdf",
+      "tools"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.038Z"
+  },
+  {
+    "id": "gotify",
+    "name": "Gotify",
+    "version": "2.9.1",
+    "category": "backend",
+    "tags": [
+      "notifications",
+      "self-hosted",
+      "push"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.039Z"
+  },
+  {
+    "id": "grimoire",
+    "name": "Grimoire",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "bookmarks",
+      "self-hosted",
+      "knowledge-management"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.039Z"
+  },
+  {
+    "id": "grist",
+    "name": "Grist",
+    "version": "latest",
+    "category": "database",
+    "tags": [
+      "spreadsheet",
+      "database",
+      "productivity",
+      "self-hosted",
+      "data-management"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.040Z"
+  },
+  {
+    "id": "habitica",
+    "name": "Habitica",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "productivity",
+      "gamification",
+      "habits",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.042Z"
+  },
+  {
+    "id": "hedgedoc",
+    "name": "HedgeDoc",
+    "version": "1.10.8",
+    "category": "other",
+    "tags": [
+      "markdown",
+      "notes",
+      "documentation",
+      "collaboration",
+      "wiki"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.043Z"
+  },
+  {
+    "id": "hermes",
+    "name": "Hermes",
+    "version": "v2026.6.19",
+    "category": "backend",
+    "tags": [
+      "ai",
+      "agent",
+      "llm",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.044Z"
+  },
+  {
+    "id": "heyform",
+    "name": "HeyForm",
+    "version": "v0.1.0",
+    "category": "other",
+    "tags": [
+      "form",
+      "builder",
+      "questionnaire",
+      "quiz",
+      "survey"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.045Z"
+  },
+  {
+    "id": "homarr",
+    "name": "Homarr",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "dashboard",
+      "monitoring"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.046Z"
+  },
+  {
+    "id": "homebox",
+    "name": "Homebox",
+    "version": "latest",
+    "category": "analytics",
+    "tags": [
+      "inventory",
+      "home",
+      "organization",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.046Z"
+  },
+  {
+    "id": "i18n-blog",
+    "name": "i18n Blog (Kuno)",
+    "version": "latest",
+    "category": "cms",
+    "tags": [
+      "blog",
+      "i18n",
+      "nextjs",
+      "go",
+      "web"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.047Z"
+  },
+  {
+    "id": "imgproxy",
+    "name": "imgproxy",
+    "version": "v3.30.1",
+    "category": "backend",
+    "tags": [
+      "images",
+      "media",
+      "proxy",
+      "cdn",
+      "caching"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.048Z"
+  },
+  {
+    "id": "immich",
+    "name": "Immich",
+    "version": "v3.0.2",
+    "category": "other",
+    "tags": [
+      "photos",
+      "videos",
+      "backup",
+      "media"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.051Z"
+  },
+  {
+    "id": "infisical",
+    "name": "Infisical",
+    "version": "0.162.6",
+    "category": "other",
+    "tags": [
+      "self-hosted",
+      "open-source"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.053Z"
+  },
+  {
+    "id": "inkvoice",
+    "name": "Inkvoice",
+    "version": "0.1.0",
+    "category": "other",
+    "tags": [
+      "invoicing",
+      "billing",
+      "finance",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.055Z"
+  },
+  {
+    "id": "ipfs",
+    "name": "IPFS (Kubo)",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "storage",
+      "decentralized",
+      "p2p",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.056Z"
+  },
+  {
+    "id": "jellyfin",
+    "name": "jellyfin",
+    "version": "v10.9.7",
+    "category": "other",
+    "tags": [
+      "media-system"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.056Z"
+  },
+  {
+    "id": "jellyseerr",
+    "name": "Jellyseerr",
+    "version": "2.7.3",
+    "category": "other",
+    "tags": [
+      "media",
+      "requests",
+      "jellyfin"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.057Z"
+  },
+  {
+    "id": "joplin-server",
+    "name": "Joplin Server",
+    "version": "3.7.1",
+    "category": "backend",
+    "tags": [
+      "notes",
+      "sync",
+      "productivity"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.058Z"
+  },
+  {
+    "id": "kanbn",
+    "name": "Kanbn",
+    "version": "0.6.0",
+    "category": "other",
+    "tags": [
+      "collaboration",
+      "project-management",
+      "kanban-board",
+      "task-management"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.060Z"
+  },
+  {
+    "id": "kavita",
+    "name": "Kavita",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "media",
+      "ebooks",
+      "comics",
+      "library"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.060Z"
+  },
+  {
+    "id": "keydb",
+    "name": "KeyDB",
+    "version": "latest",
+    "category": "database",
+    "tags": [
+      "database",
+      "cache",
+      "redis",
+      "key-value"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.061Z"
+  },
+  {
+    "id": "kimai",
+    "name": "Kimai",
+    "version": "2.31.0",
+    "category": "analytics",
+    "tags": [
+      "invoice",
+      "business",
+      "finance"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.063Z"
+  },
+  {
+    "id": "kitchenowl",
+    "name": "KitchenOwl",
+    "version": "v0.7.1",
+    "category": "other",
+    "tags": [
+      "self-hosted",
+      "recipes",
+      "grocery",
+      "personal"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.064Z"
+  },
+  {
+    "id": "kokoro-web",
+    "name": "Kokoro Web",
+    "version": "latest",
+    "category": "automation",
+    "tags": [
+      "text-to-speech",
+      "ai",
+      "voice",
+      "web"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.064Z"
+  },
+  {
+    "id": "komari-monitor",
+    "name": "Komari Monitor",
+    "version": "latest",
+    "category": "analytics",
+    "tags": [
+      "monitoring",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.065Z"
+  },
+  {
+    "id": "kotonoba",
+    "name": "Kotonoba",
+    "version": "1.0.19",
+    "category": "cms",
+    "tags": [
+      "blog",
+      "i18n",
+      "nextjs",
+      "web"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.066Z"
+  },
+  {
+    "id": "langflow",
+    "name": "Langflow",
+    "version": "1.1.1",
+    "category": "automation",
+    "tags": [
+      "ai"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.068Z"
+  },
+  {
+    "id": "languagetool",
+    "name": "LanguageTool",
+    "version": "6.6",
+    "category": "other",
+    "tags": [
+      "writing",
+      "grammar",
+      "spellcheck",
+      "api"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.068Z"
+  },
+  {
+    "id": "leantime",
+    "name": "Leantime",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "project-management",
+      "productivity",
+      "self-hosted",
+      "php"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.069Z"
+  },
+  {
+    "id": "letterfeed",
+    "name": "Letterfeed",
+    "version": "latest",
+    "category": "mail",
+    "tags": [
+      "email",
+      "self-hosted",
+      "productivity"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.071Z"
+  },
+  {
+    "id": "librespeed",
+    "name": "LibreSpeed",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "speedtest",
+      "networking",
+      "monitoring",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.072Z"
+  },
+  {
+    "id": "libretranslate",
+    "name": "LibreTranslate",
+    "version": "1.7.3",
+    "category": "backend",
+    "tags": [
+      "translation",
+      "api",
+      "nlp",
+      "language"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.072Z"
+  },
+  {
+    "id": "limesurvey",
+    "name": "LimeSurvey",
+    "version": "6.17.2+260507",
+    "category": "other",
+    "tags": [
+      "forms",
+      "questionnaire",
+      "survey"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.073Z"
+  },
+  {
+    "id": "linkwarden",
+    "name": "Linkwarden",
+    "version": "2.9.3",
+    "category": "other",
+    "tags": [
+      "bookmarks",
+      "link-sharing"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.074Z"
+  },
+  {
+    "id": "lobe-chat",
+    "name": "Lobe Chat",
+    "version": "v1.26.1",
+    "category": "other",
+    "tags": [
+      "ia",
+      "chat"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.075Z"
+  },
+  {
+    "id": "lubelogger",
+    "name": "LubeLogger",
+    "version": "v1.6.5",
+    "category": "other",
+    "tags": [
+      "vehicle",
+      "maintenance",
+      "fleet",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.076Z"
+  },
+  {
+    "id": "mage-ai",
+    "name": "Mage AI",
+    "version": "0.9.78",
+    "category": "other",
+    "tags": [
+      "data",
+      "dbt",
+      "etl",
+      "pipelines"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.076Z"
+  },
+  {
+    "id": "mailcatcher-ng",
+    "name": "MailCatcher NG",
+    "version": "1.6.8",
+    "category": "mail",
+    "tags": [
+      "email",
+      "smtp",
+      "development"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.077Z"
+  },
+  {
+    "id": "mailpit",
+    "name": "Mailpit",
+    "version": "v1.22.3",
+    "category": "mail",
+    "tags": [
+      "email",
+      "smtp"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.078Z"
+  },
+  {
+    "id": "matomo",
+    "name": "Matomo",
+    "version": "5.1-apache",
+    "category": "analytics",
+    "tags": [
+      "analytics",
+      "metrics",
+      "privacy",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.079Z"
+  },
+  {
+    "id": "mattermost",
+    "name": "Mattermost",
+    "version": "10.6.1",
+    "category": "other",
+    "tags": [
+      "chat",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.081Z"
   },
   {
     "id": "mautic",
@@ -34,7 +1720,59 @@
       "email",
       "crm"
     ],
-    "updatedAt": "2026-09-15T12:22:19.214Z"
+    "updatedAt": "2026-09-15T13:03:49.085Z"
+  },
+  {
+    "id": "maxio",
+    "name": "MaxIO",
+    "version": "0.2.1",
+    "category": "backend",
+    "tags": [
+      "s3",
+      "storage",
+      "object-storage"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.087Z"
+  },
+  {
+    "id": "mazanoke",
+    "name": "MAZANOKE",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "image-hosting",
+      "file-sharing",
+      "self-hosted",
+      "media",
+      "gallery"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.087Z"
+  },
+  {
+    "id": "mediacms",
+    "name": "MediaCMS",
+    "version": "latest",
+    "category": "cms",
+    "tags": [
+      "media",
+      "video",
+      "cms",
+      "streaming",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.091Z"
+  },
+  {
+    "id": "memos",
+    "name": "Memos",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "productivity",
+      "notes",
+      "bookmarks"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.092Z"
   },
   {
     "id": "mindwire",
@@ -47,7 +1785,795 @@
       "coding",
       "control-plane"
     ],
-    "updatedAt": "2026-09-15T12:22:19.218Z"
+    "updatedAt": "2026-09-15T13:03:49.094Z"
+  },
+  {
+    "id": "miniflux",
+    "name": "Miniflux",
+    "version": "2.2.19",
+    "category": "other",
+    "tags": [
+      "rss",
+      "feed-reader",
+      "news"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.096Z"
+  },
+  {
+    "id": "movary",
+    "name": "Movary",
+    "version": "latest",
+    "category": "analytics",
+    "tags": [
+      "media",
+      "movies",
+      "movie-tracker",
+      "self-hosted",
+      "plex",
+      "jellyfin",
+      "emby",
+      "kodi",
+      "trakt",
+      "letterboxd",
+      "netflix",
+      "tmdb",
+      "statistics",
+      "rating"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.097Z"
+  },
+  {
+    "id": "mumble",
+    "name": "Mumble",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "voice-chat",
+      "communication",
+      "gaming",
+      "voip"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.098Z"
+  },
+  {
+    "id": "my-links",
+    "name": "MyLinks",
+    "version": "5.3.0",
+    "category": "other",
+    "tags": [
+      "bookmarks",
+      "link-sharing"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.100Z"
+  },
+  {
+    "id": "navidrome",
+    "name": "Navidrome",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "music",
+      "streaming",
+      "media-server",
+      "subsonic",
+      "self-hosted",
+      "audio"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.101Z"
+  },
+  {
+    "id": "networking-toolbox",
+    "name": "Networking Toolbox",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "networking",
+      "tools",
+      "utilities",
+      "web"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.101Z"
+  },
+  {
+    "id": "nginx",
+    "name": "Nginx",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "webserver"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.102Z"
+  },
+  {
+    "id": "nodelink",
+    "name": "NodeLink",
+    "version": "3.8.0",
+    "category": "backend",
+    "tags": [
+      "audio",
+      "discord",
+      "lavalink",
+      "music"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.103Z"
+  },
+  {
+    "id": "notifuse",
+    "name": "Notifuse",
+    "version": "latest",
+    "category": "mail",
+    "tags": [
+      "newsletter",
+      "email",
+      "communication",
+      "notifications"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.104Z"
+  },
+  {
+    "id": "ojs",
+    "name": "Open Journal Systems",
+    "version": "3.3.0-21",
+    "category": "other",
+    "tags": [
+      "publishing",
+      "journal",
+      "research",
+      "academic"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.105Z"
+  },
+  {
+    "id": "omni-tools",
+    "name": "Omni-Tools",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "tools",
+      "utilities",
+      "collection",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.105Z"
+  },
+  {
+    "id": "onetimesecret",
+    "name": "One Time Secret",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "auth",
+      "password",
+      "secret",
+      "secure"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.107Z"
+  },
+  {
+    "id": "ontime",
+    "name": "Ontime",
+    "version": "v3.8.0",
+    "category": "other",
+    "tags": [
+      "event"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.108Z"
+  },
+  {
+    "id": "open-design",
+    "name": "Open Design",
+    "version": "0.16.1",
+    "category": "other",
+    "tags": [
+      "design",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.108Z"
+  },
+  {
+    "id": "openclaw",
+    "name": "Openclaw",
+    "version": "2026.1.29",
+    "category": "automation",
+    "tags": [
+      "whatsapp",
+      "ai",
+      "messaging",
+      "chatbot",
+      "gateway",
+      "self-hosted",
+      "automation"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.111Z"
+  },
+  {
+    "id": "opengist",
+    "name": "OpenGist",
+    "version": "1",
+    "category": "other",
+    "tags": [
+      "pastebin",
+      "code",
+      "snippets",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.113Z"
+  },
+  {
+    "id": "openhabittracker",
+    "name": "OpenHabitTracker",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "productivity",
+      "notes",
+      "tasks",
+      "habits",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.114Z"
+  },
+  {
+    "id": "openspeedtest",
+    "name": "OpenSpeedTest",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "network",
+      "testing",
+      "performance",
+      "monitoring",
+      "bandwidth"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.115Z"
+  },
+  {
+    "id": "otterwiki",
+    "name": "Otter Wiki",
+    "version": "2",
+    "category": "cms",
+    "tags": [
+      "wiki",
+      "documentation",
+      "knowledge-base",
+      "markdown"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.116Z"
+  },
+  {
+    "id": "owncast",
+    "name": "Owncast",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "streaming",
+      "live-video",
+      "chat",
+      "broadcasting",
+      "self-hosted",
+      "rtmp"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.116Z"
+  },
+  {
+    "id": "pairdrop",
+    "name": "PairDrop",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "file-sharing",
+      "p2p",
+      "web-app",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.117Z"
+  },
+  {
+    "id": "paperless-ngx",
+    "name": "Paperless-ngx",
+    "version": "2.20.15",
+    "category": "other",
+    "tags": [
+      "documents",
+      "ocr",
+      "productivity",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.120Z"
+  },
+  {
+    "id": "paymenter",
+    "name": "Paymenter",
+    "version": "latest",
+    "category": "automation",
+    "tags": [
+      "billing",
+      "payment",
+      "hosting",
+      "invoicing",
+      "business",
+      "automation",
+      "client-management"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.122Z"
+  },
+  {
+    "id": "penpot",
+    "name": "Penpot",
+    "version": "2.3.2",
+    "category": "other",
+    "tags": [
+      "design",
+      "collaboration"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.124Z"
+  },
+  {
+    "id": "pgadmin",
+    "name": "pgAdmin",
+    "version": "8.3",
+    "category": "database",
+    "tags": [
+      "database",
+      "postgres",
+      "admin"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.125Z"
+  },
+  {
+    "id": "photoprism",
+    "name": "Photoprism",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "media",
+      "photos",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.126Z"
+  },
+  {
+    "id": "plane",
+    "name": "Plane",
+    "version": "v1.3.1",
+    "category": "other",
+    "tags": [
+      "kanban",
+      "project-management"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.134Z"
+  },
+  {
+    "id": "plark",
+    "name": "Plark",
+    "version": "latest",
+    "category": "cms",
+    "tags": [
+      "cms",
+      "content-management",
+      "blog"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.135Z"
+  },
+  {
+    "id": "pocket-id",
+    "name": "Pocket ID",
+    "version": "2.14.0",
+    "category": "other",
+    "tags": [
+      "authentication",
+      "identity",
+      "sso",
+      "oidc",
+      "oauth2",
+      "passkeys",
+      "security",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.135Z"
+  },
+  {
+    "id": "podfetch",
+    "name": "PodFetch",
+    "version": "v5.2.2",
+    "category": "backend",
+    "tags": [
+      "media"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.136Z"
+  },
+  {
+    "id": "portabase",
+    "name": "Portabase",
+    "version": "latest",
+    "category": "database",
+    "tags": [
+      "postgres",
+      "mysql",
+      "mariadb",
+      "mongodb",
+      "sqlite",
+      "firebird",
+      "valkey",
+      "redis",
+      "mssql",
+      "docker-volumes",
+      "backup",
+      "s3",
+      "gcs",
+      "azure",
+      "google-drive",
+      "discord",
+      "telegram",
+      "slack",
+      "email",
+      "apprise",
+      "ntfy",
+      "gotify",
+      "pushover",
+      "teams",
+      "webhook",
+      "self-hosted",
+      "open-source"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.138Z"
+  },
+  {
+    "id": "poste.io",
+    "name": "Poste.io",
+    "version": "latest",
+    "category": "mail",
+    "tags": [
+      "email",
+      "mail-server",
+      "smtp",
+      "imap",
+      "pop3",
+      "antispam",
+      "antivirus",
+      "webmail"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.139Z"
+  },
+  {
+    "id": "postgresus",
+    "name": "Postgresus",
+    "version": "v2.15.3",
+    "category": "database",
+    "tags": [
+      "postgres",
+      "backup",
+      "s3"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.140Z"
+  },
+  {
+    "id": "postiz",
+    "name": "Postiz",
+    "version": "latest",
+    "category": "cms",
+    "tags": [
+      "cms",
+      "content-management",
+      "publishing"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.144Z"
+  },
+  {
+    "id": "privatebin",
+    "name": "PrivateBin",
+    "version": "2.0.4",
+    "category": "backend",
+    "tags": [
+      "pastebin",
+      "privacy",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.146Z"
+  },
+  {
+    "id": "pterodactyl",
+    "name": "Pterodactyl",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "self-hosted",
+      "open-source",
+      "management"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.148Z"
+  },
+  {
+    "id": "pyrodactyl",
+    "name": "Pyrodactyl",
+    "version": "main",
+    "category": "backend",
+    "tags": [
+      "self-hosted",
+      "open-source",
+      "management"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.150Z"
+  },
+  {
+    "id": "qui",
+    "name": "qui",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "torrent",
+      "qbittorrent",
+      "download",
+      "media",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.151Z"
+  },
+  {
+    "id": "rabbitmq",
+    "name": "RabbitMQ",
+    "version": "4.1-management",
+    "category": "other",
+    "tags": [
+      "message-broker",
+      "queue",
+      "rabbitmq"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.151Z"
+  },
+  {
+    "id": "reactive-resume",
+    "name": "Reactive Resume",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "resume",
+      "cv",
+      "productivity",
+      "document"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.155Z"
+  },
+  {
+    "id": "rote",
+    "name": "Rote",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "notes",
+      "productivity",
+      "postgres",
+      "bun"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.157Z"
+  },
+  {
+    "id": "rss-bridge",
+    "name": "RSS-Bridge",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "rss",
+      "feeds",
+      "news",
+      "content"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.159Z"
+  },
+  {
+    "id": "rsshub",
+    "name": "RSSHub",
+    "version": "1.0.0",
+    "category": "other",
+    "tags": [
+      "rss",
+      "api",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.161Z"
+  },
+  {
+    "id": "rustrak",
+    "name": "Rustrak",
+    "version": "latest",
+    "category": "database",
+    "tags": [
+      "monitoring",
+      "error-tracking",
+      "sentry",
+      "rust",
+      "observability"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.162Z"
+  },
+  {
+    "id": "rustrak-full",
+    "name": "Rustrak (Full Stack)",
+    "version": "latest",
+    "category": "database",
+    "tags": [
+      "monitoring",
+      "error-tracking",
+      "sentry",
+      "rust",
+      "observability",
+      "postgresql"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.164Z"
+  },
+  {
+    "id": "rustrak-sqlite",
+    "name": "Rustrak (Full Stack SQLite)",
+    "version": "latest",
+    "category": "database",
+    "tags": [
+      "monitoring",
+      "error-tracking",
+      "sentry",
+      "rust",
+      "observability",
+      "sqlite"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.166Z"
+  },
+  {
+    "id": "ryot",
+    "name": "Ryot",
+    "version": "v7.10",
+    "category": "analytics",
+    "tags": [
+      "media",
+      "tracking",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.167Z"
+  },
+  {
+    "id": "senddock",
+    "name": "SendDock",
+    "version": "0.8.0",
+    "category": "mail",
+    "tags": [
+      "email",
+      "newsletter",
+      "mailing-list",
+      "marketing"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.169Z"
+  },
+  {
+    "id": "seq",
+    "name": "Seq",
+    "version": "2025.2",
+    "category": "backend",
+    "tags": [
+      "logging",
+      "observability",
+      "monitoring"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.170Z"
+  },
+  {
+    "id": "shiori",
+    "name": "Shiori",
+    "version": "v1.8.0-2-g585ea34",
+    "category": "other",
+    "tags": [
+      "bookmarks",
+      "read-it-later",
+      "archiving",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.171Z"
+  },
+  {
+    "id": "shlink",
+    "name": "Shlink",
+    "version": "stable",
+    "category": "other",
+    "tags": [
+      "sharing",
+      "shortener",
+      "url"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.171Z"
+  },
+  {
+    "id": "silex",
+    "name": "Silex",
+    "version": "3.7.0",
+    "category": "other",
+    "tags": [
+      "website-builder",
+      "no-code",
+      "static-site"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.172Z"
+  },
+  {
+    "id": "silo",
+    "name": "Silo",
+    "version": "RELEASE.2026-08-06T00-00-00Z",
+    "category": "backend",
+    "tags": [
+      "s3",
+      "file",
+      "storage"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.173Z"
+  },
+  {
+    "id": "slash",
+    "name": "Slash",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "bookmarks",
+      "link-shortener",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.174Z"
+  },
+  {
+    "id": "snipe-it",
+    "name": "Snipe-IT",
+    "version": "v8.5.0",
+    "category": "analytics",
+    "tags": [
+      "asset-management",
+      "inventory",
+      "business",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.175Z"
+  },
+  {
+    "id": "soft-serve",
+    "name": "Soft Serve",
+    "version": "v0.11.6",
+    "category": "backend",
+    "tags": [
+      "git",
+      "ssh",
+      "developer-tools",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.176Z"
+  },
+  {
+    "id": "speedtest-tracker",
+    "name": "Speedtest Tracker",
+    "version": "latest",
+    "category": "automation",
+    "tags": [
+      "monitoring",
+      "network",
+      "speedtest"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.177Z"
+  },
+  {
+    "id": "spliit",
+    "name": "Spliit",
+    "version": "latest",
+    "category": "mail",
+    "tags": [
+      "budgeting",
+      "finance",
+      "money"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.178Z"
+  },
+  {
+    "id": "steedos",
+    "name": "Steedos",
+    "version": "3.0.14",
+    "category": "other",
+    "tags": [
+      "crm",
+      "low-code"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.179Z"
   },
   {
     "id": "stirling-pdf",
@@ -59,7 +2585,165 @@
       "documents",
       "tools"
     ],
-    "updatedAt": "2026-09-15T12:22:19.220Z"
+    "updatedAt": "2026-09-15T13:03:49.180Z"
+  },
+  {
+    "id": "storyden",
+    "name": "Storyden",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "forum",
+      "discussion",
+      "community",
+      "open-source"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.180Z"
+  },
+  {
+    "id": "systemprompt",
+    "name": "systemprompt",
+    "version": "0.21.0",
+    "category": "backend",
+    "tags": [
+      "ai",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.182Z"
+  },
+  {
+    "id": "tandoor-recipes",
+    "name": "Tandoor Recipes",
+    "version": "2.6.11",
+    "category": "other",
+    "tags": [
+      "recipes",
+      "meal-planning",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.184Z"
+  },
+  {
+    "id": "tela",
+    "name": "tela",
+    "version": "0.7.0",
+    "category": "cms",
+    "tags": [
+      "wiki",
+      "documentation",
+      "knowledge-base",
+      "markdown",
+      "collaboration",
+      "ai"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.185Z"
+  },
+  {
+    "id": "thingsboard",
+    "name": "ThingsBoard",
+    "version": "4.3.1.1",
+    "category": "automation",
+    "tags": [
+      "iot",
+      "device-management",
+      "monitoring",
+      "visualization"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.186Z"
+  },
+  {
+    "id": "tianji",
+    "name": "Tianji",
+    "version": "latest",
+    "category": "analytics",
+    "tags": [
+      "analytics",
+      "monitoring",
+      "web",
+      "uptime"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.187Z"
+  },
+  {
+    "id": "trailbase",
+    "name": "TrailBase",
+    "version": "latest",
+    "category": "backend",
+    "tags": [
+      "backend",
+      "database",
+      "api"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.188Z"
+  },
+  {
+    "id": "trek",
+    "name": "TREK",
+    "version": "3.3.0",
+    "category": "other",
+    "tags": [
+      "travel",
+      "planning",
+      "productivity"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.189Z"
+  },
+  {
+    "id": "trmnl-larapaper",
+    "name": "TRMNL LaraPaper",
+    "version": "0.40.0",
+    "category": "other",
+    "tags": [
+      "e-ink"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.189Z"
+  },
+  {
+    "id": "tuwunel",
+    "name": "Tuwunel",
+    "version": "v1.5.0",
+    "category": "backend",
+    "tags": [
+      "matrix",
+      "chat",
+      "messaging",
+      "rust"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.190Z"
+  },
+  {
+    "id": "twenty",
+    "name": "Twenty CRM",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "crm",
+      "sales",
+      "business"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.191Z"
+  },
+  {
+    "id": "typebot",
+    "name": "Typebot",
+    "version": "2.27.0",
+    "category": "other",
+    "tags": [
+      "chatbot",
+      "builder",
+      "open-source"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.193Z"
+  },
+  {
+    "id": "typesense",
+    "name": "Typesense",
+    "version": "29.0",
+    "category": "other",
+    "tags": [
+      "search"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.193Z"
   },
   {
     "id": "umami",
@@ -72,7 +2756,33 @@
       "privacy",
       "statistics"
     ],
-    "updatedAt": "2026-09-15T12:22:19.222Z"
+    "updatedAt": "2026-09-15T13:03:49.194Z"
+  },
+  {
+    "id": "unleash",
+    "name": "Unleash",
+    "version": "7.4.0",
+    "category": "other",
+    "tags": [
+      "feature-flag",
+      "feature-management",
+      "feature-toggle",
+      "remote-configuration"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.196Z"
+  },
+  {
+    "id": "upsnap",
+    "name": "Upsnap",
+    "version": "5",
+    "category": "other",
+    "tags": [
+      "network",
+      "monitoring",
+      "dashboard",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.197Z"
   },
   {
     "id": "uptime-kuma",
@@ -84,6 +2794,222 @@
       "uptime",
       "status"
     ],
-    "updatedAt": "2026-09-15T12:22:19.223Z"
+    "updatedAt": "2026-09-15T13:03:49.198Z"
+  },
+  {
+    "id": "uptimekit",
+    "name": "Uptimekit",
+    "version": "3.1.0",
+    "category": "other",
+    "tags": [
+      "monitoring",
+      "uptime",
+      "status-page",
+      "distributed"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.200Z"
+  },
+  {
+    "id": "velix-api",
+    "name": "Velix API",
+    "version": "0.1.0",
+    "category": "automation",
+    "tags": [
+      "whatsapp",
+      "api",
+      "messaging",
+      "chatbot",
+      "automation"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.201Z"
+  },
+  {
+    "id": "victoriametrics",
+    "name": "VictoriaMetrics",
+    "version": "v1.108.1",
+    "category": "database",
+    "tags": [
+      "monitoring",
+      "metrics",
+      "time-series",
+      "prometheus"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.201Z"
+  },
+  {
+    "id": "wakapi",
+    "name": "Wakapi",
+    "version": "latest",
+    "category": "analytics",
+    "tags": [
+      "developer-tools",
+      "analytics",
+      "wakatime",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.202Z"
+  },
+  {
+    "id": "wallabag",
+    "name": "wallabag",
+    "version": "2.6.14",
+    "category": "other",
+    "tags": [
+      "read-it-later",
+      "bookmarks",
+      "articles",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.203Z"
+  },
+  {
+    "id": "wallos",
+    "name": "Wallos",
+    "version": "latest",
+    "category": "analytics",
+    "tags": [
+      "finance",
+      "subscription",
+      "budgeting",
+      "expense-tracking",
+      "spending"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.204Z"
+  },
+  {
+    "id": "wanderer",
+    "name": "Wanderer",
+    "version": "1.0.0",
+    "category": "other",
+    "tags": [
+      "mapping",
+      "geolocation",
+      "search",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.205Z"
+  },
+  {
+    "id": "web-check",
+    "name": "Web-Check",
+    "version": "latest",
+    "category": "other",
+    "tags": [
+      "website-analyzer",
+      "security",
+      "performance",
+      "seo"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.206Z"
+  },
+  {
+    "id": "weblate",
+    "name": "Weblate",
+    "version": "2026.7.1.1",
+    "category": "automation",
+    "tags": [
+      "localization",
+      "translation",
+      "i18n",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.207Z"
+  },
+  {
+    "id": "wikijs",
+    "name": "Wiki.js",
+    "version": "2.5",
+    "category": "cms",
+    "tags": [
+      "knowledge-base",
+      "self-hosted",
+      "documentation"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.208Z"
+  },
+  {
+    "id": "windshift",
+    "name": "Windshift",
+    "version": "v0.8.5",
+    "category": "other",
+    "tags": [
+      "project-management",
+      "collaboration",
+      "productivity",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.209Z"
+  },
+  {
+    "id": "wupnext",
+    "name": "WupNext",
+    "version": "latest",
+    "category": "mail",
+    "tags": [
+      "todo",
+      "tasks",
+      "productivity",
+      "pomodoro",
+      "mcp",
+      "django",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.210Z"
+  },
+  {
+    "id": "yourls",
+    "name": "YOURLS",
+    "version": "1.9.2",
+    "category": "other",
+    "tags": [
+      "url-shortener",
+      "php"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.212Z"
+  },
+  {
+    "id": "yuvomi",
+    "name": "Yuvomi",
+    "version": "1.85.0",
+    "category": "other",
+    "tags": [
+      "open-source",
+      "family",
+      "productivity",
+      "calendar",
+      "tasks"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.213Z"
+  },
+  {
+    "id": "zitadel",
+    "name": "Zitadel",
+    "version": "4.16.0",
+    "category": "other",
+    "tags": [
+      "identity",
+      "authentication",
+      "authorization",
+      "iam",
+      "security",
+      "oauth",
+      "openid-connect",
+      "saml",
+      "multi-tenant"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.215Z"
+  },
+  {
+    "id": "zulip",
+    "name": "Zulip",
+    "version": "12.1-0",
+    "category": "other",
+    "tags": [
+      "chat",
+      "collaboration",
+      "team",
+      "self-hosted"
+    ],
+    "updatedAt": "2026-09-15T13:03:49.218Z"
   }
 ]
