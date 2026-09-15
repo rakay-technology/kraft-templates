@@ -140,7 +140,20 @@ function smokeOne(dir) {
     if (states.length === 0) throw new Error("no services came up");
     for (const s of states) {
       if (s.State !== "running") {
-        throw new Error(`service ${s.Service} is ${s.State} (exit ${s.ExitCode ?? "?"})`);
+        // Best-effort container logs: the whole point is diagnosing the boot
+        // from the CI log alone, with no local repro (no pulls off-runner).
+        let tail = "";
+        try {
+          tail = execFileSync(
+            "docker",
+            ["compose", "-f", composeFile, "--env-file", envFile, "logs", "--tail", "30", "--no-log-prefix", s.Service],
+            { stdio: "pipe", encoding: "utf8" },
+          ).trim();
+        } catch { /* logs are advisory; the state error below is the signal */ }
+        throw new Error(
+          `service ${s.Service} is ${s.State} (exit ${s.ExitCode ?? "?"})` +
+            (tail ? `\n--- logs ${s.Service} (tail 30) ---\n${tail}` : ""),
+        );
       }
     }
     console.log(`- ${dir}: STAYED UP (${states.map((s) => `${s.Service}:${s.State}`).join(", ")})`);
