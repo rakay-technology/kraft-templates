@@ -1,4 +1,5 @@
 [variables]
+nextauth_secret = "${password:32}"
 main_domain = "${domain}"
 karakeep_version = "release"
 
