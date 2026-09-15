@@ -1,0 +1,17 @@
+services:
+  babybuddy:
+    image: linuxserver/babybuddy:2.7.0
+    restart: unless-stopped
+    expose:
+      - 8000
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - CSRF_TRUSTED_ORIGINS=https://${main_domain}
+      - TIME_ZONE=UTC
+      - SECRET_KEY=${secret_key}
+    volumes:
+      - config:/config
+volumes:
+  config: {}

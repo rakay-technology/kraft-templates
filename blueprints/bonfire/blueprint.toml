@@ -1,0 +1,25 @@
+[variables]
+main_domain = "${domain}"
+secret_key_base = "${password:64}"
+signing_salt = "${password:32}"
+encryption_salt = "${password:32}"
+release_cookie = "${password:32}"
+postgres_password = "${password:32}"
+meili_master_key = "${password:32}"
+
+[[routes]]
+service = "bonfire"
+port = 4000
+host = "${main_domain}"
+
+[env]
+BONFIRE_HOSTNAME = "${main_domain}"
+PUBLIC_PORT = "80"
+APP_NAME = "Bonfire"
+UPLOAD_LIMIT = "20"
+SECRET_KEY_BASE = "${secret_key_base}"
+SIGNING_SALT = "${signing_salt}"
+ENCRYPTION_SALT = "${encryption_salt}"
+RELEASE_COOKIE = "${release_cookie}"
+POSTGRES_PASSWORD = "${postgres_password}"
+MEILI_MASTER_KEY = "${meili_master_key}"

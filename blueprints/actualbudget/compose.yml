@@ -1,0 +1,12 @@
+services:
+  actualbudget:
+    image: actualbudget/actual-server:26.9.0-alpine
+    environment:
+      - ACTUAL_PORT=5006
+    volumes:
+      - actual-data:/data
+    restart: unless-stopped
+    expose:
+      - 5006
+volumes:
+  actual-data: null

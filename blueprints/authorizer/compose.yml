@@ -1,0 +1,37 @@
+services:
+  authorizer:
+    image: lakhansamani/authorizer:1.4.4
+    restart: unless-stopped
+    expose:
+      - 8080
+    environment:
+      - DATABASE_TYPE=postgres
+      - DATABASE_URL=postgres://postgres:${db_password}@authorizer-db:5432/authorizer?sslmode=disable
+      - REDIS_URL=redis://authorizer-redis:6379
+      - ADMIN_SECRET=${admin_secret}
+      - JWT_SECRET=${jwt_secret}
+      - COOKIE_NAME=authorizer
+      - ACCESS_TOKEN_EXPIRY_TIME=86400
+      - REFRESH_TOKEN_EXPIRY_TIME=86400
+      - DISABLE_PLAYGROUND=true
+    depends_on:
+      - authorizer-db
+      - authorizer-redis
+    volumes: []
+  authorizer-db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${db_password}
+      - POSTGRES_DB=authorizer
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  authorizer-redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+volumes:
+  db_data: {}
+  redis_data: {}

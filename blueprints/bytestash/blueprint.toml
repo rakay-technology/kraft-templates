@@ -1,0 +1,11 @@
+[variables]
+jwt_secret = "${password:32}"
+bytestash_domain = "${domain}"
+
+[[routes]]
+service = "bytestash"
+port = 5000
+host = "${bytestash_domain}"
+
+[env]
+JWT_SECRET = "${jwt_secret}"

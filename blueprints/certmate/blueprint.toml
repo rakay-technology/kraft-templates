@@ -1,0 +1,15 @@
+[variables]
+main_domain = "${domain}"
+SECRET_KEY = "${password:32}"
+API_BEARER_TOKEN = "${password:32}"
+
+[[routes]]
+service = "certmate"
+port = 8000
+host = "${main_domain}"
+
+[env]
+BEHIND_PROXY = "true"
+CLOUDFLARE_TOKEN = ""
+LETSENCRYPT_EMAIL = ""
+LOG_LEVEL = "INFO"

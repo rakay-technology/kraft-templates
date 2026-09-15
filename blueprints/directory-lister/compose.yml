@@ -1,0 +1,10 @@
+services:
+  directory-lister:
+    image: directorylister/directorylister:5.7.0
+    restart: unless-stopped
+    expose:
+      - 80
+    volumes:
+      - directory-lister-data:/data
+volumes:
+  directory-lister-data: {}

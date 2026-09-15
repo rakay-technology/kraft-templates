@@ -1,0 +1,34 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    volumes:
+      - calcom-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=db
+      - DATABASE_URL=postgres://postgres:password@postgres:5432/db
+  calcom:
+    image: calcom/cal.com:v6.2.0
+    depends_on:
+      - postgres
+    environment:
+      - NEXTAUTH_SECRET=${nextauth_secret}
+      - CALENDSO_ENCRYPTION_KEY=${calcom_encryption_key}
+      - DATABASE_URL=postgres://postgres:password@postgres:5432/db
+      - DATABASE_DIRECT_URL=postgres://postgres:password@postgres:5432/db
+      - DATABASE_HOST=postgres:5432
+      - NEXT_PUBLIC_WEBAPP_URL=http://${main_domain}
+      - ALLOWED_HOSTNAMES="${main_domain}"
+      - NEXTAUTH_URL=http://${main_domain}/api/auth
+      - NEXT_PUBLIC_DISABLE_SIGNUP=true
+      - EMAIL_SERVER_HOST=
+      - EMAIL_SERVER_PORT=
+      - EMAIL_SERVER_USER=
+      - EMAIL_SERVER_PASSWORD=
+      - EMAIL_FROM=
+    volumes: []
+    expose:
+      - 3000
+volumes:
+  calcom-data: null

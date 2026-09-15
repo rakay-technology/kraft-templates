@@ -1,0 +1,17 @@
+[variables]
+main_domain = "${domain}"
+username = "${password:16}"
+password = "${password:32}"
+AUTO_USERNAME_1 = "${username}"
+AUTO_PASSWORD_2 = "${password}"
+AUTO_USERNAME_3 = "${username}"
+AUTO_PASSWORD_4 = "${password}"
+
+[[routes]]
+service = "couchdb"
+port = 5984
+host = "${main_domain}"
+
+[env]
+COUCHDB_USER = "${AUTO_USERNAME_3}"
+COUCHDB_PASSWORD = "${AUTO_PASSWORD_4}"

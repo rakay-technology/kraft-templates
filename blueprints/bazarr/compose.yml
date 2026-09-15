@@ -1,0 +1,16 @@
+services:
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:1.5.1
+    restart: unless-stopped
+    expose:
+      - 6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+    volumes:
+      - config:/config
+      - ${movies_path}:/movies
+      - ${tv_path}:/tv
+volumes:
+  config: {}

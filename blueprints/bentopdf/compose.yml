@@ -1,0 +1,7 @@
+services:
+  bentopdf:
+    image: bentopdf/bentopdf:v1.15.3
+    restart: unless-stopped
+    expose:
+      - 80
+    volumes: []

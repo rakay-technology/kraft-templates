@@ -1,0 +1,15 @@
+services:
+  ampache:
+    image: ampache/ampache:nosql8.1.0
+    restart: unless-stopped
+    expose:
+      - 80
+    volumes:
+      - config:/var/www/config
+      - log:/var/log/ampache
+      - mysql:/var/lib/mysql
+      - ${media_path}:/media
+volumes:
+  config: {}
+  log: {}
+  mysql: {}

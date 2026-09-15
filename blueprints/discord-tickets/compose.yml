@@ -1,0 +1,50 @@
+services:
+  tickets-postgres:
+    image: mysql:8
+    restart: unless-stopped
+    volumes:
+      - tickets-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${mysql_database}
+      MYSQL_PASSWORD: ${mysql_password}
+      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+      MYSQL_USER: ${mysql_user}
+    healthcheck:
+      test:
+        - CMD
+        - mysqladmin
+        - ping
+        - -h
+        - localhost
+        - -u${MYSQL_USER}
+        - -p${MYSQL_PASSWORD}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  tickets-app:
+    image: eartharoid/discord-tickets:4.0.21
+    depends_on:
+      - tickets-postgres
+    restart: unless-stopped
+    volumes:
+      - tickets-app-data:/home/container/user
+    tty: true
+    stdin_open: true
+    environment:
+      DB_CONNECTION_URL: mysql://${mysql_user}:${mysql_password}@tickets-postgres/${mysql_database}
+      DISCORD_SECRET: ${discord_secret}
+      DISCORD_TOKEN: ""
+      ENCRYPTION_KEY: ${encryption_key}
+      DB_PROVIDER: mysql
+      HTTP_EXTERNAL: https://${main_domain}
+      HTTP_HOST: 0.0.0.0
+      HTTP_PORT: 8169
+      HTTP_TRUST_PROXY: "true"
+      PUBLIC_BOT: "false"
+      PUBLISH_COMMANDS: "true"
+      SUPER: YOUR_DISCORD_USER_ID
+    expose:
+      - 8169
+volumes:
+  tickets-mysql-data: null
+  tickets-app-data: null

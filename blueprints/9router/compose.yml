@@ -1,0 +1,29 @@
+services:
+  9router:
+    image: decolua/9router:0.5.40
+    restart: unless-stopped
+    environment:
+      DATA_DIR: /app/data
+      PORT: "20128"
+      HOSTNAME: 0.0.0.0
+      NODE_ENV: production
+      JWT_SECRET: ${jwt_secret}
+      INITIAL_PASSWORD: ${initial_password}
+      API_KEY_SECRET: ${api_key_secret}
+      MACHINE_ID_SALT: ${machine_id_salt}
+      BASE_URL: http://${main_domain}
+      NEXT_PUBLIC_BASE_URL: http://${main_domain}
+      HEADROOM_URL: http://headroom:8787
+      AUTH_COOKIE_SECURE: "false"
+    volumes:
+      - 9router-data:/app/data
+    depends_on:
+      - headroom
+    expose:
+      - 20128
+  headroom:
+    image: ghcr.io/chopratejas/headroom:0.6.7
+    restart: unless-stopped
+    volumes: []
+volumes:
+  9router-data: null

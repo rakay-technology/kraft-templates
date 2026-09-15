@@ -1,0 +1,15 @@
+[variables]
+main_domain = "${domain}"
+db_password = "${password:16}"
+admin_secret = "${password:32}"
+jwt_secret = "${password:32}"
+
+[[routes]]
+service = "authorizer"
+port = 8080
+host = "${main_domain}"
+
+[env]
+DB_PASSWORD = "${db_password}"
+ADMIN_SECRET = "${admin_secret}"
+JWT_SECRET = "${jwt_secret}"

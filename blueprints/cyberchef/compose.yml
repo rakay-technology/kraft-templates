@@ -1,0 +1,7 @@
+services:
+  cyberchef:
+    image: ghcr.io/gchq/cyberchef:11.4.0
+    restart: unless-stopped
+    volumes: []
+    expose:
+      - 80

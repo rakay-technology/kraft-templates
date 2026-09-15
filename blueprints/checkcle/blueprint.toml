@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "checkcle"
+port = 8090
+host = "${main_domain}"

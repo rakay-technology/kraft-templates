@@ -1,0 +1,34 @@
+services:
+  certmate:
+    image: fabriziosalmi/certmate:2.21.3
+    environment:
+      - FLASK_ENV=production
+      - SECRET_KEY=${SECRET_KEY}
+      - API_BEARER_TOKEN=${API_BEARER_TOKEN}
+      - BEHIND_PROXY=true
+      - CLOUDFLARE_TOKEN=
+      - LETSENCRYPT_EMAIL=
+      - LOG_LEVEL=INFO
+    expose:
+      - 8000
+    volumes:
+      - certmate_certificates:/app/certificates
+      - certmate_data:/app/data
+      - certmate_logs:/app/logs
+      - certmate_backups:/app/backups
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://localhost:8000/health
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+volumes:
+  certmate_certificates: null
+  certmate_data: null
+  certmate_logs: null
+  certmate_backups: null

@@ -1,0 +1,16 @@
+services:
+  anubis:
+    image: ghcr.io/techarohq/anubis:v1.13.0
+    restart: unless-stopped
+    expose:
+      - "8923"
+    environment:
+      - TARGET=YOURLOCALHOST:PORT
+      - BIND=:8923
+      - COOKIE_DOMAIN=${main_domain}
+      - DIFFICULTY=5
+      - OG_PASSTHROUGH=true
+      - OG_EXPIRY_TIME=1h
+      - OG_CACHE_CONSIDER_HOST=true
+      - SERVE_ROBOTS_TXT=false
+    volumes: []

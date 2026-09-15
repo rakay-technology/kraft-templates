@@ -1,0 +1,37 @@
+services:
+  app:
+    image: docuseal/docuseal:3.2.5
+    volumes:
+      - docuseal:/data/docuseal
+    depends_on:
+      - docu-postgres
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgresql://docuseal:postgres@docu-postgres:5432/docuseal
+    expose:
+      - 3000
+  docu-postgres:
+    image: postgres:18.6-alpine3.24
+    volumes:
+      - docuseal-db:/var/lib/postgresql
+    environment:
+      - POSTGRES_USER=docuseal
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=docuseal
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U docuseal -d docuseal
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  docu-redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - docuseal-redis-data:/data
+volumes:
+  docuseal: null
+  docuseal-db: null
+  docuseal-redis-data: null

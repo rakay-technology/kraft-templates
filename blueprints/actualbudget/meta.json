@@ -1,0 +1,19 @@
+{
+  "id": "actualbudget",
+  "name": "Actual Budget",
+  "version": "latest",
+  "description": "A super fast and privacy-focused app for managing your finances.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/actualbudget/actual",
+    "website": "https://actualbudget.org",
+    "docs": "https://actualbudget.org/docs"
+  },
+  "tags": [
+    "budgeting",
+    "finance",
+    "money"
+  ],
+  "category": "other",
+  "repository": "https://github.com/actualbudget/actual"
+}

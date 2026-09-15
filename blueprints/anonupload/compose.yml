@@ -1,0 +1,14 @@
+services:
+  anonupload:
+    image: ghcr.io/supernova3339/anonfiles:1
+    restart: unless-stopped
+    expose:
+      - 80
+    environment:
+      - ADMIN_EMAIL=${admin_email}
+      - ADMIN_PASSWORD=${admin_password}
+      - CONTACT_EMAIL=${contact_email}
+    volumes:
+      - uploads:/var/www/html/uploads
+volumes:
+  uploads: {}

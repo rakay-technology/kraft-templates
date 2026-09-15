@@ -1,0 +1,22 @@
+{
+  "id": "bolt.diy",
+  "name": "bolt.diy",
+  "version": "latest",
+  "description": "Prompt, run, edit, and deploy full-stack web applications using any LLM you want!",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/stackblitz-labs/bolt.diy",
+    "website": "https://stackblitz-labs.github.io/bolt.diy/",
+    "docs": "https://stackblitz-labs.github.io/bolt.diy/"
+  },
+  "tags": [
+    "ai",
+    "self-hosted",
+    "development",
+    "chatbot",
+    "ide",
+    "llm"
+  ],
+  "category": "other",
+  "repository": "https://github.com/stackblitz-labs/bolt.diy"
+}

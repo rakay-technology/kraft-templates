@@ -1,0 +1,14 @@
+services:
+  anse-demo:
+    image: ddiu8081/anse:v1.1.11
+    restart: always
+    expose:
+      - 3000
+    environment:
+      - OPENAI_API_KEY=
+      - OPENAI_API_BASE_URL=https://api.openai.com
+      - HEAD_SCRIPTS=
+      - SECRET_KEY=${secret_key}
+      - SITE_PASSWORD=${site_password}
+      - OPENAI_API_MODEL=gpt-4o-mini
+    volumes: []

@@ -1,0 +1,23 @@
+services:
+  chiefonboarding:
+    image: chiefonboarding/chiefonboarding:v2.2.5
+    restart: unless-stopped
+    environment:
+      - SECRET_KEY=${secret_key}
+      - DATABASE_URL=postgres://postgres:${db_password}@db:5432/chiefonboarding
+      - ALLOWED_HOSTS=${main_domain}
+    expose:
+      - 8000
+    depends_on:
+      - db
+    volumes: []
+  db:
+    image: postgres:13
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=${db_password}
+      - POSTGRES_DB=chiefonboarding
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data: null
