@@ -63,7 +63,7 @@ var __export = (target, all) => {
     });
 };
 
-// node_modules/yaml/dist/nodes/identity.js
+// ../kraft-24/node_modules/yaml/dist/nodes/identity.js
 var require_identity = __commonJS(function(exports2) {
   var ALIAS = Symbol.for("yaml.alias");
   var DOC = Symbol.for("yaml.document");
@@ -117,7 +117,7 @@ var require_identity = __commonJS(function(exports2) {
   exports2.isSeq = isSeq;
 });
 
-// node_modules/yaml/dist/visit.js
+// ../kraft-24/node_modules/yaml/dist/visit.js
 var require_visit = __commonJS(function(exports2) {
   var identity = require_identity();
   var BREAK = Symbol("break visit");
@@ -272,7 +272,7 @@ var require_visit = __commonJS(function(exports2) {
   exports2.visitAsync = visitAsync;
 });
 
-// node_modules/yaml/dist/doc/directives.js
+// ../kraft-24/node_modules/yaml/dist/doc/directives.js
 var require_directives = __commonJS(function(exports2) {
   var identity = require_identity();
   var visit = require_visit();
@@ -424,7 +424,7 @@ var require_directives = __commonJS(function(exports2) {
   exports2.Directives = Directives;
 });
 
-// node_modules/yaml/dist/doc/anchors.js
+// ../kraft-24/node_modules/yaml/dist/doc/anchors.js
 var require_anchors = __commonJS(function(exports2) {
   var identity = require_identity();
   var visit = require_visit();
@@ -486,7 +486,7 @@ var require_anchors = __commonJS(function(exports2) {
   exports2.findNewAnchor = findNewAnchor;
 });
 
-// node_modules/yaml/dist/doc/applyReviver.js
+// ../kraft-24/node_modules/yaml/dist/doc/applyReviver.js
 var require_applyReviver = __commonJS(function(exports2) {
   function applyReviver(reviver, obj, key, val) {
     if (val && typeof val === "object") {
@@ -533,7 +533,7 @@ var require_applyReviver = __commonJS(function(exports2) {
   exports2.applyReviver = applyReviver;
 });
 
-// node_modules/yaml/dist/nodes/toJS.js
+// ../kraft-24/node_modules/yaml/dist/nodes/toJS.js
 var require_toJS = __commonJS(function(exports2) {
   var identity = require_identity();
   function toJS(value, arg, ctx) {
@@ -560,7 +560,7 @@ var require_toJS = __commonJS(function(exports2) {
   exports2.toJS = toJS;
 });
 
-// node_modules/yaml/dist/nodes/Node.js
+// ../kraft-24/node_modules/yaml/dist/nodes/Node.js
 var require_Node = __commonJS(function(exports2) {
   var applyReviver = require_applyReviver();
   var identity = require_identity();
@@ -597,7 +597,7 @@ var require_Node = __commonJS(function(exports2) {
   exports2.NodeBase = NodeBase;
 });
 
-// node_modules/yaml/dist/nodes/Alias.js
+// ../kraft-24/node_modules/yaml/dist/nodes/Alias.js
 var require_Alias = __commonJS(function(exports2) {
   var anchors = require_anchors();
   var visit = require_visit();
@@ -705,7 +705,7 @@ var require_Alias = __commonJS(function(exports2) {
   exports2.Alias = Alias;
 });
 
-// node_modules/yaml/dist/nodes/Scalar.js
+// ../kraft-24/node_modules/yaml/dist/nodes/Scalar.js
 var require_Scalar = __commonJS(function(exports2) {
   var identity = require_identity();
   var Node = require_Node();
@@ -733,7 +733,7 @@ var require_Scalar = __commonJS(function(exports2) {
   exports2.isScalarValue = isScalarValue;
 });
 
-// node_modules/yaml/dist/doc/createNode.js
+// ../kraft-24/node_modules/yaml/dist/doc/createNode.js
 var require_createNode = __commonJS(function(exports2) {
   var Alias = require_Alias();
   var identity = require_identity();
@@ -805,7 +805,7 @@ var require_createNode = __commonJS(function(exports2) {
   exports2.createNode = createNode;
 });
 
-// node_modules/yaml/dist/nodes/Collection.js
+// ../kraft-24/node_modules/yaml/dist/nodes/Collection.js
 var require_Collection = __commonJS(function(exports2) {
   var createNode = require_createNode();
   var identity = require_identity();
@@ -920,7 +920,7 @@ var require_Collection = __commonJS(function(exports2) {
   exports2.isEmptyPath = isEmptyPath;
 });
 
-// node_modules/yaml/dist/stringify/stringifyComment.js
+// ../kraft-24/node_modules/yaml/dist/stringify/stringifyComment.js
 var require_stringifyComment = __commonJS(function(exports2) {
   var stringifyComment = (str) => str.replace(/^(?!$)(?: $)?/gm, "#");
   function indentComment(comment, indent) {
@@ -937,7 +937,7 @@ var require_stringifyComment = __commonJS(function(exports2) {
   exports2.stringifyComment = stringifyComment;
 });
 
-// node_modules/yaml/dist/stringify/foldFlowLines.js
+// ../kraft-24/node_modules/yaml/dist/stringify/foldFlowLines.js
 var require_foldFlowLines = __commonJS(function(exports2) {
   var FOLD_FLOW = "flow";
   var FOLD_BLOCK = "block";
@@ -1074,7 +1074,7 @@ ${indent}${text.slice(fold + 1, end)}`;
   exports2.foldFlowLines = foldFlowLines;
 });
 
-// node_modules/yaml/dist/stringify/stringifyString.js
+// ../kraft-24/node_modules/yaml/dist/stringify/stringifyString.js
 var require_stringifyString = __commonJS(function(exports2) {
   var Scalar = require_Scalar();
   var foldFlowLines = require_foldFlowLines();
@@ -1372,7 +1372,7 @@ ${indent}`);
   exports2.stringifyString = stringifyString;
 });
 
-// node_modules/yaml/dist/stringify/stringify.js
+// ../kraft-24/node_modules/yaml/dist/stringify/stringify.js
 var require_stringify = __commonJS(function(exports2) {
   var anchors = require_anchors();
   var identity = require_identity();
@@ -1492,7 +1492,7 @@ ${ctx.indent}${str}`;
   exports2.stringify = stringify;
 });
 
-// node_modules/yaml/dist/stringify/stringifyPair.js
+// ../kraft-24/node_modules/yaml/dist/stringify/stringifyPair.js
 var require_stringifyPair = __commonJS(function(exports2) {
   var identity = require_identity();
   var Scalar = require_Scalar();
@@ -1628,7 +1628,7 @@ ${ctx.indent}`;
   exports2.stringifyPair = stringifyPair;
 });
 
-// node_modules/yaml/dist/log.js
+// ../kraft-24/node_modules/yaml/dist/log.js
 var require_log = __commonJS(function(exports2) {
   var node_process = require("process");
   function debug(logLevel, ...messages) {
@@ -1647,7 +1647,7 @@ var require_log = __commonJS(function(exports2) {
   exports2.warn = warn;
 });
 
-// node_modules/yaml/dist/schema/yaml-1.1/merge.js
+// ../kraft-24/node_modules/yaml/dist/schema/yaml-1.1/merge.js
 var require_merge = __commonJS(function(exports2) {
   var identity = require_identity();
   var Scalar = require_Scalar();
@@ -1701,7 +1701,7 @@ var require_merge = __commonJS(function(exports2) {
   exports2.merge = merge;
 });
 
-// node_modules/yaml/dist/nodes/addPairToJSMap.js
+// ../kraft-24/node_modules/yaml/dist/nodes/addPairToJSMap.js
 var require_addPairToJSMap = __commonJS(function(exports2) {
   var log = require_log();
   var merge = require_merge();
@@ -1762,7 +1762,7 @@ var require_addPairToJSMap = __commonJS(function(exports2) {
   exports2.addPairToJSMap = addPairToJSMap;
 });
 
-// node_modules/yaml/dist/nodes/Pair.js
+// ../kraft-24/node_modules/yaml/dist/nodes/Pair.js
 var require_Pair = __commonJS(function(exports2) {
   var createNode = require_createNode();
   var stringifyPair = require_stringifyPair();
@@ -1800,7 +1800,7 @@ var require_Pair = __commonJS(function(exports2) {
   exports2.createPair = createPair;
 });
 
-// node_modules/yaml/dist/stringify/stringifyCollection.js
+// ../kraft-24/node_modules/yaml/dist/stringify/stringifyCollection.js
 var require_stringifyCollection = __commonJS(function(exports2) {
   var identity = require_identity();
   var stringify = require_stringify();
@@ -1945,7 +1945,7 @@ ${indent}${end}`;
   exports2.stringifyCollection = stringifyCollection;
 });
 
-// node_modules/yaml/dist/nodes/YAMLMap.js
+// ../kraft-24/node_modules/yaml/dist/nodes/YAMLMap.js
 var require_YAMLMap = __commonJS(function(exports2) {
   var stringifyCollection = require_stringifyCollection();
   var addPairToJSMap = require_addPairToJSMap();
@@ -2072,7 +2072,7 @@ var require_YAMLMap = __commonJS(function(exports2) {
   exports2.findPair = findPair;
 });
 
-// node_modules/yaml/dist/schema/common/map.js
+// ../kraft-24/node_modules/yaml/dist/schema/common/map.js
 var require_map = __commonJS(function(exports2) {
   var identity = require_identity();
   var YAMLMap = require_YAMLMap();
@@ -2091,7 +2091,7 @@ var require_map = __commonJS(function(exports2) {
   exports2.map = map;
 });
 
-// node_modules/yaml/dist/nodes/YAMLSeq.js
+// ../kraft-24/node_modules/yaml/dist/nodes/YAMLSeq.js
 var require_YAMLSeq = __commonJS(function(exports2) {
   var createNode = require_createNode();
   var stringifyCollection = require_stringifyCollection();
@@ -2184,7 +2184,7 @@ var require_YAMLSeq = __commonJS(function(exports2) {
   exports2.YAMLSeq = YAMLSeq;
 });
 
-// node_modules/yaml/dist/schema/common/seq.js
+// ../kraft-24/node_modules/yaml/dist/schema/common/seq.js
 var require_seq = __commonJS(function(exports2) {
   var identity = require_identity();
   var YAMLSeq = require_YAMLSeq();
@@ -2203,7 +2203,7 @@ var require_seq = __commonJS(function(exports2) {
   exports2.seq = seq;
 });
 
-// node_modules/yaml/dist/schema/common/string.js
+// ../kraft-24/node_modules/yaml/dist/schema/common/string.js
 var require_string = __commonJS(function(exports2) {
   var stringifyString = require_stringifyString();
   var string = {
@@ -2219,7 +2219,7 @@ var require_string = __commonJS(function(exports2) {
   exports2.string = string;
 });
 
-// node_modules/yaml/dist/schema/common/null.js
+// ../kraft-24/node_modules/yaml/dist/schema/common/null.js
 var require_null = __commonJS(function(exports2) {
   var Scalar = require_Scalar();
   var nullTag = {
@@ -2234,7 +2234,7 @@ var require_null = __commonJS(function(exports2) {
   exports2.nullTag = nullTag;
 });
 
-// node_modules/yaml/dist/schema/core/bool.js
+// ../kraft-24/node_modules/yaml/dist/schema/core/bool.js
 var require_bool = __commonJS(function(exports2) {
   var Scalar = require_Scalar();
   var boolTag = {
@@ -2255,7 +2255,7 @@ var require_bool = __commonJS(function(exports2) {
   exports2.boolTag = boolTag;
 });
 
-// node_modules/yaml/dist/stringify/stringifyNumber.js
+// ../kraft-24/node_modules/yaml/dist/stringify/stringifyNumber.js
 var require_stringifyNumber = __commonJS(function(exports2) {
   function stringifyNumber({ format, minFractionDigits, tag, value }) {
     if (typeof value === "bigint")
@@ -2279,7 +2279,7 @@ var require_stringifyNumber = __commonJS(function(exports2) {
   exports2.stringifyNumber = stringifyNumber;
 });
 
-// node_modules/yaml/dist/schema/core/float.js
+// ../kraft-24/node_modules/yaml/dist/schema/core/float.js
 var require_float = __commonJS(function(exports2) {
   var Scalar = require_Scalar();
   var stringifyNumber = require_stringifyNumber();
@@ -2322,7 +2322,7 @@ var require_float = __commonJS(function(exports2) {
   exports2.floatNaN = floatNaN;
 });
 
-// node_modules/yaml/dist/schema/core/int.js
+// ../kraft-24/node_modules/yaml/dist/schema/core/int.js
 var require_int = __commonJS(function(exports2) {
   var stringifyNumber = require_stringifyNumber();
   var intIdentify = (value) => typeof value === "bigint" || Number.isInteger(value);
@@ -2364,7 +2364,7 @@ var require_int = __commonJS(function(exports2) {
   exports2.intOct = intOct;
 });
 
-// node_modules/yaml/dist/schema/core/schema.js
+// ../kraft-24/node_modules/yaml/dist/schema/core/schema.js
 var require_schema = __commonJS(function(exports2) {
   var map = require_map();
   var _null = require_null();
@@ -2389,7 +2389,7 @@ var require_schema = __commonJS(function(exports2) {
   exports2.schema = schema;
 });
 
-// node_modules/yaml/dist/schema/json/schema.js
+// ../kraft-24/node_modules/yaml/dist/schema/json/schema.js
 var require_schema2 = __commonJS(function(exports2) {
   var Scalar = require_Scalar();
   var map = require_map();
@@ -2453,7 +2453,7 @@ var require_schema2 = __commonJS(function(exports2) {
   exports2.schema = schema;
 });
 
-// node_modules/yaml/dist/schema/yaml-1.1/binary.js
+// ../kraft-24/node_modules/yaml/dist/schema/yaml-1.1/binary.js
 var require_binary = __commonJS(function(exports2) {
   var node_buffer = require("buffer");
   var Scalar = require_Scalar();
@@ -2508,7 +2508,7 @@ var require_binary = __commonJS(function(exports2) {
   exports2.binary = binary;
 });
 
-// node_modules/yaml/dist/schema/yaml-1.1/pairs.js
+// ../kraft-24/node_modules/yaml/dist/schema/yaml-1.1/pairs.js
 var require_pairs = __commonJS(function(exports2) {
   var identity = require_identity();
   var Pair = require_Pair();
@@ -2583,7 +2583,7 @@ ${cn.comment}` : item.comment;
   exports2.resolvePairs = resolvePairs;
 });
 
-// node_modules/yaml/dist/schema/yaml-1.1/omap.js
+// ../kraft-24/node_modules/yaml/dist/schema/yaml-1.1/omap.js
 var require_omap = __commonJS(function(exports2) {
   var identity = require_identity();
   var toJS = require_toJS();
@@ -2655,7 +2655,7 @@ var require_omap = __commonJS(function(exports2) {
   exports2.omap = omap;
 });
 
-// node_modules/yaml/dist/schema/yaml-1.1/bool.js
+// ../kraft-24/node_modules/yaml/dist/schema/yaml-1.1/bool.js
 var require_bool2 = __commonJS(function(exports2) {
   var Scalar = require_Scalar();
   function boolStringify({ value, source }, ctx) {
@@ -2684,7 +2684,7 @@ var require_bool2 = __commonJS(function(exports2) {
   exports2.trueTag = trueTag;
 });
 
-// node_modules/yaml/dist/schema/yaml-1.1/float.js
+// ../kraft-24/node_modules/yaml/dist/schema/yaml-1.1/float.js
 var require_float2 = __commonJS(function(exports2) {
   var Scalar = require_Scalar();
   var stringifyNumber = require_stringifyNumber();
@@ -2730,7 +2730,7 @@ var require_float2 = __commonJS(function(exports2) {
   exports2.floatNaN = floatNaN;
 });
 
-// node_modules/yaml/dist/schema/yaml-1.1/int.js
+// ../kraft-24/node_modules/yaml/dist/schema/yaml-1.1/int.js
 var require_int2 = __commonJS(function(exports2) {
   var stringifyNumber = require_stringifyNumber();
   var intIdentify = (value) => typeof value === "bigint" || Number.isInteger(value);
@@ -2806,7 +2806,7 @@ var require_int2 = __commonJS(function(exports2) {
   exports2.intOct = intOct;
 });
 
-// node_modules/yaml/dist/schema/yaml-1.1/set.js
+// ../kraft-24/node_modules/yaml/dist/schema/yaml-1.1/set.js
 var require_set = __commonJS(function(exports2) {
   var identity = require_identity();
   var Pair = require_Pair();
@@ -2889,7 +2889,7 @@ var require_set = __commonJS(function(exports2) {
   exports2.set = set;
 });
 
-// node_modules/yaml/dist/schema/yaml-1.1/timestamp.js
+// ../kraft-24/node_modules/yaml/dist/schema/yaml-1.1/timestamp.js
 var require_timestamp = __commonJS(function(exports2) {
   var stringifyNumber = require_stringifyNumber();
   function parseSexagesimal(str, asBigInt) {
@@ -2971,7 +2971,7 @@ var require_timestamp = __commonJS(function(exports2) {
   exports2.timestamp = timestamp;
 });
 
-// node_modules/yaml/dist/schema/yaml-1.1/schema.js
+// ../kraft-24/node_modules/yaml/dist/schema/yaml-1.1/schema.js
 var require_schema3 = __commonJS(function(exports2) {
   var map = require_map();
   var _null = require_null();
@@ -3012,7 +3012,7 @@ var require_schema3 = __commonJS(function(exports2) {
   exports2.schema = schema;
 });
 
-// node_modules/yaml/dist/schema/tags.js
+// ../kraft-24/node_modules/yaml/dist/schema/tags.js
 var require_tags = __commonJS(function(exports2) {
   var map = require_map();
   var _null = require_null();
@@ -3103,7 +3103,7 @@ var require_tags = __commonJS(function(exports2) {
   exports2.getTags = getTags;
 });
 
-// node_modules/yaml/dist/schema/Schema.js
+// ../kraft-24/node_modules/yaml/dist/schema/Schema.js
 var require_Schema = __commonJS(function(exports2) {
   var identity = require_identity();
   var map = require_map();
@@ -3133,7 +3133,7 @@ var require_Schema = __commonJS(function(exports2) {
   exports2.Schema = Schema;
 });
 
-// node_modules/yaml/dist/stringify/stringifyDocument.js
+// ../kraft-24/node_modules/yaml/dist/stringify/stringifyDocument.js
 var require_stringifyDocument = __commonJS(function(exports2) {
   var identity = require_identity();
   var stringify = require_stringify();
@@ -3213,7 +3213,7 @@ var require_stringifyDocument = __commonJS(function(exports2) {
   exports2.stringifyDocument = stringifyDocument;
 });
 
-// node_modules/yaml/dist/doc/Document.js
+// ../kraft-24/node_modules/yaml/dist/doc/Document.js
 var require_Document = __commonJS(function(exports2) {
   var Alias = require_Alias();
   var Collection = require_Collection();
@@ -3448,7 +3448,7 @@ var require_Document = __commonJS(function(exports2) {
   exports2.Document = Document;
 });
 
-// node_modules/yaml/dist/errors.js
+// ../kraft-24/node_modules/yaml/dist/errors.js
 var require_errors = __commonJS(function(exports2) {
   class YAMLError extends Error {
     constructor(name, pos, code, message) {
@@ -3513,7 +3513,7 @@ ${pointer}
   exports2.prettifyError = prettifyError;
 });
 
-// node_modules/yaml/dist/compose/resolve-props.js
+// ../kraft-24/node_modules/yaml/dist/compose/resolve-props.js
 var require_resolve_props = __commonJS(function(exports2) {
   function resolveProps(tokens, { flow, indicator, next, offset, onError, parentIndent, startOnNewline }) {
     let spaceBefore = false;
@@ -3643,7 +3643,7 @@ var require_resolve_props = __commonJS(function(exports2) {
   exports2.resolveProps = resolveProps;
 });
 
-// node_modules/yaml/dist/compose/util-contains-newline.js
+// ../kraft-24/node_modules/yaml/dist/compose/util-contains-newline.js
 var require_util_contains_newline = __commonJS(function(exports2) {
   function containsNewline(key) {
     if (!key)
@@ -3683,7 +3683,7 @@ var require_util_contains_newline = __commonJS(function(exports2) {
   exports2.containsNewline = containsNewline;
 });
 
-// node_modules/yaml/dist/compose/util-flow-indent-check.js
+// ../kraft-24/node_modules/yaml/dist/compose/util-flow-indent-check.js
 var require_util_flow_indent_check = __commonJS(function(exports2) {
   var utilContainsNewline = require_util_contains_newline();
   function flowIndentCheck(indent, fc, onError) {
@@ -3698,7 +3698,7 @@ var require_util_flow_indent_check = __commonJS(function(exports2) {
   exports2.flowIndentCheck = flowIndentCheck;
 });
 
-// node_modules/yaml/dist/compose/util-map-includes.js
+// ../kraft-24/node_modules/yaml/dist/compose/util-map-includes.js
 var require_util_map_includes = __commonJS(function(exports2) {
   var identity = require_identity();
   function mapIncludes(ctx, items, search) {
@@ -3711,7 +3711,7 @@ var require_util_map_includes = __commonJS(function(exports2) {
   exports2.mapIncludes = mapIncludes;
 });
 
-// node_modules/yaml/dist/compose/resolve-block-map.js
+// ../kraft-24/node_modules/yaml/dist/compose/resolve-block-map.js
 var require_resolve_block_map = __commonJS(function(exports2) {
   var Pair = require_Pair();
   var YAMLMap = require_YAMLMap();
@@ -3818,7 +3818,7 @@ var require_resolve_block_map = __commonJS(function(exports2) {
   exports2.resolveBlockMap = resolveBlockMap;
 });
 
-// node_modules/yaml/dist/compose/resolve-block-seq.js
+// ../kraft-24/node_modules/yaml/dist/compose/resolve-block-seq.js
 var require_resolve_block_seq = __commonJS(function(exports2) {
   var YAMLSeq = require_YAMLSeq();
   var resolveProps = require_resolve_props();
@@ -3866,7 +3866,7 @@ var require_resolve_block_seq = __commonJS(function(exports2) {
   exports2.resolveBlockSeq = resolveBlockSeq;
 });
 
-// node_modules/yaml/dist/compose/resolve-end.js
+// ../kraft-24/node_modules/yaml/dist/compose/resolve-end.js
 var require_resolve_end = __commonJS(function(exports2) {
   function resolveEnd(end, offset, reqSpace, onError) {
     let comment = "";
@@ -3906,7 +3906,7 @@ var require_resolve_end = __commonJS(function(exports2) {
   exports2.resolveEnd = resolveEnd;
 });
 
-// node_modules/yaml/dist/compose/resolve-flow-collection.js
+// ../kraft-24/node_modules/yaml/dist/compose/resolve-flow-collection.js
 var require_resolve_flow_collection = __commonJS(function(exports2) {
   var identity = require_identity();
   var Pair = require_Pair();
@@ -4097,7 +4097,7 @@ var require_resolve_flow_collection = __commonJS(function(exports2) {
   exports2.resolveFlowCollection = resolveFlowCollection;
 });
 
-// node_modules/yaml/dist/compose/compose-collection.js
+// ../kraft-24/node_modules/yaml/dist/compose/compose-collection.js
 var require_compose_collection = __commonJS(function(exports2) {
   var identity = require_identity();
   var Scalar = require_Scalar();
@@ -4159,7 +4159,7 @@ var require_compose_collection = __commonJS(function(exports2) {
   exports2.composeCollection = composeCollection;
 });
 
-// node_modules/yaml/dist/compose/resolve-block-scalar.js
+// ../kraft-24/node_modules/yaml/dist/compose/resolve-block-scalar.js
 var require_resolve_block_scalar = __commonJS(function(exports2) {
   var Scalar = require_Scalar();
   function resolveBlockScalar(ctx, scalar, onError) {
@@ -4352,7 +4352,7 @@ var require_resolve_block_scalar = __commonJS(function(exports2) {
   exports2.resolveBlockScalar = resolveBlockScalar;
 });
 
-// node_modules/yaml/dist/compose/resolve-flow-scalar.js
+// ../kraft-24/node_modules/yaml/dist/compose/resolve-flow-scalar.js
 var require_resolve_flow_scalar = __commonJS(function(exports2) {
   var Scalar = require_Scalar();
   var resolveEnd = require_resolve_end();
@@ -4568,7 +4568,7 @@ var require_resolve_flow_scalar = __commonJS(function(exports2) {
   exports2.resolveFlowScalar = resolveFlowScalar;
 });
 
-// node_modules/yaml/dist/compose/compose-scalar.js
+// ../kraft-24/node_modules/yaml/dist/compose/compose-scalar.js
 var require_compose_scalar = __commonJS(function(exports2) {
   var identity = require_identity();
   var Scalar = require_Scalar();
@@ -4646,7 +4646,7 @@ var require_compose_scalar = __commonJS(function(exports2) {
   exports2.composeScalar = composeScalar;
 });
 
-// node_modules/yaml/dist/compose/util-empty-scalar-position.js
+// ../kraft-24/node_modules/yaml/dist/compose/util-empty-scalar-position.js
 var require_util_empty_scalar_position = __commonJS(function(exports2) {
   function emptyScalarPosition(offset, before, pos) {
     if (before) {
@@ -4673,7 +4673,7 @@ var require_util_empty_scalar_position = __commonJS(function(exports2) {
   exports2.emptyScalarPosition = emptyScalarPosition;
 });
 
-// node_modules/yaml/dist/compose/compose-node.js
+// ../kraft-24/node_modules/yaml/dist/compose/compose-node.js
 var require_compose_node = __commonJS(function(exports2) {
   var Alias = require_Alias();
   var identity = require_identity();
@@ -4771,7 +4771,7 @@ var require_compose_node = __commonJS(function(exports2) {
   exports2.composeNode = composeNode;
 });
 
-// node_modules/yaml/dist/compose/compose-doc.js
+// ../kraft-24/node_modules/yaml/dist/compose/compose-doc.js
 var require_compose_doc = __commonJS(function(exports2) {
   var Document = require_Document();
   var composeNode = require_compose_node();
@@ -4811,7 +4811,7 @@ var require_compose_doc = __commonJS(function(exports2) {
   exports2.composeDoc = composeDoc;
 });
 
-// node_modules/yaml/dist/compose/composer.js
+// ../kraft-24/node_modules/yaml/dist/compose/composer.js
 var require_composer = __commonJS(function(exports2) {
   var node_process = require("process");
   var directives = require_directives();
@@ -5000,7 +5000,7 @@ ${end.comment}` : end.comment;
   exports2.Composer = Composer;
 });
 
-// node_modules/yaml/dist/parse/cst-scalar.js
+// ../kraft-24/node_modules/yaml/dist/parse/cst-scalar.js
 var require_cst_scalar = __commonJS(function(exports2) {
   var resolveBlockScalar = require_resolve_block_scalar();
   var resolveFlowScalar = require_resolve_flow_scalar();
@@ -5190,7 +5190,7 @@ var require_cst_scalar = __commonJS(function(exports2) {
   exports2.setScalarValue = setScalarValue;
 });
 
-// node_modules/yaml/dist/parse/cst-stringify.js
+// ../kraft-24/node_modules/yaml/dist/parse/cst-stringify.js
 var require_cst_stringify = __commonJS(function(exports2) {
   var stringify = (cst) => ("type" in cst) ? stringifyToken(cst) : stringifyItem(cst);
   function stringifyToken(token) {
@@ -5248,7 +5248,7 @@ var require_cst_stringify = __commonJS(function(exports2) {
   exports2.stringify = stringify;
 });
 
-// node_modules/yaml/dist/parse/cst-visit.js
+// ../kraft-24/node_modules/yaml/dist/parse/cst-visit.js
 var require_cst_visit = __commonJS(function(exports2) {
   var BREAK = Symbol("break visit");
   var SKIP = Symbol("skip children");
@@ -5307,7 +5307,7 @@ var require_cst_visit = __commonJS(function(exports2) {
   exports2.visit = visit;
 });
 
-// node_modules/yaml/dist/parse/cst.js
+// ../kraft-24/node_modules/yaml/dist/parse/cst.js
 var require_cst = __commonJS(function(exports2) {
   var cstScalar = require_cst_scalar();
   var cstStringify = require_cst_stringify();
@@ -5408,7 +5408,7 @@ var require_cst = __commonJS(function(exports2) {
   exports2.tokenType = tokenType;
 });
 
-// node_modules/yaml/dist/parse/lexer.js
+// ../kraft-24/node_modules/yaml/dist/parse/lexer.js
 var require_lexer = __commonJS(function(exports2) {
   var cst = require_cst();
   function isEmpty(ch) {
@@ -5994,7 +5994,7 @@ var require_lexer = __commonJS(function(exports2) {
   exports2.Lexer = Lexer;
 });
 
-// node_modules/yaml/dist/parse/line-counter.js
+// ../kraft-24/node_modules/yaml/dist/parse/line-counter.js
 var require_line_counter = __commonJS(function(exports2) {
   class LineCounter {
     constructor() {
@@ -6022,7 +6022,7 @@ var require_line_counter = __commonJS(function(exports2) {
   exports2.LineCounter = LineCounter;
 });
 
-// node_modules/yaml/dist/parse/parser.js
+// ../kraft-24/node_modules/yaml/dist/parse/parser.js
 var require_parser = __commonJS(function(exports2) {
   var node_process = require("process");
   var cst = require_cst();
@@ -6871,7 +6871,7 @@ var require_parser = __commonJS(function(exports2) {
   exports2.Parser = Parser;
 });
 
-// node_modules/yaml/dist/public-api.js
+// ../kraft-24/node_modules/yaml/dist/public-api.js
 var require_public_api = __commonJS(function(exports2) {
   var composer = require_composer();
   var Document = require_Document();
@@ -6965,7 +6965,7 @@ var require_public_api = __commonJS(function(exports2) {
   exports2.stringify = stringify;
 });
 
-// node_modules/yaml/dist/index.js
+// ../kraft-24/node_modules/yaml/dist/index.js
 var require_dist = __commonJS(function(exports2) {
   var composer = require_composer();
   var Document = require_Document();
@@ -7023,7 +7023,7 @@ module.exports = __toCommonJS(exports_compile);
 var import_node_fs = require("node:fs");
 var import_node_path = require("node:path");
 
-// node_modules/zod/v4/core/core.js
+// ../kraft-24/node_modules/zod/v4/core/core.js
 var _a;
 function $constructor(name, initializer, params) {
   function init(inst, def) {
@@ -7098,7 +7098,7 @@ function config(newConfig) {
     Object.assign(globalConfig, newConfig);
   return globalConfig;
 }
-// node_modules/zod/v4/core/util.js
+// ../kraft-24/node_modules/zod/v4/core/util.js
 function getEnumValues(entries) {
   const numericValues = Object.values(entries).filter((v) => typeof v === "number");
   const values = Object.entries(entries).filter(([k, _]) => numericValues.indexOf(+k) === -1).map(([_, v]) => v);
@@ -7499,7 +7499,7 @@ function issue(...args) {
   return { ...iss };
 }
 
-// node_modules/zod/v4/core/errors.js
+// ../kraft-24/node_modules/zod/v4/core/errors.js
 var initializer = (inst, def) => {
   inst.name = "$ZodError";
   Object.defineProperty(inst, "_zod", {
@@ -7568,7 +7568,7 @@ function formatError(error, mapper = (issue) => issue.message) {
   return fieldErrors;
 }
 
-// node_modules/zod/v4/core/parse.js
+// ../kraft-24/node_modules/zod/v4/core/parse.js
 var _parse = (_Err) => (schema, value, _ctx, _params) => {
   const ctx = _ctx ? { ..._ctx, async: false } : { async: false };
   const result = schema._zod.run({ value, issues: [] }, ctx);
@@ -7645,7 +7645,7 @@ var _safeEncodeAsync = (_Err) => async (schema, value, _ctx) => {
 var _safeDecodeAsync = (_Err) => async (schema, value, _ctx) => {
   return _safeParseAsync(_Err)(schema, value, _ctx);
 };
-// node_modules/zod/v4/core/regexes.js
+// ../kraft-24/node_modules/zod/v4/core/regexes.js
 var cuid = /^[cC][0-9a-z]{6,}$/;
 var cuid2 = /^[0-9a-z]+$/;
 var ulid = /^[0-9A-HJKMNP-TV-Za-hjkmnp-tv-z]{26}$/;
@@ -7702,7 +7702,7 @@ var boolean = /^(?:true|false)$/i;
 var lowercase = /^[^A-Z]*$/;
 var uppercase = /^[^a-z]*$/;
 
-// node_modules/zod/v4/core/checks.js
+// ../kraft-24/node_modules/zod/v4/core/checks.js
 var $ZodCheck = /* @__PURE__ */ $constructor("$ZodCheck", (inst, def) => {
   var _a;
   inst._zod ?? (inst._zod = {});
@@ -8091,7 +8091,7 @@ var $ZodCheckOverwrite = /* @__PURE__ */ $constructor("$ZodCheckOverwrite", (ins
   };
 });
 
-// node_modules/zod/v4/core/doc.js
+// ../kraft-24/node_modules/zod/v4/core/doc.js
 class Doc {
   constructor(args = []) {
     this.content = [];
@@ -8129,14 +8129,14 @@ class Doc {
   }
 }
 
-// node_modules/zod/v4/core/versions.js
+// ../kraft-24/node_modules/zod/v4/core/versions.js
 var version = {
   major: 4,
   minor: 4,
   patch: 3
 };
 
-// node_modules/zod/v4/core/schemas.js
+// ../kraft-24/node_modules/zod/v4/core/schemas.js
 var $ZodType = /* @__PURE__ */ $constructor("$ZodType", (inst, def) => {
   var _a;
   inst ?? (inst = {});
@@ -9522,7 +9522,7 @@ function handleRefineResult(result, payload, input, inst) {
     payload.issues.push(issue(_iss));
   }
 }
-// node_modules/zod/v4/core/registries.js
+// ../kraft-24/node_modules/zod/v4/core/registries.js
 var _a2;
 var $output = Symbol("ZodOutput");
 var $input = Symbol("ZodInput");
@@ -9572,7 +9572,7 @@ function registry() {
 }
 (_a2 = globalThis).__zod_globalRegistry ?? (_a2.__zod_globalRegistry = registry());
 var globalRegistry = globalThis.__zod_globalRegistry;
-// node_modules/zod/v4/core/api.js
+// ../kraft-24/node_modules/zod/v4/core/api.js
 function _string(Class, params) {
   return new Class({
     type: "string",
@@ -10021,7 +10021,7 @@ function _check(fn, params) {
   ch._zod.check = fn;
   return ch;
 }
-// node_modules/zod/v4/core/to-json-schema.js
+// ../kraft-24/node_modules/zod/v4/core/to-json-schema.js
 function initializeContext(params) {
   let target = params?.target ?? "draft-2020-12";
   if (target === "draft-4")
@@ -10373,7 +10373,7 @@ var createStandardJSONSchemaMethod = (schema, io, processors = {}) => (params) =
   extractDefs(ctx, schema);
   return finalize(ctx, schema);
 };
-// node_modules/zod/v4/core/json-schema-processors.js
+// ../kraft-24/node_modules/zod/v4/core/json-schema-processors.js
 var formatMap = {
   guid: "uuid",
   url: "uri",
@@ -10692,7 +10692,7 @@ var optionalProcessor = (schema, ctx, _json, params) => {
   const seen = ctx.seen.get(schema);
   seen.ref = def.innerType;
 };
-// node_modules/zod/v4/classic/iso.js
+// ../kraft-24/node_modules/zod/v4/classic/iso.js
 var ZodISODateTime = /* @__PURE__ */ $constructor("ZodISODateTime", (inst, def) => {
   $ZodISODateTime.init(inst, def);
   ZodStringFormat.init(inst, def);
@@ -10722,7 +10722,7 @@ function duration2(params) {
   return _isoDuration(ZodISODuration, params);
 }
 
-// node_modules/zod/v4/classic/errors.js
+// ../kraft-24/node_modules/zod/v4/classic/errors.js
 var initializer2 = (inst, issues) => {
   $ZodError.init(inst, issues);
   inst.name = "ZodError";
@@ -10756,7 +10756,7 @@ var ZodRealError = /* @__PURE__ */ $constructor("ZodError", initializer2, {
   Parent: Error
 });
 
-// node_modules/zod/v4/classic/parse.js
+// ../kraft-24/node_modules/zod/v4/classic/parse.js
 var parse3 = /* @__PURE__ */ _parse(ZodRealError);
 var parseAsync2 = /* @__PURE__ */ _parseAsync(ZodRealError);
 var safeParse2 = /* @__PURE__ */ _safeParse(ZodRealError);
@@ -10770,7 +10770,7 @@ var safeDecode = /* @__PURE__ */ _safeDecode(ZodRealError);
 var safeEncodeAsync = /* @__PURE__ */ _safeEncodeAsync(ZodRealError);
 var safeDecodeAsync = /* @__PURE__ */ _safeDecodeAsync(ZodRealError);
 
-// node_modules/zod/v4/classic/schemas.js
+// ../kraft-24/node_modules/zod/v4/classic/schemas.js
 var _installedGroups = /* @__PURE__ */ new WeakMap;
 function _installLazyMethods(inst, group, methods) {
   const proto = Object.getPrototypeOf(inst);
@@ -11569,7 +11569,7 @@ function superRefine(fn, params) {
   return _superRefine(fn, params);
 }
 
-// node_modules/zod/v4/classic/compat.js
+// ../kraft-24/node_modules/zod/v4/classic/compat.js
 var ZodIssueCode = {
   invalid_type: "invalid_type",
   too_big: "too_big",
@@ -11654,6 +11654,8 @@ var prepareStep = object({
   once: boolean2().optional(),
   phase: _enum(["pre-deploy", "post-start", "post-ready"]).optional(),
   mustSucceed: boolean2().optional(),
+  timeoutMs: number2().int().min(1000).max(30 * 60000).optional(),
+  successPattern: string2().min(1).max(500).optional(),
   readiness: object({
     test: string2(),
     interval: number2().optional(),
@@ -11977,12 +11979,7 @@ var catalog_default = {
       kind: "flow",
       logo: "mail",
       category: "mail",
-      tags: [
-        "mail",
-        "email",
-        "smtp",
-        "imap"
-      ],
+      tags: ["mail", "email", "smtp", "imap"],
       flowHref: "/apps/new/mail",
       management: {
         kind: "custom",
@@ -12025,14 +12022,7 @@ var catalog_default = {
             "supabase_db_config:/etc/postgresql-custom"
           ],
           healthcheck: {
-            test: [
-              "CMD",
-              "pg_isready",
-              "-U",
-              "postgres",
-              "-h",
-              "localhost"
-            ],
+            test: ["CMD", "pg_isready", "-U", "postgres", "-h", "localhost"],
             interval: "5s",
             timeout: "5s",
             retries: 10
@@ -12067,11 +12057,7 @@ var catalog_default = {
             KONG_NGINX_PROXY_PROXY_BUFFERS: "64 160k"
           },
           healthcheck: {
-            test: [
-              "CMD",
-              "kong",
-              "health"
-            ],
+            test: ["CMD", "kong", "health"],
             interval: "10s",
             timeout: "5s",
             retries: 5
@@ -12081,9 +12067,7 @@ var catalog_default = {
         {
           name: "auth",
           image: "supabase/gotrue:v2.189.0",
-          dependsOn: [
-            "db"
-          ],
+          dependsOn: ["db"],
           environment: {
             GOTRUE_API_HOST: "0.0.0.0",
             GOTRUE_API_PORT: "9999",
@@ -12122,9 +12106,7 @@ var catalog_default = {
         {
           name: "rest",
           image: "postgrest/postgrest:v14.12",
-          dependsOn: [
-            "db"
-          ],
+          dependsOn: ["db"],
           environment: {
             PGRST_DB_URI: "postgres://authenticator:{{config:POSTGRES_PASSWORD}}@db:5432/postgres",
             PGRST_DB_SCHEMAS: "public,storage,graphql_public",
@@ -12139,9 +12121,7 @@ var catalog_default = {
         {
           name: "realtime-dev.supabase-realtime",
           image: "supabase/realtime:v2.102.3",
-          dependsOn: [
-            "db"
-          ],
+          dependsOn: ["db"],
           environment: {
             PORT: "4000",
             DB_HOST: "db",
@@ -12166,11 +12146,7 @@ var catalog_default = {
         {
           name: "storage",
           image: "supabase/storage-api:v1.60.4",
-          dependsOn: [
-            "db",
-            "rest",
-            "imgproxy"
-          ],
+          dependsOn: ["db", "rest", "imgproxy"],
           environment: {
             ANON_KEY: "{{config:ANON_KEY}}",
             SERVICE_KEY: "{{config:SERVICE_ROLE_KEY}}",
@@ -12186,9 +12162,7 @@ var catalog_default = {
             ENABLE_IMAGE_TRANSFORMATION: "true",
             IMGPROXY_URL: "http://imgproxy:5001"
           },
-          volumes: [
-            "supabase_storage_data:/var/lib/storage"
-          ],
+          volumes: ["supabase_storage_data:/var/lib/storage"],
           healthcheck: {
             test: [
               "CMD",
@@ -12213,15 +12187,9 @@ var catalog_default = {
             IMGPROXY_USE_ETAG: "true",
             IMGPROXY_ENABLE_WEBP_DETECTION: "true"
           },
-          volumes: [
-            "supabase_storage_data:/var/lib/storage"
-          ],
+          volumes: ["supabase_storage_data:/var/lib/storage"],
           healthcheck: {
-            test: [
-              "CMD",
-              "imgproxy",
-              "health"
-            ],
+            test: ["CMD", "imgproxy", "health"],
             interval: "5s",
             timeout: "5s",
             retries: 3
@@ -12231,9 +12199,7 @@ var catalog_default = {
         {
           name: "meta",
           image: "supabase/postgres-meta:v0.96.6",
-          dependsOn: [
-            "db"
-          ],
+          dependsOn: ["db"],
           environment: {
             PG_META_PORT: "8080",
             PG_META_DB_HOST: "db",
@@ -12248,9 +12214,7 @@ var catalog_default = {
         {
           name: "studio",
           image: "supabase/studio:2026.07.07-sha-a6a04f2",
-          dependsOn: [
-            "meta"
-          ],
+          dependsOn: ["meta"],
           environment: {
             HOSTNAME: "0.0.0.0",
             STUDIO_PG_META_URL: "http://meta:8080",
@@ -12891,26 +12855,17 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "mongodb",
       category: "backend",
-      tags: [
-        "database",
-        "mongodb",
-        "nosql",
-        "documents"
-      ],
+      tags: ["database", "mongodb", "nosql", "documents"],
       framework: "docker-compose",
       services: [
         {
           name: "mongo",
           image: "mongo:7.0",
-          ports: [
-            "27017:27017"
-          ],
+          ports: ["27017:27017"],
           environment: {
             MONGO_INITDB_ROOT_USERNAME: "root"
           },
-          volumes: [
-            "mongo_data:/data/db"
-          ],
+          volumes: ["mongo_data:/data/db"],
           healthcheck: {
             test: [
               "CMD",
@@ -12936,9 +12891,7 @@ alter schema _realtime owner to :pguser;
               port: 8081
             }
           ],
-          dependsOn: [
-            "mongo"
-          ],
+          dependsOn: ["mongo"],
           environment: {
             ME_CONFIG_MONGODB_URL: "mongodb://root:{{config:MONGO_INITDB_ROOT_PASSWORD}}@mongo:27017/",
             ME_CONFIG_MONGODB_ENABLE_ADMIN: "true",
@@ -13055,11 +13008,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "convex",
       category: "backend",
-      tags: [
-        "backend",
-        "database",
-        "realtime"
-      ],
+      tags: ["backend", "database", "realtime"],
       framework: "docker-compose",
       services: [
         {
@@ -13083,12 +13032,8 @@ alter schema _realtime owner to :pguser;
             CONVEX_CLOUD_ORIGIN: "{{publicUrl:backend:3210}}",
             CONVEX_SITE_ORIGIN: "{{publicUrl:backend:3211}}"
           },
-          secretEnv: [
-            "INSTANCE_SECRET"
-          ],
-          volumes: [
-            "convex_data:/convex/data"
-          ],
+          secretEnv: ["INSTANCE_SECRET"],
+          volumes: ["convex_data:/convex/data"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -13107,9 +13052,7 @@ alter schema _realtime owner to :pguser;
           ports: [],
           exposedPort: 6791,
           exposed: true,
-          dependsOn: [
-            "backend"
-          ],
+          dependsOn: ["backend"],
           environment: {
             NEXT_PUBLIC_DEPLOYMENT_URL: "{{publicUrl:backend}}"
           },
@@ -13223,11 +13166,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "n8n",
       category: "automation",
-      tags: [
-        "automation",
-        "workflows",
-        "integrations"
-      ],
+      tags: ["automation", "workflows", "integrations"],
       framework: "docker-compose",
       services: [
         {
@@ -13241,12 +13180,8 @@ alter schema _realtime owner to :pguser;
             GENERIC_TIMEZONE: "UTC",
             WEBHOOK_URL: "{{publicUrl:n8n}}"
           },
-          secretEnv: [
-            "N8N_ENCRYPTION_KEY"
-          ],
-          volumes: [
-            "n8n_data:/home/node/.n8n"
-          ],
+          secretEnv: ["N8N_ENCRYPTION_KEY"],
+          volumes: ["n8n_data:/home/node/.n8n"],
           restart: "unless-stopped",
           ports: []
         }
@@ -13354,11 +13289,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "ghost",
       category: "cms",
-      tags: [
-        "cms",
-        "blog",
-        "newsletter"
-      ],
+      tags: ["cms", "blog", "newsletter"],
       framework: "docker-compose",
       services: [
         {
@@ -13367,12 +13298,8 @@ alter schema _realtime owner to :pguser;
           environment: {
             MYSQL_DATABASE: "ghost"
           },
-          secretEnv: [
-            "MYSQL_ROOT_PASSWORD"
-          ],
-          volumes: [
-            "ghost_db:/var/lib/mysql"
-          ],
+          secretEnv: ["MYSQL_ROOT_PASSWORD"],
+          volumes: ["ghost_db:/var/lib/mysql"],
           restart: "unless-stopped"
         },
         {
@@ -13380,9 +13307,7 @@ alter schema _realtime owner to :pguser;
           image: "ghost:5-alpine",
           exposedPort: 2368,
           exposed: true,
-          dependsOn: [
-            "ghost-db"
-          ],
+          dependsOn: ["ghost-db"],
           environment: {
             NODE_ENV: "production",
             url: "{{publicUrl:ghost}}",
@@ -13391,12 +13316,8 @@ alter schema _realtime owner to :pguser;
             database__connection__user: "root",
             database__connection__database: "ghost"
           },
-          secretEnv: [
-            "database__connection__password"
-          ],
-          volumes: [
-            "ghost_content:/var/lib/ghost/content"
-          ],
+          secretEnv: ["database__connection__password"],
+          volumes: ["ghost_content:/var/lib/ghost/content"],
           restart: "unless-stopped",
           ports: []
         }
@@ -13458,11 +13379,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "directus",
       category: "cms",
-      tags: [
-        "cms",
-        "headless",
-        "api"
-      ],
+      tags: ["cms", "headless", "api"],
       framework: "docker-compose",
       services: [
         {
@@ -13481,10 +13398,7 @@ alter schema _realtime owner to :pguser;
             PUBLIC_URL: "{{publicUrl:directus}}",
             ADMIN_EMAIL: "admin@example.com"
           },
-          secretEnv: [
-            "SECRET",
-            "ADMIN_PASSWORD"
-          ],
+          secretEnv: ["SECRET", "ADMIN_PASSWORD"],
           volumes: [
             "directus_database:/directus/database",
             "directus_uploads:/directus/uploads"
@@ -13584,11 +13498,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "nocodb",
       category: "database",
-      tags: [
-        "database",
-        "airtable",
-        "no-code"
-      ],
+      tags: ["database", "airtable", "no-code"],
       framework: "docker-compose",
       services: [
         {
@@ -13596,16 +13506,12 @@ alter schema _realtime owner to :pguser;
           image: "nocodb/nocodb:2026.09.0",
           exposedPort: 8080,
           exposed: true,
-          volumes: [
-            "nocodb_data:/usr/app/data"
-          ],
+          volumes: ["nocodb_data:/usr/app/data"],
           restart: "unless-stopped",
           environment: {
             NC_ADMIN_EMAIL: "admin@example.com"
           },
-          secretEnv: [
-            "NC_ADMIN_PASSWORD"
-          ],
+          secretEnv: ["NC_ADMIN_PASSWORD"],
           ports: []
         }
       ],
@@ -13662,11 +13568,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "metabase",
       category: "analytics",
-      tags: [
-        "analytics",
-        "bi",
-        "dashboards"
-      ],
+      tags: ["analytics", "bi", "dashboards"],
       framework: "docker-compose",
       services: [
         {
@@ -13678,13 +13580,9 @@ alter schema _realtime owner to :pguser;
             MB_DB_FILE: "/metabase-data/metabase.db",
             MB_SITE_URL: "{{publicUrl:metabase}}"
           },
-          volumes: [
-            "metabase_data:/metabase-data"
-          ],
+          volumes: ["metabase_data:/metabase-data"],
           restart: "unless-stopped",
-          secretEnv: [
-            "MB_ENCRYPTION_SECRET_KEY"
-          ],
+          secretEnv: ["MB_ENCRYPTION_SECRET_KEY"],
           ports: []
         }
       ],
@@ -13729,11 +13627,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "grafana",
       category: "analytics",
-      tags: [
-        "analytics",
-        "dashboards",
-        "monitoring"
-      ],
+      tags: ["analytics", "dashboards", "monitoring"],
       framework: "docker-compose",
       services: [
         {
@@ -13745,9 +13639,7 @@ alter schema _realtime owner to :pguser;
           environment: {
             GF_SERVER_ROOT_URL: "{{publicUrl:grafana}}"
           },
-          volumes: [
-            "grafana_data:/var/lib/grafana"
-          ],
+          volumes: ["grafana_data:/var/lib/grafana"],
           restart: "unless-stopped"
         }
       ],
@@ -13776,11 +13668,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "gitea",
       category: "other",
-      tags: [
-        "git",
-        "vcs",
-        "developer"
-      ],
+      tags: ["git", "vcs", "developer"],
       framework: "docker-compose",
       services: [
         {
@@ -13797,13 +13685,9 @@ alter schema _realtime owner to :pguser;
             GITEA_ADMIN_USERNAME: "admin",
             GITEA_ADMIN_EMAIL: "admin@example.com"
           },
-          volumes: [
-            "gitea_data:/data"
-          ],
+          volumes: ["gitea_data:/data"],
           restart: "unless-stopped",
-          secretEnv: [
-            "GITEA_ADMIN_PASSWORD"
-          ],
+          secretEnv: ["GITEA_ADMIN_PASSWORD"],
           ports: []
         }
       ],
@@ -13885,11 +13769,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "code-server",
       category: "other",
-      tags: [
-        "developer",
-        "ide",
-        "vscode"
-      ],
+      tags: ["developer", "ide", "vscode"],
       framework: "docker-compose",
       services: [
         {
@@ -13902,12 +13782,8 @@ alter schema _realtime owner to :pguser;
               port: 8080
             }
           ],
-          secretEnv: [
-            "PASSWORD"
-          ],
-          volumes: [
-            "code_server_home:/home/coder"
-          ],
+          secretEnv: ["PASSWORD"],
+          volumes: ["code_server_home:/home/coder"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -13980,11 +13856,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "uptime-kuma",
       category: "other",
-      tags: [
-        "monitoring",
-        "uptime",
-        "status"
-      ],
+      tags: ["monitoring", "uptime", "status"],
       framework: "docker-compose",
       services: [
         {
@@ -13992,9 +13864,7 @@ alter schema _realtime owner to :pguser;
           image: "louislam/uptime-kuma:1",
           exposedPort: 3001,
           exposed: true,
-          volumes: [
-            "uptime_kuma_data:/app/data"
-          ],
+          volumes: ["uptime_kuma_data:/app/data"],
           restart: "unless-stopped",
           ports: []
         }
@@ -14029,11 +13899,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "vaultwarden",
       category: "other",
-      tags: [
-        "passwords",
-        "security",
-        "bitwarden"
-      ],
+      tags: ["passwords", "security", "bitwarden"],
       framework: "docker-compose",
       services: [
         {
@@ -14045,13 +13911,9 @@ alter schema _realtime owner to :pguser;
             DOMAIN: "{{publicUrl:vaultwarden}}",
             SIGNUPS_ALLOWED: "false"
           },
-          volumes: [
-            "vaultwarden_data:/data"
-          ],
+          volumes: ["vaultwarden_data:/data"],
           restart: "unless-stopped",
-          secretEnv: [
-            "ADMIN_TOKEN"
-          ],
+          secretEnv: ["ADMIN_TOKEN"],
           ports: []
         }
       ],
@@ -14109,11 +13971,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "freshrss",
       category: "other",
-      tags: [
-        "rss",
-        "feeds",
-        "reader"
-      ],
+      tags: ["rss", "feeds", "reader"],
       framework: "docker-compose",
       services: [
         {
@@ -14121,16 +13979,12 @@ alter schema _realtime owner to :pguser;
           image: "freshrss/freshrss:8400",
           exposedPort: 80,
           exposed: true,
-          volumes: [
-            "freshrss_data:/var/www/FreshRSS/data"
-          ],
+          volumes: ["freshrss_data:/var/www/FreshRSS/data"],
           restart: "unless-stopped",
           environment: {
             FRESHRSS_ADMIN_USERNAME: "admin"
           },
-          secretEnv: [
-            "FRESHRSS_ADMIN_PASSWORD"
-          ],
+          secretEnv: ["FRESHRSS_ADMIN_PASSWORD"],
           ports: []
         }
       ],
@@ -14202,11 +14056,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "stirling-pdf",
       category: "other",
-      tags: [
-        "pdf",
-        "documents",
-        "tools"
-      ],
+      tags: ["pdf", "documents", "tools"],
       framework: "docker-compose",
       services: [
         {
@@ -14223,9 +14073,7 @@ alter schema _realtime owner to :pguser;
             SECURITY_ENABLELOGIN: "true",
             SECURITY_INITIALLOGIN_USERNAME: "admin"
           },
-          secretEnv: [
-            "SECURITY_INITIALLOGIN_PASSWORD"
-          ],
+          secretEnv: ["SECURITY_INITIALLOGIN_PASSWORD"],
           ports: []
         }
       ],
@@ -14282,11 +14130,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "it-tools",
       category: "other",
-      tags: [
-        "developer",
-        "tools",
-        "utilities"
-      ],
+      tags: ["developer", "tools", "utilities"],
       framework: "docker-compose",
       services: [
         {
@@ -14329,11 +14173,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "excalidraw",
       category: "other",
-      tags: [
-        "whiteboard",
-        "diagrams",
-        "drawing"
-      ],
+      tags: ["whiteboard", "diagrams", "drawing"],
       framework: "docker-compose",
       services: [
         {
@@ -14374,14 +14214,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "buzz",
       category: "other",
-      tags: [
-        "collaboration",
-        "ai",
-        "agents",
-        "chat",
-        "workflows",
-        "nostr"
-      ]
+      tags: ["collaboration", "ai", "agents", "chat", "workflows", "nostr"]
     },
     {
       available: true,
@@ -14393,22 +14226,13 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "minio",
       category: "database",
-      tags: [
-        "storage",
-        "s3",
-        "object-storage"
-      ],
+      tags: ["storage", "s3", "object-storage"],
       framework: "docker-compose",
       services: [
         {
           name: "minio",
           image: "minio/minio:RELEASE.2025-09-07T16-13-09Z-cpuv1",
-          commandArgv: [
-            "server",
-            "/data",
-            "--console-address",
-            ":9001"
-          ],
+          commandArgv: ["server", "/data", "--console-address", ":9001"],
           exposedPort: 9001,
           routes: [
             {
@@ -14423,12 +14247,8 @@ alter schema _realtime owner to :pguser;
           environment: {
             MINIO_BROWSER_REDIRECT_URL: "{{publicUrl:minio}}"
           },
-          secretEnv: [
-            "MINIO_ROOT_PASSWORD"
-          ],
-          volumes: [
-            "minio_data:/data"
-          ],
+          secretEnv: ["MINIO_ROOT_PASSWORD"],
+          volumes: ["minio_data:/data"],
           restart: "unless-stopped",
           ports: []
         }
@@ -14540,12 +14360,7 @@ alter schema _realtime owner to :pguser;
       provides: [
         {
           id: "s3",
-          outputRefs: [
-            "endpoint",
-            "accessKey",
-            "secretKey",
-            "bucket"
-          ],
+          outputRefs: ["endpoint", "accessKey", "secretKey", "bucket"],
           category: "database"
         }
       ]
@@ -14559,13 +14374,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "apachekafka",
       category: "backend",
-      tags: [
-        "kafka",
-        "streaming",
-        "events",
-        "queue",
-        "messaging"
-      ],
+      tags: ["kafka", "streaming", "events", "queue", "messaging"],
       framework: "docker-compose",
       services: [
         {
@@ -14587,9 +14396,7 @@ alter schema _realtime owner to :pguser;
             KAFKA_NUM_PARTITIONS: "3",
             KAFKA_LOG_DIRS: "/var/lib/kafka/data"
           },
-          volumes: [
-            "kafka_data:/var/lib/kafka/data"
-          ],
+          volumes: ["kafka_data:/var/lib/kafka/data"],
           restart: "unless-stopped"
         },
         {
@@ -14602,9 +14409,7 @@ alter schema _realtime owner to :pguser;
               port: 8080
             }
           ],
-          dependsOn: [
-            "kafka"
-          ],
+          dependsOn: ["kafka"],
           environment: {
             KAFKA_CLUSTERS_0_NAME: "local",
             KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka:9092",
@@ -14612,9 +14417,7 @@ alter schema _realtime owner to :pguser;
             AUTH_TYPE: "LOGIN_FORM",
             SPRING_SECURITY_USER_NAME: "admin"
           },
-          secretEnv: [
-            "SPRING_SECURITY_USER_PASSWORD"
-          ],
+          secretEnv: ["SPRING_SECURITY_USER_PASSWORD"],
           restart: "unless-stopped",
           ports: []
         }
@@ -14680,14 +14483,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "qdrant",
       category: "backend",
-      tags: [
-        "database",
-        "vector",
-        "ai",
-        "search",
-        "rag",
-        "embeddings"
-      ],
+      tags: ["database", "vector", "ai", "search", "rag", "embeddings"],
       framework: "docker-compose",
       services: [
         {
@@ -14700,12 +14496,8 @@ alter schema _realtime owner to :pguser;
               port: 6333
             }
           ],
-          secretEnv: [
-            "QDRANT__SERVICE__API_KEY"
-          ],
-          volumes: [
-            "qdrant_storage:/qdrant/storage"
-          ],
+          secretEnv: ["QDRANT__SERVICE__API_KEY"],
+          volumes: ["qdrant_storage:/qdrant/storage"],
           restart: "unless-stopped",
           ports: []
         }
@@ -14758,12 +14550,7 @@ alter schema _realtime owner to :pguser;
       kind: "template",
       logo: "meilisearch",
       category: "backend",
-      tags: [
-        "search",
-        "full-text",
-        "index",
-        "typo-tolerant"
-      ],
+      tags: ["search", "full-text", "index", "typo-tolerant"],
       framework: "docker-compose",
       services: [
         {
@@ -14780,12 +14567,8 @@ alter schema _realtime owner to :pguser;
             MEILI_ENV: "production",
             MEILI_NO_ANALYTICS: "true"
           },
-          secretEnv: [
-            "MEILI_MASTER_KEY"
-          ],
-          volumes: [
-            "meili_data:/meili_data"
-          ],
+          secretEnv: ["MEILI_MASTER_KEY"],
+          volumes: ["meili_data:/meili_data"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -14853,10 +14636,7 @@ alter schema _realtime owner to :pguser;
       provides: [
         {
           id: "meilisearch",
-          outputRefs: [
-            "url",
-            "masterKey"
-          ],
+          outputRefs: ["url", "masterKey"],
           category: "search"
         }
       ],
@@ -14919,9 +14699,7 @@ alter schema _realtime owner to :pguser;
             "0.0.0.0:55436:55436",
             "0.0.0.0:55437:55437"
           ],
-          volumes: [
-            "neond_data:/neond"
-          ],
+          volumes: ["neond_data:/neond"],
           healthcheck: {
             test: [
               "CMD",
@@ -15112,17 +14890,10 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             POSTGRES_USER: "posthog",
             POSTGRES_DB: "posthog"
           },
-          secretEnv: [
-            "POSTGRES_PASSWORD"
-          ],
-          volumes: [
-            "posthog_pgdata:/var/lib/postgresql/data"
-          ],
+          secretEnv: ["POSTGRES_PASSWORD"],
+          volumes: ["posthog_pgdata:/var/lib/postgresql/data"],
           healthcheck: {
-            test: [
-              "CMD-SHELL",
-              "pg_isready -U posthog"
-            ],
+            test: ["CMD-SHELL", "pg_isready -U posthog"],
             interval: "5s",
             timeout: "30s",
             retries: 30,
@@ -15140,15 +14911,9 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             "--maxmemory",
             "200mb"
           ],
-          volumes: [
-            "posthog_redis:/data"
-          ],
+          volumes: ["posthog_redis:/data"],
           healthcheck: {
-            test: [
-              "CMD",
-              "redis-cli",
-              "ping"
-            ],
+            test: ["CMD", "redis-cli", "ping"],
             interval: "3s",
             timeout: "10s",
             retries: 10
@@ -15166,11 +14931,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             "200mb"
           ],
           healthcheck: {
-            test: [
-              "CMD",
-              "valkey-cli",
-              "ping"
-            ],
+            test: ["CMD", "valkey-cli", "ping"],
             interval: "3s",
             timeout: "10s",
             retries: 10
@@ -15223,9 +14984,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             KAFKA_LOG_RETENTION_HOURS: "1",
             KAFKA_LOG_DIRS: "/var/lib/kafka/data"
           },
-          volumes: [
-            "posthog_kafka:/var/lib/kafka/data"
-          ],
+          volumes: ["posthog_kafka:/var/lib/kafka/data"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -15241,17 +15000,12 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
         {
           name: "clickhouse",
           image: "clickhouse/clickhouse-server:26.6.2.158",
-          dependsOn: [
-            "zookeeper",
-            "kafka"
-          ],
+          dependsOn: ["zookeeper", "kafka"],
           environment: {
             CLICKHOUSE_SKIP_USER_SETUP: "1",
             KAFKA_HOSTS: "kafka:9092"
           },
-          volumes: [
-            "posthog_clickhouse:/var/lib/clickhouse"
-          ],
+          volumes: ["posthog_clickhouse:/var/lib/clickhouse"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -15270,9 +15024,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
           environment: {
             S3_BUCKET: "posthog,ducklake-dev,ai-blobs"
           },
-          volumes: [
-            "posthog_objectstorage:/data"
-          ],
+          volumes: ["posthog_objectstorage:/data"],
           restart: "unless-stopped"
         },
         {
@@ -15350,10 +15102,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
         {
           name: "worker",
           image: "posthog/posthog:981043994a4ea60236299d285bcef99d2069f296",
-          commandArgv: [
-            "./bin/docker-worker-celery",
-            "--with-scheduler"
-          ],
+          commandArgv: ["./bin/docker-worker-celery", "--with-scheduler"],
           dependsOn: [
             "db",
             "redis7",
@@ -15422,10 +15171,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
         {
           name: "capture",
           image: "ghcr.io/posthog/posthog/capture:master",
-          dependsOn: [
-            "kafka",
-            "redis7"
-          ],
+          dependsOn: ["kafka", "redis7"],
           environment: {
             ADDRESS: "0.0.0.0:3000",
             CAPTURE_MODE: "events",
@@ -15448,10 +15194,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
         {
           name: "replay-capture",
           image: "ghcr.io/posthog/posthog/capture:master",
-          dependsOn: [
-            "kafka",
-            "redis7"
-          ],
+          dependsOn: ["kafka", "redis7"],
           environment: {
             ADDRESS: "0.0.0.0:3000",
             CAPTURE_MODE: "recordings",
@@ -15465,10 +15208,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
         {
           name: "ingestion-general",
           image: "posthog/posthog-node:432099028611707cd8baf191466a4b0b1e75be1f",
-          commandArgv: [
-            "node",
-            "nodejs/dist/index.js"
-          ],
+          commandArgv: ["node", "nodejs/dist/index.js"],
           dependsOn: [
             "db",
             "redis7",
@@ -15514,16 +15254,8 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
         {
           name: "ingestion-sessionreplay",
           image: "posthog/posthog-node:432099028611707cd8baf191466a4b0b1e75be1f",
-          commandArgv: [
-            "node",
-            "nodejs/dist/index.js"
-          ],
-          dependsOn: [
-            "db",
-            "redis7",
-            "kafka",
-            "objectstorage"
-          ],
+          commandArgv: ["node", "nodejs/dist/index.js"],
+          dependsOn: ["db", "redis7", "kafka", "objectstorage"],
           environment: {
             PLUGIN_SERVER_MODE: "recordings-blob-ingestion-v2",
             DATABASE_URL: "postgres://posthog:{{config:POSTGRES_PASSWORD}}@db:5432/posthog",
@@ -15538,23 +15270,14 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             CDP_VALKEY_HOST: "valkey",
             CDP_VALKEY_PORT: "6379"
           },
-          secretEnv: [
-            "DATABASE_URL"
-          ],
+          secretEnv: ["DATABASE_URL"],
           restart: "unless-stopped"
         },
         {
           name: "recording-api",
           image: "posthog/posthog-node:432099028611707cd8baf191466a4b0b1e75be1f",
-          commandArgv: [
-            "node",
-            "nodejs/dist/index.js"
-          ],
-          dependsOn: [
-            "db",
-            "redis7",
-            "clickhouse"
-          ],
+          commandArgv: ["node", "nodejs/dist/index.js"],
+          dependsOn: ["db", "redis7", "clickhouse"],
           environment: {
             PLUGIN_SERVER_MODE: "recording-api",
             DATABASE_URL: "postgres://posthog:{{config:POSTGRES_PASSWORD}}@db:5432/posthog",
@@ -15573,18 +15296,13 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             CDP_VALKEY_HOST: "valkey",
             CDP_VALKEY_PORT: "6379"
           },
-          secretEnv: [
-            "DATABASE_URL"
-          ],
+          secretEnv: ["DATABASE_URL"],
           restart: "unless-stopped"
         },
         {
           name: "feature-flags",
           image: "ghcr.io/posthog/posthog/feature-flags:master",
-          dependsOn: [
-            "db",
-            "redis7"
-          ],
+          dependsOn: ["db", "redis7"],
           environment: {
             ADDRESS: "0.0.0.0:3001",
             WRITE_DATABASE_URL: "postgres://posthog:{{config:POSTGRES_PASSWORD}}@db:5432/posthog",
@@ -15604,12 +15322,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             "PERSONS_READ_DATABASE_URL"
           ],
           healthcheck: {
-            test: [
-              "CMD",
-              "curl",
-              "-f",
-              "http://localhost:3001/_readiness"
-            ],
+            test: ["CMD", "curl", "-f", "http://localhost:3001/_readiness"],
             interval: "5s",
             timeout: "5s",
             retries: 12,
@@ -15620,21 +15333,14 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
         {
           name: "hypercache-server",
           image: "ghcr.io/posthog/posthog/hypercache-server:master",
-          dependsOn: [
-            "redis7"
-          ],
+          dependsOn: ["redis7"],
           environment: {
             ADDRESS: "0.0.0.0:3002",
             REDIS_URL: "redis://redis7:6379/",
             RUST_LOG: "info"
           },
           healthcheck: {
-            test: [
-              "CMD",
-              "curl",
-              "-f",
-              "http://localhost:3002/_readiness"
-            ],
+            test: ["CMD", "curl", "-f", "http://localhost:3002/_readiness"],
             interval: "5s",
             timeout: "5s",
             retries: 12,
@@ -15645,26 +15351,20 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
         {
           name: "personhog-replica",
           image: "ghcr.io/posthog/posthog/personhog-replica:master",
-          dependsOn: [
-            "db"
-          ],
+          dependsOn: ["db"],
           environment: {
             GRPC_ADDRESS: "0.0.0.0:50051",
             PRIMARY_DATABASE_URL: "postgres://posthog:{{config:POSTGRES_PASSWORD}}@db:5432/posthog",
             METRICS_PORT: "9100",
             RUST_LOG: "info"
           },
-          secretEnv: [
-            "PRIMARY_DATABASE_URL"
-          ],
+          secretEnv: ["PRIMARY_DATABASE_URL"],
           restart: "unless-stopped"
         },
         {
           name: "personhog-router",
           image: "ghcr.io/posthog/posthog/personhog-router:master",
-          dependsOn: [
-            "personhog-replica"
-          ],
+          dependsOn: ["personhog-replica"],
           environment: {
             GRPC_ADDRESS: "0.0.0.0:50052",
             REPLICA_URL: "http://personhog-replica:50051",
@@ -15677,10 +15377,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
         {
           name: "property-defs-rs",
           image: "ghcr.io/posthog/posthog/property-defs-rs:master",
-          dependsOn: [
-            "db",
-            "kafka"
-          ],
+          dependsOn: ["db", "kafka"],
           environment: {
             DATABASE_URL: "postgres://posthog:{{config:POSTGRES_PASSWORD}}@db:5432/posthog",
             KAFKA_HOSTS: "kafka:9092",
@@ -15689,18 +15386,13 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             FILTER_MODE: "opt-out",
             RUST_LOG: "info"
           },
-          secretEnv: [
-            "DATABASE_URL"
-          ],
+          secretEnv: ["DATABASE_URL"],
           restart: "unless-stopped"
         },
         {
           name: "plugins",
           image: "posthog/posthog-node:432099028611707cd8baf191466a4b0b1e75be1f",
-          commandArgv: [
-            "node",
-            "nodejs/dist/index.js"
-          ],
+          commandArgv: ["node", "nodejs/dist/index.js"],
           dependsOn: [
             "db",
             "redis7",
@@ -16045,31 +15737,18 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
       kind: "template",
       logo: "valkey",
       category: "database",
-      tags: [
-        "cache",
-        "redis",
-        "valkey",
-        "key-value",
-        "queue",
-        "gui"
-      ],
+      tags: ["cache", "redis", "valkey", "key-value", "queue", "gui"],
       framework: "docker-compose",
       services: [
         {
           name: "valkey",
           image: "valkey/valkey:8.1-alpine",
-          commandArgv: [
-            "valkey-server"
-          ],
+          commandArgv: ["valkey-server"],
           environment: {
             VALKEY_EXTRA_FLAGS: "--requirepass {{config:VALKEY_PASSWORD}} --appendonly yes --appendfsync everysec --save 300 100"
           },
-          secretEnv: [
-            "VALKEY_EXTRA_FLAGS"
-          ],
-          volumes: [
-            "valkey_data:/data"
-          ],
+          secretEnv: ["VALKEY_EXTRA_FLAGS"],
+          volumes: ["valkey_data:/data"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -16092,9 +15771,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
               port: 5540
             }
           ],
-          dependsOn: [
-            "valkey"
-          ],
+          dependsOn: ["valkey"],
           environment: {
             RI_ACCEPT_TERMS_AND_CONDITIONS: "true",
             RI_REDIS_HOST: "valkey",
@@ -16103,12 +15780,8 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             RI_REDIS_ALIAS: "Valkey (this app)",
             RI_REDIS_PASSWORD: "{{config:VALKEY_PASSWORD}}"
           },
-          secretEnv: [
-            "RI_REDIS_PASSWORD"
-          ],
-          volumes: [
-            "redisinsight_data:/data"
-          ],
+          secretEnv: ["RI_REDIS_PASSWORD"],
+          volumes: ["redisinsight_data:/data"],
           restart: "unless-stopped",
           ports: []
         }
@@ -16184,9 +15857,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
       provides: [
         {
           id: "redis",
-          outputRefs: [
-            "url"
-          ],
+          outputRefs: ["url"],
           category: "database"
         }
       ],
@@ -16205,9 +15876,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
           kind: "tcp",
           scope: "internal",
           defaultMode: "internal",
-          allowedModes: [
-            "internal"
-          ]
+          allowedModes: ["internal"]
         }
       ]
     },
@@ -16220,12 +15889,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
       kind: "template",
       logo: "umami",
       category: "analytics",
-      tags: [
-        "analytics",
-        "web-analytics",
-        "privacy",
-        "statistics"
-      ],
+      tags: ["analytics", "web-analytics", "privacy", "statistics"],
       framework: "docker-compose",
       services: [
         {
@@ -16238,16 +15902,12 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
               port: 3000
             }
           ],
-          dependsOn: [
-            "umami-db"
-          ],
+          dependsOn: ["umami-db"],
           environment: {
             DATABASE_TYPE: "postgresql",
             DATABASE_URL: "postgresql://umami:{{config:POSTGRES_PASSWORD}}@umami-db:5432/umami"
           },
-          secretEnv: [
-            "DATABASE_URL"
-          ],
+          secretEnv: ["DATABASE_URL"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -16268,17 +15928,10 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             POSTGRES_DB: "umami",
             POSTGRES_USER: "umami"
           },
-          secretEnv: [
-            "POSTGRES_PASSWORD"
-          ],
-          volumes: [
-            "umami_db:/var/lib/postgresql/data"
-          ],
+          secretEnv: ["POSTGRES_PASSWORD"],
+          volumes: ["umami_db:/var/lib/postgresql/data"],
           healthcheck: {
-            test: [
-              "CMD-SHELL",
-              "pg_isready -U umami -d umami"
-            ],
+            test: ["CMD-SHELL", "pg_isready -U umami -d umami"],
             interval: "10s",
             timeout: "5s",
             retries: 5,
@@ -16357,13 +16010,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
       kind: "template",
       logo: "webmail",
       category: "mail",
-      tags: [
-        "mail",
-        "webmail",
-        "email",
-        "imap",
-        "smtp"
-      ],
+      tags: ["mail", "webmail", "email", "imap", "smtp"],
       framework: "docker-compose",
       repository: "https://github.com/Mail-0/Zero",
       services: [
@@ -16372,9 +16019,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
           image: "ghcr.io/rakay-technology/kraft-webmail:latest",
           exposedPort: 4080,
           exposed: true,
-          volumes: [
-            "webmail_data:/data"
-          ],
+          volumes: ["webmail_data:/data"],
           environment: {
             TRUSTED_ORIGINS: "{{publicUrl:webmail}}"
           },
@@ -16503,9 +16148,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
           label: "Webmail",
           kind: "http",
           defaultMode: "domain",
-          allowedModes: [
-            "domain"
-          ]
+          allowedModes: ["domain"]
         }
       ]
     },
@@ -16546,12 +16189,8 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
           environment: {
             CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "1"
           },
-          secretEnv: [
-            "CLICKHOUSE_PASSWORD"
-          ],
-          volumes: [
-            "clickhouse_data:/var/lib/clickhouse"
-          ],
+          secretEnv: ["CLICKHOUSE_PASSWORD"],
+          volumes: ["clickhouse_data:/var/lib/clickhouse"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -16576,21 +16215,15 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
               port: 3488
             }
           ],
-          dependsOn: [
-            "clickhouse"
-          ],
+          dependsOn: ["clickhouse"],
           environment: {
             CLICKHOUSE_URL: "http://clickhouse:8123",
             CONNECTION_NAME: "ClickHouse",
             APP_URL: "{{publicUrl:ch-ui}}",
             DATABASE_PATH: "/app/data/ch-ui.db"
           },
-          secretEnv: [
-            "APP_SECRET_KEY"
-          ],
-          volumes: [
-            "ch_ui_data:/app/data"
-          ],
+          secretEnv: ["APP_SECRET_KEY"],
+          volumes: ["ch_ui_data:/app/data"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -16735,13 +16368,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
       provides: [
         {
           id: "clickhouse",
-          outputRefs: [
-            "httpUrl",
-            "httpDsn",
-            "user",
-            "password",
-            "database"
-          ],
+          outputRefs: ["httpUrl", "httpDsn", "user", "password", "database"],
           category: "database"
         }
       ],
@@ -16770,9 +16397,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
           kind: "tcp",
           scope: "internal",
           defaultMode: "internal",
-          allowedModes: [
-            "internal"
-          ]
+          allowedModes: ["internal"]
         }
       ]
     },
@@ -16786,12 +16411,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
       kind: "template",
       logo: "mindwire",
       category: "automation",
-      tags: [
-        "ai",
-        "agents",
-        "coding",
-        "control-plane"
-      ],
+      tags: ["ai", "agents", "coding", "control-plane"],
       framework: "docker-compose",
       services: [
         {
@@ -16802,12 +16422,8 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             AGENT_TYPE: "claude-code",
             DAEMON_TOKEN: "{{config:MINDWIRE_RUNTIME_TOKEN}}"
           },
-          secretEnv: [
-            "DAEMON_TOKEN"
-          ],
-          volumes: [
-            "mindwire_runtime:/home/node"
-          ],
+          secretEnv: ["DAEMON_TOKEN"],
+          volumes: ["mindwire_runtime:/home/node"],
           restart: "unless-stopped"
         },
         {
@@ -16820,9 +16436,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
               port: 8787
             }
           ],
-          dependsOn: [
-            "runtime"
-          ],
+          dependsOn: ["runtime"],
           environment: {
             NODE_ENV: "production",
             PORT: "8787",
@@ -16847,9 +16461,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
             "SECRETS_ENCRYPTION_KEY",
             "MINDWIRE_RUNTIME_TOKEN"
           ],
-          volumes: [
-            "mindwire_console:/data"
-          ],
+          volumes: ["mindwire_console:/data"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -16959,12 +16571,7 @@ Two things worth knowing, both upstream behaviour: if the console shows a branch
       kind: "template",
       logo: "pocketbase",
       category: "backend",
-      tags: [
-        "auth",
-        "database",
-        "sqlite",
-        "realtime"
-      ],
+      tags: ["auth", "database", "sqlite", "realtime"],
       framework: "docker-compose",
       services: [
         {
@@ -16991,23 +16598,13 @@ exec su-exec pocketbase "$@"
           environment: {
             GOMEMLIMIT: "512MiB"
           },
-          secretEnv: [
-            "PB_ENCRYPTION_SEED",
-            "POCKETBASE_SUPERUSER_PASSWORD"
-          ],
+          secretEnv: ["PB_ENCRYPTION_SEED", "POCKETBASE_SUPERUSER_PASSWORD"],
           ports: [],
           exposedPort: 8090,
           exposed: true,
-          volumes: [
-            "pocketbase_data:/pb/pb_data"
-          ],
+          volumes: ["pocketbase_data:/pb/pb_data"],
           healthcheck: {
-            test: [
-              "CMD",
-              "wget",
-              "-qO-",
-              "http://127.0.0.1:8090/api/health"
-            ],
+            test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8090/api/health"],
             interval: "5s",
             timeout: "3s",
             retries: 20,
@@ -17080,9 +16677,7 @@ exec su-exec pocketbase "$@"
       provides: [
         {
           id: "pocketbase",
-          outputRefs: [
-            "url"
-          ],
+          outputRefs: ["url"],
           category: "database"
         }
       ],
@@ -17104,13 +16699,7 @@ exec su-exec pocketbase "$@"
       kind: "template",
       logo: "freepbx",
       category: "other",
-      tags: [
-        "voip",
-        "pbx",
-        "asterisk",
-        "sip",
-        "telephony"
-      ],
+      tags: ["voip", "pbx", "asterisk", "sip", "telephony"],
       framework: "docker-compose",
       repository: "https://github.com/escomputers/freepbx-docker",
       minResources: {
@@ -17134,9 +16723,7 @@ exec su-exec pocketbase "$@"
             "MARIADB_PASSWORD",
             "MYSQL_PASSWORD"
           ],
-          volumes: [
-            "mysql_data:/var/lib/mysql"
-          ],
+          volumes: ["mysql_data:/var/lib/mysql"],
           healthcheck: {
             test: [
               "CMD-SHELL",
@@ -17157,20 +16744,13 @@ exec su-exec pocketbase "$@"
           environment: {
             MYSQL_PASSWORD: "{{config:FREEPBXUSER_PASSWORD}}"
           },
-          secretEnv: [
-            "MYSQL_PASSWORD"
-          ],
+          secretEnv: ["MYSQL_PASSWORD"],
           ports: [
             "0.0.0.0:5060:5060/udp",
             "0.0.0.0:10000-10100:10000-10100/udp"
           ],
-          volumes: [
-            "var_data:/var",
-            "etc_data:/etc"
-          ],
-          dependsOn: [
-            "db"
-          ],
+          volumes: ["var_data:/var", "etc_data:/etc"],
+          dependsOn: ["db"],
           restart: "unless-stopped"
         }
       ],
@@ -17229,7 +16809,10 @@ rtpend=10100
         {
           service: "freepbx",
           capture: "freepbx-install",
+          capturePattern: "(You have successfully installed FreePBX)",
           phase: "post-ready",
+          timeoutMs: 600000,
+          successPattern: "You have successfully installed FreePBX",
           readiness: {
             test: `php -r '$c=@fsockopen("db",3306); exit($c?0:1);'`,
             interval: 5000,
@@ -17243,6 +16826,21 @@ rtpend=10100
           command: 'cd /usr/local/src/freepbx && php install -n --dbuser=freepbxuser --dbpass="$MYSQL_PASSWORD" --dbhost=db',
           title: "Install FreePBX core",
           description: "Waits for MariaDB, then runs the FreePBX CLI installer against it."
+        },
+        {
+          service: "freepbx",
+          capture: "freepbx-modules",
+          capturePattern: "(Module sms successfully deleted|Chowning directories\\.\\.\\.Done)",
+          phase: "post-ready",
+          timeoutMs: 900000,
+          mustSucceed: true,
+          once: true,
+          persistAs: {
+            key: "FREEPBX_MODULES_INSTALLED"
+          },
+          command: "fwconsole ma installall && if fwconsole ma list 2>/dev/null | grep -q '^| sms '; then fwconsole ma remove sms; fi && fwconsole chown && { chown -R asterisk:asterisk /etc/asterisk 2>/dev/null || true; }",
+          title: "Install FreePBX modules",
+          description: "Installs every locally available module (core, voicemail, cdr, sipsettings…) — the base installer only sets up the framework, so without this the admin reload fails on missing BMO classes. Prunes the commercial sms module (needs the ionCube loader), then hands /etc/asterisk to the asterisk web user (fwconsole chown misses root-owned files, and the admin UI cannot save e.g. modules.conf without it; the read-only rtp_custom.conf bind is excluded from the hard failure)."
         }
       ],
       connection: {
@@ -17496,20 +17094,20 @@ function parseMeta(text, dirId) {
     errors
   };
 }
-function makePlacer(domainRenders) {
+function makePlacer(domainBindings) {
   return (value) => value.replace(/\$\{([^{}]+)\}/g, (_m, expr) => {
     const ref = parseRef(String(expr).trim());
     if (ref.kind !== "var")
       return `\${${String(expr).trim()}}`;
-    const render = domainRenders[ref.name];
-    return render !== undefined ? render : `{{config:${ref.name}}}`;
+    const bound = domainBindings[ref.name];
+    return bound !== undefined ? `{{publicUrl:${bound}}}` : `{{config:${ref.name}}}`;
   });
 }
 function convertSimplified(meta, services, toml, usedBy, nowIso = new Date().toISOString()) {
   const errors = [];
   const warnings = [];
   const svcByName = new Map(services.map((s) => [s.name, s]));
-  const domainRenders = {};
+  const domainBindings = {};
   for (const [varName, raw] of Object.entries(toml.variables)) {
     if (raw.trim() !== "${domain}")
       continue;
@@ -17519,44 +17117,52 @@ function convertSimplified(meta, services, toml, usedBy, nowIso = new Date().toI
     } else if (bound.size > 1) {
       errors.push(`blueprint.toml variables.${varName}: \${domain} is shared by routes of several services (${[...bound].join(", ")}) — use one domain variable per service`);
     } else {
-      domainRenders[varName] = `{{publicUrl:${[...bound][0]}}}`;
+      domainBindings[varName] = [...bound][0];
     }
   }
-  for (let pass = 0;pass < 10; pass++) {
-    let changed = false;
-    for (const [varName, raw] of Object.entries(toml.variables)) {
-      if (domainRenders[varName] !== undefined || raw.trim() === "${domain}") {
-        continue;
-      }
-      const refs = extractRefs(raw);
-      if (refs.length === 0)
-        continue;
-      if (!refs.every((r) => domainRenders[r] !== undefined))
-        continue;
-      let render = raw;
-      for (const r of refs) {
-        render = render.split(`\${${r}}`).join(domainRenders[r]);
-      }
-      domainRenders[varName] = render;
-      changed = true;
+  const toPlaceholders = makePlacer(domainBindings);
+  const effVariables = { ...toml.variables };
+  const effUsedBy = {};
+  for (const [k, v] of Object.entries(usedBy))
+    effUsedBy[k] = [...v];
+  for (const [key, value] of Object.entries(toml.env)) {
+    const refs = extractRefs(value);
+    if (refs.length !== 1 || value.trim() !== `\${${refs[0]}}` || effVariables[key] !== undefined) {
+      continue;
     }
-    if (!changed)
-      break;
+    const target = parseRef(refs[0]);
+    if (target.kind !== "var")
+      continue;
+    if (domainBindings[target.name] !== undefined)
+      continue;
+    effVariables[key] = value;
+    const owners = new Set;
+    for (const s of services) {
+      for (const v of Object.values(s.environment)) {
+        if (v.includes("${" + key + "}"))
+          owners.add(s.name);
+      }
+    }
+    for (const r of toml.routes) {
+      if (r.host?.includes("${" + key + "}"))
+        owners.add(r.service);
+    }
+    effUsedBy[key] = [...owners];
+    warnings.push(`[env] ${key} aliases ${target.name} — minted once, shared everywhere`);
   }
-  const toPlaceholders = makePlacer(domainRenders);
   const configFields = [];
   const secretVars = new Set;
   const pendingAliases = [];
   const ownerOf = (varName) => {
-    const owners = (usedBy[varName] ?? []).filter((s) => svcByName.has(s));
+    const owners = (effUsedBy[varName] ?? []).filter((s) => svcByName.has(s));
     const selfOwners = owners.filter((o) => {
       const env = svcByName.get(o)?.environment ?? {};
       return Object.entries(env).some(([k, v]) => k === varName && v.trim() === `\${${varName}}`);
     });
     return selfOwners[0] ?? owners.find((o) => o !== "__env__") ?? services[0].name;
   };
-  for (const [varName, raw] of Object.entries(toml.variables)) {
-    if (domainRenders[varName] !== undefined)
+  for (const [varName, raw] of Object.entries(effVariables)) {
+    if (domainBindings[varName] !== undefined)
       continue;
     const { field, errors: fieldErrors } = deriveField(varName, raw, [ownerOf(varName)], "blueprint.toml variables");
     errors.push(...fieldErrors);
@@ -17607,6 +17213,14 @@ function convertSimplified(meta, services, toml, usedBy, nowIso = new Date().toI
     const ref = parseRef(e);
     return ref.kind === "var" && secretVars.has(ref.name);
   });
+  const declaredNames = new Set(Object.keys(effVariables));
+  const placeKnown = (text) => text.replace(/\$\{([^{}]+)\}/g, (m, expr) => {
+    const ref = parseRef(String(expr).trim());
+    if (ref.kind !== "var" || !declaredNames.has(ref.name))
+      return m;
+    const bound = domainBindings[ref.name];
+    return bound !== undefined ? `{{publicUrl:${bound}}}` : `{{config:${ref.name}}}`;
+  });
   const outServices = services.map((s) => {
     const environment = {};
     const secretEnv = [];
@@ -17627,7 +17241,7 @@ function convertSimplified(meta, services, toml, usedBy, nowIso = new Date().toI
       dependsOn: s.dependsOn.length > 0 ? [...s.dependsOn] : undefined,
       ...s.restart ? { restart: s.restart } : {},
       ...s.healthcheck ? { healthcheck: s.healthcheck } : {},
-      ...s.command ? { command: s.command } : {}
+      ...s.command ? { command: placeKnown(s.command) } : {}
     };
   });
   const endpoints = [];
@@ -17681,6 +17295,9 @@ function convertSimplified(meta, services, toml, usedBy, nowIso = new Date().toI
     envOwners.set(key, owners.size === 1 ? [...owners][0] : services[0].name);
   }
   for (const [key, value] of Object.entries(toml.env)) {
+    if (effVariables[key] !== undefined && toml.variables[key] === undefined) {
+      continue;
+    }
     const owner = envOwners.get(key);
     const out = outServices.find((s) => s.name === owner);
     out.environment = {
@@ -17772,9 +17389,7 @@ var FORBIDDEN_SERVICE_KEYS = [
   "extends",
   "devices",
   "cap_add",
-  "sysctls",
-  "entrypoint",
-  "deploy"
+  "sysctls"
 ];
 var ALLOWED_RESTART = new Set([
   "no",
@@ -17782,13 +17397,21 @@ var ALLOWED_RESTART = new Set([
   "on-failure",
   "unless-stopped"
 ]);
-function parseExposePort(entry) {
+function parseExposePorts(entry) {
   const text = String(entry ?? "").trim();
-  const m = /^(\d{1,5})(?:\/(tcp|udp))?$/.exec(text);
+  const m = /^(\d{1,5})(?:-(\d{1,5}))?(?:\/(tcp|udp))?$/.exec(text);
   if (!m)
     return null;
-  const port = Number(m[1]);
-  return port >= 1 && port <= 65535 ? port : null;
+  const start = Number(m[1]);
+  const end = m[2] !== undefined ? Number(m[2]) : start;
+  if (start < 1 || end > 65535 || end < start)
+    return null;
+  if (end - start + 1 > 1024)
+    return null;
+  const out = [];
+  for (let p = start;p <= end; p++)
+    out.push(p);
+  return out;
 }
 function parseEnv(raw, where, errors) {
   const out = {};
@@ -17820,27 +17443,13 @@ function parseEnv(raw, where, errors) {
   errors.push(`${where}: environment must be a list or a mapping`);
   return out;
 }
-function parseDependsOn(raw, where, errors) {
+function parseDependsOn(raw) {
   if (raw === undefined)
     return [];
-  if (Array.isArray(raw)) {
-    const out = [];
-    for (const entry of raw) {
-      if (typeof entry !== "string") {
-        errors.push(`${where}: depends_on entries must be service names (conditions like service_healthy are not supported — ordering only)`);
-        continue;
-      }
-      out.push(entry);
-    }
-    return out;
-  }
-  if (typeof raw === "object" && raw !== null) {
-    const withConditions = Object.entries(raw).filter(([, v]) => v !== null && v !== undefined);
-    if (withConditions.length > 0) {
-      errors.push(`${where}: depends_on conditions (${withConditions.map(([k]) => k).join(", ")}) are not supported — list service names for start ordering`);
-    }
+  if (Array.isArray(raw))
+    return raw.map((s) => String(s));
+  if (typeof raw === "object" && raw !== null)
     return Object.keys(raw);
-  }
   return [String(raw)];
 }
 function checkVolumeTarget(volume, where, errors) {
@@ -17899,7 +17508,7 @@ function parseCompose(yamlText) {
     const svc = raw;
     for (const key of FORBIDDEN_SERVICE_KEYS) {
       if (svc[key] !== undefined) {
-        errors.push(`${where}: "${key}" is forbidden in blueprints` + (key === "ports" ? " — declare routes in blueprint.toml, the edge publishes them" : key === "networks" || key === "network_mode" ? " — services share the project network automatically" : key === "build" ? " — use a direct kraft.json blueprint for built images" : key === "entrypoint" ? " — the catalog has no entrypoint field; restructure around command (shell string) or request engine support" : key === "deploy" ? " — per-service limits are not in the catalog; size the host instead" : ""));
+        errors.push(`${where}: "${key}" is forbidden in blueprints` + (key === "ports" ? " — declare routes in blueprint.toml, the edge publishes them" : key === "networks" || key === "network_mode" ? " — services share the project network automatically" : key === "build" ? " — use a direct kraft.json blueprint for built images" : ""));
       }
     }
     const image = svc["image"];
@@ -17907,18 +17516,24 @@ function parseCompose(yamlText) {
       errors.push(`${where}: image: is required (a pinned upstream image)`);
       continue;
     }
+    if (image.includes("${")) {
+      errors.push(`${where}: image: must be pinned, no variables — resolve the tag at authoring time`);
+      continue;
+    }
     const tag = imageTag(image);
-    const unpinned = tag === null || tag === "latest";
+    const unpinned = tag === null || /^(latest|main|master|stable|edge|nightly|dev|canary)([-.].*)?$/i.test(tag) || /[-.]latest$/i.test(tag) || /(^|[-.])(alpha|beta|rc|preview)([-.]|$|[0-9])/i.test(tag);
     const expose = [];
     const rawExpose = svc["expose"];
     if (rawExpose !== undefined) {
       const list = Array.isArray(rawExpose) ? rawExpose : [rawExpose];
       for (const entry of list) {
-        const port = parseExposePort(entry);
-        if (port === null)
-          errors.push(`${where}: expose entry ${JSON.stringify(entry)} is not a plain port`);
-        else if (!expose.includes(port))
-          expose.push(port);
+        const ports = parseExposePorts(entry);
+        if (ports === null)
+          errors.push(`${where}: expose entry ${JSON.stringify(entry)} is not a plain port or in-range START-END (max 1024 ports)`);
+        else
+          for (const port of ports)
+            if (!expose.includes(port))
+              expose.push(port);
       }
     }
     const environment = parseEnv(svc["environment"], where, errors);
@@ -17966,7 +17581,7 @@ function parseCompose(yamlText) {
       expose,
       environment,
       volumes,
-      dependsOn: parseDependsOn(svc["depends_on"], where, errors),
+      dependsOn: parseDependsOn(svc["depends_on"]),
       restart,
       healthcheck,
       command: typeof commandRaw === "string" ? commandRaw : undefined,
@@ -18005,7 +17620,7 @@ function checkComposeRefs(services, declaredVars) {
   return { usedBy, errors };
 }
 
-// node_modules/smol-toml/dist/date.js
+// ../kraft-24/node_modules/smol-toml/dist/date.js
 /*!
  * Copyright (c) Squirrel Chat et al., All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18125,7 +17740,7 @@ class TomlDate extends Date {
   }
 }
 
-// node_modules/smol-toml/dist/error.js
+// ../kraft-24/node_modules/smol-toml/dist/error.js
 /*!
  * Copyright (c) Squirrel Chat et al., All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18195,7 +17810,7 @@ ${codeblock}`, options);
   }
 }
 
-// node_modules/smol-toml/dist/util.js
+// ../kraft-24/node_modules/smol-toml/dist/util.js
 /*!
  * Copyright (c) Squirrel Chat et al., All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18278,7 +17893,7 @@ function skipUntil(ctx, sep, end) {
   });
 }
 
-// node_modules/smol-toml/dist/primitive.js
+// ../kraft-24/node_modules/smol-toml/dist/primitive.js
 /*!
  * Copyright (c) Squirrel Chat et al., All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18453,7 +18068,7 @@ function parseValue(ctx, integersAsBigInt, end) {
   return date;
 }
 
-// node_modules/smol-toml/dist/extract.js
+// ../kraft-24/node_modules/smol-toml/dist/extract.js
 /*!
  * Copyright (c) Squirrel Chat et al., All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18513,7 +18128,7 @@ function extractValue(ctx, end, integersAsBigInt) {
   return parseValue(ctx, integersAsBigInt, end);
 }
 
-// node_modules/smol-toml/dist/struct.js
+// ../kraft-24/node_modules/smol-toml/dist/struct.js
 /*!
  * Copyright (c) Squirrel Chat et al., All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18682,7 +18297,7 @@ function parseArray(ctx, integersAsBigInt) {
   });
 }
 
-// node_modules/smol-toml/dist/parse.js
+// ../kraft-24/node_modules/smol-toml/dist/parse.js
 /*!
  * Copyright (c) Squirrel Chat et al., All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18824,7 +18439,7 @@ function parse4(toml, { maxDepth = 1000, integersAsBigInt } = {}) {
   return res;
 }
 
-// node_modules/smol-toml/dist/stringify.js
+// ../kraft-24/node_modules/smol-toml/dist/stringify.js
 /*!
  * Copyright (c) Squirrel Chat et al., All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18853,7 +18468,7 @@ function parse4(toml, { maxDepth = 1000, integersAsBigInt } = {}) {
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// node_modules/smol-toml/dist/index.js
+// ../kraft-24/node_modules/smol-toml/dist/index.js
 /*!
  * Copyright (c) Squirrel Chat et al., All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
@@ -19078,6 +18693,8 @@ function checkTomlRefs(toml, declaredVars) {
   });
   return { usedBy, errors };
 }
+// packages/core/src/apps/blueprint/migrate.ts
+var import_yaml2 = __toESM(require_dist(), 1);
 
 // packages/core/src/apps/blueprint/index.ts
 function convertBlueprint(files) {

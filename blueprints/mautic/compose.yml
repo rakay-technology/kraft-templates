@@ -31,7 +31,7 @@ services:
       MAUTIC_DB_DATABASE: mautic
       MAUTIC_DB_USER: mautic
       MAUTIC_DB_PASSWORD: ${MAUTIC_DB_PASSWORD}
-      MAUTIC_URL: ${mautic_url}
+      MAUTIC_URL: ${mautic_domain}
       MAUTIC_TRUSTED_PROXIES: '["0.0.0.0/0"]'
       MAUTIC_MESSENGER_DSN_EMAIL: doctrine://default
       MAUTIC_MESSENGER_DSN_HIT: doctrine://default
@@ -52,7 +52,7 @@ services:
       MAUTIC_DB_DATABASE: mautic
       MAUTIC_DB_USER: mautic
       MAUTIC_DB_PASSWORD: ${MAUTIC_DB_PASSWORD}
-      MAUTIC_URL: ${mautic_url}
+      MAUTIC_URL: ${mautic_domain}
       PHP_INI_DATE_TIMEZONE: UTC
     volumes:
       - mautic_data:/var/www/html
@@ -72,7 +72,7 @@ services:
       MAUTIC_DB_DATABASE: mautic
       MAUTIC_DB_USER: mautic
       MAUTIC_DB_PASSWORD: ${MAUTIC_DB_PASSWORD}
-      MAUTIC_URL: ${mautic_url}
+      MAUTIC_URL: ${mautic_domain}
       MAUTIC_MESSENGER_DSN_EMAIL: doctrine://default
       MAUTIC_MESSENGER_DSN_HIT: doctrine://default
       PHP_INI_DATE_TIMEZONE: UTC

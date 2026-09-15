@@ -1,7 +1,6 @@
 [variables]
 mautic_domain = "${domain}"
 pma_domain = "${domain}"
-mautic_url = "https://${mautic_domain}"
 MYSQL_ROOT_PASSWORD = "${password:32}"
 MAUTIC_DB_PASSWORD = "${password:32}"
 
