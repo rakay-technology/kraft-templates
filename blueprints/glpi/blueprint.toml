@@ -1,7 +1,17 @@
 [variables]
 main_domain = "${domain}"
+mysql_root_password = "${password:32}"
+mysql_database = "glpi"
+mysql_user = "glpi"
+mysql_password = "${password:32}"
 
 [[routes]]
 service = "glpi-web"
 port = 80
 host = "${main_domain}"
+
+[env]
+MYSQL_ROOT_PASSWORD = "${mysql_root_password}"
+MYSQL_DATABASE = "${mysql_database}"
+MYSQL_USER = "${mysql_user}"
+MYSQL_PASSWORD = "${mysql_password}"
