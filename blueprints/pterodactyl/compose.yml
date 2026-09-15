@@ -8,8 +8,8 @@ services:
     environment:
       MYSQL_DATABASE: panel
       MYSQL_USER: pterodactyl
-      MYSQL_PASSWORD: null
-      MYSQL_ROOT_PASSWORD: null
+      MYSQL_PASSWORD: ${db_password}
+      MYSQL_ROOT_PASSWORD: ${db_root_password}
   cache:
     image: redis:alpine
     restart: always
@@ -28,15 +28,15 @@ services:
     environment:
       APP_ENV: production
       APP_ENVIRONMENT_ONLY: "false"
-      CACHE_DRIVER: null
-      SESSION_DRIVER: null
-      QUEUE_DRIVER: null
-      REDIS_HOST: null
-      DB_HOST: null
+      CACHE_DRIVER: redis
+      SESSION_DRIVER: redis
+      QUEUE_DRIVER: redis
+      REDIS_HOST: cache
+      DB_HOST: database
       DB_PASSWORD: ${db_password}
-      DB_PORT: null
-      MYSQL_PASSWORD: null
-      MYSQL_ROOT_PASSWORD: null
+      DB_PORT: "3306"
+      MYSQL_PASSWORD: ${db_password}
+      MYSQL_ROOT_PASSWORD: ${db_root_password}
       DB_CONNECTION: mysql
     expose:
       - 80

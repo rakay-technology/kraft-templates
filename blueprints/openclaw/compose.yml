@@ -68,7 +68,7 @@ services:
     expose:
       - 8080
   browser:
-    image: coollabsio/openclaw-browser:0.3.0-arm64
+    image: coollabsio/openclaw-browser:0.3.0-amd64
     environment:
       - PUID=1000
       - PGID=1000

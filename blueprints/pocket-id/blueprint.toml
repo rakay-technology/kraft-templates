@@ -8,6 +8,6 @@ port = 1411
 host = "${main_domain}"
 
 [env]
-APP_URL = "https://${main_domain}"
+APP_URL = "${main_domain}"
 ENCRYPTION_KEY = "${encryption_key}"
 TRUST_PROXY = "true"

@@ -1,11 +1,11 @@
 services:
   postiz-app:
-    image: ghcr.io/gitroomhq/postiz-app:v1.45.1-arm64
+    image: ghcr.io/gitroomhq/postiz-app:v1.45.1
     restart: always
     environment:
-      MAIN_URL: https://${main_domain}
-      FRONTEND_URL: https://${main_domain}
-      NEXT_PUBLIC_BACKEND_URL: https://${main_domain}/api
+      MAIN_URL: ${main_domain}
+      FRONTEND_URL: ${main_domain}
+      NEXT_PUBLIC_BACKEND_URL: ${main_domain}/api
       JWT_SECRET: ${jwt_secret}
       DATABASE_URL: postgresql://${db_user}:${db_password}@postiz-postgres:5432/${db_name}
       REDIS_URL: redis://postiz-redis:6379

@@ -1,6 +1,6 @@
 services:
   langflow:
-    image: langflowai/langflow:base-1.12.1-arm64
+    image: langflowai/langflow:base-1.12.1-amd64
     user: root
     restart: always
     pull_policy: always

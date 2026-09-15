@@ -3,7 +3,7 @@ services:
     image: pocketid/pocket-id:v2.14.0
     restart: unless-stopped
     environment:
-      APP_URL: https://${main_domain}
+      APP_URL: ${main_domain}
       ENCRYPTION_KEY: ${encryption_key}
       TRUST_PROXY: "true"
     volumes:

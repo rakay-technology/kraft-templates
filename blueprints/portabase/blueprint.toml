@@ -9,7 +9,7 @@ port = 80
 host = "${main_domain}"
 
 [env]
-PROJECT_URL = "https://${main_domain}"
+PROJECT_URL = "${main_domain}"
 PROJECT_SECRET = "${project_secret}"
 POSTGRES_USER = "portabase"
 POSTGRES_PASSWORD = "${postgres_password}"
