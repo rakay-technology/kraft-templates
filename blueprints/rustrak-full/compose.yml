@@ -13,8 +13,7 @@ services:
     expose:
       - 8080
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
     volumes: []
   rustrak-ui:
     image: rustrak/rustrak-ui:v0.14.13

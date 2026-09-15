@@ -33,8 +33,7 @@ services:
       retries: 12
       start_period: 30s
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     expose:
       - 8080
     volumes: []

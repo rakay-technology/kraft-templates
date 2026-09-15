@@ -5,8 +5,7 @@ services:
     environment:
       POSTGRESQL_URL: postgresql://rote:${postgres_password}@rote-postgres:5432/rote
     depends_on:
-      rote-postgres:
-        condition: service_healthy
+      - rote-postgres
     restart: unless-stopped
     command: sh -c 'sleep 15 && bun run dist/scripts/runMigrations.js && bun run
       dist/server.js'

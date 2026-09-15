@@ -12,8 +12,7 @@ services:
     volumes:
       - yourls-data:/var/www/html
     depends_on:
-      yourls-mysql:
-        condition: service_healthy
+      - yourls-mysql
     restart: always
     expose:
       - 80

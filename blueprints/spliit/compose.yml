@@ -5,8 +5,7 @@ services:
     env_file:
       - .env
     depends_on:
-      spliit-db:
-        condition: service_healthy
+      - spliit-db
     volumes: []
     expose:
       - 3000

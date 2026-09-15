@@ -3,8 +3,7 @@ services:
     image: ghcr.io/systempromptio/systemprompt-template:0
     restart: unless-stopped
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
     environment:
       DATABASE_URL: postgres://systemprompt:${postgres_password}@postgres:5432/systemprompt
       ANTHROPIC_API_KEY: ""

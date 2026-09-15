@@ -5,10 +5,8 @@ services:
     expose:
       - "80"
     depends_on:
-      wallabag-db:
-        condition: service_healthy
-      wallabag-redis:
-        condition: service_healthy
+      - wallabag-db
+      - wallabag-redis
     environment:
       - MYSQL_ROOT_PASSWORD=${db_root_password}
       - SYMFONY__ENV__DATABASE_DRIVER=pdo_mysql

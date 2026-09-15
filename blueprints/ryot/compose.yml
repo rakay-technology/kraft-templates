@@ -6,8 +6,7 @@ services:
       - SERVER_ADMIN_ACCESS_TOKEN=${admin_access_token}
       - TZ=UTC
     depends_on:
-      ryot-db:
-        condition: service_healthy
+      - ryot-db
     restart: always
     pull_policy: always
     volumes: []

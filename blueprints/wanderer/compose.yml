@@ -19,8 +19,7 @@ services:
   db:
     image: flomp/wanderer-db:v0.20.0-app
     depends_on:
-      search:
-        condition: service_healthy
+      - search
     environment:
       MEILI_URL: http://search:7700
       MEILI_MASTER_KEY: ${meili_master_key}
@@ -40,10 +39,8 @@ services:
   web:
     image: flomp/wanderer-web:v0.20.0-app
     depends_on:
-      search:
-        condition: service_healthy
-      db:
-        condition: service_healthy
+      - search
+      - db
     environment:
       MEILI_URL: http://search:7700
       MEILI_MASTER_KEY: ${meili_master_key}

@@ -26,10 +26,8 @@ services:
       STORAGE_TYPE: local
       APP_SECRET: ${app_secret}
     depends_on:
-      twenty-change-vol-ownership:
-        condition: service_completed_successfully
-      twenty-postgres:
-        condition: service_healthy
+      - twenty-change-vol-ownership
+      - twenty-postgres
     healthcheck:
       test:
         - CMD
@@ -55,10 +53,8 @@ services:
       STORAGE_TYPE: local
       APP_SECRET: ${app_secret}
     depends_on:
-      twenty-postgres:
-        condition: service_healthy
-      twenty-server:
-        condition: service_healthy
+      - twenty-postgres
+      - twenty-server
     restart: always
     volumes: []
   twenty-postgres:

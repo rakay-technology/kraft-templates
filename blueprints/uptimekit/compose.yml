@@ -10,10 +10,8 @@ services:
       - CLICKHOUSE_PASSWORD=${clickhouse_password}
       - REDIS_URL=redis://redis:6379
     depends_on:
-      db:
-        condition: service_healthy
-      redis:
-        condition: service_started
+      - db
+      - redis
     healthcheck:
       test:
         - CMD-SHELL
@@ -38,14 +36,10 @@ services:
       - CLICKHOUSE_PASSWORD=${clickhouse_password}
       - REDIS_URL=redis://redis:6379
     depends_on:
-      db:
-        condition: service_healthy
-      redis:
-        condition: service_started
-      clickhouse:
-        condition: service_started
-      dash:
-        condition: service_healthy
+      - db
+      - redis
+      - clickhouse
+      - dash
     restart: always
     volumes: []
     expose:

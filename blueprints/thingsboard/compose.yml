@@ -3,10 +3,8 @@ services:
     image: thingsboard/tb-node:4.3.1.1
     restart: unless-stopped
     depends_on:
-      thingsboard-db:
-        condition: service_healthy
-      thingsboard-init:
-        condition: service_completed_successfully
+      - thingsboard-db
+      - thingsboard-init
     expose:
       - 1883
       - 8080
@@ -33,8 +31,7 @@ services:
     restart: on-failure
     user: root
     depends_on:
-      thingsboard-db:
-        condition: service_healthy
+      - thingsboard-db
     command: |-
       bash -c 'set -e
       if [ -f /data/.thingsboard-installed ]; then

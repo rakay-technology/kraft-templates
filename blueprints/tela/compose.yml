@@ -26,8 +26,7 @@ services:
       - TELA_GOTENBERG_URL=http://gotenberg:3000
       - TELA_PDF_RENDER_BASE_URL=http://proxy
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
     volumes: []
   frontend:
     image: ghcr.io/zcag/tela-frontend:0.7.0

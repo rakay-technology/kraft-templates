@@ -3,10 +3,8 @@ services:
     image: weblate/weblate:2026.7.1.1
     restart: unless-stopped
     depends_on:
-      database:
-        condition: service_healthy
-      cache:
-        condition: service_healthy
+      - database
+      - cache
     volumes:
       - weblate-data:/app/data
       - weblate-cache:/app/cache

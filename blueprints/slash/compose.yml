@@ -7,8 +7,7 @@ services:
       - SLASH_DRIVER=postgres
       - SLASH_DSN=postgresql://${db_user}:${db_password}@slash-postgres:5432/${db_name}?sslmode=disable
     depends_on:
-      slash-postgres:
-        condition: service_healthy
+      - slash-postgres
     restart: unless-stopped
     expose:
       - 5231

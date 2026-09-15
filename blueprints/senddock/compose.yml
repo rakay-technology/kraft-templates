@@ -32,10 +32,8 @@ services:
     image: ghcr.io/arkhe-systems/senddock:0.8.2
     restart: unless-stopped
     depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
+      - postgres
+      - redis
     environment:
       - DATABASE_URL=postgres://senddock:${postgres_password}@postgres:5432/senddock?sslmode=disable
       - REDIS_URL=redis://redis:6379

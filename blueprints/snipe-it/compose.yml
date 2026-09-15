@@ -42,8 +42,7 @@ services:
       - SESSION_DRIVER=file
       - QUEUE_DRIVER=sync
     depends_on:
-      snipe-it-db:
-        condition: service_healthy
+      - snipe-it-db
   snipe-it-db:
     image: mariadb:11.4.7
     restart: unless-stopped
