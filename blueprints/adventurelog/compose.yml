@@ -6,7 +6,7 @@ services:
       - server
     environment:
       PUBLIC_SERVER_URL: ${backend_domain}
-      ORIGIN: http://${frontend_domain}
+      ORIGIN: ${frontend_domain}
       BODY_SIZE_LIMIT: Infinity
     volumes: []
     expose:
@@ -37,9 +37,9 @@ services:
       DJANGO_ADMIN_PASSWORD: ${admin_password}
       DJANGO_ADMIN_EMAIL: ${admin_email}
       DEBUG: "False"
-      CSRF_TRUSTED_ORIGINS: http://${backend_domain},http://${frontend_domain}
-      FRONTEND_URL: http://${frontend_domain}
-      PUBLIC_URL: http://${backend_domain}
+      CSRF_TRUSTED_ORIGINS: ${backend_domain},${frontend_domain}
+      FRONTEND_URL: ${frontend_domain}
+      PUBLIC_URL: ${backend_domain}
     expose:
       - 80
 volumes:
