@@ -8,8 +8,7 @@ services:
       NEXTAUTH_URL: http://${main_domain}
       NEXT_PUBLIC_BASE_URL: http://${main_domain}
     depends_on:
-      blinko-postgres:
-        condition: service_healthy
+      - blinko-postgres
     restart: always
     logging:
       options:

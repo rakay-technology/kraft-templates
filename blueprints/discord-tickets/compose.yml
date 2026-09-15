@@ -24,8 +24,7 @@ services:
   tickets-app:
     image: eartharoid/discord-tickets:4.0.21
     depends_on:
-      tickets-postgres:
-        condition: service_healthy
+      - tickets-postgres
     restart: unless-stopped
     volumes:
       - tickets-app-data:/home/container/user

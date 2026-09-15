@@ -36,10 +36,8 @@ services:
     volumes:
       - discourse-data:/shared
     depends_on:
-      discourse-db:
-        condition: service_healthy
-      discourse-redis:
-        condition: service_healthy
+      - discourse-db
+      - discourse-redis
     environment:
       DISCOURSE_HOSTNAME: ${main_domain}
       DISCOURSE_DB_HOST: discourse-db

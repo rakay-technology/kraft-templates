@@ -2,10 +2,8 @@ services:
   cloudreve:
     image: cloudreve/cloudreve:4.10.1
     depends_on:
-      postgresql:
-        condition: service_healthy
-      redis:
-        condition: service_started
+      - postgresql
+      - redis
     restart: unless-stopped
     environment:
       - CR_CONF_Database.Type=postgres

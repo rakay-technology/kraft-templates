@@ -3,8 +3,7 @@ services:
     image: akaunting/akaunting:3.1.21-v
     restart: unless-stopped
     depends_on:
-      akaunting-db:
-        condition: service_healthy
+      - akaunting-db
     environment:
       APP_URL: ${main_domain}
       LOCALE: ${locale}

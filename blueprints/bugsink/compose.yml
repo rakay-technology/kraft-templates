@@ -19,8 +19,7 @@ services:
   web:
     image: bugsink/bugsink:2.5.1
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     restart: unless-stopped
     expose:
       - 8000

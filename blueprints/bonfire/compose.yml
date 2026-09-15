@@ -3,10 +3,8 @@ services:
     image: bonfirenetworks/bonfire:1.0.5-social-amd64
     restart: unless-stopped
     depends_on:
-      db:
-        condition: service_healthy
-      search:
-        condition: service_started
+      - db
+      - search
     environment:
       - HOSTNAME=${main_domain}
       - PUBLIC_PORT=80

@@ -4,8 +4,7 @@ services:
     volumes:
       - docuseal:/data/docuseal
     depends_on:
-      docu-postgres:
-        condition: service_healthy
+      - docu-postgres
     restart: unless-stopped
     environment:
       - DATABASE_URL=postgresql://docuseal:postgres@docu-postgres:5432/docuseal
