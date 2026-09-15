@@ -30,7 +30,7 @@ services:
       - DB_CHARSET=${db_charset}
       - SYSTEM_DB_NAME=${system_db_name}
       - TENANT_DB_NAME_PERFIX=${tenant_db_name_prefix}
-      - JWT_SECRET=${jwt_secret}
+      - APP_JWT_SECRET=${jwt_secret}
       - MONGODB_DATABASE_URL=mongodb://mongo/bigcapital
       - BASE_URL=https://${main_domain}
       - AGENDASH_AUTH_USER=${agendash_auth_user}
