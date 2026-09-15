@@ -1,0 +1,23 @@
+[variables]
+main_domain = "${domain}"
+second_domain = "${domain}"
+secret_base = "${base64:64}"
+db_password = "${password:32}"
+clickhouse_password = "${password:32}"
+
+[[routes]]
+service = "dash"
+port = 3000
+host = "${main_domain}"
+
+[[routes]]
+service = "status-page"
+port = 3001
+host = "${second_domain}"
+
+[env]
+BETTER_AUTH_SECRET = "${secret_base}"
+BETTER_AUTH_URL = "http://${main_domain}"
+NEXT_PUBLIC_URL = "http://${main_domain}"
+POSTGRES_PASSWORD = "${db_password}"
+CLICKHOUSE_PASSWORD = "${clickhouse_password}"

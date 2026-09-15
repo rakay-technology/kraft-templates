@@ -1,0 +1,24 @@
+[variables]
+main_domain = "${domain}"
+postgres_password = "${password:32}"
+load_demo = "false"
+java_opts = "-Xms512m -Xmx2048m"
+
+[[routes]]
+service = "thingsboard"
+port = 8080
+host = "${main_domain}"
+
+[env]
+POSTGRES_DB = "thingsboard"
+POSTGRES_USER = "postgres"
+POSTGRES_PASSWORD = "${postgres_password}"
+LOAD_DEMO = "${load_demo}"
+JAVA_OPTS = "${java_opts}"
+SECURITY_CORS_ALLOWED_ORIGINS = "http://${main_domain},https://${main_domain}"
+
+[[routes]]
+service = "thingsboard"
+port = 1883
+kind = "tcp"
+mode = "publish"

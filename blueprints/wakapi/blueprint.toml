@@ -1,0 +1,11 @@
+[variables]
+password_salt = "${password:64}"
+wakapi_domain = "${domain}"
+
+[[routes]]
+service = "wakapi"
+port = 3000
+host = "${wakapi_domain}"
+
+[env]
+WAKAPI_PASSWORD_SALT = "${password_salt}"

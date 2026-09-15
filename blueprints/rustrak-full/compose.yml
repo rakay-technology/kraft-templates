@@ -1,0 +1,48 @@
+services:
+  rustrak-server:
+    image: rustrak/rustrak-server:postgres
+    restart: unless-stopped
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8080
+      - RUST_LOG=info
+      - SSL_PROXY=true
+      - DATABASE_URL=postgres://rustrak:${postgres_password}@postgres:5432/rustrak
+      - SESSION_SECRET_KEY=${session_secret_key}
+      - CREATE_SUPERUSER=${admin_email}:${admin_password}
+    expose:
+      - 8080
+    depends_on:
+      - postgres
+    volumes: []
+  rustrak-ui:
+    image: rustrak/rustrak-ui:v0.14.13
+    restart: unless-stopped
+    environment:
+      - RUSTRAK_API_URL=https://${api_domain}
+      - HOSTNAME=0.0.0.0
+    expose:
+      - 3000
+    depends_on:
+      - rustrak-server
+    volumes: []
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=rustrak
+      - POSTGRES_PASSWORD=${postgres_password}
+      - POSTGRES_DB=rustrak
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U rustrak -d rustrak
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    expose:
+      - 5432
+volumes:
+  postgres_data: null

@@ -1,0 +1,27 @@
+services:
+  wiki:
+    image: ghcr.io/requarks/wiki:2.5
+    restart: unless-stopped
+    environment:
+      - DB_TYPE=${db_type}
+      - DB_HOST=${db_host}
+      - DB_PORT=${db_port}
+      - DB_USER=${db_user}
+      - DB_PASS=${db_password}
+      - DB_NAME=${db_name}
+    depends_on:
+      - db
+    volumes: []
+    expose:
+      - 3000
+  db:
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${db_user}
+      - POSTGRES_PASSWORD=${db_password}
+      - POSTGRES_DB=${db_name}
+    volumes:
+      - wiki-db-data:/var/lib/postgresql/data
+volumes:
+  wiki-db-data: null

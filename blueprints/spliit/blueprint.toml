@@ -1,0 +1,19 @@
+[variables]
+main_domain = "${domain}"
+secret_key = "${password}"
+project_name = "spliit"
+DB_USERNAME = "CHANGEME-DB_USERNAME"
+DB_PASSWORD = "${password:32}"
+DB_DATABASE = "CHANGEME-DB_DATABASE"
+
+[[routes]]
+service = "spliit"
+port = 3000
+host = "${main_domain}"
+
+[env]
+DB_USERNAME = "${project_name}-admin"
+DB_PASSWORD = "${secret_key}"
+DB_DATABASE = "${project_name}"
+POSTGRES_PRISMA_URL = "postgresql://${DB_USERNAME}:${DB_PASSWORD}@${project_name}-db:5432/${DB_DATABASE}"
+POSTGRES_URL_NON_POOLING = "postgresql://${DB_USERNAME}:${DB_PASSWORD}@${project_name}-db:5432/${DB_DATABASE}"

@@ -1,0 +1,43 @@
+services:
+  wupnext:
+    image: docker.io/javierlnmn/wupnext:0.3.0
+    restart: unless-stopped
+    environment:
+      SECRET_KEY: ${secret_key}
+      DEBUG: "False"
+      ALLOWED_HOSTS: ${main_domain}
+      CSRF_TRUSTED_ORIGINS: https://${main_domain}
+      SITE_URL: https://${main_domain}
+      MCP_BASE_URL: https://${main_domain}
+      EMAIL_BACKEND: anymail.backends.resend.EmailBackend
+      DEFAULT_FROM_EMAIL: ${from_email}
+      RESEND_API_KEY: ${resend_api_key}
+      DJANGO_SUPERUSER_USERNAME: ${admin_username}
+      DJANGO_SUPERUSER_EMAIL: ${admin_email}
+      DJANGO_SUPERUSER_PASSWORD: ${admin_password}
+    expose:
+      - "8000"
+    volumes:
+      - wupnext-db:/app/db
+  wupnext-worker:
+    image: javierlnmn/wupnext:0.3.0
+    restart: unless-stopped
+    command: python manage.py qcluster
+    environment:
+      SECRET_KEY: ${secret_key}
+      DEBUG: "False"
+      ALLOWED_HOSTS: ${main_domain}
+      CSRF_TRUSTED_ORIGINS: https://${main_domain}
+      SITE_URL: https://${main_domain}
+      EMAIL_BACKEND: anymail.backends.resend.EmailBackend
+      DEFAULT_FROM_EMAIL: ${from_email}
+      RESEND_API_KEY: ${resend_api_key}
+      Q_WORKERS: "2"
+      Q_TIMEOUT: "60"
+      Q_RETRY: "120"
+    volumes:
+      - wupnext-db:/app/db
+    depends_on:
+      - wupnext
+volumes:
+  wupnext-db: null

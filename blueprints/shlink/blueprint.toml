@@ -1,0 +1,19 @@
+[variables]
+initial_api_key = "${password:30}"
+main_domain_shlink_web = "${domain}"
+main_domain_shlink = "${domain}"
+main_domain = "CHANGEME-main_domain"
+
+[[routes]]
+service = "shlink-web"
+port = 8080
+host = "web-${main_domain_shlink_web}"
+
+[[routes]]
+service = "shlink"
+port = 8080
+host = "${main_domain_shlink}"
+
+[env]
+INITIAL_API_KEY = "${initial_api_key}"
+DEFAULT_DOMAIN = "${main_domain}"

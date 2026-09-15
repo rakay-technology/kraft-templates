@@ -1,0 +1,24 @@
+[variables]
+main_domain = "${domain}"
+db_type = "postgres"
+db_host = "db"
+db_port = "5432"
+db_user = "wikijs"
+db_password = "${password:32}"
+db_name = "wiki"
+
+[[routes]]
+service = "wiki"
+port = 3000
+host = "${main_domain}"
+
+[env]
+POSTGRES_USER = "${db_user}"
+POSTGRES_PASSWORD = "${db_password}"
+POSTGRES_DB = "${db_name}"
+DB_TYPE = "${db_type}"
+DB_HOST = "${db_host}"
+DB_PORT = "${db_port}"
+DB_USER = "${db_user}"
+DB_PASS = "${db_password}"
+DB_NAME = "${db_name}"

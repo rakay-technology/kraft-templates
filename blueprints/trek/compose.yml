@@ -1,0 +1,32 @@
+services:
+  trek:
+    image: mauriceboe/trek:3.3.0
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - ENCRYPTION_KEY=${encryption_key}
+      - TZ=UTC
+      - LOG_LEVEL=info
+      - APP_URL=http://${main_domain}
+      - ALLOWED_ORIGINS=http://${main_domain}
+      - ADMIN_EMAIL=${admin_email}
+      - ADMIN_PASSWORD=${admin_password}
+    volumes:
+      - trek-data:/app/data
+      - trek-uploads:/app/uploads
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - -qO-
+        - http://localhost:3000/api/health
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    expose:
+      - 3000
+volumes:
+  trek-data: null
+  trek-uploads: null

@@ -1,0 +1,21 @@
+{
+  "id": "storyden",
+  "name": "Storyden",
+  "version": "latest",
+  "description": "With a fresh new take on traditional bulletin board forum software, Storyden is a modern, secure and extensible platform for building communities.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/Southclaws/storyden",
+    "discord": "https://discord.gg/XF6ZBGF9XF",
+    "docs": "https://www.storyden.org/docs/introduction",
+    "website": "https://www.storyden.org/"
+  },
+  "tags": [
+    "forum",
+    "discussion",
+    "community",
+    "open-source"
+  ],
+  "category": "other",
+  "repository": "https://github.com/Southclaws/storyden"
+}

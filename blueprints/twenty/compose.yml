@@ -1,0 +1,93 @@
+services:
+  twenty-change-vol-ownership:
+    image: ubuntu:jammy-20260901.2
+    user: root
+    volumes:
+      - twenty-server-local-data:/tmp/server-local-data
+      - twenty-docker-data:/tmp/docker-data
+    command: >
+      bash -c " chown -R 1000:1000 /tmp/server-local-data && chown -R 1000:1000
+      /tmp/docker-data"
+  twenty-server:
+    image: twentycrm/twenty:v2.40.0
+    volumes:
+      - twenty-server-local-data:/app/packages/twenty-server/.local-storage
+      - twenty-docker-data:/app/docker-data
+    environment:
+      PORT: 3000
+      SERVER_URL: http://${main_domain}
+      FRONT_BASE_URL: http://${main_domain}
+      PG_DATABASE_URL: postgres://${db_user}:${db_password}@twenty-postgres:5432/twenty
+      ENABLE_DB_MIGRATIONS: "true"
+      REDIS_URL: redis://twenty-redis:6379
+      IS_SIGN_UP_DISABLED: "false"
+      SIGN_IN_PREFILLED: "false"
+      IS_CONFIG_VARIABLES_IN_DB_ENABLED: "true"
+      STORAGE_TYPE: local
+      APP_SECRET: ${app_secret}
+    depends_on:
+      - twenty-change-vol-ownership
+      - twenty-postgres
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://127.0.0.1:3000/healthz
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+    restart: always
+    expose:
+      - 3000
+  twenty-worker:
+    image: twentycrm/twenty:v2.40.0
+    command: yarn worker:prod
+    environment:
+      PG_DATABASE_URL: postgres://${db_user}:${db_password}@twenty-postgres:5432/twenty
+      SERVER_URL: http://${main_domain}
+      FRONT_BASE_URL: http://${main_domain}
+      REDIS_URL: redis://twenty-redis:6379
+      ENABLE_DB_MIGRATIONS: "false"
+      STORAGE_TYPE: local
+      APP_SECRET: ${app_secret}
+    depends_on:
+      - twenty-postgres
+      - twenty-server
+    restart: always
+    volumes: []
+  twenty-postgres:
+    image: postgres:17-alpine
+    volumes:
+      - twenty-postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${db_user}
+      POSTGRES_PASSWORD: ${db_password}
+      POSTGRES_DB: twenty
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${DB_USER} -d twenty
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: always
+  twenty-redis:
+    image: redis:8.10.1-trixie
+    volumes:
+      - twenty-redis-data:/data
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: always
+volumes:
+  twenty-docker-data: null
+  twenty-postgres-data: null
+  twenty-server-local-data: null
+  twenty-redis-data: null

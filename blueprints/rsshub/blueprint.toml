@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "rsshub"
+port = 1200
+host = "${main_domain}"

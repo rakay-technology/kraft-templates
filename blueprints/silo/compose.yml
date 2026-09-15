@@ -1,0 +1,15 @@
+services:
+  silo:
+    image: pgsty/silo:RELEASE.2026-08-06T00-00-00Z
+    restart: unless-stopped
+    expose:
+      - 9000
+      - 9001
+    environment:
+      - MINIO_ROOT_USER=silo_usr
+      - MINIO_ROOT_PASSWORD=${AUTO_PASSWORD_1}
+    volumes:
+      - silo:/data
+    command: server /data --console-address ":9001"
+volumes:
+  silo: null

@@ -1,0 +1,25 @@
+[variables]
+main_domain = "${domain}"
+api_domain = "${domain}"
+postgres_password = "${password:32}"
+session_secret_key = "${password:64}"
+admin_email = "${email}"
+admin_password = "${password:16}"
+
+[[routes]]
+service = "rustrak-ui"
+port = 3000
+host = "${main_domain}"
+
+[[routes]]
+service = "rustrak-server"
+port = 8080
+host = "${api_domain}"
+
+[env]
+create_superuser = "${admin_email}:${admin_password}"
+rustrak_api_url = "https://${api_domain}"
+POSTGRES_PASSWORD = "${postgres_password}"
+SESSION_SECRET_KEY = "${session_secret_key}"
+CREATE_SUPERUSER = "${admin_email}:${admin_password}"
+RUSTRAK_API_URL = "https://${api_domain}"

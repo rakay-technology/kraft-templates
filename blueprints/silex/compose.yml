@@ -1,0 +1,19 @@
+services:
+  silex:
+    image: silexlabs/silex:3.7.0
+    restart: unless-stopped
+    expose:
+      - 6805
+    environment:
+      - SILEX_URL=http://${main_domain}
+      - SILEX_SESSION_SECRET=${session_secret}
+      - STORAGE_CONNECTORS=fs
+      - HOSTING_CONNECTORS=fs,download
+      - SILEX_FS_ROOT=/silex/silex/storage
+      - SILEX_FS_HOSTING_ROOT=/silex/silex/hosting
+    volumes:
+      - silex-storage:/silex/silex/storage
+      - silex-hosting:/silex/silex/hosting
+volumes:
+  silex-storage: null
+  silex-hosting: null

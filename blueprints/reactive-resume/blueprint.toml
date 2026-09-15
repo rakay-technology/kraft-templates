@@ -1,0 +1,31 @@
+[variables]
+postgres_password = "${password:32}"
+minio_user = "minioadmin"
+minio_password = "${password:32}"
+chrome_token = "${password:32}"
+access_token_secret = "${password:64}"
+refresh_token_secret = "${password:64}"
+main_domain_app = "${domain}"
+main_domain_minio = "${domain}"
+main_domain = "CHANGEME-main_domain"
+
+[[routes]]
+service = "app"
+port = 3000
+host = "${main_domain_app}"
+
+[[routes]]
+service = "minio"
+port = 9000
+host = "${main_domain_minio}"
+
+[env]
+mail_from = "noreply@${main_domain}"
+APP_DOMAIN = "${main_domain}"
+POSTGRES_PASSWORD = "${postgres_password}"
+MINIO_ROOT_USER = "${minio_user}"
+MINIO_ROOT_PASSWORD = "${minio_password}"
+CHROME_TOKEN = "${chrome_token}"
+ACCESS_TOKEN_SECRET = "${access_token_secret}"
+REFRESH_TOKEN_SECRET = "${refresh_token_secret}"
+MAIL_FROM = "noreply@${main_domain}"

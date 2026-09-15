@@ -1,0 +1,62 @@
+services:
+  zitadel:
+    restart: always
+    image: ghcr.io/zitadel/zitadel:v4.17.3
+    command: start-from-init --masterkey "${zitadel_masterkey}" --tlsMode disabled
+    environment:
+      ZITADEL_DATABASE_POSTGRES_HOST: db
+      ZITADEL_DATABASE_POSTGRES_PORT: 5432
+      ZITADEL_DATABASE_POSTGRES_DATABASE: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_USERNAME: zitadel
+      ZITADEL_DATABASE_POSTGRES_USER_PASSWORD: ${postgres_password}
+      ZITADEL_DATABASE_POSTGRES_USER_SSL_MODE: disable
+      ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME: postgres
+      ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD: ${postgres_password}
+      ZITADEL_DATABASE_POSTGRES_ADMIN_SSL_MODE: disable
+      ZITADEL_EXTERNALDOMAIN: ${external_domain}
+      ZITADEL_EXTERNALPORT: "80"
+      ZITADEL_EXTERNALSECURE: "false"
+      ZITADEL_TLS_ENABLED: false
+      ZITADEL_FIRSTINSTANCE_ORG_HUMAN_USERNAME: ${admin_username}
+      ZITADEL_FIRSTINSTANCE_ORG_HUMAN_PASSWORD: ${admin_password}
+      ZITADEL_FIRSTINSTANCE_ORG_HUMAN_EMAIL_ADDRESS: ${admin_email}
+      ZITADEL_FIRSTINSTANCE_ORG_HUMAN_FIRSTNAME: Admin
+      ZITADEL_FIRSTINSTANCE_ORG_HUMAN_LASTNAME: User
+      ZITADEL_DEFAULTINSTANCE_FEATURES_LOGINV2_REQUIRED: false
+    healthcheck:
+      test:
+        - CMD
+        - /app/zitadel
+        - ready
+      interval: 10s
+      timeout: 30s
+      retries: 12
+      start_period: 30s
+    depends_on:
+      - db
+    expose:
+      - 8080
+    volumes: []
+  db:
+    restart: always
+    image: postgres:17-alpine
+    environment:
+      PGUSER: postgres
+      POSTGRES_PASSWORD: ${postgres_password}
+      POSTGRES_DB: zitadel
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready
+        - -d
+        - zitadel
+        - -U
+        - postgres
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 20s
+volumes:
+  postgres_data: null

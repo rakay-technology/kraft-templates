@@ -1,0 +1,36 @@
+services:
+  spliit:
+    image: ghcr.io/spliit-app/spliit:1.19.0
+    restart: unless-stopped
+    depends_on:
+      - spliit-db
+    environment:
+      POSTGRES_PRISMA_URL: postgresql://${project_name}-admin:${secret_key}@spliit-db:5432/${project_name}
+      POSTGRES_URL_NON_POOLING: postgresql://${project_name}-admin:${secret_key}@spliit-db:5432/${project_name}
+    volumes: []
+    expose:
+      - 3000
+  spliit-db:
+    image: pgvector/pgvector:pg16
+    volumes:
+      - spliit-db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${project_name}-admin
+      POSTGRES_PASSWORD: ${secret_key}
+      POSTGRES_DB: spliit
+      POSTGRES_INITDB_ARGS: --data-checksums
+      POSTGRES_HOST_AUTH_METHOD: trust
+    healthcheck:
+      test:
+        - CMD
+        - pg_isready
+        - -U
+        - ${project_name}-admin
+        - -d
+        - spliit
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+volumes:
+  spliit-db-data: null

@@ -1,0 +1,31 @@
+[variables]
+meili_master_key = "${password:32}"
+pocketbase_key = "CHANGEME-replace-pocketbase-key1"
+upload_user = "${username}"
+upload_password = "${password:16}"
+main_domain_web = "${domain}"
+main_domain_db = "${domain}"
+main_domain_search = "${domain}"
+main_domain = "CHANGEME-main_domain"
+
+[[routes]]
+service = "web"
+port = 3000
+host = "${main_domain_web}"
+
+[[routes]]
+service = "db"
+port = 8090
+host = "db.${main_domain_db}"
+
+[[routes]]
+service = "search"
+port = 7700
+host = "search.${main_domain_search}"
+
+[env]
+MEILI_MASTER_KEY = "${meili_master_key}"
+POCKETBASE_ENCRYPTION_KEY = "${pocketbase_key}"
+UPLOAD_USER = "${upload_user}"
+UPLOAD_PASSWORD = "${upload_password}"
+ORIGIN = "http://${main_domain}"

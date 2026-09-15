@@ -1,0 +1,43 @@
+services:
+  yourls-app:
+    image: yourls:1.9.2
+    environment:
+      YOURLS_SITE: https://${main_domain}
+      YOURLS_USER: admin
+      YOURLS_PASS: ${admin_password}
+      YOURLS_DB_HOST: yourls-mysql
+      YOURLS_DB_USER: yourls
+      YOURLS_DB_PASS: ${mysql_password}
+      YOURLS_DB_NAME: yourls
+    volumes:
+      - yourls-data:/var/www/html
+    depends_on:
+      - yourls-mysql
+    restart: always
+    expose:
+      - 80
+  yourls-mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+      MYSQL_DATABASE: yourls
+      MYSQL_USER: yourls
+      MYSQL_PASSWORD: ${mysql_password}
+    volumes:
+      - yourls-mysql-data:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD
+        - mysqladmin
+        - ping
+        - -h
+        - localhost
+        - -u$$MYSQL_USER
+        - -p$$MYSQL_PASSWORD
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+volumes:
+  yourls-data: null
+  yourls-mysql-data: null

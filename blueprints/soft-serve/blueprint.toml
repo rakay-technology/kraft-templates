@@ -1,0 +1,19 @@
+[variables]
+main_domain = "${domain}"
+server_name = "Soft Serve"
+log_level = "info"
+initial_admin_keys = "CHANGEME-initial_admin_keys"
+
+[[routes]]
+service = "soft-serve"
+port = 23232
+host = "${main_domain}"
+
+[env]
+http_public_url = "http://${main_domain}"
+ssh_public_url = "ssh://${main_domain}:23231"
+SOFT_SERVE_NAME = "${server_name}"
+SOFT_SERVE_INITIAL_ADMIN_KEYS = "${initial_admin_keys}"
+SOFT_SERVE_HTTP_PUBLIC_URL = "http://${main_domain}"
+SOFT_SERVE_SSH_PUBLIC_URL = "ssh://${main_domain}:23231"
+SOFT_SERVE_LOG_LEVEL = "${log_level}"

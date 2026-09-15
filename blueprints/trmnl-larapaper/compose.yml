@@ -1,0 +1,20 @@
+services:
+  trmnl-larapaper:
+    image: ghcr.io/usetrmnl/larapaper:0.40.0
+    environment:
+      - APP_URL=${main_domain}
+      - PHP_OPCACHE_ENABLE=1
+      - DEPLOY_VARIANT="dokploy"
+      - DB_DATABASE=database/storage/database.sqlite
+      - APP_TIMEZONE=UTC
+      - REGISTRATION_ENABLED=1
+      - FORCE_HTTPS=0
+    restart: always
+    volumes:
+      - trmnl-database:/var/www/html/database/storage
+      - trmnl-storage:/var/www/html/storage/app/public/images/generated
+    expose:
+      - 8080
+volumes:
+  trmnl-database: null
+  trmnl-storage: null

@@ -1,0 +1,18 @@
+[variables]
+main_domain = "${domain}"
+db_password = "${password}"
+db_user = "twenty"
+app_secret = "${base64:32}"
+
+[[routes]]
+service = "twenty-server"
+port = 3000
+host = "${main_domain}"
+
+[env]
+HTTP_PROTOCOL = "http"
+TWENTY_HOST = "${main_domain}"
+DB_USER = "${db_user}"
+DB_PASSWORD = "${db_password}"
+APP_SECRET = "${app_secret}"
+IS_SIGN_UP_DISABLED = "false"

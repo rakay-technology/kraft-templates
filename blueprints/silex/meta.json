@@ -1,0 +1,19 @@
+{
+  "id": "silex",
+  "name": "Silex",
+  "version": "3.7.0",
+  "description": "Silex is a free and open-source website builder for professional designers. It lets you create static websites visually with a drag-and-drop editor, custom CSS and JavaScript, and publish them anywhere.",
+  "logo": "logo.svg",
+  "links": {
+    "github": "https://github.com/silexlabs/Silex",
+    "website": "https://www.silex.me",
+    "docs": "https://docs.silex.me"
+  },
+  "tags": [
+    "website-builder",
+    "no-code",
+    "static-site"
+  ],
+  "category": "other",
+  "repository": "https://github.com/silexlabs/Silex"
+}

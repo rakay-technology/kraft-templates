@@ -1,0 +1,50 @@
+volumes:
+  db-data: null
+services:
+  typebot-db:
+    image: postgres:14-alpine
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: typebot
+      POSTGRES_DB: typebot
+      POSTGRES_PASSWORD: typebot
+  typebot-builder:
+    image: baptistearno/typebot-builder:2.27
+    restart: always
+    depends_on:
+      - typebot-db
+    environment:
+      ENCRYPTION_SECRET: ${encryption_secret}
+      DATABASE_URL: postgresql://typebot:typebot@typebot-db:5432/typebot
+      NEXTAUTH_URL: http://${builder_domain}
+      NEXT_PUBLIC_VIEWER_URL: http://${viewer_domain}
+      ADMIN_EMAIL: typebot@example.com
+      SMTP_HOST: "'Fill'"
+      SMTP_PORT: "25"
+      NEXT_PUBLIC_SMTP_FROM: typebot@example.com
+      SMTP_USERNAME: "'Fill'"
+      SMTP_PASSWORD: "'Fill'"
+      DEFAULT_WORKSPACE_PLAN: UNLIMITED
+    volumes: []
+    expose:
+      - 3000
+  typebot-viewer:
+    image: baptistearno/typebot-viewer:2.27.0
+    restart: always
+    environment:
+      ENCRYPTION_SECRET: ${encryption_secret}
+      DATABASE_URL: postgresql://typebot:typebot@typebot-db:5432/typebot
+      NEXTAUTH_URL: http://${builder_domain}
+      NEXT_PUBLIC_VIEWER_URL: http://${viewer_domain}
+      ADMIN_EMAIL: typebot@example.com
+      SMTP_HOST: "'Fill'"
+      SMTP_PORT: "25"
+      NEXT_PUBLIC_SMTP_FROM: typebot@example.com
+      SMTP_USERNAME: "'Fill'"
+      SMTP_PASSWORD: "'Fill'"
+      DEFAULT_WORKSPACE_PLAN: UNLIMITED
+    volumes: []
+    expose:
+      - 3000
