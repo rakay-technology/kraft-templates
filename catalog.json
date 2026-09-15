@@ -102,7 +102,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-14T05:51:09.627Z",
+      "updatedAt": "2026-09-15T07:53:45.387Z",
       "repository": "https://github.com/directus/directus"
     },
     {
@@ -217,7 +217,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-14T05:51:09.636Z"
+      "updatedAt": "2026-09-15T07:53:45.393Z"
     },
     {
       "id": "mautic",
@@ -439,7 +439,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-14T05:51:09.642Z",
+      "updatedAt": "2026-09-15T07:53:45.397Z",
       "repository": "https://github.com/mautic/mautic"
     },
     {
@@ -614,7 +614,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-14T05:51:09.645Z",
+      "updatedAt": "2026-09-15T07:53:45.399Z",
       "repository": "https://github.com/oblien/mindwire"
     },
     {
@@ -690,7 +690,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-14T05:51:09.648Z"
+      "updatedAt": "2026-09-15T07:53:45.401Z"
     },
     {
       "id": "umami",
@@ -825,7 +825,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-14T05:51:09.651Z"
+      "updatedAt": "2026-09-15T07:53:45.403Z"
     },
     {
       "id": "uptime-kuma",
@@ -876,7 +876,7 @@
         ]
       },
       "available": true,
-      "updatedAt": "2026-09-14T05:51:09.652Z"
+      "updatedAt": "2026-09-15T07:53:45.404Z"
     }
   ]
 }
