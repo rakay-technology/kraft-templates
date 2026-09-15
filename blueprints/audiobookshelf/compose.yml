@@ -9,7 +9,7 @@ services:
     volumes:
       - config:/config
       - metadata:/metadata
-      - ${AUDIOBOOKS_PATH}:/audiobooks
+      - ${audiobooks_path}:/audiobooks
 volumes:
   config: {}
   metadata: {}

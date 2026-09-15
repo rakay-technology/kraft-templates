@@ -10,7 +10,7 @@ services:
       - TZ=UTC
     volumes:
       - config:/config
-      - ${MOVIES_PATH}:/movies
-      - ${TV_PATH}:/tv
+      - ${movies_path}:/movies
+      - ${tv_path}:/tv
 volumes:
   config: {}

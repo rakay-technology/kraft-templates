@@ -19,7 +19,7 @@ services:
     image: redis:7-alpine
     volumes:
       - discourse-redis-data:/data
-    command: redis-server --requirepass ${REDIS_PASSWORD}
+    command: redis-server --requirepass ${redis_password}
     healthcheck:
       test:
         - CMD

@@ -3,9 +3,6 @@ main_domain = "${domain}"
 db_password = "${password:32}"
 db_user = "cloudreve"
 db_name = "cloudreve"
-POSTGRES_USER = "CHANGEME-POSTGRES_USER"
-POSTGRES_PASSWORD = "${password:32}"
-POSTGRES_DB = "CHANGEME-POSTGRES_DB"
 
 [[routes]]
 service = "cloudreve"

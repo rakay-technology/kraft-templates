@@ -1,5 +1,6 @@
 [variables]
 main_domain = "${domain}"
+server_name = "matrix.example.com"
 
 [[routes]]
 service = "homeserver"

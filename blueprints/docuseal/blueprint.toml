@@ -7,6 +7,6 @@ port = 3000
 host = "${main_domain}"
 
 [env]
-POSTGRES_USER = "postgres"
+POSTGRES_USER = "docuseal"
 POSTGRES_PASSWORD = "postgres"
 POSTGRES_DB = "docuseal"
