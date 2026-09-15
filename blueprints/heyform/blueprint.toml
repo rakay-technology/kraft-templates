@@ -9,7 +9,7 @@ port = 8000
 host = "${main_domain}"
 
 [env]
-APP_HOMEPAGE_URL = "http://${main_domain}"
+APP_HOMEPAGE_URL = "${main_domain}"
 SESSION_KEY = "${session_key}"
 FORM_ENCRYPTION_KEY = "${form_encryption_key}"
 SMTP_FROM = "HeyForm <noreply@${main_domain}>"
