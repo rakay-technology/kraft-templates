@@ -4,12 +4,12 @@ services:
     restart: always
     environment:
       DOLI_DB_HOST: db
-      DOLI_DB_NAME: $DB_NAME
-      DOLI_DB_USER: $DB_USER
-      DOLI_DB_PASSWORD: $DB_PASSWORD
+      DOLI_DB_NAME: ${db_name}
+      DOLI_DB_USER: ${db_user}
+      DOLI_DB_PASSWORD: ${db_password}
       DOLI_URL_ROOT: ${main_domain}
       DOLI_ADMIN_LOGIN: admin
-      DOLI_ADMIN_PASSWORD: $ADMIN_PASSWORD
+      DOLI_ADMIN_PASSWORD: ${admin_password}
     volumes:
       - dolibarr_documents:/var/www/documents
       - dolibarr_html:/var/www/html
@@ -21,10 +21,10 @@ services:
     image: mariadb:10.11
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
-      MYSQL_DATABASE: $DB_NAME
-      MYSQL_USER: $DB_USER
-      MYSQL_PASSWORD: $DB_PASSWORD
+      MYSQL_ROOT_PASSWORD: ${db_root_password}
+      MYSQL_DATABASE: ${db_name}
+      MYSQL_USER: ${db_user}
+      MYSQL_PASSWORD: ${db_password}
     volumes:
       - db_data:/var/lib/mysql
     healthcheck:
