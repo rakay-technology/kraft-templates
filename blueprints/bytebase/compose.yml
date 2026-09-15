@@ -18,7 +18,7 @@ services:
       - POSTGRES_PASSWORD=${db_password}
       - POSTGRES_DB=bytebase
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql
 volumes:
   data: {}
   db_data: {}
