@@ -1,0 +1,10 @@
+services:
+  linkding:
+    image: sissbruecker/linkding:1.47.0
+    restart: unless-stopped
+    expose:
+      - 9090
+    volumes:
+      - linkding-data:/etc/linkding/data
+volumes:
+  linkding-data: null

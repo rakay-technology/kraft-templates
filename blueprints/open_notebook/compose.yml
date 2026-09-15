@@ -1,0 +1,28 @@
+services:
+  surrealdb:
+    image: surrealdb/surrealdb:v2
+    expose:
+      - 8000
+    volumes:
+      - open_notebook-mydata:/mydata
+    command: start --user root --pass root rocksdb:/mydata/mydatabase.db
+    pull_policy: always
+    user: root
+  open_notebook:
+    image: lfnovo/open_notebook:1.14.0
+    expose:
+      - 8502
+    environment:
+      - SURREAL_URL=ws://surrealdb:8000/rpc
+      - SURREAL_USER=root
+      - SURREAL_PASSWORD=${SURREAL_PASSWORD}
+      - SURREAL_NAMESPACE=open_notebook
+      - SURREAL_DATABASE=staging
+    depends_on:
+      - surrealdb
+    pull_policy: always
+    volumes:
+      - open_notebook-data:/app/data
+volumes:
+  open_notebook-mydata: null
+  open_notebook-data: null
