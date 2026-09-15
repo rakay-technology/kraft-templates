@@ -3,8 +3,7 @@ services:
     image: miniflux/miniflux:2.2.19
     restart: unless-stopped
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     environment:
       DATABASE_URL: user=miniflux password=${postgres_password} dbname=miniflux
         host=db sslmode=disable

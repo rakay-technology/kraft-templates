@@ -33,12 +33,9 @@ services:
       - postiz-config:/config/
       - postiz-uploads:/uploads/
     depends_on:
-      postiz-postgres:
-        condition: service_healthy
-      postiz-redis:
-        condition: service_healthy
-      temporal:
-        condition: service_healthy
+      - postiz-postgres
+      - postiz-redis
+      - temporal
     expose:
       - 5000
   postiz-postgres:
@@ -103,10 +100,8 @@ services:
     image: temporalio/auto-setup:1.28.1
     restart: always
     depends_on:
-      temporal-postgresql:
-        condition: service_healthy
-      temporal-elasticsearch:
-        condition: service_started
+      - temporal-postgresql
+      - temporal-elasticsearch
     environment:
       - DB=postgres12
       - DB_PORT=5432

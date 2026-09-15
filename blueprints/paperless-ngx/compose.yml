@@ -3,10 +3,8 @@ services:
     image: ghcr.io/paperless-ngx/paperless-ngx:2.20.15
     restart: unless-stopped
     depends_on:
-      paperless-ngx-db:
-        condition: service_healthy
-      paperless-ngx-broker:
-        condition: service_healthy
+      - paperless-ngx-db
+      - paperless-ngx-broker
     expose:
       - 8000
     environment:

@@ -25,14 +25,10 @@ services:
     command: ./deploy/docker/prestart.sh
     restart: on-failure
     depends_on:
-      redis:
-        condition: service_healthy
-      db:
-        condition: service_healthy
+      - redis
+      - db
   web:
     image: mediacms/mediacms:7.2.0-full
-    deploy:
-      replicas: 1
     expose:
       - 80
     volumes:
@@ -76,8 +72,6 @@ services:
       - redis
   celery_worker:
     image: mediacms/mediacms:7.2.0-full
-    deploy:
-      replicas: 1
     volumes:
       - mediacms_data:/home/mediacms.io/mediacms/media
       - mediacms_static:/home/mediacms.io/mediacms/staticfiles

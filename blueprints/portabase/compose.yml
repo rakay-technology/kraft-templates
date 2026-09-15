@@ -28,8 +28,7 @@ services:
     volumes:
       - portabase-data:/data
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     healthcheck:
       test:
         - CMD-SHELL

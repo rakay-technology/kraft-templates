@@ -3,30 +3,23 @@ services:
     image: makeplane/plane-frontend:v1.3.1
     restart: unless-stopped
     depends_on:
-      plane-api:
-        condition: service_started
-      plane-worker:
-        condition: service_started
+      - plane-api
+      - plane-worker
     volumes: []
   plane-space:
     image: makeplane/plane-space:v1.3.1
     restart: unless-stopped
     depends_on:
-      plane-api:
-        condition: service_started
-      plane-worker:
-        condition: service_started
-      plane-web:
-        condition: service_started
+      - plane-api
+      - plane-worker
+      - plane-web
     volumes: []
   plane-admin:
     image: makeplane/plane-admin:v1.3.1
     restart: unless-stopped
     depends_on:
-      plane-api:
-        condition: service_started
-      plane-web:
-        condition: service_started
+      - plane-api
+      - plane-web
     volumes: []
   plane-live:
     image: makeplane/plane-live:v1.3.1
@@ -39,10 +32,8 @@ services:
           REDIS_PORT: "6379"
           REDIS_URL: redis://plane-redis:6379/
     depends_on:
-      plane-api:
-        condition: service_started
-      plane-web:
-        condition: service_started
+      - plane-api
+      - plane-web
     volumes: []
   plane-api:
     image: makeplane/plane-backend:v1.3.1
@@ -88,14 +79,10 @@ services:
           SITE_ADDRESS: :80
           TRUSTED_PROXIES: private_ranges
     depends_on:
-      plane-db:
-        condition: service_healthy
-      plane-redis:
-        condition: service_healthy
-      plane-mq:
-        condition: service_healthy
-      plane-migrator:
-        condition: service_completed_successfully
+      - plane-db
+      - plane-redis
+      - plane-mq
+      - plane-migrator
   plane-worker:
     image: makeplane/plane-backend:v1.3.1
     restart: unless-stopped
@@ -140,14 +127,10 @@ services:
           SITE_ADDRESS: :80
           TRUSTED_PROXIES: private_ranges
     depends_on:
-      plane-db:
-        condition: service_healthy
-      plane-redis:
-        condition: service_healthy
-      plane-mq:
-        condition: service_healthy
-      plane-migrator:
-        condition: service_completed_successfully
+      - plane-db
+      - plane-redis
+      - plane-mq
+      - plane-migrator
   plane-beat-worker:
     image: makeplane/plane-backend:v1.3.1
     restart: unless-stopped
@@ -192,14 +175,10 @@ services:
           SITE_ADDRESS: :80
           TRUSTED_PROXIES: private_ranges
     depends_on:
-      plane-db:
-        condition: service_healthy
-      plane-redis:
-        condition: service_healthy
-      plane-mq:
-        condition: service_healthy
-      plane-migrator:
-        condition: service_completed_successfully
+      - plane-db
+      - plane-redis
+      - plane-mq
+      - plane-migrator
   plane-migrator:
     image: makeplane/plane-backend:v1.3.1
     restart: on-failure
@@ -244,10 +223,8 @@ services:
           SITE_ADDRESS: :80
           TRUSTED_PROXIES: private_ranges
     depends_on:
-      plane-db:
-        condition: service_healthy
-      plane-redis:
-        condition: service_healthy
+      - plane-db
+      - plane-redis
   plane-db:
     image: postgres:17-alpine
     restart: unless-stopped
@@ -339,16 +316,11 @@ services:
       - plane-admin:admin
       - plane-live:live
     depends_on:
-      plane-web:
-        condition: service_started
-      plane-api:
-        condition: service_started
-      plane-space:
-        condition: service_started
-      plane-admin:
-        condition: service_started
-      plane-live:
-        condition: service_started
+      - plane-web
+      - plane-api
+      - plane-space
+      - plane-admin
+      - plane-live
 volumes:
   pgdata: null
   redisdata: null

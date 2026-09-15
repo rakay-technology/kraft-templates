@@ -17,8 +17,7 @@ services:
     expose:
       - 3333
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
     healthcheck:
       test:
         - CMD-SHELL
