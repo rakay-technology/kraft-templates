@@ -153,7 +153,11 @@ function smokeOne(dir) {
     const states = runningServices(composeFile, envFile);
     if (states.length === 0) throw new Error("no services came up");
     for (const s of states) {
-      if (s.State !== "running") {
+      // One-shot init/migrate containers exit 0 by design (the compose
+      // equivalent of depends_on: completed_successfully) — only non-zero
+      // exits and restarts fail the gate. Completed names are echoed so a
+      // main service that silently exits 0 stays visible in the log.
+      if (s.State !== "running" && !(s.State === "exited" && (s.ExitCode ?? -1) === 0)) {
         // Best-effort container logs: the whole point is diagnosing the boot
         // from the CI log alone, with no local repro (no pulls off-runner).
         let tail = "";
