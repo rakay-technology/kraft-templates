@@ -5,6 +5,7 @@ services:
     environment:
       Logging__LogLevel__Default: Information
       CLIENT_URL: http://budget-board-client:6253
+      CLIENT_ADDRESS: budget-board-client
       POSTGRES_HOST: budget-board-db
       POSTGRES_DATABASE: budgetboard
       POSTGRES_USER: postgres
