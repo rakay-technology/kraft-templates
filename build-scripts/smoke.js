@@ -87,7 +87,9 @@ function sh(cmd, args, opts) {
 }
 
 function runningServices(composeFile, envFile) {
-  const out = sh("docker", ["compose", "-f", composeFile, "--env-file", envFile, "ps", "--format", "json"]);
+  // --all: services without a restart policy that exit instantly would
+  // otherwise be invisible ("no services came up" with zero detail).
+  const out = sh("docker", ["compose", "-f", composeFile, "--env-file", envFile, "ps", "--all", "--format", "json"]);
   return out
     .trim()
     .split("\n")
