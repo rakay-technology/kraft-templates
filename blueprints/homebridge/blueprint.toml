@@ -1,0 +1,7 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "homebridge"
+port = 8581
+host = "${main_domain}"

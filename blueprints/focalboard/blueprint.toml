@@ -1,0 +1,22 @@
+[variables]
+main_domain = "${domain}"
+VIRTUAL_PORT = "CHANGEME-VIRTUAL_PORT"
+DB_TYPE = "CHANGEME-DB_TYPE"
+POSTGRES_password = "${password:32}"
+postgres_db = "CHANGEME-postgres_db"
+POSTGRES_USER = "CHANGEME-POSTGRES_USER"
+POSTGRES_PASSWORD = "${password:32}"
+POSTGRES_DB = "CHANGEME-POSTGRES_DB"
+
+[[routes]]
+service = "focalboard"
+port = 8000
+host = "${main_domain}"
+
+[env]
+VIRTUAL_HOST = "${main_domain}"
+VIRTUAL_PORT = "8000 # Do Not Alter"
+DB_TYPE = "postgres"
+POSTGRES_USER = "focalboard"
+POSTGRES_PASSWORD = "32"
+POSTGRES_DB = "focalboard"

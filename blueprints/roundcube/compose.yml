@@ -1,0 +1,16 @@
+services:
+  roundcubemail:
+    image: roundcube/roundcubemail:1.6.9-apache
+    volumes:
+      - roundcube-html:/var/www/html
+      - roundcube-db:/var/roundcube/db
+    environment:
+      - ROUNDCUBEMAIL_DB_TYPE=sqlite
+      - ROUNDCUBEMAIL_SKIN=elastic
+      - ROUNDCUBEMAIL_DEFAULT_HOST=tls://mail.example.com
+      - ROUNDCUBEMAIL_SMTP_SERVER=tls://mail.example.com
+    expose:
+      - 80
+volumes:
+  roundcube-html: null
+  roundcube-db: null

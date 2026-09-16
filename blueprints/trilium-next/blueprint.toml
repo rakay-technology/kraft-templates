@@ -1,0 +1,10 @@
+[variables]
+main_domain = "${domain}"
+
+[[routes]]
+service = "trilium_next"
+port = 8080
+host = "${main_domain}"
+
+[env]
+TRILIUM_DATA_DIR = "/root"
