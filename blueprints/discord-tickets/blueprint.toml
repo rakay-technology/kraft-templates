@@ -1,4 +1,5 @@
 [variables]
+discord_token = "CHANGEME-discord-bot-token"
 discord_secret = "${password:32}"
 main_domain = "${domain}"
 mysql_password = "${password}"
