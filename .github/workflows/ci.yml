@@ -120,7 +120,11 @@ jobs:
   # One job per app (fail-fast off): a full wave reports ALL boot failures
   # at once, each with the failing service's log tail (see smoke.js).
   smoke:
-    if: github.event_name == 'pull_request'
+    # An empty matrix is an ERROR in GitHub Actions ("Matrix must define at least
+    # one vector"), not a no-op. `changed` emits `[]` whenever a PR touches no
+    # blueprint, so this job failed to even start and turned an otherwise green
+    # PR red — a docs or build-scripts change could never go green.
+    if: github.event_name == 'pull_request' && needs.changed.outputs.dirs != '[]'
     needs: changed
     runs-on: ubuntu-latest
     permissions:
