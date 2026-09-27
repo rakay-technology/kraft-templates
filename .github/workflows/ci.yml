@@ -8,6 +8,16 @@ on:
 permissions:
   contents: read
 
+# Two pushes landing close together (merging two PRs) start two `build` jobs that
+# BOTH rebuild and push catalog.json. One wins, the other's push is rejected as
+# non-fast-forward, and a run with every real job green is marked `failure`.
+# Seen on 2026-09-27: merging #15 and #14 five seconds apart produced exactly
+# that. Serialise per ref instead of racing; queue rather than cancel, because
+# the queued run must still publish its catalog.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   check:
     runs-on: ubuntu-latest
