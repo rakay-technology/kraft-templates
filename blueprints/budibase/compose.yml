@@ -21,6 +21,7 @@ services:
       BUDIBASE_ENVIRONMENT: PRODUCTION
       ENABLE_ANALYTICS: "true"
       BB_ADMIN_USER_EMAIL: ""
+      BB_ADMIN_USER_PASSWORD: ${bb_admin_password}
     depends_on:
       - worker
       - redis

@@ -1,4 +1,5 @@
 [variables]
+bb_admin_password = "CHANGEME-budibase-admin-password"
 main_domain = "${domain}"
 api_key = "${password:32}"
 encryption_key = "${password:32}"
