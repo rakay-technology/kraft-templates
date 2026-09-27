@@ -1,4 +1,6 @@
 [variables]
+passbolt_db_host = "mariadb"
+passbolt_db_port = "3306"
 main_domain = "${domain}"
 db_password = "${password:32}"
 db_root_password = "${password:32}"

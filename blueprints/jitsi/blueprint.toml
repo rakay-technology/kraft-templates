@@ -1,4 +1,5 @@
 [variables]
+jwt_app_secret = "${password:32}"
 main_domain = "${domain}"
 jitsi_image_version = "unstable"
 jicofo_auth_password = "${password:32}"
@@ -55,4 +56,4 @@ JVB_BREWERY_MUC = "jvbbrewery"
 JVB_PORT = "10000"
 JVB_ADVERTISE_IPS = ""
 JWT_APP_ID = ""
-JWT_APP_SECRET = ""
+JWT_APP_SECRET = "${jwt_app_secret}"

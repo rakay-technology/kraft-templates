@@ -1,7 +1,7 @@
 services:
   mage-ai:
     image: mageai/mageai:0.9.78
-    command: mage start ${PROJECT_NAME}
+    command: mage start ${project_name}
     environment:
       USER_CODE_PATH: /home/src/mage-ai
       ENV: production

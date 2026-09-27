@@ -38,7 +38,7 @@ services:
         echo "ThingsBoard database already initialized."
         exit 0
       fi
-      INSTALL_TB=true LOAD_DEMO=$false start-tb-node.sh
+      INSTALL_TB=true LOAD_DEMO=$$false start-tb-node.sh
       touch /data/.thingsboard-installed
       '
     environment:

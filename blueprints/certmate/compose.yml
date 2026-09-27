@@ -6,7 +6,6 @@ services:
       - SECRET_KEY=${SECRET_KEY}
       - API_BEARER_TOKEN=${API_BEARER_TOKEN}
       - BEHIND_PROXY=true
-      - CLOUDFLARE_TOKEN=
       - LETSENCRYPT_EMAIL=
       - LOG_LEVEL=INFO
     expose:

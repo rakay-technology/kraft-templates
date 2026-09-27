@@ -18,7 +18,7 @@ services:
     volumes:
       - gpg_volume:/etc/passbolt/gpg
       - jwt_volume:/etc/passbolt/jwt
-    command: /usr/bin/wait-for.sh -t 0 '${PASSBOLT_DB_HOST}:${PASSBOLT_DB_PORT}' --
+    command: /usr/bin/wait-for.sh -t 0 '${passbolt_db_host}:${passbolt_db_port}' --
       /docker-entrypoint.sh
     depends_on:
       - mariadb
