@@ -27,7 +27,6 @@ services:
       - MAIL_SERVER=
       - MAIL_PORT=
       - MAIL_USER=
-      - MAIL_PASSWORD=
       - MAIL_DOMAIN=
       - MAIL_FROM=
       - MAIL_KEY=

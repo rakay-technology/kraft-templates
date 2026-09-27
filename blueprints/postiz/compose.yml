@@ -18,17 +18,10 @@ services:
       UPLOAD_DIRECTORY: /uploads
       NEXT_PUBLIC_UPLOAD_DIRECTORY: /uploads
       FACEBOOK_APP_ID: ""
-      FACEBOOK_APP_SECRET: ""
       INSTAGRAM_APP_ID: ""
-      INSTAGRAM_APP_SECRET: ""
       LINKEDIN_CLIENT_ID: ""
-      LINKEDIN_CLIENT_SECRET: ""
-      X_API_KEY: ""
-      X_API_SECRET: ""
       YOUTUBE_CLIENT_ID: ""
-      YOUTUBE_CLIENT_SECRET: ""
       TIKTOK_CLIENT_ID: ""
-      TIKTOK_CLIENT_SECRET: ""
     volumes:
       - postiz-config:/config/
       - postiz-uploads:/uploads/

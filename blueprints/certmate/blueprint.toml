@@ -10,6 +10,5 @@ host = "${main_domain}"
 
 [env]
 BEHIND_PROXY = "true"
-CLOUDFLARE_TOKEN = ""
 LETSENCRYPT_EMAIL = ""
 LOG_LEVEL = "INFO"

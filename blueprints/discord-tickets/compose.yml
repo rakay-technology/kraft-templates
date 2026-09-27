@@ -31,9 +31,9 @@ services:
     tty: true
     stdin_open: true
     environment:
+      DISCORD_TOKEN: ${discord_token}
       DB_CONNECTION_URL: mysql://${mysql_user}:${mysql_password}@tickets-postgres/${mysql_database}
       DISCORD_SECRET: ${discord_secret}
-      DISCORD_TOKEN: ""
       ENCRYPTION_KEY: ${encryption_key}
       DB_PROVIDER: mysql
       HTTP_EXTERNAL: https://${main_domain}

@@ -19,7 +19,6 @@ services:
       SMTP_USER: ""
       SMTP_SECURE: "false"
       SMTP_IGNORE_CERT: "false"
-      SMTP_PASSWORD: ""
   mongo:
     image: percona/percona-server-mongodb:4.4
     restart: always

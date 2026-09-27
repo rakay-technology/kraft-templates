@@ -8,7 +8,5 @@ host = "${main_domain}"
 
 [env]
 OPENSEO_HOST = "${main_domain}"
-DATAFORSEO_API_KEY = ""
-OPENROUTER_API_KEY = ""
 OPENROUTER_MODEL = "openai/gpt-4o-mini"
 OPENSEO_TELEMETRY_DISABLED = ""

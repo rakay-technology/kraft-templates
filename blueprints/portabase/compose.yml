@@ -20,7 +20,6 @@ services:
       - SMTP_HOST=
       - SMTP_PORT=
       - SMTP_USER=
-      - SMTP_PASSWORD=
       - SMTP_FROM=
       - SMTP_SECURE=false
     expose:

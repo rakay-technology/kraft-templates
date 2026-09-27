@@ -41,7 +41,6 @@ services:
       PENPOT_SMTP_HOST: penpot-mailcatch
       PENPOT_SMTP_PORT: 1025
       PENPOT_SMTP_USERNAME: null
-      PENPOT_SMTP_PASSWORD: null
       PENPOT_SMTP_TLS: false
       PENPOT_SMTP_SSL: false
   penpot-exporter:

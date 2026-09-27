@@ -1,4 +1,5 @@
 [variables]
+project_name = "mage-ai"
 main_domain = "${domain}"
 
 [[routes]]

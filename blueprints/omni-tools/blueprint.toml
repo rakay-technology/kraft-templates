@@ -7,4 +7,3 @@ port = 80
 host = "${main_domain}"
 
 [env]
-LOCIZE_API_KEY = ""

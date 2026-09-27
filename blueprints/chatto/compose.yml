@@ -18,7 +18,6 @@ services:
       CHATTO_SMTP_PORT: "587"
       CHATTO_SMTP_TLS: mandatory
       CHATTO_SMTP_USERNAME: ""
-      CHATTO_SMTP_PASSWORD: ""
       CHATTO_SMTP_FROM: ""
     volumes:
       - chatto-data:/data

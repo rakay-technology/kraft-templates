@@ -5,7 +5,6 @@ services:
     expose:
       - 3000
     environment:
-      - OPENAI_API_KEY=
       - OPENAI_API_BASE_URL=https://api.openai.com
       - HEAD_SCRIPTS=
       - SECRET_KEY=${secret_key}
